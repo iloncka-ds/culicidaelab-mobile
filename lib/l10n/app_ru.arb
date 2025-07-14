@@ -1,0 +1,172 @@
+{
+  "@@locale": "ru",
+  "appTitle": "CulicidaeLab",
+  "@appTitle": {
+    "description": "The main title of the application"
+  },
+  "homePageTitle": "CulicidaeLab",
+  "homePageBannerTitle": "Классификация комаров",
+  "homePageBannerSubtitle": "Приложение поможет определить виды комаров и узнать информацию о потенциальных переносчиках болезней",
+  "classifyMosquitoButtonTitle": "Определите вид комара",
+  "classifyMosquitoButtonSubtitle": "Сделайте или загрузите фото для определения вида комара",
+  "mosquitoGalleryButtonTitle": "Информация об опасных видах комаров",
+  "mosquitoGalleryButtonSubtitle": "Узнайте больше информации об эпидемиологически опасных видах комаров",
+  "diseasesInfoButtonTitle": "Информация о болезнях",
+  "diseasesInfoButtonSubtitle": "Узнайте о болезнях, передаваемых комарами-переносчиками",
+  "appDisclaimerTitle": "Отказ от ответственности:",
+  "@appDisclaimerTitle": {
+    "description": "Title for the disclaimer section"
+  },
+  "appDisclaimerBody": "Эта платформа предназначена только для образовательных и исследовательских целей. Она не заменяет профессиональную медицинскую консультацию или методические указания и приказы органов общественного здравоохранения.",
+  "@appDisclaimerBody": {
+    "description": "Main text for the disclaimer section"
+  },
+
+  "appFooterGrantInfo": "Разработка CulicidaeLab поддерживается грантом \nФонда содействия инновациям\nhttps://fasie.ru",
+  "@appFooterGrantInfo": {
+    "description": "Grant information for the app footer, includes a link"
+  },
+  "loadingModelDialogTitle": "Загрузка модели",
+  "loadingModelDialogContent": "Пожалуйста, подождите, пока загружается модель классификации...",
+
+  "classificationScreenTitle": "Классифицировать комара",
+  "uploadImageHint": "Загрузите четкое изображение комара для идентификации",
+  "uploadImageSubHint": "Более точные результаты можно получить только с хорошо освещенными, сфокусированными изображениями",
+  "speciesLabel": "Вид: {speciesName}",
+  "@speciesLabel": {
+    "placeholders": {
+      "speciesName": {
+        "type": "String",
+        "example": "Aedes aegypti"
+      }
+    }
+  },
+  "commonNameLabel": "Обыденное название: {commonName}",
+  "@commonNameLabel": {
+    "placeholders": {
+      "commonName": {
+        "type": "String",
+        "example": "Yellow Fever Mosquito"
+      }
+    }
+  },
+  "confidenceLabel": "Точность: {confidenceValue}%",
+  "@confidenceLabel": {
+    "placeholders": {
+      "confidenceValue": {
+        "type": "String",
+        "example": "95.5"
+      }
+    }
+  },
+  "inferenceTimeLabel": "Время: {timeValue} мс",
+  "@inferenceTimeLabel": {
+    "placeholders": {
+      "timeValue": {
+        "type": "int",
+        "example": "120"
+      }
+    }
+  },
+  "speciesInfoButton": "Информация о виде",
+  "diseaseRisksButton": "Риски заболеваний",
+  "noKnownDiseaseRisks": "Для этого вида не известны риски заболеваний",
+  "potentialDiseaseRisksTitle": "Потенциальные риски заболеваний",
+  "potentialDiseaseRisksSubtitle": "Известно, что этот вид комаров передает следующие заболевания:",
+  "disclaimerEducationalUse": "Заявление об ограничении ответственности: Это приложение предоставляет информацию только в образовательных целях. Всегда консультируйтесь с медицинскими работниками для правильной диагностики и лечения.",
+  "cameraButtonLabel": "Камера",
+  "galleryButtonLabel": "Галерея",
+  "resetButtonLabel": "Сброс",
+  "analyzingImage": "Подождите, пока происходит обработка и анализ изображения...",
+  "analyzeButton": "Определить вид",
+  "noImageSelectedTitle": "Изображение не выбрано",
+  "noImageSelectedSubtitle": "Сделайте фото или выберите из галереи",
+  "unknownSpecies": "Информация отсутствует",
+  "errorFailedToPickImage": "Не удалось выбрать изображение: {error}",
+  "@errorFailedToPickImage": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "errorNoImageSelected": "Изображение не выбрано",
+  "errorClassificationFailed": "Ошибка классификации: {error}",
+  "@errorClassificationFailed": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "errorFailedToLoadModel": "Не удалось загрузить модель: {error}",
+  "@errorFailedToLoadModel": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+
+  "mosquitoGalleryScreenTitle": "Информация об эпидемиологически опасных видах комаров",
+  "searchMosquitoSpeciesHint": "Поиск видов комаров...",
+  "anErrorOccurred": "Произошла ошибка",
+  "retryButton": "Повторить",
+  "noMosquitoSpeciesFound": "Запрашиваемые виды комаров не найдены",
+  "tryDifferentSearchTerm": "Попробуйте другой поисковый запрос",
+  "habitatLabel": "Среда обитания: {habitat}",
+  "@habitatLabel": {
+    "placeholders": { "habitat": { "type": "String" } }
+  },
+  "diseaseVectorsCount": "{count,plural, zero{Информация о комарах, переносчиках данного заболевания: {count} переносчиков болезней} one{1 переносчик} few{{count} переносчика болезней} many{{count} переносчиков болезней} other{{count} переносчиков болезней}}",
+  "@diseaseVectorsCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "noKnownDiseaseVectors": "Переносчиков болезней не известно",
+
+  "diseaseDetailScreenDescription": "Описание",
+  "diseaseDetailScreenSymptoms": "Симптомы",
+  "diseaseDetailScreenTreatment": "Лечение",
+  "diseaseDetailScreenPrevention": "Профилактика",
+  "diseaseDetailScreenPrevalence": "Распространенность",
+  "diseaseDetailScreenTransmittedBy": "Передается через",
+  "diseaseDetailScreenUnknownVector": "Неизвестный переносчик",
+  "diseaseDetailScreenInfoNotAvailable": "Информация недоступна.",
+  "diseaseDetailScreenVectorsNotAvailable": "Информация о переносчиках недоступна.",
+
+  "mosquitoDetailScreenDescription": "Описание",
+  "mosquitoDetailScreenHabitat": "Среда обитания",
+  "mosquitoDetailScreenDistribution": "Распространение",
+  "mosquitoDetailScreenAssociatedDiseases": "Связанные заболевания",
+  "mosquitoDetailScreenNoAssociatedDiseases": "С этим видом не связаны известные заболевания.",
+
+  "diseaseInfoScreenTitle": "Болезни, передаваемые комарами",
+  "searchDiseasesHint": "Поиск болезней...",
+  "noDiseasesFound": "Информация о заболеваниях отсутствует",
+  "vectorsLabel": "Комары-переносчики: {vectors}",
+  "@vectorsLabel": {
+    "placeholders": { "vectors": { "type": "String" } }
+  },
+  "prevalenceLabel": "Распространенность: {prevalence}",
+  "@prevalenceLabel": {
+    "placeholders": { "prevalence": { "type": "String" } }
+  },
+
+  "classificationServiceUnknownSpeciesCommonName": "Неизвестно",
+  "classificationServiceUnknownSpeciesDescription": "Информация отсутствует.",
+  "classificationServiceUnknownSpeciesHabitat": "Неизвестно",
+  "classificationServiceUnknownSpeciesDistribution": "Неизвестно",
+  "classificationServiceErrorModelNotLoaded": "Модель не загружена",
+  "classificationServiceErrorModelLoadingFailed": "Ошибка загрузки модели - поддерживается только для Android/iOS",
+
+  "viewModelErrorFailedToLoadDiseases": "Не удалось загрузить информацию о заболеваниях: {error}",
+  "@viewModelErrorFailedToLoadDiseases": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "viewModelErrorFailedToLoadDisease": "Не удалось загрузить информацию о заболевании: {error}",
+  "@viewModelErrorFailedToLoadDisease": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "viewModelErrorFailedToLoadDiseasesForVector": "Не удалось загрузить заболевания, специфичные для переносчика: {error}",
+  "@viewModelErrorFailedToLoadDiseasesForVector": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "viewModelErrorFailedToLoadMosquitoSpecies": "Не удалось загрузить виды комаров: {error}",
+  "@viewModelErrorFailedToLoadMosquitoSpecies": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "homePageMosquitoActivityMapButtonTitle": "Карта активности комаров",
+  "homePageMosquitoActivityMapButtonSubtitle": "Просмотр интерактивной карты об активности и распространённости комаров",
+  "webViewScreenTitleMosquitoMap": "Карта активности комаров",
+  "webViewFailedToLoad": "Не удалось загрузить страницу",
+  "webViewRetryButton": "Повторить",
+  "tooltipSelectLanguage":"Выберите язык"
+}

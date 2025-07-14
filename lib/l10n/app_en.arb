@@ -1,0 +1,174 @@
+{
+  "@@locale": "en",
+  "appTitle": "CulicidaeLab",
+  "@appTitle": {
+    "description": "The main title of the application"
+  },
+  "homePageTitle": "CulicidaeLab",
+  "homePageBannerTitle": "Mosquito Classification",
+  "homePageBannerSubtitle": "Identify mosquito species and learn about potential disease vectors",
+  "classifyMosquitoButtonTitle": "Classify Mosquito",
+  "classifyMosquitoButtonSubtitle": "Take or upload a photo for identification",
+  "mosquitoGalleryButtonTitle": "Mosquito Gallery",
+  "mosquitoGalleryButtonSubtitle": "Browse common mosquito species",
+  "diseasesInfoButtonTitle": "Diseases Info",
+  "diseasesInfoButtonSubtitle": "Learn about vector-borne diseases",
+
+  "appDisclaimerTitle": "Disclaimer:",
+  "@appDisclaimerTitle": {
+    "description": "Title for the disclaimer section"
+  },
+  "appDisclaimerBody": "This platform is for educational and research purposes only. It does not replace professional medical advice or guidance from public health authorities.",
+  "@appDisclaimerBody": {
+    "description": "Main text for the disclaimer section"
+  },
+
+
+  "appFooterGrantInfo": "CulicidaeLab development is supported by a grant from the\nFoundation for Assistance to Small Innovative Enterprises (FASIE)\nhttps://fasie.ru",
+  "@appFooterGrantInfo": {
+    "description": "Grant information for the app footer, includes a link"
+  },
+  "loadingModelDialogTitle": "Loading Model",
+  "loadingModelDialogContent": "Please wait while the classification model is loading...",
+
+  "classificationScreenTitle": "Classify Mosquito",
+  "uploadImageHint": "Upload a clear image of a mosquito for identification",
+  "uploadImageSubHint": "Best results with well-lit, focused images",
+  "speciesLabel": "Species: {speciesName}",
+  "@speciesLabel": {
+    "placeholders": {
+      "speciesName": {
+        "type": "String",
+        "example": "Aedes aegypti"
+      }
+    }
+  },
+  "commonNameLabel": "Common Name: {commonName}",
+  "@commonNameLabel": {
+    "placeholders": {
+      "commonName": {
+        "type": "String",
+        "example": "Yellow Fever Mosquito"
+      }
+    }
+  },
+  "confidenceLabel": "Confidence: {confidenceValue}%",
+  "@confidenceLabel": {
+    "placeholders": {
+      "confidenceValue": {
+        "type": "String",
+        "example": "95.5"
+      }
+    }
+  },
+  "inferenceTimeLabel": "Time: {timeValue} ms",
+  "@inferenceTimeLabel": {
+    "placeholders": {
+      "timeValue": {
+        "type": "int",
+        "example": "120"
+      }
+    }
+  },
+  "speciesInfoButton": "Species Info",
+  "diseaseRisksButton": "Disease Risks",
+  "noKnownDiseaseRisks": "No known disease risks for this species",
+  "potentialDiseaseRisksTitle": "Potential Disease Risks",
+  "potentialDiseaseRisksSubtitle": "This mosquito species is known to transmit the following diseases:",
+  "disclaimerEducationalUse": "Disclaimer: This app provides information for educational purposes only. Always consult healthcare professionals for proper diagnosis and treatment.",
+  "cameraButtonLabel": "Camera",
+  "galleryButtonLabel": "Gallery",
+  "resetButtonLabel": "Reset",
+  "analyzingImage": "Analyzing image...",
+  "analyzeButton": "Analyze",
+  "noImageSelectedTitle": "No Image Selected",
+  "noImageSelectedSubtitle": "Take a photo or select from gallery",
+  "unknownSpecies": "Unknown",
+  "errorFailedToPickImage": "Failed to pick image: {error}",
+  "@errorFailedToPickImage": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "errorNoImageSelected": "No image selected",
+  "errorClassificationFailed": "Classification failed: {error}",
+  "@errorClassificationFailed": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "errorFailedToLoadModel": "Failed to load model: {error}",
+  "@errorFailedToLoadModel": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+
+  "mosquitoGalleryScreenTitle": "Mosquito Species Gallery",
+  "searchMosquitoSpeciesHint": "Search mosquito species...",
+  "anErrorOccurred": "An error occurred",
+  "retryButton": "Retry",
+  "noMosquitoSpeciesFound": "No mosquito species found",
+  "tryDifferentSearchTerm": "Try a different search term",
+  "habitatLabel": "Habitat: {habitat}",
+  "@habitatLabel": {
+    "placeholders": { "habitat": { "type": "String" } }
+  },
+  "diseaseVectorsCount": "{count,plural, =0{No known disease vectors} =1{1 disease vector} other{{count} disease vectors}}",
+  "@diseaseVectorsCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "noKnownDiseaseVectors": "No known disease vectors",
+
+  "diseaseDetailScreenDescription": "Description",
+  "diseaseDetailScreenSymptoms": "Symptoms",
+  "diseaseDetailScreenTreatment": "Treatment",
+  "diseaseDetailScreenPrevention": "Prevention",
+  "diseaseDetailScreenPrevalence": "Prevalence",
+  "diseaseDetailScreenTransmittedBy": "Transmitted by",
+  "diseaseDetailScreenUnknownVector": "Unknown Vector",
+  "diseaseDetailScreenInfoNotAvailable": "Information not available.",
+  "diseaseDetailScreenVectorsNotAvailable": "Information about vectors not available.",
+
+  "mosquitoDetailScreenDescription": "Description",
+  "mosquitoDetailScreenHabitat": "Habitat",
+  "mosquitoDetailScreenDistribution": "Distribution",
+  "mosquitoDetailScreenAssociatedDiseases": "Associated Diseases",
+  "mosquitoDetailScreenNoAssociatedDiseases": "No known diseases associated with this species in our database.",
+
+  "diseaseInfoScreenTitle": "Mosquito-borne Diseases",
+  "searchDiseasesHint": "Search diseases...",
+  "noDiseasesFound": "No diseases found",
+  "vectorsLabel": "Vectors: {vectors}",
+  "@vectorsLabel": {
+    "placeholders": { "vectors": { "type": "String" } }
+  },
+  "prevalenceLabel": "Prevalence: {prevalence}",
+  "@prevalenceLabel": {
+    "placeholders": { "prevalence": { "type": "String" } }
+  },
+
+  "classificationServiceUnknownSpeciesCommonName": "Unknown Species",
+  "classificationServiceUnknownSpeciesDescription": "No detailed information available for this species.",
+  "classificationServiceUnknownSpeciesHabitat": "Unknown",
+  "classificationServiceUnknownSpeciesDistribution": "Unknown",
+  "classificationServiceErrorModelNotLoaded": "Model not loaded",
+  "classificationServiceErrorModelLoadingFailed": "Model loading failed - only supported for Android/iOS",
+
+  "viewModelErrorFailedToLoadDiseases": "Failed to load diseases: {error}",
+  "@viewModelErrorFailedToLoadDiseases": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "viewModelErrorFailedToLoadDisease": "Failed to load disease: {error}",
+  "@viewModelErrorFailedToLoadDisease": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "viewModelErrorFailedToLoadDiseasesForVector": "Failed to load diseases for vector: {error}",
+  "@viewModelErrorFailedToLoadDiseasesForVector": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "viewModelErrorFailedToLoadMosquitoSpecies": "Failed to load mosquito species: {error}",
+  "@viewModelErrorFailedToLoadMosquitoSpecies": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "homePageMosquitoActivityMapButtonTitle": "Mosquito Activity Map",
+  "homePageMosquitoActivityMapButtonSubtitle": "View interactive map of mosquito reports",
+  "webViewScreenTitleMosquitoMap": "Mosquito Activity Map",
+  "webViewFailedToLoad": "Failed to load page",
+  "webViewRetryButton": "Retry",
+  "tooltipSelectLanguage":"Select language"
+}

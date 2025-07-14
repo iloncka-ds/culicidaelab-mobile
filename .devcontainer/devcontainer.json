@@ -1,0 +1,47 @@
+{
+    "name": "Flutter (Ubuntu)",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            // Using latest Flutter with its officially supported NDK
+            "FLUTTER_VERSION": "3.29.3",
+            "ANDROID_PLATFORM_VERSION": "35",
+            "ANDROID_BUILD_TOOLS_VERSION": "34.0.0",
+            "ANDROID_NDK_VERSION": "27.0.12077973",
+            "JAVA_VERSION": "17"
+        }
+    },
+    // --- For PHYSICAL DEVICE debugging (Correct for Windows/Mac) ---
+    "runArgs": [
+        "--privileged",
+        "--volume=/dev/bus/usb:/dev/bus/usb"
+    ],
+    "forwardPorts": [5037],
+    "remoteUser": "vscode",
+    "postCreateCommand": "flutter doctor && flutter pub get",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "dart.flutterSdkPath": "/home/vscode/flutter",
+                "dart.lineLength": 120,
+                "editor.formatOnSave": true,
+                "editor.tabSize": 2,
+                "editor.insertSpaces": true,
+                "editor.detectIndentation": false,
+                "dart.previewFlutterUiGuides": true,
+                "dart.previewFlutterUiGuidesCustomTracking": true,
+                "dart.debugExternalLibraries": false,
+                "dart.debugSdkLibraries": false,
+                "files.autoSave": "afterDelay"
+            },
+            "extensions": [
+                "dart-code.flutter",
+                "dart-code.dart-code",
+                "editorconfig.editorconfig",
+                "vscode-icons-team.vscode-icons",
+                "redhat.vscode-yaml",
+                "vscjava.vscode-gradle"
+            ]
+        }
+    }
+}
