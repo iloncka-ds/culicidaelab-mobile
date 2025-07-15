@@ -71,7 +71,10 @@ RUN mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools && cd ${ANDROID_SDK_ROOT} && \
 RUN git clone --depth 1 --branch ${FLUTTER_VERSION} https://github.com/flutter/flutter.git ${FLUTTER_HOME} && \
     flutter --version && \
     flutter config --no-analytics && \
-    flutter config --enable-linux-desktop && \
+    flutter config --no-enable-linux-desktop && \
+    flutter config --no-enable-windows-desktop && \
+    flutter config --no-enable-web && \
+    flutter config --no-enable-macos-desktop && \
     yes | flutter doctor --android-licenses && \
     flutter precache
 
