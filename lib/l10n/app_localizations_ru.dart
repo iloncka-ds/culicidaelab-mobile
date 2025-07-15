@@ -298,4 +298,53 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get tooltipSelectLanguage => 'Выберите язык';
+
+  @override
+  String get addDetailsButton => 'Добавить детали наблюдения';
+
+  @override
+  String get thankYouForParticipation => 'Спасибо за ваш вклад!';
+
+  @override
+  String submissionIdLabel(String id) {
+    return 'ID отправки: $id';
+  }
+
+  @override
+  String errorSubmissionFailed(String error) {
+    return 'Ошибка отправки: $error';
+  }
+
+  @override
+  String get observationDetailsTitle => 'Детали наблюдения';
+
+  @override
+  String get locationSectionTitle => 'Местоположение наблюдения';
+
+  @override
+  String get locationInstruction => 'Нажмите на карту, чтобы отметить точное местоположение вашего наблюдения.';
+
+  @override
+  String get fieldRequiredError => 'Это поле обязательно для заполнения';
+
+  @override
+  String get locationRequiredError => 'Пожалуйста, выберите местоположение на карте.';
+
+  @override
+  String get notesLabel => 'Примечания';
+
+  @override
+  String get notesHint => 'Добавьте любые важные детали (например, время суток, погода, окружение)...';
+
+  @override
+  String get submitObservationButton => 'Отправить наблюдение';
+
+  @override
+  String get predictionSummaryTitle => 'Сводка прогноза';
+
+  @override
+  String get latitudeLabel => 'Широта';
+
+  @override
+  String get longitudeLabel => 'Долгота';
 }

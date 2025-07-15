@@ -8,9 +8,9 @@ import 'mosquito_detail_screen.dart';
 import 'disease_detail_screen.dart';
 import '../widgets/custom_empty_widget.dart';
 import '../widgets/icomoon_icons.dart';
-
-// Add this import
 import 'package:culicidaelab/l10n/app_localizations.dart';
+
+import 'observation_details_screen.dart';
 
 class ClassificationScreen extends StatefulWidget {
   const ClassificationScreen({Key? key}) : super(key: key);
@@ -268,7 +268,10 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
                       ),
                     ),
                   ),
-
+                if (viewModel.state == ClassificationState.success && viewModel.result != null)
+                  _buildClassificationResult(viewModel, localizations)
+                else if (viewModel.state == ClassificationState.submitted && viewModel.submissionResult != null)
+                  _buildSubmissionResult(viewModel, localizations),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Row(
@@ -531,5 +534,83 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
         }
       });
     }
+  }
+
+Widget _buildClassificationResult(ClassificationViewModel viewModel, AppLocalizations localizations) {
+    return Card(
+      // ... (Card styling)
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            // ... (Display species name, confidence, etc.)
+
+            const SizedBox(height: 24),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.add_location_alt_outlined),
+                label: Text(localizations.addDetailsButton),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ObservationDetailsScreen(
+                        classificationResult: viewModel.result!,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSubmissionResult(ClassificationViewModel viewModel, AppLocalizations localizations) {
+    final result = viewModel.submissionResult!;
+    return Card(
+      elevation: 4,
+      color: Colors.teal.shade50,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          children: [
+            Icon(Icons.check_circle, color: Colors.teal, size: 50),
+            const SizedBox(height: 16),
+            Text(localizations.thankYouForParticipation,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 24),
+            const Divider(),
+            _buildInfoRow(localizations.submissionIdLabel(result.observationId), Icons.tag),
+            _buildInfoRow(localizations.speciesLabel(result.scientificName), Icons.bug_report),
+            _buildInfoRow(
+                "${result.latitude.toStringAsFixed(4)}, ${result.longitude.toStringAsFixed(4)}",
+                Icons.location_on),
+            if (result.notes != null && result.notes!.isNotEmpty)
+              _buildInfoRow(result.notes!, Icons.notes),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInfoRow(String text, IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, color: Colors.teal.shade700, size: 22),
+          const SizedBox(width: 16),
+          Expanded(child: Text(text, style: const TextStyle(fontSize: 16))),
+        ],
+      ),
+    );
   }
 }

@@ -600,6 +600,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select language'**
   String get tooltipSelectLanguage;
+
+  /// No description provided for @addDetailsButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Observation Details'**
+  String get addDetailsButton;
+
+  /// No description provided for @thankYouForParticipation.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for your contribution!'**
+  String get thankYouForParticipation;
+
+  /// Label showing the ID of the submitted observation.
+  ///
+  /// In en, this message translates to:
+  /// **'Submission ID: {id}'**
+  String submissionIdLabel(String id);
+
+  /// Error message when submission fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Submission Failed: {error}'**
+  String errorSubmissionFailed(String error);
+
+  /// No description provided for @observationDetailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Observation Details'**
+  String get observationDetailsTitle;
+
+  /// No description provided for @locationSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Observation Location'**
+  String get locationSectionTitle;
+
+  /// No description provided for @locationInstruction.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap on the map to mark the exact location of your observation.'**
+  String get locationInstruction;
+
+  /// No description provided for @fieldRequiredError.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get fieldRequiredError;
+
+  /// No description provided for @locationRequiredError.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a location on the map.'**
+  String get locationRequiredError;
+
+  /// No description provided for @notesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notesLabel;
+
+  /// No description provided for @notesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add any relevant details (e.g., time of day, weather, environment)...'**
+  String get notesHint;
+
+  /// No description provided for @submitObservationButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Observation'**
+  String get submitObservationButton;
+
+  /// No description provided for @predictionSummaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Prediction Summary'**
+  String get predictionSummaryTitle;
+
+  /// No description provided for @latitudeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Latitude'**
+  String get latitudeLabel;
+
+  /// No description provided for @longitudeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Longitude'**
+  String get longitudeLabel;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

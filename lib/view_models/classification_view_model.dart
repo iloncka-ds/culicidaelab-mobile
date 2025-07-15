@@ -5,8 +5,9 @@ import '../models/mosquito_model.dart';
 import '../repositories/classification_repository.dart';
 
 import 'package:culicidaelab/l10n/app_localizations.dart';
+import '../models/submission_result_model.dart';
 
-enum ClassificationState { initial, loading, success, error }
+enum ClassificationState { initial, loading, success, error, submitting, submitted }
 
 class ClassificationViewModel extends ChangeNotifier {
   final ClassificationRepository _repository;
@@ -29,7 +30,7 @@ class ClassificationViewModel extends ChangeNotifier {
   ClassificationResult? get result => _result;
   String? get errorMessage => _errorMessage;
   bool get isProcessing => _state == ClassificationState.loading;
-
+  bool get isSubmitting => _state == ClassificationState.submitting;
   @visibleForTesting
   void setState(ClassificationState state) {
     _state = state;
@@ -56,6 +57,39 @@ class ClassificationViewModel extends ChangeNotifier {
     // Assumes message is already localized
     _errorMessage = message;
     notifyListeners();
+  }
+
+  SubmissionResult? _submissionResult;
+  SubmissionResult? get submissionResult => _submissionResult;
+
+  Future<SubmissionResult?> submitObservation({
+    required ClassificationResult result,
+    required double latitude,
+    required double longitude,
+    required String notes,
+    required AppLocalizations localizations,
+  }) async {
+    _state = ClassificationState.submitting;
+    _errorMessage = null;
+    notifyListeners();
+
+    try {
+      final submission = await _repository.submitObservation(
+        result: result,
+        latitude: latitude,
+        longitude: longitude,
+        notes: notes,
+      );
+      _submissionResult = submission;
+      _state = ClassificationState.submitted;
+      notifyListeners();
+      return submission;
+    } catch (e) {
+      _state = ClassificationState.error;
+      _errorMessage = localizations.errorSubmissionFailed(e.toString());
+      notifyListeners();
+      return null;
+    }
   }
 
   Future<void> initModel(AppLocalizations localizations) async {
@@ -161,6 +195,7 @@ class ClassificationViewModel extends ChangeNotifier {
     _imageFile = null;
     _result = null;
     _errorMessage = null;
+    _submissionResult = null;
     notifyListeners();
   }
 }

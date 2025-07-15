@@ -101,5 +101,40 @@
   "webViewScreenTitleMosquitoMap": "Mapa de Actividad de Mosquitos",
   "webViewFailedToLoad": "No se pudo cargar la página",
   "webViewRetryButton": "Reintentar",
-  "tooltipSelectLanguage":"Seleccionar idioma"
+  "tooltipSelectLanguage":"Seleccionar idioma",
+
+
+
+
+  "addDetailsButton": "Agregar detalles de la observación",
+  "thankYouForParticipation": "¡Gracias por tu contribución!",
+  "submissionIdLabel": "ID de envío: {id}",
+  "@submissionIdLabel": {
+    "description": "Etiqueta que muestra el ID de la observación enviada.",
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "errorSubmissionFailed": "Error en el envío: {error}",
+  "@errorSubmissionFailed": {
+    "description": "Mensaje de error cuando falla el envío.",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "observationDetailsTitle": "Detalles de la observación",
+  "locationSectionTitle": "Ubicación de la observación",
+  "locationInstruction": "Toca en el mapa para marcar la ubicación exacta de tu observación.",
+  "fieldRequiredError": "Este campo es obligatorio",
+  "locationRequiredError": "Por favor, selecciona una ubicación en el mapa.",
+  "notesLabel": "Notas",
+  "notesHint": "Añade cualquier detalle relevante (p. ej., hora del día, clima, entorno)...",
+  "submitObservationButton": "Enviar observación",
+  "predictionSummaryTitle": "Resumen de la predicción",
+  "latitudeLabel": "Latitud",
+  "longitudeLabel": "Longitud"
 }

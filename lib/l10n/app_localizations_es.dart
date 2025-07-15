@@ -296,4 +296,53 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get tooltipSelectLanguage => 'Seleccionar idioma';
+
+  @override
+  String get addDetailsButton => 'Agregar detalles de la observación';
+
+  @override
+  String get thankYouForParticipation => '¡Gracias por tu contribución!';
+
+  @override
+  String submissionIdLabel(String id) {
+    return 'ID de envío: $id';
+  }
+
+  @override
+  String errorSubmissionFailed(String error) {
+    return 'Error en el envío: $error';
+  }
+
+  @override
+  String get observationDetailsTitle => 'Detalles de la observación';
+
+  @override
+  String get locationSectionTitle => 'Ubicación de la observación';
+
+  @override
+  String get locationInstruction => 'Toca en el mapa para marcar la ubicación exacta de tu observación.';
+
+  @override
+  String get fieldRequiredError => 'Este campo es obligatorio';
+
+  @override
+  String get locationRequiredError => 'Por favor, selecciona una ubicación en el mapa.';
+
+  @override
+  String get notesLabel => 'Notas';
+
+  @override
+  String get notesHint => 'Añade cualquier detalle relevante (p. ej., hora del día, clima, entorno)...';
+
+  @override
+  String get submitObservationButton => 'Enviar observación';
+
+  @override
+  String get predictionSummaryTitle => 'Resumen de la predicción';
+
+  @override
+  String get latitudeLabel => 'Latitud';
+
+  @override
+  String get longitudeLabel => 'Longitud';
 }

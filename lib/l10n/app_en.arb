@@ -170,5 +170,38 @@
   "webViewScreenTitleMosquitoMap": "Mosquito Activity Map",
   "webViewFailedToLoad": "Failed to load page",
   "webViewRetryButton": "Retry",
-  "tooltipSelectLanguage":"Select language"
+  "tooltipSelectLanguage":"Select language",
+
+    "addDetailsButton": "Add Observation Details",
+    "thankYouForParticipation": "Thank you for your contribution!",
+    "submissionIdLabel": "Submission ID: {id}",
+    "@submissionIdLabel": {
+        "description": "Label showing the ID of the submitted observation.",
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
+    },
+    "errorSubmissionFailed": "Submission Failed: {error}",
+    "@errorSubmissionFailed": {
+        "description": "Error message when submission fails.",
+        "placeholders": {
+            "error": {
+                "type": "String"
+            }
+        }
+    },
+    "observationDetailsTitle": "Observation Details",
+    "locationSectionTitle": "Observation Location",
+    "locationInstruction": "Tap on the map to mark the exact location of your observation.",
+    "fieldRequiredError": "This field is required",
+    "locationRequiredError": "Please select a location on the map.",
+    "notesLabel": "Notes",
+    "notesHint": "Add any relevant details (e.g., time of day, weather, environment)...",
+    "submitObservationButton": "Submit Observation",
+    "predictionSummaryTitle": "Prediction Summary",
+    "latitudeLabel": "Latitude",
+    "longitudeLabel": "Longitude"
+
 }

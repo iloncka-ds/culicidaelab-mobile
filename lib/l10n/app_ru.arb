@@ -168,5 +168,39 @@
   "webViewScreenTitleMosquitoMap": "Карта активности комаров",
   "webViewFailedToLoad": "Не удалось загрузить страницу",
   "webViewRetryButton": "Повторить",
-  "tooltipSelectLanguage":"Выберите язык"
+  "tooltipSelectLanguage":"Выберите язык",
+
+
+  
+"addDetailsButton": "Добавить детали наблюдения",
+  "thankYouForParticipation": "Спасибо за ваш вклад!",
+  "submissionIdLabel": "ID отправки: {id}",
+  "@submissionIdLabel": {
+    "description": "Ярлык, показывающий ID отправленного наблюдения.",
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "errorSubmissionFailed": "Ошибка отправки: {error}",
+  "@errorSubmissionFailed": {
+    "description": "Сообщение об ошибке при неудачной отправке.",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "observationDetailsTitle": "Детали наблюдения",
+  "locationSectionTitle": "Местоположение наблюдения",
+  "locationInstruction": "Нажмите на карту, чтобы отметить точное местоположение вашего наблюдения.",
+  "fieldRequiredError": "Это поле обязательно для заполнения",
+  "locationRequiredError": "Пожалуйста, выберите местоположение на карте.",
+  "notesLabel": "Примечания",
+  "notesHint": "Добавьте любые важные детали (например, время суток, погода, окружение)...",
+  "submitObservationButton": "Отправить наблюдение",
+  "predictionSummaryTitle": "Сводка прогноза",
+  "latitudeLabel": "Широта",
+  "longitudeLabel": "Долгота"
 }

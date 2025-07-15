@@ -72,6 +72,8 @@ dependencies:
 
   path: any
   # flutter_gen: ^5.10.0
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
 
 
 dev_dependencies:
@@ -104,7 +106,7 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/launcher_icon/launcher_icon.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
-  
+
 
 
 # For information on the generic Dart part of this file, see the
