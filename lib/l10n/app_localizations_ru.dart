@@ -300,7 +300,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tooltipSelectLanguage => 'Выберите язык';
 
   @override
-  String get addDetailsButton => 'Добавить детали наблюдения';
+  String get addDetailsButton => 'Поделиться информацией о наблюдении';
 
   @override
   String get thankYouForParticipation => 'Спасибо за ваш вклад!';
@@ -316,7 +316,7 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get observationDetailsTitle => 'Детали наблюдения';
+  String get observationDetailsTitle => 'Дополнительная информация';
 
   @override
   String get locationSectionTitle => 'Местоположение наблюдения';
@@ -337,10 +337,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get notesHint => 'Добавьте любые важные детали (например, время суток, погода, окружение)...';
 
   @override
-  String get submitObservationButton => 'Отправить наблюдение';
+  String get submitObservationButton => 'Отправить';
 
   @override
-  String get predictionSummaryTitle => 'Сводка прогноза';
+  String get predictionSummaryTitle => 'Результаты';
 
   @override
   String get latitudeLabel => 'Широта';

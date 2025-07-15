@@ -171,8 +171,8 @@
   "tooltipSelectLanguage":"Выберите язык",
 
 
-  
-"addDetailsButton": "Добавить детали наблюдения",
+
+"addDetailsButton": "Поделиться информацией о наблюдении",
   "thankYouForParticipation": "Спасибо за ваш вклад!",
   "submissionIdLabel": "ID отправки: {id}",
   "@submissionIdLabel": {
@@ -192,15 +192,15 @@
       }
     }
   },
-  "observationDetailsTitle": "Детали наблюдения",
+  "observationDetailsTitle": "Дополнительная информация",
   "locationSectionTitle": "Местоположение наблюдения",
   "locationInstruction": "Нажмите на карту, чтобы отметить точное местоположение вашего наблюдения.",
   "fieldRequiredError": "Это поле обязательно для заполнения",
   "locationRequiredError": "Пожалуйста, выберите местоположение на карте.",
   "notesLabel": "Примечания",
   "notesHint": "Добавьте любые важные детали (например, время суток, погода, окружение)...",
-  "submitObservationButton": "Отправить наблюдение",
-  "predictionSummaryTitle": "Сводка прогноза",
+  "submitObservationButton": "Отправить",
+  "predictionSummaryTitle": "Результаты",
   "latitudeLabel": "Широта",
   "longitudeLabel": "Долгота"
 }
