@@ -39,16 +39,16 @@ Future<void> main() async {
 
   // Initialize database
   // Conditional initialization for different platforms
-  if (kIsWeb) {
-    databaseFactory = databaseFactoryFfiWeb;
-    print("Sqflite initialized for web using FFI Web.");
-  } else if (defaultTargetPlatform == TargetPlatform.windows ||
-      defaultTargetPlatform == TargetPlatform.macOS ||
-      defaultTargetPlatform == TargetPlatform.linux) {
-    sqfliteFfiInit();
-    databaseFactory = databaseFactoryFfi;
-    print("Sqflite initialized for desktop using FFI.");
-  }
+  // if (kIsWeb) {
+  //   databaseFactory = databaseFactoryFfiWeb;
+  //   print("Sqflite initialized for web using FFI Web.");
+  // } else if (defaultTargetPlatform == TargetPlatform.windows ||
+  //     defaultTargetPlatform == TargetPlatform.macOS ||
+  //     defaultTargetPlatform == TargetPlatform.linux) {
+  //   sqfliteFfiInit();
+  //   databaseFactory = databaseFactoryFfi;
+  //   print("Sqflite initialized for desktop using FFI.");
+  // }
   runApp(const MosquitoClassifierApp());
 }
 
