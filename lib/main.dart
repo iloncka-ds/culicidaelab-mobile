@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> {
 
   // Define your target URL for the mosquito activity map
   // Replace with your actual URL
-  final String _mosquitoActivityMapUrl = "https://map.mosquitoalert.com/en";
+  final String _mosquitoActivityMapUrl = "http://culicidealab.ru/map";
 
   @override
   void initState() {

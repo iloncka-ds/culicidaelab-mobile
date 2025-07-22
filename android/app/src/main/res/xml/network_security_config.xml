@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--
+        This is the most secure approach: only allow cleartext traffic
+        and untrusted certificates for a specific domain.
+    -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">culicidealab.ru</domain>
+        <!--
+            Trust user-added certificates for this domain.
+            This is useful for development with self-signed certs.
+        -->
+        <trust-anchors>
+            <certificates src="user" />
+        </trust-anchors>
+    </domain-config>
+
+    <!--
+        It's good practice to retain the default base configuration
+        for all other domains.
+    -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
