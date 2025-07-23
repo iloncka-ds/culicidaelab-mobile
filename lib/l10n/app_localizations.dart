@@ -690,6 +690,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Longitude'**
   String get longitudeLabel;
+
+  /// No description provided for @submittingObservation.
+  ///
+  /// In en, this message translates to:
+  /// **'Submitting Observation...'**
+  String get submittingObservation;
+
+  /// No description provided for @fetchingWebPrediction.
+  ///
+  /// In en, this message translates to:
+  /// **'Fetching Web Prediction...'**
+  String get fetchingWebPrediction;
+
+  /// No description provided for @errorFailedWebPrediction.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to get web prediction. Please try again.'**
+  String get errorFailedWebPrediction;
+
+  /// No description provided for @speciesNotDefinedWebPrediction.
+  ///
+  /// In en, this message translates to:
+  /// **'Species not defined'**
+  String get speciesNotDefinedWebPrediction;
+
+  /// No description provided for @retryButtonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retryButtonLabel;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

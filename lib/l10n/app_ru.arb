@@ -202,5 +202,10 @@
   "submitObservationButton": "Отправить",
   "predictionSummaryTitle": "Результаты",
   "latitudeLabel": "Широта",
-  "longitudeLabel": "Долгота"
+  "longitudeLabel": "Долгота",
+  "submittingObservation": "Загрузка данных на сервер. Подождите...",
+"fetchingWebPrediction": "Получение данных с сервера...",
+"errorFailedWebPrediction": "Не удалось получить данные с сервера. Пожалуйста, попробуйте еще раз.",
+"speciesNotDefinedWebPrediction": "Вид не определен",
+"retryButtonLabel": "Повторить"
 }

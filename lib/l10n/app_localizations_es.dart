@@ -345,4 +345,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get longitudeLabel => 'Longitud';
+
+  @override
+  String get submittingObservation => 'Presentación de observaciones...';
+
+  @override
+  String get fetchingWebPrediction => 'Obteniendo predicción web...';
+
+  @override
+  String get errorFailedWebPrediction => 'No se pudo obtener la predicción web. Inténtalo de nuevo.';
+
+  @override
+  String get speciesNotDefinedWebPrediction => 'Especie no definida';
+
+  @override
+  String get retryButtonLabel => 'Rever';
 }

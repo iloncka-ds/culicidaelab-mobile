@@ -202,6 +202,10 @@
     "submitObservationButton": "Submit Observation",
     "predictionSummaryTitle": "Prediction Summary",
     "latitudeLabel": "Latitude",
-    "longitudeLabel": "Longitude"
-
+    "longitudeLabel": "Longitude",
+    "submittingObservation": "Submitting Observation...",
+    "fetchingWebPrediction": "Fetching Web Prediction...",
+    "errorFailedWebPrediction": "Failed to get web prediction. Please try again.",
+"speciesNotDefinedWebPrediction": "Species not defined",
+"retryButtonLabel": "Retry"
 }

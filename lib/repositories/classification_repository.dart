@@ -1,22 +1,27 @@
 import 'dart:io';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:mime/mime.dart';
+import 'package:http_parser/http_parser.dart';
 import '../models/mosquito_model.dart';
 import '../services/classification_service.dart';
-import 'mosquito_repository.dart';
-import '../models/submission_result_model.dart';
+// import 'mosquito_repository.dart';
+import '../models/web_prediction_result.dart';
+import '../models/observation_model.dart';
 
 class ClassificationRepository {
   final ClassificationService _classificationService;
-  final MosquitoRepository _mosquitoRepository;
+
 
   ClassificationRepository({
-    ClassificationService? classificationService,
-    MosquitoRepository? mosquitoRepository,
+    ClassificationService? classificationService
+    // MosquitoRepository? mosquitoRepository,
   }) :
-    _classificationService = classificationService ?? ClassificationService(),
-    _mosquitoRepository = mosquitoRepository ?? MosquitoRepository();
+    _classificationService = classificationService ?? ClassificationService();
+    // _mosquitoRepository = mosquitoRepository ?? MosquitoRepository();
 
+  final String _mosquitoPredictionUrl = "http://culicidealab.ru/api/predict";
+  final String _mosquitoObservationUrl = "http://culicidealab.ru/api/observations";
   /// Load the classification model
   Future<void> loadModel() async {
 
@@ -36,50 +41,54 @@ class ClassificationRepository {
     return result;
   }
 
-  Future<SubmissionResult> submitObservation({
-    required ClassificationResult result,
-    required double latitude,
-    required double longitude,
-    required String notes,
-  }) async {
-    const String modelName = "mosquito_classifier_v1";
-    final url = Uri.parse('https://echo.free.beeceptor.com');
-
+  Future<WebPredictionResult> getWebPrediction(File imageFile) async {
+    final url = Uri.parse(_mosquitoPredictionUrl);
     var request = http.MultipartRequest('POST', url);
-    request.files.add(await http.MultipartFile.fromPath('file', result.imageFile.path));
 
-    final payload = {
-      "type": "Feature",
-      "properties": {
-        "species_scientific_name": result.species.name,
-        "observed_at": DateTime.now().toUtc().toIso8601String(),
-        "notes": notes.trim().isEmpty ? null : notes.trim(),
-        "image_filename": result.imageFile.path.split('/').last,
-        "metadata": {
-          "confidence": result.confidence,
-          "model_id": modelName,
-          "species_scientific_name": result.species.name,
-        }
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [longitude, latitude]
-      }
-    };
+    // 1. Detect the file's MIME type from its name
+    final mimeType = lookupMimeType(imageFile.path, headerBytes: [0xFF, 0xD8]);
+    print("Detected MIME type: $mimeType");
 
-    request.fields['data'] = json.encode(payload);
+    // 2. Create a MultipartFile with the correct Content-Type
+    final multipartFile = await http.MultipartFile.fromPath(
+      'file', // This is the field name the backend expects
+      imageFile.path,
+      // Use the detected MIME type. Fallback to a default if not found.
+      contentType: MediaType.parse(mimeType ?? 'image/jpeg'),
+    );
 
-    try {
-      final streamedResponse = await request.send();
-      final response = await http.Response.fromStream(streamedResponse);
+    // 3. Add the correctly typed file to the request
+    request.files.add(multipartFile);
 
-      if (response.statusCode >= 200 && response.statusCode < 300) {
-        return SubmissionResult.fromJson(json.decode(response.body));
-      } else {
-        throw Exception('Failed to submit observation: ${response.statusCode} - ${response.body}');
-      }
-    } catch (e) {
-      throw Exception('Error submitting observation: $e');
+    final streamedResponse = await request.send();
+    final response = await http.Response.fromStream(streamedResponse);
+
+    if (response.statusCode == 200) {
+      return WebPredictionResult.fromJson(json.decode(response.body));
+    } else {
+      // Provide a more detailed error message
+      throw Exception(
+        // TODO: Localize this message
+          'Failed to get web prediction. Status: ${response.statusCode}, Body: ${response.body}');
+    }
+  }
+
+  Future<Observation> submitObservation({
+    required Map<String, dynamic> finalPayload,
+  }) async {
+    final url = Uri.parse(_mosquitoObservationUrl);
+
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json; charset=UTF-8'},
+      body: json.encode(finalPayload),
+    );
+
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+
+      return Observation.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to submit observation: ${response.statusCode} - ${response.body}');
     }
   }
 }

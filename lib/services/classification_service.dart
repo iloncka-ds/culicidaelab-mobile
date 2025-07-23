@@ -61,14 +61,14 @@ class ClassificationService {
       orElse: () {
         // Fallback for when the model predicts a species not in our DB
         return MosquitoSpecies(
-          id: '0',
-          name: speciesName,
-          commonName: 'Unknown Species',
-          description: 'No detailed information available for this species.',
-          habitat: 'Unknown',
-          distribution: 'Unknown',
-          imageUrl: 'assets/images/unknown_mosquito.jpg',
-          diseases: [],
+      id: '0', // The special ID to identify this as "unknown"
+      name: speciesName, // Keep the scientific name the model returned
+      commonName: '', 
+      description: '',
+      habitat: '',
+      distribution: '',
+      imageUrl: 'assets/images/unknown_mosquito.jpg',
+      diseases: [],
         );
       },
     );

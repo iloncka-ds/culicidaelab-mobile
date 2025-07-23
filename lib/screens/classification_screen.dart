@@ -9,7 +9,6 @@ import 'disease_detail_screen.dart';
 import '../widgets/custom_empty_widget.dart';
 import '../widgets/icomoon_icons.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart';
-
 import 'observation_details_screen.dart';
 
 class ClassificationScreen extends StatefulWidget {
@@ -85,193 +84,11 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
                     ),
                   ),
 
-                if (viewModel.result != null)
-                  Card(
-                    margin: const EdgeInsets.symmetric(vertical: 16.0),
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      side: BorderSide(
-                        color: Theme.of(context).colorScheme.outline,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              const Icon(Icomoon.mosquitoB, color: Colors.teal),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                child: Text(
-                                  localizations.speciesLabel(
-                                    viewModel.result?.species.name ??
-                                        localizations.unknownSpecies,
-                                  ),
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            localizations.commonNameLabel(
-                              viewModel.result?.species.commonName ??
-                                  localizations.unknownSpecies,
-                            ),
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.check_circle,
-                                color: Colors.green,
-                                size: 16,
-                              ),
-                              const SizedBox(width: 4),
-                              Text(
-                                localizations.confidenceLabel(
-                                  viewModel.result?.confidence.toStringAsFixed(
-                                        1,
-                                      ) ??
-                                      "0.0",
-                                ),
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.green,
-                                ),
-                              ),
-                              const SizedBox(width: 12),
-                              const Icon(
-                                Icons.timer,
-                                color: Colors.blue,
-                                size: 16,
-                              ),
-                              const SizedBox(width: 4),
-                              Text(
-                                localizations.inferenceTimeLabel(
-                                  viewModel.result?.inferenceTime ?? 0,
-                                ),
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 16),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Expanded(
-                                child: ElevatedButton.icon(
-                                  icon: const Icon(Icons.info_outline),
-                                  label: Text(localizations.speciesInfoButton),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.teal,
-                                    foregroundColor: Colors.white,
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 12,
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder:
-                                            (context) => MosquitoDetailScreen(
-                                              species:
-                                                  viewModel.result!.species,
-                                            ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              if (viewModel.shouldShowDiseaseRiskButton)
-                                Expanded(
-                                  child: ElevatedButton.icon(
-                                    icon: const Icon(
-                                      Icons.warning_amber,
-                                      color: Colors.white,
-                                    ),
-                                    label: Text(
-                                      localizations.diseaseRisksButton,
-                                    ),
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xFFF38C79),
-                                      foregroundColor: Colors.white,
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 12,
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      if (viewModel
-                                          .result!
-                                          .relatedDiseases
-                                          .isNotEmpty) {
-                                        showModalBottomSheet(
-                                          context: context,
-                                          isScrollControlled: true,
-                                          shape: const RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(20),
-                                            ),
-                                          ),
-                                          builder:
-                                              (
-                                                context,
-                                              ) => DraggableScrollableSheet(
-                                                initialChildSize: 0.6,
-                                                minChildSize: 0.3,
-                                                maxChildSize: 0.9,
-                                                expand: false,
-                                                builder: (
-                                                  context,
-                                                  scrollController,
-                                                ) {
-                                                  return SingleChildScrollView(
-                                                    controller:
-                                                        scrollController,
-                                                    child: _buildDiseasesList(
-                                                      viewModel,
-                                                      localizations,
-                                                    ),
-                                                  );
-                                                },
-                                              ),
-                                        );
-                                      } else {
-                                        ScaffoldMessenger.of(
-                                          context,
-                                        ).showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              localizations.noKnownDiseaseRisks,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                    },
-                                  ),
-                                ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                 if (viewModel.state == ClassificationState.success && viewModel.result != null)
-                  _buildClassificationResult(viewModel, localizations)
+                  _buildResultCard(viewModel, localizations)
                 else if (viewModel.state == ClassificationState.submitted && viewModel.submissionResult != null)
                   _buildSubmissionResult(viewModel, localizations),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Row(
@@ -280,30 +97,18 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
                       _buildActionButton(
                         icon: Icons.camera_alt,
                         label: localizations.cameraButtonLabel,
-                        onPressed:
-                            () => _getImage(
-                              viewModel,
-                              ImageSource.camera,
-                              localizations,
-                            ),
+                        onPressed: () => _getImage(viewModel, ImageSource.camera, localizations),
                       ),
                       _buildActionButton(
                         icon: Icons.photo_library,
                         label: localizations.galleryButtonLabel,
-                        onPressed:
-                            () => _getImage(
-                              viewModel,
-                              ImageSource.gallery,
-                              localizations,
-                            ),
+                        onPressed: () => _getImage(viewModel, ImageSource.gallery, localizations),
                       ),
                       if (viewModel.hasImage)
                         _buildActionButton(
                           icon: Icons.refresh,
                           label: localizations.resetButtonLabel,
-                          onPressed: () {
-                            viewModel.reset();
-                          },
+                          onPressed: () => viewModel.reset(),
                         ),
                     ],
                   ),
@@ -316,10 +121,141 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
     );
   }
 
-  Widget _buildImagePreview(
-    ClassificationViewModel viewModel,
-    AppLocalizations localizations,
-  ) {
+  Widget _buildResultCard(ClassificationViewModel viewModel, AppLocalizations localizations) {
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 16.0),
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(color: Theme.of(context).colorScheme.outline.withOpacity(0.5)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(Icomoon.mosquitoB, color: Colors.teal, size: 24),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    localizations.speciesLabel(viewModel.result!.species.name),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 4),
+            Padding(
+              padding: const EdgeInsets.only(left: 32.0),
+              child: Text(
+                localizations.commonNameLabel(viewModel.result!.species.commonName),
+                style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic, color: Colors.black54),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                const Icon(Icons.check_circle, color: Colors.green, size: 16),
+                const SizedBox(width: 4),
+                Text(
+                  localizations.confidenceLabel(viewModel.result!.confidence.toStringAsFixed(1)),
+                  style: const TextStyle(fontSize: 14, color: Colors.green),
+                ),
+                const SizedBox(width: 16),
+                const Icon(Icons.timer, color: Colors.blue, size: 16),
+                const SizedBox(width: 4),
+                Text(
+                  localizations.inferenceTimeLabel(viewModel.result!.inferenceTime),
+                  style: const TextStyle(fontSize: 14, color: Colors.blue),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            const Divider(),
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // --- START OF STYLING CHANGE ---
+                Expanded(
+                  child: OutlinedButton.icon( // Changed to OutlinedButton
+                    icon: const Icon(Icons.info_outline),
+                    label: Text(localizations.speciesInfoButton),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.teal.shade700, // Dark teal for text and icon
+                      side: BorderSide(color: Colors.teal.shade400, width: 1.5), // Teal outline
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MosquitoDetailScreen(species: viewModel.result!.species),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                // --- END OF STYLING CHANGE ---
+                const SizedBox(width: 8),
+                if (viewModel.shouldShowDiseaseRiskButton)
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.warning_amber),
+                      label: Text(localizations.diseaseRisksButton),
+                      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFF38C79), foregroundColor: Colors.white),
+                      onPressed: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                          builder: (context) => DraggableScrollableSheet(
+                            initialChildSize: 0.6,
+                            minChildSize: 0.3,
+                            maxChildSize: 0.9,
+                            expand: false,
+                            builder: (context, scrollController) {
+                              return SingleChildScrollView(
+                                controller: scrollController,
+                                child: _buildDiseasesList(viewModel, localizations),
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.add_location_alt_outlined),
+                label: Text(localizations.addDetailsButton),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.teal.shade700, foregroundColor: Colors.white, padding: const EdgeInsets.symmetric(vertical: 12)),
+                onPressed: () {
+                  viewModel.fetchWebPrediction(localizations);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ObservationDetailsScreen(
+                        classificationResult: viewModel.result!,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildImagePreview(ClassificationViewModel viewModel, AppLocalizations localizations) {
     Widget content;
     if (viewModel.isProcessing) {
       content = Column(
@@ -411,11 +347,7 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
     );
   }
 
-  Widget _buildActionButton({
-    required IconData icon,
-    required String label,
-    required VoidCallback onPressed,
-  }) {
+  Widget _buildActionButton({required IconData icon, required String label, required VoidCallback onPressed}) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -437,10 +369,7 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
     );
   }
 
-  Widget _buildDiseasesList(
-    ClassificationViewModel viewModel,
-    AppLocalizations localizations,
-  ) {
+  Widget _buildDiseasesList(ClassificationViewModel viewModel, AppLocalizations localizations) {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -453,9 +382,7 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
               const SizedBox(width: 8),
               Text(
                 localizations.potentialDiseaseRisksTitle,
-                style: Theme.of(
-                  context,
-                ).textTheme.titleLarge?.copyWith(color: Colors.black87),
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.black87),
               ),
             ],
           ),
@@ -496,8 +423,7 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder:
-                            (context) => DiseaseDetailScreen(disease: disease),
+                        builder: (context) => DiseaseDetailScreen(disease: disease),
                       ),
                     );
                   },
@@ -520,13 +446,8 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
     );
   }
 
-  void _getImage(
-    ClassificationViewModel viewModel,
-    ImageSource source,
-    AppLocalizations localizations,
-  ) async {
+  void _getImage(ClassificationViewModel viewModel, ImageSource source, AppLocalizations localizations) async {
     await viewModel.pickImage(source, localizations);
-
     if (viewModel.hasImage && mounted) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted && viewModel.hasImage) {
@@ -534,39 +455,6 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
         }
       });
     }
-  }
-
-Widget _buildClassificationResult(ClassificationViewModel viewModel, AppLocalizations localizations) {
-    return Card(
-      // ... (Card styling)
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            // ... (Display species name, confidence, etc.)
-
-            const SizedBox(height: 24),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton.icon(
-                icon: const Icon(Icons.add_location_alt_outlined),
-                label: Text(localizations.addDetailsButton),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ObservationDetailsScreen(
-                        classificationResult: viewModel.result!,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 
   Widget _buildSubmissionResult(ClassificationViewModel viewModel, AppLocalizations localizations) {
@@ -579,18 +467,19 @@ Widget _buildClassificationResult(ClassificationViewModel viewModel, AppLocaliza
         padding: const EdgeInsets.all(24.0),
         child: Column(
           children: [
-            Icon(Icons.check_circle, color: Colors.teal, size: 50),
+            const Icon(Icons.check_circle, color: Colors.teal, size: 50),
             const SizedBox(height: 16),
-            Text(localizations.thankYouForParticipation,
+            Text(
+              localizations.thankYouForParticipation,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 24),
             const Divider(),
-            _buildInfoRow(localizations.submissionIdLabel(result.observationId), Icons.tag),
-            _buildInfoRow(localizations.speciesLabel(result.scientificName), Icons.bug_report),
+            _buildInfoRow(localizations.submissionIdLabel(result.id), Icons.tag),
+            _buildInfoRow(localizations.speciesLabel(result.speciesScientificName), Icons.bug_report),
             _buildInfoRow(
-                "${result.latitude.toStringAsFixed(4)}, ${result.longitude.toStringAsFixed(4)}",
+                "${result.location.lat.toStringAsFixed(4)}, ${result.location.lng.toStringAsFixed(4)}",
                 Icons.location_on),
             if (result.notes != null && result.notes!.isNotEmpty)
               _buildInfoRow(result.notes!, Icons.notes),

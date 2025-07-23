@@ -347,4 +347,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get longitudeLabel => 'Долгота';
+
+  @override
+  String get submittingObservation => 'Загрузка данных на сервер. Подождите...';
+
+  @override
+  String get fetchingWebPrediction => 'Получение данных с сервера...';
+
+  @override
+  String get errorFailedWebPrediction => 'Не удалось получить данные с сервера. Пожалуйста, попробуйте еще раз.';
+
+  @override
+  String get speciesNotDefinedWebPrediction => 'Вид не определен';
+
+  @override
+  String get retryButtonLabel => 'Повторить';
 }

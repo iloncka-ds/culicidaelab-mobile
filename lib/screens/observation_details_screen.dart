@@ -21,9 +21,8 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
   final TextEditingController _notesController = TextEditingController();
 
   LatLng? _selectedLocation;
-  // State for loading and initial position
   bool _isLoadingLocation = true;
-  LatLng _initialCenter = const LatLng(20.0, 0.0); // Default fallback
+  LatLng _initialCenter = const LatLng(20.0, 0.0);
 
   @override
   void initState() {
@@ -31,15 +30,14 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
     _determinePosition();
   }
 
-  /// Determines the current position of the device.
   Future<void> _determinePosition() async {
+    // This logic remains the same
     bool serviceEnabled;
     LocationPermission permission;
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      // Handle the case where location services are disabled
-      setState(() { _isLoadingLocation = false; });
+      if (mounted) setState(() { _isLoadingLocation = false; });
       return;
     }
 
@@ -47,29 +45,30 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        // Handle the case where permissions are denied
-        setState(() { _isLoadingLocation = false; });
+        if (mounted) setState(() { _isLoadingLocation = false; });
         return;
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
-      // Handle the case where permissions are permanently denied
-      setState(() { _isLoadingLocation = false; });
+      if (mounted) setState(() { _isLoadingLocation = false; });
       return;
     }
 
     try {
       final position = await Geolocator.getCurrentPosition();
-      setState(() {
-        _initialCenter = LatLng(position.latitude, position.longitude);
-        _selectedLocation = _initialCenter; // Pre-select the current location
-        _isLoadingLocation = false;
-        _mapController.move(_initialCenter, 13.0);
-      });
+      if (mounted) {
+        setState(() {
+          _initialCenter = LatLng(position.latitude, position.longitude);
+          _selectedLocation = _initialCenter;
+          _isLoadingLocation = false;
+          _mapController.move(_initialCenter, 13.0);
+        });
+      }
     } catch (e) {
-      // Handle any other errors
-      setState(() { _isLoadingLocation = false; });
+      if (mounted) {
+        setState(() { _isLoadingLocation = false; });
+      }
     }
   }
 
@@ -82,7 +81,7 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<ClassificationViewModel>(context, listen: false);
+    final viewModel = Provider.of<ClassificationViewModel>(context);
     final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
@@ -100,28 +99,31 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
                     const SizedBox(height: 8),
                     Text(localizations.locationInstruction),
                     const SizedBox(height: 16),
-                    Container(
-                      height: 350,
-                      child: FlutterMap(
-                        mapController: _mapController,
-                        options: MapOptions(
-                          initialCenter: _initialCenter,
-                          initialZoom: _isLoadingLocation ? 2.0 : 13.0,
-                          onTap: (_, latlng) => _updateLocation(latlng),
-                        ),
-                        children: [
-                          TileLayer(
-                            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                            userAgentPackageName: 'com.example.culicidaelab', // Use your package name
+                    SizedBox(
+                      height: 300,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: FlutterMap(
+                          mapController: _mapController,
+                          options: MapOptions(
+                            initialCenter: _initialCenter,
+                            initialZoom: _isLoadingLocation ? 2.0 : 13.0,
+                            onTap: (_, latlng) => _updateLocation(latlng),
                           ),
-                          if (_selectedLocation != null)
-                            MarkerLayer(markers: [
-                              Marker(
-                                point: _selectedLocation!,
-                                child: const Icon(Icons.location_on, color: Colors.red, size: 40),
-                              ),
-                            ]),
-                        ],
+                          children: [
+                            TileLayer(
+                              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                              userAgentPackageName: 'com.culicidaelab.app',
+                            ),
+                            if (_selectedLocation != null)
+                              MarkerLayer(markers: [
+                                Marker(
+                                  point: _selectedLocation!,
+                                  child: Icon(Icons.location_on, color: Colors.red.shade700, size: 40),
+                                ),
+                              ]),
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -130,44 +132,94 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
                       decoration: InputDecoration(
                         labelText: localizations.notesLabel,
                         hintText: localizations.notesHint,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                       ),
                       maxLines: 4,
                     ),
                     const SizedBox(height: 24),
+
                     Consumer<ClassificationViewModel>(
                       builder: (context, vm, child) {
-                        if (vm.isSubmitting) {
-                          return const Center(child: CircularProgressIndicator());
+                        // State 1: Loading (either fetching or submitting)
+                        if (vm.isFetchingWebPrediction || vm.isSubmitting) {
+                          return Center(
+                            child: Column(
+                              children: [
+                                const CircularProgressIndicator(),
+                                const SizedBox(height: 16),
+                                Text(
+                                  vm.isSubmitting
+                                      ? localizations.submittingObservation
+                                      : localizations.fetchingWebPrediction,
+                                  style: TextStyle(color: Colors.grey.shade700),
+                                ),
+                              ],
+                            ),
+                          );
                         }
+
+                        // State 2: Error has occurred
+                        if (vm.errorMessage != null) {
+                          return Column(
+                            children: [
+                              Card(
+                                color: Colors.red.shade50,
+                                elevation: 0,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Text(
+                                    vm.errorMessage!,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(color: Colors.red.shade900),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                              // --- THIS IS THE NEW "RETRY" BUTTON ---
+                              // It only shows when there's an error.
+                              ElevatedButton.icon(
+                                icon: const Icon(Icons.refresh),
+                                label: Text(localizations.retryButtonLabel), // Add "Retry" to your .arb files
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.teal.shade400,
+                                  foregroundColor: Colors.white,
+                                ),
+                                onPressed: () {
+                                  // Simply call the fetch function again.
+                                  vm.fetchWebPrediction(localizations);
+                                },
+                              ),
+                            ],
+                          );
+                        }
+
+                        // State 3: Success. Show the active submit button.
                         return ElevatedButton.icon(
-                          icon: Icon(Icons.cloud_upload),
+                          icon: const Icon(Icons.cloud_upload),
                           label: Text(localizations.submitObservationButton),
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(vertical: 16),
                           ),
-                          onPressed: () async {
-                            if (_selectedLocation == null) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text(localizations.locationRequiredError)));
-                              return;
-                            }
+                          onPressed: _selectedLocation == null
+                            ? null
+                            : () async {
+                                final submissionResult = await viewModel.submitObservation(
+                                  localResult: widget.classificationResult,
+                                  webPrediction: vm.webPredictionResult,
+                                  latitude: _selectedLocation!.latitude,
+                                  longitude: _selectedLocation!.longitude,
+                                  notes: _notesController.text,
+                                  localizations: localizations,
+                                );
 
-                            final submissionResult = await viewModel.submitObservation(
-                              result: widget.classificationResult,
-                              latitude: _selectedLocation!.latitude,
-                              longitude: _selectedLocation!.longitude,
-                              notes: _notesController.text,
-                              localizations: localizations,
-                            );
-
-                            if (submissionResult != null && mounted) {
-                              Navigator.pop(context);
-                            }
-                          },
+                                if (submissionResult != null && mounted) {
+                                  Navigator.pop(context);
+                                }
+                              },
                         );
                       },
                     )
+
                   ],
                 ),
               ),

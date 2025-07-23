@@ -64,7 +64,7 @@ class MosquitoClassifierApp extends StatelessWidget {
         Provider<ClassificationRepository>(
           create:
               (context) => ClassificationRepository(
-                mosquitoRepository: context.read<MosquitoRepository>(),
+                // mosquitoRepository: context.read<MosquitoRepository>(),
               ),
         ),
         ChangeNotifierProvider<ClassificationViewModel>(
