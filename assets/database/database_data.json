@@ -1,0 +1,1084 @@
+{
+  "mosquito_species": [
+    {
+      "id": "aedes_albopictus",
+      "name": "Aedes albopictus",
+      "image_url": "assets/images/species/aedes_albopictus.jpg"
+    },
+    {
+      "id": "aedes_aegypti",
+      "name": "Aedes aegypti",
+      "image_url": "assets/images/species/aedes_aegypti.jpg"
+    },
+    {
+      "id": "aedes_canadensis",
+      "name": "Aedes canadensis",
+      "image_url": "assets/images/species/aedes_canadensis.jpg"
+    },
+    {
+      "id": "aedes_dorsalis",
+      "name": "Aedes dorsalis",
+      "image_url": "assets/images/species/aedes_dorsalis.jpg"
+    },
+    {
+      "id": "aedes_geniculatus",
+      "name": "Aedes geniculatus",
+      "image_url": "assets/images/species/aedes_geniculatus.jpg"
+    },
+    {
+      "id": "aedes_koreicus",
+      "name": "Aedes koreicus",
+      "image_url": "assets/images/species/aedes_koreicus.jpg"
+    },
+    {
+      "id": "aedes_triseriatus",
+      "name": "Aedes triseriatus",
+      "image_url": "assets/images/species/aedes_triseriatus.jpg"
+    },
+    {
+      "id": "aedes_vexans",
+      "name": "Aedes vexans",
+      "image_url": "assets/images/species/aedes_vexans.jpg"
+    },
+    {
+      "id": "anopheles_arabiensis",
+      "name": "Anopheles arabiensis",
+      "image_url": "assets/images/species/anopheles_arabiensis.jpg"
+    },
+    {
+      "id": "anopheles_freeborni",
+      "name": "Anopheles freeborni",
+      "image_url": "assets/images/species/anopheles_freeborni.jpg"
+    },
+    {
+      "id": "anopheles_sinensis",
+      "name": "Anopheles sinensis",
+      "image_url": "assets/images/species/anopheles_sinensis.jpg"
+    },
+    {
+      "id": "culex_inatomii",
+      "name": "Culex inatomii",
+      "image_url": "assets/images/species/culex_inatomii.jpg"
+    },
+    {
+      "id": "culex_pipiens",
+      "name": "Culex pipiens",
+      "image_url": "assets/images/species/culex_pipiens.jpg"
+    },
+    {
+      "id": "culex_quinquefasciatus",
+      "name": "Culex quinquefasciatus",
+      "image_url": "assets/images/species/culex_quinquefasciatus.jpg"
+    },
+    {
+      "id": "culex_tritaeniorhynchus",
+      "name": "Culex tritaeniorhynchus",
+      "image_url": "assets/images/species/culex_tritaeniorhynchus.jpg"
+    },
+    {
+      "id": "culiseta_annulata",
+      "name": "Culiseta annulata",
+      "image_url": "assets/images/species/culiseta_annulata.jpg"
+    },
+    {
+      "id": "culiseta_longiareolata",
+      "name": "Culiseta longiareolata",
+      "image_url": "assets/images/species/culiseta_longiareolata.jpg"
+    }
+  ],
+  "mosquito_species_translations": [
+    {
+      "species_id": "aedes_albopictus",
+      "language_code": "en",
+      "common_name": "Asian Tiger Mosquito",
+      "description": "Known for its black and white striped legs and body. A significant vector for dengue, chikungunya, and Zika. Active during the day.",
+      "habitat": "Artificial containers. Tree holes. Urban and suburban areas",
+      "distribution": "Asia, Europe, Americas, Africa, Oceania"
+    },
+    {
+      "species_id": "aedes_albopictus",
+      "language_code": "ru",
+      "common_name": "Азиатский тигровый комар",
+      "description": "Известен своими черно-белыми полосатыми ногами и телом. Является значимым переносчиком денге, чикунгуньи и Зика. Активен в дневное время.",
+      "habitat": "Искусственные контейнеры. Дупла деревьев. Городские и пригородные зоны",
+      "distribution": "Азия, Европа, Америка, Африка, Океания"
+    },
+    {
+      "species_id": "aedes_albopictus",
+      "language_code": "es",
+      "common_name": "Mosquito Tigre Asiático",
+      "description": "Conocido por sus patas y cuerpo con rayas blancas y negras. Es un vector importante de dengue, chikungunya y zika. Activo durante el día.",
+      "habitat": "Recipientes artificiales. Huecos de árboles. Zonas urbanas y suburbanas",
+      "distribution": "Asia, Europa, Américas, África, Oceanía"
+    },
+    {
+      "species_id": "aedes_aegypti",
+      "language_code": "en",
+      "common_name": "Yellow Fever Mosquito",
+      "description": "Primary vector for dengue fever, yellow fever, chikungunya, and Zika virus. Recognizable by white markings on legs and a lyre-shaped pattern on its thorax. Active mostly during the day.",
+      "habitat": "Artificial containers. Urban and suburban areas. Indoor and outdoor environments",
+      "distribution": "Asia, Americas, Africa, Oceania"
+    },
+    {
+      "species_id": "aedes_aegypti",
+      "language_code": "ru",
+      "common_name": "Комар желтой лихорадки",
+      "description": "Основной переносчик лихорадки денге, желтой лихорадки, чикунгуньи и вируса Зика. Отличается белыми отметинами на ногах и рисунком в форме лиры на груди. Активен преимущественно днем.",
+      "habitat": "Искусственные контейнеры. Городские и пригородные зоны. Крытые и открытые пространства",
+      "distribution": "Азия, Америка, Африка, Океания"
+    },
+    {
+      "species_id": "aedes_aegypti",
+      "language_code": "es",
+      "common_name": "Mosquito de la Fiebre Amarilla",
+      "description": "Vector principal de la fiebre del dengue, fiebre amarilla, chikungunya y el virus del Zika. Reconocible por sus marcas blancas en las patas y un patrón en forma de lira en su tórax. Activo mayormente durante el día.",
+      "habitat": "Recipientes artificiales. Zonas urbanas y suburbanas. Ambientes interiores y exteriores",
+      "distribution": "Asia, Américas, África, Oceanía"
+    },
+    {
+      "species_id": "aedes_canadensis",
+      "language_code": "en",
+      "common_name": "Canada Mosquito",
+      "description": "A mosquito species found mainly in North America. Known to bite humans and animals. Can be a secondary vector for Eastern equine encephalitis virus.",
+      "habitat": "Wooded areas. Swamps. Temporary pools",
+      "distribution": "Americas"
+    },
+    {
+      "species_id": "aedes_canadensis",
+      "language_code": "ru",
+      "common_name": "Канадский комар",
+      "description": "Вид комаров, встречающийся в основном в Северной Америке. Известен укусами людей и животных. Может быть вторичным переносчиком вируса восточного конского энцефалита.",
+      "habitat": "Лесные массивы. Болота. Временные водоемы",
+      "distribution": "Америка"
+    },
+    {
+      "species_id": "aedes_canadensis",
+      "language_code": "es",
+      "common_name": "Mosquito de los Bosques",
+      "description": "Una especie de mosquito que se encuentra principalmente en el este de América del Norte. Pica agresivamente durante el día y puede ser vector de varias enfermedades.",
+      "habitat": "Áreas boscosas. Pantanos. Charcos temporales",
+      "distribution": "Américas"
+    },
+    {
+      "species_id": "aedes_dorsalis",
+      "language_code": "en",
+      "common_name": "Coastal Rock Pool Mosquito",
+      "description": "Common in coastal regions, breeds in brackish water pools. Known as a nuisance biter mostly active during twilight and dawn.",
+      "habitat": "Coastal rock pools. Brackish water pools. Salt marshes",
+      "distribution": "Americas, Europe"
+    },
+    {
+      "species_id": "aedes_dorsalis",
+      "language_code": "ru",
+      "common_name": "Береговой реликтовый комар",
+      "description": "Распространен в прибрежных районах, размножается в солоноватых лужах. Известен как назойливый комар, активный преимущественно в сумерках и на рассвете.",
+      "habitat": "Болота с солоноватой водой. Прибрежные каменные лужи. Соленые болота",
+      "distribution": "Америка, Европа"
+    },
+    {
+      "species_id": "aedes_dorsalis",
+      "language_code": "es",
+      "common_name": "Mosquito de Marisma Salina",
+      "description": "Común en regiones costeras, se cría en charcos de agua salobre. Conocido como un picador molesto, activo principalmente durante el crepúsculo y el amanecer.",
+      "habitat": "Charcos rocosos costeros. Pozas de agua salobre. Marismas salinas",
+      "distribution": "Américas, Europa"
+    },
+    {
+      "species_id": "aedes_geniculatus",
+      "language_code": "en",
+      "common_name": "Treehole Mosquito",
+      "description": "Found commonly in Europe, breeds in tree holes and artificial containers. Not a major vector for human diseases but can be locally abundant.",
+      "habitat": "Tree holes. Artificial containers. Wooded areas",
+      "distribution": "Europe"
+    },
+    {
+      "species_id": "aedes_geniculatus",
+      "language_code": "ru",
+      "common_name": "Комар дупляр",
+      "description": "Распространен в Европе, размножается в дуплах деревьев и искусственных контейнерах. Не является основным переносчиком болезней человека, но может быть локально многочисленным.",
+      "habitat": "Дупла деревьев. Искусственные контейнеры. Лесные массивы",
+      "distribution": "Европа"
+    },
+    {
+      "species_id": "aedes_geniculatus",
+      "language_code": "es",
+      "common_name": "Mosquito de los Huecos de Árbol",
+      "description": "Se encuentra comúnmente en Europa, se cría en huecos de árboles y recipientes artificiales. No es un vector importante de enfermedades humanas, pero puede ser abundante localmente.",
+      "habitat": "Huecos de árboles. Recipientes artificiales. Zonas boscosas",
+      "distribution": "Europa"
+    },
+    {
+      "species_id": "aedes_koreicus",
+      "language_code": "en",
+      "common_name": "Korean Bush Mosquito",
+      "description": "Originally from East Asia, invasive in Europe. Potential vector for some arboviruses. Breeds in artificial and natural containers.",
+      "habitat": "Artificial containers. Tree holes. Urban and suburban areas",
+      "distribution": "Asia, Europe"
+    },
+    {
+      "species_id": "aedes_koreicus",
+      "language_code": "ru",
+      "common_name": "Корейский кустовой комар",
+      "description": "Родом из Восточной Азии, инвазивный вид в Европе. Потенциальный переносчик некоторых арбовирусов. Размножается в искусственных и природных контейнерах.",
+      "habitat": "Искусственные контейнеры. Дупла деревьев. Городские и пригородные зоны",
+      "distribution": "Азия, Европа"
+    },
+    {
+      "species_id": "aedes_koreicus",
+      "language_code": "es",
+      "common_name": "Mosquito Coreano",
+      "description": "Originario de Asia Oriental, es invasor en Europa. Vector potencial de algunos arbovirus. Se cría en recipientes artificiales y naturales.",
+      "habitat": "Recipientes artificiales. Huecos de árboles. Zonas urbanas y suburbanas",
+      "distribution": "Asia, Europa"
+    },
+    {
+      "species_id": "aedes_triseriatus",
+      "language_code": "en",
+      "common_name": "Eastern Treehole Mosquito",
+      "description": "Native to North America, breeds in tree holes. Primary vector of La Crosse encephalitis virus. Bites during the day, especially in wooded areas.",
+      "habitat": "Tree holes. Wooded areas. Artificial containers",
+      "distribution": "Americas"
+    },
+    {
+      "species_id": "aedes_triseriatus",
+      "language_code": "ru",
+      "common_name": "Восточный дупляр",
+      "description": "Родом из Северной Америки, размножается в дуплах деревьев. Основной переносчик вируса энцефалита Ла-Кросс. Кусает преимущественно днем, особенно в лесных районах.",
+      "habitat": "Дупла деревьев. Лесные массивы. Искусственные контейнеры",
+      "distribution": "Америка"
+    },
+    {
+      "species_id": "aedes_triseriatus",
+      "language_code": "es",
+      "common_name": "Mosquito de los Huecos de Árbol del Este",
+      "description": "Nativo de América del Norte, se cría en huecos de árboles. Vector primario del virus de la encefalitis de La Crosse. Pica durante el día, especialmente en zonas boscosas.",
+      "habitat": "Huecos de árboles. Zonas boscosas. Recipientes artificiales",
+      "distribution": "Américas"
+    },
+    {
+      "species_id": "aedes_vexans",
+      "language_code": "en",
+      "common_name": "Inland Floodwater Mosquito",
+      "description": "One of the most widespread mosquitoes worldwide. Breeds in temporary pools after rain. Can transmit several arboviruses such as West Nile virus.",
+      "habitat": "Floodplains. Temporary pools. Wetlands",
+      "distribution": "Asia, Europe, Americas, Africa"
+    },
+    {
+      "species_id": "aedes_vexans",
+      "language_code": "ru",
+      "common_name": "Комар заливных луж",
+      "description": "Один из наиболее широко распространенных видов комаров. Размножается во временных водоемах после дождя. Может переносить несколько арбовирусов, включая вирус Западного Нила.",
+      "habitat": "Поймы рек. Временные водоемы. Болотистые места",
+      "distribution": "Азия, Европа, Америка, Африка"
+    },
+    {
+      "species_id": "aedes_vexans",
+      "language_code": "es",
+      "common_name": "Mosquito de Inundación Interior",
+      "description": "Uno de los mosquitos más extendidos del mundo. Se cría en charcos temporales después de la lluvia. Puede transmitir varios arbovirus como el virus del Nilo Occidental.",
+      "habitat": "Llanuras aluviales. Charcos temporales. Humedales",
+      "distribution": "Asia, Europa, Américas, África"
+    },
+    {
+      "species_id": "anopheles_arabiensis",
+      "language_code": "en",
+      "common_name": "Arabian Malaria Mosquito",
+      "description": "Important malaria vector in Africa and the Middle East. Prefers sunlit temporary pools and bites both indoors and outdoors.",
+      "habitat": "Temporary pools. Irrigated fields. Puddles",
+      "distribution": "Africa, Sub-Saharan Africa, Asia"
+    },
+    {
+      "species_id": "anopheles_arabiensis",
+      "language_code": "ru",
+      "common_name": "Арабский малярийный комар",
+      "description": "Важный переносчик малярии в Африке и на Ближнем Востоке. Предпочитает солнечные временные водоемы, кусает как внутри помещений, так и на открытом воздухе.",
+      "habitat": "Временные лужи. Орошаемые поля. Лужи",
+      "distribution": "Африка, Африка к югу от Сахары, Азия"
+    },
+    {
+      "species_id": "anopheles_arabiensis",
+      "language_code": "es",
+      "common_name": "Mosquito de la Malaria Árabe",
+      "description": "Importante vector de la malaria en África y Oriente Medio. Prefiere charcos temporales soleados y pica tanto en interiores como en exteriores.",
+      "habitat": "Charcos temporales. Campos de regadío. Pozas",
+      "distribution": "África, África Subsahariana, Asia"
+    },
+    {
+      "species_id": "anopheles_freeborni",
+      "language_code": "en",
+      "common_name": "Western Malaria Mosquito",
+      "description": "Key malaria vector in the western United States. Prefers to breed in clean, sunlit, slow-moving water.",
+      "habitat": "Slow-moving water. Irrigation ditches. Rice fields",
+      "distribution": "Americas"
+    },
+    {
+      "species_id": "anopheles_freeborni",
+      "language_code": "ru",
+      "common_name": "Западный малярийный комар",
+      "description": "Основной переносчик малярии на западе США. Предпочитает размножаться в чистых, солнечных, медленно текущих водоемах.",
+      "habitat": "Медленно текущие воды. Ирригационные канавы. Рисовые поля",
+      "distribution": "Америка"
+    },
+    {
+      "species_id": "anopheles_freeborni",
+      "language_code": "es",
+      "common_name": "Mosquito de la Malaria Occidental",
+      "description": "Vector clave de la malaria en el oeste de los Estados Unidos. Prefiere reproducirse en aguas limpias, soleadas y de movimiento lento.",
+      "habitat": "Aguas de movimiento lento. Zanjas de riego. Campos de arroz",
+      "distribution": "Américas"
+    },
+    {
+      "species_id": "anopheles_sinensis",
+      "language_code": "en",
+      "common_name": "Chinese Malaria Mosquito",
+      "description": "Major malaria vector in East Asia. Breeds in rice paddies and slow-moving clean water.",
+      "habitat": "Rice paddies. Slow-flowing rivers. Lakes and marshes",
+      "distribution": "Asia"
+    },
+    {
+      "species_id": "anopheles_sinensis",
+      "language_code": "ru",
+      "common_name": "Китайский малярийный комар",
+      "description": "Главный переносчик малярии в Восточной Азии. Размножается на рисовых полях и в чистых медленных водоемах.",
+      "habitat": "Рисовые поля. Медленно текущие реки. Озера и болота",
+      "distribution": "Азия"
+    },
+    {
+      "species_id": "anopheles_sinensis",
+      "language_code": "es",
+      "common_name": "Mosquito de la Malaria Chino",
+      "description": "Principal vector de la malaria en Asia Oriental. Se cría en arrozales y en aguas limpias de movimiento lento.",
+      "habitat": "Arrozales. Ríos de corriente lenta. Lagos y marismas",
+      "distribution": "Asia"
+    },
+    {
+      "species_id": "culex_inatomii",
+      "language_code": "en",
+      "common_name": "Culex inatomii",
+      "description": "A lesser-known Culex species with limited documented vector status. Like other Culex mosquitoes, it likely breeds in stagnant water and may feed on birds or mammals.",
+      "habitat": "Stagnant water bodies. Marshes. Artificial containers",
+      "distribution": "Asia"
+    },
+    {
+      "species_id": "culex_inatomii",
+      "language_code": "ru",
+      "common_name": "Culex inatomii",
+      "description": "Менее изученный вид Culex с ограниченным статусом переносчика. Подобно другим комарам рода Culex, вероятно, размножается в стоячей воде и может питаться кровью птиц или млекопитающих.",
+      "habitat": "Стоячие водоемы. Болота. Искусственные контейнеры",
+      "distribution": "Азия"
+    },
+    {
+      "species_id": "culex_inatomii",
+      "language_code": "es",
+      "common_name": "Culex inatomii",
+      "description": "Una especie de Culex menos conocida con un estado de vector poco documentado. Como otros mosquitos Culex, probablemente se cría en aguas estancadas y puede alimentarse de aves o mamíferos.",
+      "habitat": "Cuerpos de agua estancada. Marismas. Recipientes artificiales",
+      "distribution": "Asia"
+    },
+    {
+      "species_id": "culex_pipiens",
+      "language_code": "en",
+      "common_name": "Common House Mosquito",
+      "description": "A widespread mosquito species known to vector West Nile virus, St. Louis encephalitis, and avian malaria. Prefers urban environments and breeds in stagnant, organically rich water.",
+      "habitat": "Stagnant, organically rich water. Urban and suburban areas. Sewers and drainage ditches",
+      "distribution": "Asia, Europe, Americas, Africa, Oceania"
+    },
+    {
+      "species_id": "culex_pipiens",
+      "language_code": "ru",
+      "common_name": "Обыкновенный комар",
+      "description": "Широко распространенный вид комаров, переносит вирус Западного Нила, энцефалит Святого Луиса и птичий малярийный плазмодий. Предпочитает городские условия и размножается в стоячей воде с органическими веществами.",
+      "habitat": "Стоячая вода с органическими веществами. Городские и пригородные зоны. Канализации и водоотводные канавы",
+      "distribution": "Азия, Европа, Америка, Африка, Океания"
+    },
+    {
+      "species_id": "culex_pipiens",
+      "language_code": "es",
+      "common_name": "Mosquito Común",
+      "description": "Una especie de mosquito muy extendida, conocida por ser vector del virus del Nilo Occidental, la encefalitis de San Luis y la malaria aviar. Prefiere los entornos urbanos y se cría en aguas estancadas y ricas en materia orgánica.",
+      "habitat": "Aguas estancadas ricas en materia orgánica. Zonas urbanas y suburbanas. Alcantarillas y zanjas de drenaje",
+      "distribution": "Asia, Europa, Américas, África, Oceanía"
+    },
+    {
+      "species_id": "culex_quinquefasciatus",
+      "language_code": "en",
+      "common_name": "Southern House Mosquito",
+      "description": "A major vector of West Nile virus, St. Louis encephalitis, and filariasis. Frequently breeds in organically rich, polluted water including sewers and ditches.",
+      "habitat": "Sewers. Ditches. Agricultural seepage pits",
+      "distribution": "Asia, Americas, Africa, Oceania"
+    },
+    {
+      "species_id": "culex_quinquefasciatus",
+      "language_code": "ru",
+      "common_name": "Южный домовой комар",
+      "description": "Основной переносчик вируса Западного Нила, энцефалита Святого Луиса и филярии. Часто размножается в загрязненной органикой воде, включая канализации и канавы.",
+      "habitat": "Канализации. Канавы. Сельскохозяйственные сточные ямы",
+      "distribution": "Азия, Америка, Африка, Океания"
+    },
+    {
+      "species_id": "culex_quinquefasciatus",
+      "language_code": "es",
+      "common_name": "Mosquito Doméstico del Sur",
+      "description": "Un importante vector del virus del Nilo Occidental, la encefalitis de San Luis y la filariasis. Se reproduce frecuentemente en aguas contaminadas y ricas en materia orgánica, incluyendo alcantarillas y zanjas.",
+      "habitat": "Alcantarillas. Zanjas. Pozos de infiltración agrícola",
+      "distribution": "Asia, Américas, África, Oceanía"
+    },
+    {
+      "species_id": "culex_tritaeniorhynchus",
+      "language_code": "en",
+      "common_name": "Japanese Encephalitis Mosquito",
+      "description": "Primary vector of Japanese encephalitis virus across Asia. Breeds mostly in rice paddies and prefers organically rich stagnant water.",
+      "habitat": "Rice paddies. Flooded fields. Organically rich stagnant water",
+      "distribution": "Asia"
+    },
+    {
+      "species_id": "culex_tritaeniorhynchus",
+      "language_code": "ru",
+      "common_name": "Комар японского энцефалита",
+      "description": "Основной переносчик вируса японского энцефалита в Азии. Размножается преимущественно на рисовых полях и предпочитает стоячую воду с органическими веществами.",
+      "habitat": "Рисовые поля. Затопленные поля. Стоячие воды с органикой",
+      "distribution": "Азия"
+    },
+    {
+      "species_id": "culex_tritaeniorhynchus",
+      "language_code": "es",
+      "common_name": "Mosquito de la Encefalitis Japonesa",
+      "description": "Vector principal del virus de la encefalitis japonesa en Asia. Se cría principalmente en arrozales y prefiere aguas estancadas ricas en materia orgánica.",
+      "habitat": "Arrozales. Campos inundados. Aguas estancadas ricas en materia orgánica",
+      "distribution": "Asia"
+    },
+    {
+      "species_id": "culiseta_annulata",
+      "language_code": "en",
+      "common_name": "Ringed Mosquito",
+      "description": "Common in temperate regions of Europe and Asia. Found in cooler habitats, breeding in large bodies of water or marshes. Not a significant vector for human diseases.",
+      "habitat": "Marshes. Large freshwaters. Cool temperate regions",
+      "distribution": "Europe, Asia"
+    },
+    {
+      "species_id": "culiseta_annulata",
+      "language_code": "ru",
+      "common_name": "Кольчатый комар",
+      "description": "Распространен в умеренных зонах Европы и Азии. Встречается в прохладных местообитаниях, размножается в крупных водоемах и болотах. Не является значимым переносчиком заболеваний человека.",
+      "habitat": "Болота. Крупные пресноводные водоемы. Прохладные умеренные районы",
+      "distribution": "Европа, Азия"
+    },
+    {
+      "species_id": "culiseta_annulata",
+      "language_code": "es",
+      "common_name": "Mosquito Anillado",
+      "description": "Común en regiones templadas de Europa y Asia. Se encuentra en hábitats más frescos, reproduciéndose en grandes masas de agua o marismas. No es un vector significativo de enfermedades humanas.",
+      "habitat": "Marismas. Grandes cuerpos de agua dulce. Regiones templadas y frescas",
+      "distribution": "Europa, Asia"
+    },
+    {
+      "species_id": "culiseta_longiareolata",
+      "language_code": "en",
+      "common_name": "Striped Mosquito",
+      "description": "Found in Europe, Asia, and parts of Africa. Breeds in stagnant and often polluted water. Not a known major vector of human pathogens but may play a role in local arbovirus cycles.",
+      "habitat": "Stagnant water. Polluted ponds. Marshes",
+      "distribution": "Europe, Asia, Africa"
+    },
+    {
+      "species_id": "culiseta_longiareolata",
+      "language_code": "ru",
+      "common_name": "Полосатый комар",
+      "description": "Распространен в Европе, Азии и частях Африки. Размножается в стоячей и зачастую загрязненной воде. Не является известным основным переносчиком заболеваний человека, но может участвовать в локальных циклах арбовирусов.",
+      "habitat": "Стоячая вода. Загрязненные пруды. Болота",
+      "distribution": "Европа, Азия, Африка"
+    },
+    {
+      "species_id": "culiseta_longiareolata",
+      "language_code": "es",
+      "common_name": "Mosquito Rayado",
+      "description": "Se encuentra en Europa, Asia y partes de África. Se cría en aguas estancadas y a menudo contaminadas. No es un vector principal conocido de patógenos humanos, pero puede jugar un papel en los ciclos locales de arbovirus.",
+      "habitat": "Aguas estancadas. Estanques contaminados. Marismas",
+      "distribution": "Europa, Asia, África"
+    }
+  ],
+  "diseases": [
+    {
+      "id": "dengue_fever",
+      "name_key": "dengue_fever",
+      "image_url": "assets/images/diseases/dengue_fever.jpg"
+    },
+    {
+      "id": "malaria",
+      "name_key": "malaria",
+      "image_url": "assets/images/diseases/malaria.jpg"
+    },
+    {
+      "id": "filariasis",
+      "name_key": "filariasis",
+      "image_url": "assets/images/diseases/filariasis.jpg"
+    },
+    {
+      "id": "japanese_encephalitis",
+      "name_key": "japanese_encephalitis",
+      "image_url": "assets/images/diseases/japanese_encephalitis.jpg"
+    },
+    {
+      "id": "west_nile_virus",
+      "name_key": "west_nile_virus",
+      "image_url": "assets/images/diseases/west_nile_virus.jpg"
+    },
+    {
+      "id": "eastern_equine_encephalitis",
+      "name_key": "eastern_equine_encephalitis",
+      "image_url": "assets/images/diseases/eastern_equine_encephalitis.jpg"
+    },
+    {
+      "id": "chikungunya",
+      "name_key": "chikungunya",
+      "image_url": "assets/images/diseases/chikungunya.jpg"
+    },
+    {
+      "id": "rift_valley_fever",
+      "name_key": "rift_valley_fever",
+      "image_url": "assets/images/diseases/rift_valley_fever.jpg"
+    },
+    {
+      "id": "st_louis_encephalitis",
+      "name_key": "st_louis_encephalitis",
+      "image_url": "assets/images/diseases/st_louis_encephalitis.jpg"
+    },
+    {
+      "id": "avian_malaria",
+      "name_key": "avian_malaria",
+      "image_url": "assets/images/diseases/avian_malaria.jpg"
+    },
+    {
+      "id": "yellow_fever",
+      "name_key": "yellow_fever",
+      "image_url": "assets/images/diseases/yellow_fever.jpg"
+    },
+    {
+      "id": "la_crosse_encephalitis",
+      "name_key": "la_crosse_encephalitis",
+      "image_url": "assets/images/diseases/la_crosse_encephalitis.jpg"
+    },
+    {
+      "id": "zika_virus",
+      "name_key": "zika_virus",
+      "image_url": "assets/images/diseases/zika_virus.jpg"
+    }
+  ],
+  "disease_translations": [
+    {
+      "disease_id": "dengue_fever",
+      "language_code": "en",
+      "name": "Dengue Fever",
+      "description": "Viral infection causing high fever, severe headache, and joint/muscle pain.",
+      "symptoms": "High fever, severe headache, pain behind the eyes, joint and muscle pain, rash, mild bleeding",
+      "treatment": "No specific treatment. Rest, fluids, pain relievers (avoiding aspirin). Severe cases require hospitalization.",
+      "prevention": "Avoid mosquito bites, eliminate breeding sites, use repellents, wear protective clothing",
+      "prevalence": "Tropical and subtropical regions, affecting up to 400 million people annually"
+    },
+    {
+      "disease_id": "dengue_fever",
+      "language_code": "ru",
+      "name": "Лихорадка денге",
+      "description": "Вирусная инфекция, вызывающая высокую температуру, сильную головную боль и боли в суставах/мышцах.",
+      "symptoms": "Высокая температура, сильная головная боль, боль за глазами, боли в суставах и мышцах, сыпь, легкое кровотечение",
+      "treatment": "Специфического лечения нет. Покой, обильное питье, обезболивающие (избегая аспирина). Тяжелые случаи требуют госпитализации.",
+      "prevention": "Избегать укусов комаров, уничтожать места их размножения, использовать репелленты, носить защитную одежду",
+      "prevalence": "Тропические и субтропические регионы, ежегодно поражает до 400 миллионов человек"
+    },
+    {
+      "disease_id": "dengue_fever",
+      "language_code": "es",
+      "name": "Fiebre del Dengue",
+      "description": "Infección vírica que causa fiebre alta, dolor de cabeza intenso y dolor en articulaciones/músculos.",
+      "symptoms": "Fiebre alta, dolor de cabeza severo, dolor detrás de los ojos, dolor en articulaciones y músculos, sarpullido, sangrado leve.",
+      "treatment": "Sin tratamiento específico. Reposo, líquidos, analgésicos (evitando la aspirina). Los casos graves requieren hospitalización.",
+      "prevention": "Evitar las picaduras de mosquitos, eliminar los criaderos, usar repelentes, usar ropa protectora.",
+      "prevalence": "Regiones tropicales y subtropicales, afectando hasta 400 millones de personas anualmente."
+    },
+    {
+      "disease_id": "malaria",
+      "language_code": "en",
+      "name": "Malaria",
+      "description": "Parasitic infection causing cycles of fever, chills, and sweating.",
+      "symptoms": "Fever, chills, sweating, headache, nausea, vomiting, body aches, general malaise",
+      "treatment": "Antimalarial drugs based on the type of malaria and severity. Early treatment is essential.",
+      "prevention": "Antimalarial medications, insecticide-treated bed nets, indoor residual spraying, eliminating breeding sites",
+      "prevalence": "Tropical and subtropical regions, particularly in Africa, with over 200 million cases annually"
+    },
+    {
+      "disease_id": "malaria",
+      "language_code": "ru",
+      "name": "Малярия",
+      "description": "Паразитарная инфекция, вызывающая циклы лихорадки, озноба и потоотделения.",
+      "symptoms": "Лихорадка, озноб, потливость, головная боль, тошнота, рвота, ломота в теле, общее недомогание",
+      "treatment": "Противомалярийные препараты в зависимости от типа малярии и тяжести заболевания. Крайне важно раннее лечение.",
+      "prevention": "Противомалярийные препараты, обработанные инсектицидами сетки для кроватей, опрыскивание помещений инсектицидами, уничтожение мест размножения",
+      "prevalence": "Тропические и субтропические регионы, особенно в Африке, с более чем 200 миллионами случаев в год"
+    },
+    {
+      "disease_id": "malaria",
+      "language_code": "es",
+      "name": "Malaria",
+      "description": "Infección parasitaria que causa ciclos de fiebre, escalofríos y sudoración.",
+      "symptoms": "Fiebre, escalofríos, sudoración, dolor de cabeza, náuseas, vómitos, dolores corporales, malestar general.",
+      "treatment": "Fármacos antipalúdicos según el tipo de malaria y la gravedad. El tratamiento temprano es esencial.",
+      "prevention": "Medicamentos antipalúdicos, mosquiteros tratados con insecticida, fumigación residual de interiores, eliminación de criaderos.",
+      "prevalence": "Regiones tropicales y subtropicales, particularmente en África, con más de 200 millones de casos anuales."
+    },
+    {
+      "disease_id": "filariasis",
+      "language_code": "en",
+      "name": "Filariasis",
+      "description": "Parasitic infection caused by thread-like nematode worms transmitted by mosquitoes, primarily affecting the lymphatic system.",
+      "symptoms": "Swelling of limbs or genitals, fever, chills, lymph node swelling, recurrent fevers, skin thickening (elephantiasis)",
+      "treatment": "Antiparasitic medications (diethylcarbamazine, ivermectin, albendazole), management of symptoms, and lymphedema care.",
+      "prevention": "Bed nets, insect repellents, environmental control of mosquitoes, and mass drug administration in endemic areas.",
+      "prevalence": "Primarily tropical and subtropical regions; more than 120 million people infected globally; leading cause of disability."
+    },
+    {
+      "disease_id": "filariasis",
+      "language_code": "ru",
+      "name": "Филяриатоз",
+      "description": "Паразитарная инфекция, вызываемая нитевидными нематодами, передаваемыми комарами, поражает главным образом лимфатическую систему.",
+      "symptoms": "Отек конечностей или гениталий, лихорадка, озноб, увеличение лимфатических узлов, рецидивирующая лихорадка, утолщение кожи (слоновость)",
+      "treatment": "Антипаразитарные препараты (диэтилкарбамазин, ивермектин, альбендазол), симптоматическая терапия; уход за лимфедемой.",
+      "prevention": "Использование москитных сеток, репеллентов, борьба с комарами и массовая профилактическая терапия в эндемичных регионах.",
+      "prevalence": "В основном тропические и субтропические регионы; более 120 миллионов инфицированных во всем мире; ведущая причина инвалидизации."
+    },
+    {
+      "disease_id": "filariasis",
+      "language_code": "es",
+      "name": "Filariasis",
+      "description": "Infección parasitaria causada por gusanos nematodos filiformes transmitidos por mosquitos, que afecta principalmente al sistema linfático.",
+      "symptoms": "Hinchazón de extremidades o genitales, fiebre, escalofríos, inflamación de ganglios linfáticos, fiebres recurrentes, engrosamiento de la piel (elefantiasis).",
+      "treatment": "Medicamentos antiparasitarios (dietilcarbamazina, ivermectina, albendazol), manejo de los síntomas y cuidado del linfedema.",
+      "prevention": "Mosquiteros, repelentes de insectos, control ambiental de mosquitos y administración masiva de medicamentos en áreas endémicas.",
+      "prevalence": "Principalmente regiones tropicales y subtropicales; más de 120 millones de personas infectadas a nivel mundial; principal causa de discapacidad."
+    },
+    {
+      "disease_id": "japanese_encephalitis",
+      "language_code": "en",
+      "name": "Japanese Encephalitis",
+      "description": "A viral brain infection caused by Japanese encephalitis virus, mainly affecting children in Asia and transmitted by Culex mosquitoes.",
+      "symptoms": "Fever, headache, vomiting, confusion, seizures, paralysis, coma; many cases are mild or asymptomatic.",
+      "treatment": "No specific treatment; supportive hospital care including fluids, medications for fever and pain, and seizure control.",
+      "prevention": "Vaccination, mosquito bite prevention, and mosquito control measures.",
+      "prevalence": "Southeast and East Asia, Western Pacific; 68,000 symptomatic cases and 17,000 deaths per year."
+    },
+    {
+      "disease_id": "japanese_encephalitis",
+      "language_code": "ru",
+      "name": "Японский энцефалит",
+      "description": "Вирусная инфекция головного мозга, вызываемая вирусом японского энцефалита, в основном у детей в Азии, передается комарами рода Culex.",
+      "symptoms": "Лихорадка, головная боль, рвота, спутанность сознания, судороги, паралич, кома; многие случаи протекают бессимптомно.",
+      "treatment": "Специфического лечения нет; поддерживающая терапия в стационаре, включая инфузии, препараты от жара, боли и судорог.",
+      "prevention": "Вакцинация, предотвращение укусов комаров, меры по их уничтожению.",
+      "prevalence": "Юго-Восточная и Восточная Азия, западная часть Тихого океана; 68,000 клинических случаев и 17,000 смертей в год."
+    },
+    {
+      "disease_id": "japanese_encephalitis",
+      "language_code": "es",
+      "name": "Encefalitis Japonesa",
+      "description": "Infección cerebral viral causada por el virus de la encefalitis japonesa, que afecta principalmente a niños en Asia y es transmitida por mosquitos Culex.",
+      "symptoms": "Fiebre, dolor de cabeza, vómitos, confusión, convulsiones, parálisis, coma; muchos casos son leves o asintomáticos.",
+      "treatment": "Sin tratamiento específico; cuidados de apoyo en el hospital que incluyen líquidos, medicamentos para la fiebre y el dolor, y control de las convulsiones.",
+      "prevention": "Vacunación, prevención de picaduras de mosquitos y medidas de control de mosquitos.",
+      "prevalence": "Sudeste y este de Asia, Pacífico occidental; 68,000 casos sintomáticos y 17,000 muertes al año."
+    },
+    {
+      "disease_id": "west_nile_virus",
+      "language_code": "en",
+      "name": "West Nile Virus",
+      "description": "Flavivirus infection transmitted by Culex mosquitoes, causing febrile illness or neuroinvasive disease.",
+      "symptoms": "Most are asymptomatic; some develop fever, headache, joint/muscle pain, rash; severe cases can lead to encephalitis, meningitis, paralysis, or death.",
+      "treatment": "No specific treatment; supportive care for symptoms. Severe cases may require hospitalization and intensive monitoring.",
+      "prevention": "Mosquito bite prevention, vector control, personal protective measures (repellents, clothing), window and door screens.",
+      "prevalence": "Found globally (Americas, Africa, Europe, Asia, Middle East); leading mosquito-borne disease in U.S.; incidence varies by year."
+    },
+    {
+      "disease_id": "west_nile_virus",
+      "language_code": "ru",
+      "name": "Вирус Западного Нила",
+      "description": "Инфекция Flavivirus, передаваемая комарами рода Culex, вызывает лихорадку или невроинвазивные формы заболевания.",
+      "symptoms": "Большинство бессимптомно; возможны лихорадка, головная боль, боли в суставах и мышцах, сыпь; тяжелые формы — энцефалит, менингит, паралич, смерть.",
+      "treatment": "Специфического лечения нет; поддерживающая терапия симптомов. При тяжелых формах — госпитализация и интенсивное наблюдение.",
+      "prevention": "Профилактика укусов комаров, борьба с переносчиками, индивидуальная защита (репелленты, одежда), москитные сетки.",
+      "prevalence": "Распространен по всему миру (Америка, Африка, Европа, Азия, Ближний Восток); ведущая комариная инфекция в США; заболеваемость по годам различна."
+    },
+    {
+      "disease_id": "west_nile_virus",
+      "language_code": "es",
+      "name": "Virus del Nilo Occidental",
+      "description": "Infección por Flavivirus transmitida por mosquitos Culex, que causa enfermedad febril o enfermedad neuroinvasiva.",
+      "symptoms": "La mayoría son asintomáticos; algunos desarrollan fiebre, dolor de cabeza, dolor articular/muscular, sarpullido; los casos graves pueden provocar encefalitis, meningitis, parálisis o la muerte.",
+      "treatment": "Sin tratamiento específico; cuidados de apoyo para los síntomas. Los casos graves pueden requerir hospitalización y monitoreo intensivo.",
+      "prevention": "Prevención de picaduras de mosquitos, control de vectores, medidas de protección personal (repelentes, ropa), mosquiteros en ventanas y puertas.",
+      "prevalence": "Se encuentra en todo el mundo (Américas, África, Europa, Asia, Oriente Medio); principal enfermedad transmitida por mosquitos en EE. UU.; la incidencia varía según el año."
+    },
+    {
+      "disease_id": "eastern_equine_encephalitis",
+      "language_code": "en",
+      "name": "Eastern Equine Encephalitis",
+      "description": "Rare, but severe viral infection caused by Eastern Equine Encephalitis virus, spread by mosquitoes in North, Central, and South America.",
+      "symptoms": "Fever, headache, nausea, vomiting, muscle and joint pain; severe cases progress to neurological symptoms — confusion, seizures, paralysis, coma.",
+      "treatment": "No specific antiviral treatment; supportive hospital care is crucial.",
+      "prevention": "Mosquito control, bite prevention, insect repellents, avoiding outdoor activities at dusk/dawn where risk is high.",
+      "prevalence": "Rare, mainly in the USA (Atlantic and Gulf Coast); outbreaks sporadic; high fatality (30–75%)."
+    },
+    {
+      "disease_id": "eastern_equine_encephalitis",
+      "language_code": "ru",
+      "name": "Восточный лошадиный энцефалит",
+      "description": "Редкая, но тяжелая вирусная инфекция, вызываемая вирусом восточного лошадиного энцефалита, передается комарами в обеих Америках.",
+      "symptoms": "Лихорадка, головная боль, тошнота, рвота, боли в мышцах и суставах; тяжелые случаи — неврологические нарушения, спутанность сознания, судороги, паралич, кома.",
+      "treatment": "Специфической терапии нет; необходима поддерживающая госпитальная помощь.",
+      "prevention": "Борьба с комарами, профилактика укусов — репелленты, ограничение активности на открытом воздухе на рассвете и в сумерках.",
+      "prevalence": "Редко, преимущественно в США (атлантическое и заливное побережье); вспышки спорадические, высокая смертность (30–75%)."
+    },
+    {
+      "disease_id": "eastern_equine_encephalitis",
+      "language_code": "es",
+      "name": "Encefalitis Equina del Este",
+      "description": "Infección viral rara pero grave causada por el virus de la Encefalitis Equina del Este, propagada por mosquitos en América del Norte, Central y del Sur.",
+      "symptoms": "Fiebre, dolor de cabeza, náuseas, vómitos, dolor muscular y articular; los casos graves progresan a síntomas neurológicos: confusión, convulsiones, parálisis, coma.",
+      "treatment": "Sin tratamiento antiviral específico; el cuidado hospitalario de apoyo es crucial.",
+      "prevention": "Control de mosquitos, prevención de picaduras, repelentes de insectos, evitar actividades al aire libre al anochecer/amanecer donde el riesgo es alto.",
+      "prevalence": "Rara, principalmente en EE. UU. (costa atlántica y del Golfo); brotes esporádicos; alta letalidad (30–75%)."
+    },
+    {
+      "disease_id": "chikungunya",
+      "language_code": "en",
+      "name": "Chikungunya",
+      "description": "Arboviral infection transmitted by Aedes mosquitoes, characterized by fever and severe joint pain.",
+      "symptoms": "Sudden fever, severe joint pain (often hands and feet, may become chronic), muscle pain, headache, fatigue, rash.",
+      "treatment": "No specific antiviral; supportive care with rest, fluids, analgesics, and anti-inflammatory medications.",
+      "prevention": "Mosquito avoidance, repellents, long-sleeved clothing, elimination of breeding sites; some vaccines now available but not in widespread use.",
+      "prevalence": "Outbreaks in Africa, Asia, Americas; endemic in many tropical versus subtropical regions; millions affected."
+    },
+    {
+      "disease_id": "chikungunya",
+      "language_code": "ru",
+      "name": "Чикунгунья",
+      "description": "Арбовирусная инфекция, передаваемая комарами рода Aedes, характеризуется лихорадкой и острыми болями в суставах.",
+      "symptoms": "Внезапная лихорадка, сильные боли в суставах (часто кистей и стоп, могут стать хроническими), мышечные боли, головная боль, усталость, сыпь.",
+      "treatment": "Нет специфических препаратов; покой, жидкости, обезболивающие и противовоспалительные препараты.",
+      "prevention": "Предотвращение укусов комаров, репелленты, защитная одежда, уничтожение мест размножения; существуют вакцины, но пока применяются ограниченно.",
+      "prevalence": "Вспышки в Африке, Азии, Америке; является эндемичной во многих тропических и субтропических регионах; миллионы затронутых."
+    },
+    {
+      "disease_id": "chikungunya",
+      "language_code": "es",
+      "name": "Chikungunya",
+      "description": "Infección arboviral transmitida por mosquitos Aedes, caracterizada por fiebre y dolor articular severo.",
+      "symptoms": "Fiebre repentina, dolor articular severo (a menudo en manos y pies, puede volverse crónico), dolor muscular, dolor de cabeza, fatiga, sarpullido.",
+      "treatment": "Sin antiviral específico; cuidados de apoyo con reposo, líquidos, analgésicos y medicamentos antiinflamatorios.",
+      "prevention": "Evitar los mosquitos, repelentes, ropa de manga larga, eliminación de criaderos; algunas vacunas ya están disponibles pero no de uso generalizado.",
+      "prevalence": "Brotes en África, Asia, Américas; endémica en muchas regiones tropicales versus subtropicales; millones de afectados."
+    },
+    {
+      "disease_id": "rift_valley_fever",
+      "language_code": "en",
+      "name": "Rift Valley Fever",
+      "description": "Viral zoonosis mainly affecting livestock, spread by mosquitoes, and can cause fever and hemorrhagic disease in humans.",
+      "symptoms": "Mild: fever, muscle pain, headache. Severe: bleeding, liver impairment, eye problems, encephalitis.",
+      "treatment": "No specific antiviral therapy; supportive care. Severe cases may need hospitalization.",
+      "prevention": "Animal vaccination (in livestock), mosquito control, protective clothing, safe animal handling.",
+      "prevalence": "Africa and Arabian Peninsula; outbreaks in rainy seasons; sporadic imported cases elsewhere."
+    },
+    {
+      "disease_id": "rift_valley_fever",
+      "language_code": "ru",
+      "name": "Лихорадка Рифт-Валли",
+      "description": "Вирусная зоонозная инфекция, в первую очередь поражающая скот, передается комарами и может вызывать лихорадку и геморрагические проявления у человека.",
+      "symptoms": "Легкая форма: лихорадка, мышечные боли, головная боль. Тяжёлая: кровотечения, поражение печени, глазные нарушения, энцефалит.",
+      "treatment": "Нет специфической противовирусной терапии; симптоматическая поддержка; тяжелые случаи требуют госпитализации.",
+      "prevention": "Вакцинация животных, борьба с комарами, защитная одежда, осторожное обращение с животными.",
+      "prevalence": "Африка и Аравийский полуостров; вспышки в сезон дождей; редко встречается в других регионах."
+    },
+    {
+      "disease_id": "rift_valley_fever",
+      "language_code": "es",
+      "name": "Fiebre del Valle del Rift",
+      "description": "Zoonosis viral que afecta principalmente al ganado, se propaga por mosquitos y puede causar fiebre y enfermedad hemorrágica en humanos.",
+      "symptoms": "Leve: fiebre, dolor muscular, dolor de cabeza. Grave: sangrado, insuficiencia hepática, problemas oculares, encefalitis.",
+      "treatment": "Sin terapia antiviral específica; cuidados de apoyo. Los casos graves pueden necesitar hospitalización.",
+      "prevention": "Vacunación de animales (en ganado), control de mosquitos, ropa protectora, manipulación segura de animales.",
+      "prevalence": "África y Península Arábiga; brotes en temporadas de lluvias; casos importados esporádicos en otros lugares."
+    },
+    {
+      "disease_id": "st_louis_encephalitis",
+      "language_code": "en",
+      "name": "St. Louis Encephalitis",
+      "description": "Neuroinvasive disease caused by St. Louis encephalitis virus, transmitted by Culex mosquitoes.",
+      "symptoms": "Mild: fever, headache, nausea, weakness. Severe: encephalitis, confusion, neck stiffness, tremor, paralysis, coma.",
+      "treatment": "No specific antiviral; supportive care; severe cases may need hospitalization.",
+      "prevention": "Prevention of mosquito bites, vector control, use of repellents and screens.",
+      "prevalence": "Americas; outbreaks mostly in US Midwest and South. Disease is rare but can be fatal (5–20% case fatality in severe forms)."
+    },
+    {
+      "disease_id": "st_louis_encephalitis",
+      "language_code": "ru",
+      "name": "Сент-Луисский энцефалит",
+      "description": "Невроинвазивное заболевание, вызванное вирусом сент-луисского энцефалита, передается комарами рода Culex.",
+      "symptoms": "Легкая форма: лихорадка, головная боль, тошнота, слабость. Тяжелая: энцефалит, спутанность сознания, ригидность шеи, тремор, паралич, кома.",
+      "treatment": "Специфических препаратов нет; поддерживающая терапия; при тяжелых случаях необходима госпитализация.",
+      "prevention": "Профилактика укусов комаров, борьба с переносчиками, использование репеллентов и сеток.",
+      "prevalence": "Америка; вспышки преимущественно на Среднем Западе и Юге США. Болезнь встречается редко, но может привести к летальному исходу (5–20% при тяжелых формах)."
+    },
+    {
+      "disease_id": "st_louis_encephalitis",
+      "language_code": "es",
+      "name": "Encefalitis de San Luis",
+      "description": "Enfermedad neuroinvasiva causada por el virus de la encefalitis de San Luis, transmitida por mosquitos Culex.",
+      "symptoms": "Leve: fiebre, dolor de cabeza, náuseas, debilidad. Grave: encefalitis, confusión, rigidez de nuca, temblor, parálisis, coma.",
+      "treatment": "Sin antiviral específico; cuidados de apoyo; los casos graves pueden necesitar hospitalización.",
+      "prevention": "Prevención de picaduras de mosquitos, control de vectores, uso de repelentes y mallas.",
+      "prevalence": "Américas; brotes principalmente en el medio oeste y sur de EE. UU. La enfermedad es rara pero puede ser fatal (letalidad del 5–20% en formas graves)."
+    },
+    {
+      "disease_id": "avian_malaria",
+      "language_code": "en",
+      "name": "Avian Malaria",
+      "description": "Parasitic disease of birds caused by Plasmodium or Haemoproteus species, transmitted mainly by mosquitoes.",
+      "symptoms": "Variable: many asymptomatic; in sensitive species, anemia, weakness, loss of appetite, sometimes sudden death.",
+      "treatment": "No specific curative agent; management focused on reducing stress, supportive care; prevention in captivity may include vector control.",
+      "prevention": "Mosquito control in aviaries, reducing exposure in vulnerable areas.",
+      "prevalence": "Worldwide except Antarctica; severe in species without evolved resistance, e.g., Hawaiian honeycreepers."
+    },
+    {
+      "disease_id": "avian_malaria",
+      "language_code": "ru",
+      "name": "Птичья малярия",
+      "description": "Паразитарное заболевание птиц, вызываемое Plasmodium или Haemoproteus, передается в основном комарами.",
+      "symptoms": "Проявления различны: часто бессимптомно, у чувствительных видов — анемия, слабость, потеря аппетита, иногда внезапная смерть.",
+      "treatment": "Специфического лечения нет; поддерживающая терапия, снижение стресса, в неволе — контроль векторов.",
+      "prevention": "Контроль комаров в вольерах и ограничение контакта с переносчиками.",
+      "prevalence": "Известна по всему миру, кроме Антарктиды; особенно опасна для видов без адаптации — например, медососов Гавайев."
+    },
+    {
+      "disease_id": "avian_malaria",
+      "language_code": "es",
+      "name": "Malaria Aviar",
+      "description": "Enfermedad parasitaria de las aves causada por especies de Plasmodium o Haemoproteus, transmitida principalmente por mosquitos.",
+      "symptoms": "Variable: muchos asintomáticos; en especies sensibles, anemia, debilidad, pérdida de apetito, a veces muerte súbita.",
+      "treatment": "Sin agente curativo específico; manejo enfocado en reducir el estrés, cuidados de apoyo; la prevención en cautiverio puede incluir el control de vectores.",
+      "prevention": "Control de mosquitos en aviarios, reduciendo la exposición en áreas vulnerables.",
+      "prevalence": "En todo el mundo excepto la Antártida; grave en especies sin resistencia evolucionada, por ejemplo, los mieleros hawaianos."
+    },
+    {
+      "disease_id": "yellow_fever",
+      "language_code": "en",
+      "name": "Yellow Fever",
+      "description": "Potentially fatal viral hemorrhagic disease transmitted by Aedes and Haemagogus mosquitoes.",
+      "symptoms": "Early: fever, chills, headache, back pain, nausea. Severe: jaundice, bleeding, multi-organ failure.",
+      "treatment": "No specific antiviral; supportive care only.",
+      "prevention": "Highly effective vaccine, mosquito control, personal protection measures; vaccination required for travel to endemic zones.",
+      "prevalence": "Tropical Africa and South America; 200,000 cases, 30,000 deaths annually."
+    },
+    {
+      "disease_id": "yellow_fever",
+      "language_code": "ru",
+      "name": "Желтая лихорадка",
+      "description": "Потенциально смертельно опасное вирусное геморрагическое заболевание, передающееся комарами Aedes и Haemagogus.",
+      "symptoms": "Начальная стадия: лихорадка, озноб, головная боль, боль в спине, тошнота. Тяжёлая стадия: желтуха, кровотечения, полиорганная недостаточность.",
+      "treatment": "Специфических противовирусных препаратов нет; поддерживающая терапия.",
+      "prevention": "Высокоэффективная вакцинация, борьба с комарами, индивидуальная защита; вакцинация обязательна для поездок в эндемичные регионы.",
+      "prevalence": "Тропики Африки и Южной Америки; ежегодно 200,000 случаев, 30,000 смертей."
+    },
+    {
+      "disease_id": "yellow_fever",
+      "language_code": "es",
+      "name": "Fiebre Amarilla",
+      "description": "Enfermedad hemorrágica viral potencialmente mortal transmitida por mosquitos Aedes y Haemagogus.",
+      "symptoms": "Temprana: fiebre, escalofríos, dolor de cabeza, dolor de espalda, náuseas. Grave: ictericia, sangrado, fallo multiorgánico.",
+      "treatment": "Sin antiviral específico; solo cuidados de apoyo.",
+      "prevention": "Vacuna altamente efectiva, control de mosquitos, medidas de protección personal; vacunación requerida para viajar a zonas endémicas.",
+      "prevalence": "África tropical y América del Sur; 200,000 casos, 30,000 muertes anualmente."
+    },
+    {
+      "disease_id": "la_crosse_encephalitis",
+      "language_code": "en",
+      "name": "La Crosse Encephalitis",
+      "description": "Viral neuroinvasive disease caused by La Crosse virus, transmitted by treehole mosquitoes (Aedes triseriatus).",
+      "symptoms": "Fever, headache, nausea, vomiting, tiredness; severe cases (children): seizures, coma, paralysis.",
+      "treatment": "No specific antiviral therapy; supportive care and hospitalization for severe neurological involvement.",
+      "prevention": "Personal protective measures against mosquitoes, vector control around homes and woodlands.",
+      "prevalence": "United States (Midwest, Southeast); 70–130 cases per year; mostly affects children."
+    },
+    {
+      "disease_id": "la_crosse_encephalitis",
+      "language_code": "ru",
+      "name": "Лакросский энцефалит",
+      "description": "Вирусное невроинвазивное заболевание, вызываемое вирусом Ла-Кросс, переносится комарами, обитающими в дуплах деревьев (Aedes triseriatus).",
+      "symptoms": "Лихорадка, головная боль, тошнота, рвота, утомляемость; тяжелые формы (у детей): судороги, кома, паралич.",
+      "treatment": "Специфического лечения нет; поддерживающая терапия, госпитализация при тяжелом неврологическом поражении.",
+      "prevention": "Индивидуальная защита от укусов комаров, санитарные меры на приусадебных и лесных участках.",
+      "prevalence": "США (Средний Запад, Юго-Восток); 70–130 случаев ежегодно; в основном у детей."
+    },
+    {
+      "disease_id": "la_crosse_encephalitis",
+      "language_code": "es",
+      "name": "Encefalitis de La Crosse",
+      "description": "Enfermedad neuroinvasiva viral causada por el virus de La Crosse, transmitida por mosquitos de los huecos de árboles (Aedes triseriatus).",
+      "symptoms": "Fiebre, dolor de cabeza, náuseas, vómitos, cansancio; casos graves (niños): convulsiones, coma, parálisis.",
+      "treatment": "Sin terapia antiviral específica; cuidados de apoyo y hospitalización para afectación neurológica grave.",
+      "prevention": "Medidas de protección personal contra mosquitos, control de vectores alrededor de hogares y bosques.",
+      "prevalence": "Estados Unidos (Medio Oeste, Sudeste); 70–130 casos por año; afecta principalmente a niños."
+    },
+    {
+      "disease_id": "zika_virus",
+      "language_code": "en",
+      "name": "Zika Virus",
+      "description": "Mosquito-borne flavivirus infection, mostly mild but can cause birth defects if contracted during pregnancy.",
+      "symptoms": "Many asymptomatic; others: mild fever, rash, conjunctivitis, muscle and joint pain, headache; complications: microcephaly in newborns, Guillain–Barré syndrome.",
+      "treatment": "No specific therapy; symptomatic treatment: rest, fluids, pain relievers (paracetamol/acetaminophen). Hospitalization rarely needed.",
+      "prevention": "Mosquito bite prevention, sexual protection, especially for pregnant women or couples planning pregnancy.",
+      "prevalence": "Global outbreaks in recent years, most notably Americas, Asia, Pacific; 2015–16 outbreak; currently endemic in some areas."
+    },
+    {
+      "disease_id": "zika_virus",
+      "language_code": "ru",
+      "name": "Вирус Зика",
+      "description": "Флавивирусная инфекция, передаваемая комарами, обычно протекает легко, но во время беременности может вызывать врожденные пороки развития.",
+      "symptoms": "Часто бессимптомно; иногда — легкая лихорадка, сыпь, конъюнктивит, боли в мышцах и суставах, головная боль; осложнения: микроцефалия у новорожденных, синдром Гийена-Барре.",
+      "treatment": "Специфической терапии нет; симптоматическое лечение: покой, жидкости, жаропонижающие (парацетамол). Госпитализация крайне редко требуется.",
+      "prevention": "Избегать укусов комаров, использовать средства защиты при половом контакте, особенно при беременности или планировании беременности.",
+      "prevalence": "Глобальные вспышки в последние годы, особенно в Америке, Азии, на Тихоокеанских островах; самая крупная — в 2015–16; сейчас сохраняется в некоторых регионах."
+    },
+    {
+      "disease_id": "zika_virus",
+      "language_code": "es",
+      "name": "Virus del Zika",
+      "description": "Infección por flavivirus transmitida por mosquitos, mayormente leve pero puede causar defectos de nacimiento si se contrae durante el embarazo.",
+      "symptoms": "Muchos asintomáticos; otros: fiebre leve, sarpullido, conjuntivitis, dolor muscular y articular, dolor de cabeza; complicaciones: microcefalia en recién nacidos, síndrome de Guillain-Barré.",
+      "treatment": "Sin terapia específica; tratamiento sintomático: reposo, líquidos, analgésicos (paracetamol/acetaminofeno). Rara vez se necesita hospitalización.",
+      "prevention": "Prevención de picaduras de mosquitos, protección sexual, especialmente para mujeres embarazadas o parejas que planean un embarazo.",
+      "prevalence": "Brotes globales en los últimos años, especialmente en las Américas, Asia, Pacífico; brote de 2015-16; actualmente endémico en algunas áreas."
+    }
+  ],
+  "mosquito_disease_relations": [
+    {
+      "mosquito_id": "aedes_albopictus",
+      "disease_id": "dengue_fever"
+    },
+    {
+      "mosquito_id": "aedes_albopictus",
+      "disease_id": "chikungunya"
+    },
+    {
+      "mosquito_id": "aedes_albopictus",
+      "disease_id": "zika_virus"
+    },
+    {
+      "mosquito_id": "aedes_aegypti",
+      "disease_id": "dengue_fever"
+    },
+    {
+      "mosquito_id": "aedes_aegypti",
+      "disease_id": "yellow_fever"
+    },
+    {
+      "mosquito_id": "aedes_aegypti",
+      "disease_id": "chikungunya"
+    },
+    {
+      "mosquito_id": "aedes_aegypti",
+      "disease_id": "zika_virus"
+    },
+    {
+      "mosquito_id": "aedes_aegypti",
+      "disease_id": "filariasis"
+    },
+    {
+      "mosquito_id": "aedes_canadensis",
+      "disease_id": "eastern_equine_encephalitis"
+    },
+    {
+      "mosquito_id": "aedes_dorsalis",
+      "disease_id": "california_encephalitis_virus"
+    },
+    {
+      "mosquito_id": "aedes_geniculatus",
+      "disease_id": "yellow_fever"
+    },
+    {
+      "mosquito_id": "aedes_geniculatus",
+      "disease_id": "chikungunya"
+    },
+    {
+      "mosquito_id": "aedes_koreicus",
+      "disease_id": "chikungunya"
+    },
+    {
+      "mosquito_id": "aedes_koreicus",
+      "disease_id": "zika_virus"
+    },
+    {
+      "mosquito_id": "aedes_koreicus",
+      "disease_id": "yellow_fever"
+    },
+    {
+      "mosquito_id": "aedes_triseriatus",
+      "disease_id": "la_crosse_encephalitis"
+    },
+    {
+      "mosquito_id": "aedes_vexans",
+      "disease_id": "west_nile_virus"
+    },
+    {
+      "mosquito_id": "aedes_vexans",
+      "disease_id": "rift_valley_fever"
+    },
+    {
+      "mosquito_id": "anopheles_arabiensis",
+      "disease_id": "malaria"
+    },
+    {
+      "mosquito_id": "anopheles_freeborni",
+      "disease_id": "malaria"
+    },
+    {
+      "mosquito_id": "anopheles_sinensis",
+      "disease_id": "malaria"
+    },
+    {
+      "mosquito_id": "culex_inatomii",
+      "disease_id": "avian_malaria"
+    },
+    {
+      "mosquito_id": "culex_pipiens",
+      "disease_id": "west_nile_virus"
+    },
+    {
+      "mosquito_id": "culex_pipiens",
+      "disease_id": "st_louis_encephalitis"
+    },
+    {
+      "mosquito_id": "culex_pipiens",
+      "disease_id": "avian_malaria"
+    },
+    {
+      "mosquito_id": "culex_quinquefasciatus",
+      "disease_id": "west_nile_virus"
+    },
+    {
+      "mosquito_id": "culex_quinquefasciatus",
+      "disease_id": "st_louis_encephalitis"
+    },
+    {
+      "mosquito_id": "culex_quinquefasciatus",
+      "disease_id": "filariasis"
+    },
+    {
+      "mosquito_id": "culex_quinquefasciatus",
+      "disease_id": "avian_malaria"
+    },
+    {
+      "mosquito_id": "culex_tritaeniorhynchus",
+      "disease_id": "japanese_encephalitis"
+    },
+    {
+      "mosquito_id": "culex_tritaeniorhynchus",
+      "disease_id": "rift_valley_fever"
+    }
+  ]
+}

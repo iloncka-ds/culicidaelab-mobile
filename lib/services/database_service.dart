@@ -1,15 +1,15 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../models/mosquito_model.dart';
 import '../models/disease_model.dart';
-
 
 class DatabaseService {
   static final DatabaseService _instance = DatabaseService._internal();
   static Database? _database;
 
   factory DatabaseService() => _instance;
-
   DatabaseService._internal();
 
   Future<Database> get database async {
@@ -19,22 +19,22 @@ class DatabaseService {
   }
 
   Future<Database> _initDatabase() async {
-    final path = join(await getDatabasesPath(), 'mosquito_scan_v2.db');
-    // For development, you might want to delete the database to ensure onCreate is called
+    final path = join(await getDatabasesPath(), 'mosquito_scan_v1.db');
+    // To reset the DB during development, uncomment the next line
     // await deleteDatabase(path);
     return await openDatabase(
       path,
-      version: 1, // Change version if you are migrating
+      version: 1,
       onCreate: _createDatabase,
     );
   }
 
   Future<void> _createDatabase(Database db, int version) async {
-    // --- MAIN TABLES (Language-Agnostic Data) ---
+    // --- Create Tables ---
     await db.execute('''
       CREATE TABLE mosquito_species(
         id TEXT PRIMARY KEY,
-        name TEXT NOT NULL UNIQUE, -- Scientific name is the universal key
+        name TEXT NOT NULL UNIQUE,
         image_url TEXT NOT NULL
       )
     ''');
@@ -42,12 +42,11 @@ class DatabaseService {
     await db.execute('''
       CREATE TABLE diseases(
         id TEXT PRIMARY KEY,
-        name_key TEXT NOT NULL UNIQUE, -- e.g., 'dengue_fever', used as a universal key
+        name_key TEXT NOT NULL UNIQUE,
         image_url TEXT NOT NULL
       )
     ''');
 
-    // --- TRANSLATION TABLES ---
     await db.execute('''
       CREATE TABLE mosquito_species_translations(
         species_id TEXT NOT NULL,
@@ -76,8 +75,6 @@ class DatabaseService {
       )
     ''');
 
-
-    // --- RELATION TABLE (Unchanged logic, links main tables) ---
     await db.execute('''
       CREATE TABLE mosquito_disease_relation(
         mosquito_id TEXT NOT NULL,
@@ -88,53 +85,53 @@ class DatabaseService {
       )
     ''');
 
-    await _insertSampleData(db);
+    // --- Populate Tables from JSON ---
+    await _insertDataFromJson(db);
   }
 
-  Future<void> _insertSampleData(Database db) async {
+  /// Loads data from the JSON asset and populates all tables.
+  Future<void> _insertDataFromJson(Database db) async {
+    // 1. Load the JSON string from assets
+    final String jsonString = await rootBundle.loadString('assets/database/database_data.json');
+
+    // 2. Decode the JSON string into a Dart Map
+    final Map<String, dynamic> data = json.decode(jsonString);
+
     final batch = db.batch();
 
-    // Mosquito Species (agnostic)
-    batch.insert('mosquito_species', {'id': '1', 'name': 'Aedes aegypti', 'image_url': 'assets/images/aedes_aegypti.jpg'});
-    batch.insert('mosquito_species', {'id': '2', 'name': 'Anopheles gambiae', 'image_url': 'assets/images/anopheles_gambiae.jpg'});
-    batch.insert('mosquito_species', {'id': '3', 'name': 'Culex quinquefasciatus', 'image_url': 'assets/images/culex_quinquefasciatus.jpg'});
+    // 3. Populate mosquito_species table
+    final List<dynamic> species = data['mosquito_species'];
+    for (var item in species) {
+      batch.insert('mosquito_species', item, conflictAlgorithm: ConflictAlgorithm.replace);
+    }
 
-    // Mosquito Species Translations (en, es, ru)
-    // Aedes aegypti
-    batch.insert('mosquito_species_translations', {'species_id': '1', 'language_code': 'en', 'common_name': 'Yellow Fever Mosquito', 'description': 'Small, dark mosquito with white markings on legs and thorax, often found in tropical and subtropical regions.', 'habitat': 'Urban areas, breeds in containers with stagnant water', 'distribution': 'Tropical and subtropical regions worldwide'});
-    batch.insert('mosquito_species_translations', {'species_id': '1', 'language_code': 'es', 'common_name': 'Mosquito de la Fiebre Amarilla', 'description': 'Pequeño mosquito oscuro con marcas blancas en las patas y el tórax, que se encuentra a menudo en regiones tropicales y subtropicales.', 'habitat': 'Áreas urbanas, se cría en recipientes con agua estancada', 'distribution': 'Regiones tropicales y subtropicales de todo el mundo'});
-    batch.insert('mosquito_species_translations', {'species_id': '1', 'language_code': 'ru', 'common_name': 'Комар желтолихорадочный', 'description': 'Маленький темный комар с белыми отметинами на ногах и груди, часто встречающийся в тропических и субтропических регионах.', 'habitat': 'Городские районы, размножается в контейнерах со стоячей водой', 'distribution': 'Тропические и субтропические регионы по всему миру'});
-    // Anopheles gambiae
-    batch.insert('mosquito_species_translations', {'species_id': '2', 'language_code': 'en', 'common_name': 'African Malaria Mosquito', 'description': 'Medium-sized mosquito with spotted wings and a distinctive resting position at an angle to the surface.', 'habitat': 'Rural areas, breeds in clean, still water', 'distribution': 'Sub-Saharan Africa'});
-    batch.insert('mosquito_species_translations', {'species_id': '2', 'language_code': 'es', 'common_name': 'Mosquito de la Malaria Africano', 'description': 'Mosquito de tamaño mediano con alas manchadas y una posición de reposo distintiva en ángulo con la superficie.', 'habitat': 'Zonas rurales, se reproduce en aguas limpias y tranquilas', 'distribution': 'África subsahariana'});
-    batch.insert('mosquito_species_translations', {'species_id': '2', 'language_code': 'ru', 'common_name': 'Африканский малярийный комар', 'description': 'Комар среднего размера с пятнистыми крыльями и характерным положением покоя под углом к поверхности.', 'habitat': 'Сельские районы, размножается в чистой, стоячей воде', 'distribution': 'Африка к югу от Сахары'});
-    // Culex quinquefasciatus
-    batch.insert('mosquito_species_translations', {'species_id': '3', 'language_code': 'en', 'common_name': 'Southern House Mosquito', 'description': 'Brown mosquito with a rounded abdomen and no distinctive markings.', 'habitat': 'Urban and suburban areas, breeds in polluted water', 'distribution': 'Tropical and subtropical regions worldwide'});
-    batch.insert('mosquito_species_translations', {'species_id': '3', 'language_code': 'es', 'common_name': 'Mosquito Doméstico del Sur', 'description': 'Mosquito de color marrón con abdomen redondeado y sin marcas distintivas.', 'habitat': 'Áreas urbanas y suburbanas, se reproduce en aguas contaminadas', 'distribution': 'Regiones tropicales y subtropicales de todo el mundo'});
-    batch.insert('mosquito_species_translations', {'species_id': '3', 'language_code': 'ru', 'common_name': 'Южный домашний комар', 'description': 'Коричневый комар с округлым брюшком и без отличительных признаков.', 'habitat': 'Городские и пригородные районы, размножается в загрязненной воде', 'distribution': 'Тропические и субтропические регионы по всему миру'});
+    // 4. Populate mosquito_species_translations table
+    final List<dynamic> speciesTranslations = data['mosquito_species_translations'];
+    for (var item in speciesTranslations) {
+      batch.insert('mosquito_species_translations', item, conflictAlgorithm: ConflictAlgorithm.replace);
+    }
 
+    // 5. Populate diseases table
+    final List<dynamic> diseases = data['diseases'];
+    for (var item in diseases) {
+      batch.insert('diseases', item, conflictAlgorithm: ConflictAlgorithm.replace);
+    }
 
-    // Diseases (agnostic)
-    batch.insert('diseases', {'id': '1', 'name_key': 'dengue_fever', 'image_url': 'assets/images/dengue.jpg'});
-    batch.insert('diseases', {'id': '2', 'name_key': 'malaria', 'image_url': 'assets/images/malaria.jpg'});
-    batch.insert('diseases', {'id': '3', 'name_key': 'zika_virus', 'image_url': 'assets/images/zika.jpg'});
+    // 6. Populate disease_translations table
+    final List<dynamic> diseaseTranslations = data['disease_translations'];
+    for (var item in diseaseTranslations) {
+      batch.insert('disease_translations', item, conflictAlgorithm: ConflictAlgorithm.replace);
+    }
 
-    // Disease Translations (en, es, ru)
-    // Dengue
-    batch.insert('disease_translations', {'disease_id': '1', 'language_code': 'en', 'name': 'Dengue Fever', 'description': 'Viral infection causing high fever, severe headache, and joint/muscle pain.', 'symptoms': 'High fever, severe headache, pain behind the eyes, joint and muscle pain, rash, mild bleeding', 'treatment': 'No specific treatment. Rest, fluids, pain relievers (avoiding aspirin). Severe cases require hospitalization.', 'prevention': 'Avoid mosquito bites, eliminate breeding sites, use repellents, wear protective clothing', 'prevalence': 'Tropical and subtropical regions, affecting up to 400 million people annually'});
-    batch.insert('disease_translations', {'disease_id': '1', 'language_code': 'es', 'name': 'Dengue', 'description': 'Infección viral que causa fiebre alta, dolor de cabeza intenso y dolor en las articulaciones y músculos.', 'symptoms': 'Fiebre alta, dolor de cabeza severo, dolor detrás de los ojos, dolor en articulaciones y músculos, sarpullido, sangrado leve', 'treatment': 'Sin tratamiento específico. Reposo, líquidos, analgésicos (evitando la aspirina). Los casos graves requieren hospitalización.', 'prevention': 'Evitar las picaduras de mosquitos, eliminar los criaderos, usar repelentes, usar ropa protectora', 'prevalence': 'Regiones tropicales y subtropicales, afectando hasta 400 millones de personas anualmente'});
-    batch.insert('disease_translations', {'disease_id': '1', 'language_code': 'ru', 'name': 'Лихорадка денге', 'description': 'Вирусная инфекция, вызывающая высокую температуру, сильную головную боль и боли в суставах/мышцах.', 'symptoms': 'Высокая температура, сильная головная боль, боль за глазами, боли в суставах и мышцах, сыпь, легкое кровотечение', 'treatment': 'Специфического лечения нет. Отдых, жидкости, обезболивающие (избегая аспирина). Тяжелые случаи требуют госпитализации.', 'prevention': 'Избегайте укусов комаров, уничтожайте места размножения, используйте репелленты, носите защитную одежду', 'prevalence': 'Тропические и субтропические регионы, ежегодно поражает до 400 миллионов человек'});
-    // ... Add translations for Malaria and Zika similarly ...
+    // 7. Populate mosquito_disease_relation table
+    final List<dynamic> relations = data['mosquito_disease_relations'];
+    for (var item in relations) {
+      batch.insert('mosquito_disease_relation', item, conflictAlgorithm: ConflictAlgorithm.replace);
+    }
 
-    // Relations
-    batch.insert('mosquito_disease_relation', {'mosquito_id': '1', 'disease_id': '1'});
-    batch.insert('mosquito_disease_relation', {'mosquito_id': '1', 'disease_id': '3'});
-    batch.insert('mosquito_disease_relation', {'mosquito_id': '2', 'disease_id': '2'});
-    batch.insert('mosquito_disease_relation', {'mosquito_id': '3', 'disease_id': '3'});
-
+    // 8. Commit the batch operation
     await batch.commit(noResult: true);
   }
-
   // Helper to get all disease vectors (mosquito names) for a given disease ID
   Future<List<String>> _getVectorNamesForDisease(Database db, String diseaseId) async {
       final List<Map<String, dynamic>> relationMaps = await db.query('mosquito_disease_relation', where: 'disease_id = ?', whereArgs: [diseaseId]);
