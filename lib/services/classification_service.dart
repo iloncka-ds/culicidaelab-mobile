@@ -63,11 +63,11 @@ class ClassificationService {
         return MosquitoSpecies(
       id: '0', // The special ID to identify this as "unknown"
       name: speciesName, // Keep the scientific name the model returned
-      commonName: '', 
+      commonName: '',
       description: '',
       habitat: '',
       distribution: '',
-      imageUrl: 'assets/images/unknown_mosquito.jpg',
+      imageUrl: 'assets/images/species/species_not_defined.jpg',
       diseases: [],
         );
       },
