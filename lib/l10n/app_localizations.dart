@@ -382,13 +382,13 @@ abstract class AppLocalizations {
   /// No description provided for @diseaseVectorsCount.
   ///
   /// In en, this message translates to:
-  /// **'{count,plural, =0{No known disease vectors} =1{1 disease vector} other{{count} disease vectors}}'**
+  /// **'{count,plural, =0{No known disease} =1{1 disease} other{{count} diseases}}'**
   String diseaseVectorsCount(int count);
 
   /// No description provided for @noKnownDiseaseVectors.
   ///
   /// In en, this message translates to:
-  /// **'No known disease vectors'**
+  /// **'No known'**
   String get noKnownDiseaseVectors;
 
   /// No description provided for @diseaseDetailScreenDescription.

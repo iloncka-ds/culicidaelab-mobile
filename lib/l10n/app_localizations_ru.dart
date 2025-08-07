@@ -170,17 +170,17 @@ class AppLocalizationsRu extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count переносчиков болезней',
-      many: '$count переносчиков болезней',
-      few: '$count переносчика болезней',
-      one: '1 переносчик',
-      zero: 'Информация о комарах, переносчиках данного заболевания: $count переносчиков болезней',
+      other: '$count заболеваний',
+      many: '$count заболеваний',
+      few: '$count заболевания',
+      one: '1 заболевание',
+      zero: 'Неизвестно',
     );
     return '$_temp0';
   }
 
   @override
-  String get noKnownDiseaseVectors => 'Переносчиков болезней не известно';
+  String get noKnownDiseaseVectors => 'Не известно';
 
   @override
   String get diseaseDetailScreenDescription => 'Описание';

@@ -170,15 +170,15 @@ class AppLocalizationsEs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count vectores de enfermedades',
-      one: '1 vector de enfermedad',
-      zero: 'No se conocen vectores de enfermedades',
+      other: '$count enfermedades',
+      one: '1 enfermedad',
+      zero: 'No se conocen',
     );
     return '$_temp0';
   }
 
   @override
-  String get noKnownDiseaseVectors => 'No se conocen vectores de enfermedades';
+  String get noKnownDiseaseVectors => 'No se conocen';
 
   @override
   String get diseaseDetailScreenDescription => 'Descripción';

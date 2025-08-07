@@ -106,11 +106,11 @@
   "@habitatLabel": {
     "placeholders": { "habitat": { "type": "String" } }
   },
-  "diseaseVectorsCount": "{count,plural, zero{Информация о комарах, переносчиках данного заболевания: {count} переносчиков болезней} one{1 переносчик} few{{count} переносчика болезней} many{{count} переносчиков болезней} other{{count} переносчиков болезней}}",
+  "diseaseVectorsCount": "{count,plural, zero{Неизвестно} one{1 заболевание} few{{count} заболевания} many{{count} заболеваний} other{{count} заболеваний}}",
   "@diseaseVectorsCount": {
     "placeholders": { "count": { "type": "int" } }
   },
-  "noKnownDiseaseVectors": "Переносчиков болезней не известно",
+  "noKnownDiseaseVectors": "Не известно",
 
   "diseaseDetailScreenDescription": "Описание",
   "diseaseDetailScreenSymptoms": "Симптомы",

@@ -108,11 +108,11 @@
   "@habitatLabel": {
     "placeholders": { "habitat": { "type": "String" } }
   },
-  "diseaseVectorsCount": "{count,plural, =0{No known disease vectors} =1{1 disease vector} other{{count} disease vectors}}",
+  "diseaseVectorsCount": "{count,plural, =0{No known disease} =1{1 disease} other{{count} diseases}}",
   "@diseaseVectorsCount": {
     "placeholders": { "count": { "type": "int" } }
   },
-  "noKnownDiseaseVectors": "No known disease vectors",
+  "noKnownDiseaseVectors": "No known",
 
   "diseaseDetailScreenDescription": "Description",
   "diseaseDetailScreenSymptoms": "Symptoms",

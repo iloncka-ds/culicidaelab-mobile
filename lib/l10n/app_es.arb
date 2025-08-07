@@ -60,8 +60,8 @@
   "noMosquitoSpeciesFound": "No se encontraron especies de mosquitos",
   "tryDifferentSearchTerm": "Intenta un término de búsqueda diferente",
   "habitatLabel": "Hábitat: {habitat}",
-  "diseaseVectorsCount": "{count,plural, =0{No se conocen vectores de enfermedades} =1{1 vector de enfermedad} other{{count} vectores de enfermedades}}",
-  "noKnownDiseaseVectors": "No se conocen vectores de enfermedades",
+  "diseaseVectorsCount": "{count,plural, =0{No se conocen} =1{1 enfermedad} other{{count} enfermedades}}",
+  "noKnownDiseaseVectors": "No se conocen",
 
   "diseaseDetailScreenDescription": "Descripción",
   "diseaseDetailScreenSymptoms": "Síntomas",
