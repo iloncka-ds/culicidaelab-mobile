@@ -89,29 +89,25 @@ class _MosquitoDetailScreenState extends State<MosquitoDetailScreen> {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(12.0),
-              child: CachedNetworkImage(
-                imageUrl: widget.species.imageUrl, // From model
+
+              child: Image.asset(
+                widget.species.imageUrl, 
                 width: double.infinity,
                 height: 250,
                 fit: BoxFit.cover,
-                placeholder:
-                    (context, url) => Container(
-                      width: double.infinity,
-                      height: 250,
-                      color: Colors.grey.shade200,
-                      child: const Center(child: CircularProgressIndicator()),
+                errorBuilder: (context, error, stackTrace) {
+                  // This widget is shown if the asset path is wrong or the file is missing.
+                  return Container(
+                    width: double.infinity,
+                    height: 250,
+                    color: Colors.grey.shade300,
+                    child: const Icon(
+                      Icons.image_not_supported,
+                      size: 80,
+                      color: Colors.grey,
                     ),
-                errorWidget:
-                    (context, error, stackTrace) => Container(
-                      width: double.infinity,
-                      height: 250,
-                      color: Colors.grey.shade300,
-                      child: const Icon(
-                        Icons.image_not_supported,
-                        size: 80,
-                        color: Colors.grey,
-                      ),
-                    ),
+                  );
+                },
               ),
             ),
             const SizedBox(height: 16),

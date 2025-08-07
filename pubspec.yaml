@@ -112,11 +112,12 @@ flutter:
   assets:
     - assets/models/
     - assets/labels/
-    - assets/images/
     - assets/launcher_icon/
     - assets/icons/
     - assets/fonts/
-    - assets/database/
+    - assets/database/database_data.json
+    - assets/images/species/
+    - assets/images/diseases/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

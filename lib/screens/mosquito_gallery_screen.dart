@@ -213,21 +213,21 @@ class _MosquitoGalleryScreenState extends State<MosquitoGalleryScreen> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  CachedNetworkImage(
-                    imageUrl: species.imageUrl, // From model
+                  Image.asset(
+                    species.imageUrl, // The path from your model, e.g., "assets/images/species/aedes_aegypti.jpg"
                     fit: BoxFit.cover,
-                    placeholder:
-                        (context, url) => Container(
-                          color: Colors.grey.shade200,
-                          child: const Center(
-                            child: CircularProgressIndicator(),
-                          ),
+
+                    // Optional - an error handler for missing assets
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        color: Colors.grey.shade200,
+                        child: const Icon(
+                          Icons.image_not_supported_outlined,
+                          color: Colors.grey,
+                          size: 40,
                         ),
-                    errorWidget:
-                        (context, url, error) => Container(
-                          color: Colors.grey.shade200,
-                          child: const Icon(Icons.error),
-                        ),
+                      );
+                    },
                   ),
                   Positioned(
                     bottom: 0,
