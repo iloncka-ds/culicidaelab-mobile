@@ -1,5 +1,0 @@
-Aedes albopictus
-Aedes vexans
-Anopheles sinensis
-Culex pipiens
-Culex tritaeniorhynchus
