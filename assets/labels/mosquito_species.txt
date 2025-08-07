@@ -1,5 +1,17 @@
+Aedes aegypti
 Aedes albopictus
+Aedes canadensis
+Aedes dorsalis
+Aedes geniculatus
+Aedes koreicus
+Aedes triseriatus
 Aedes vexans
+Anopheles arabiensis
+Anopheles freeborni
 Anopheles sinensis
+Species not defined
 Culex pipiens
+Culex quinquefasciatus
 Culex tritaeniorhynchus
+Culiseta annulata
+Culiseta longiareolata
