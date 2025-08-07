@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'dart:async';
-import 'dart:typed_data';
+// import 'dart:typed_data';
 import 'package:flutter/services.dart';
-import '../models/mosquito_model.dart';
-import '../models/disease_model.dart';
+// import '../models/mosquito_model.dart';
+// import '../models/disease_model.dart';
 import 'pytorch_lite_model.dart';
 import 'database_service.dart';
 
@@ -37,70 +37,41 @@ class ClassificationService {
     }
   }
 
-  Future<ClassificationResult> classifyImage(File imageFile, String languageCode) async {
+    Future<Map<String, dynamic>> classifyImage(File imageFile) async {
     if (_model == null) {
       throw Exception("Model not loaded");
     }
 
-    stopwatch.start();
+    final imageBytes = await imageFile.readAsBytes();
 
-    final Uint8List imageBytes = await imageFile.readAsBytes();
+    // This returns a map like {'label': 'Aedes aegypti', 'probability': 0.98}
     final result = await _model!.getImagePredictionResult(imageBytes);
-
-    stopwatch.stop();
-    final inferenceTime = stopwatch.elapsedMilliseconds;
-    stopwatch.reset();
-
-    final speciesName = result['label']; // This is the scientific name, e.g., "Aedes aegypti"
-    final confidence = result['probability'] * 100;
-
-    final allSpecies = await _databaseService.getAllMosquitoSpecies(languageCode);
-
-    final MosquitoSpecies species = allSpecies.firstWhere(
-      (s) => s.name.toLowerCase() == speciesName.toLowerCase(),
-      orElse: () {
-        // Fallback for when the model predicts a species not in our DB
-        return MosquitoSpecies(
-      id: '0', // The special ID to identify this as "unknown"
-      name: speciesName, // Keep the scientific name the model returned
-      commonName: '',
-      description: '',
-      habitat: '',
-      distribution: '',
-      imageUrl: 'assets/images/species/species_not_defined.jpg',
-      diseases: [],
-        );
-      },
-    );
-
-    final List<Disease> relatedDiseases = await _databaseService.getDiseasesByVector(species.name, languageCode);
-
-    return ClassificationResult(
-      species: species,
-      confidence: confidence,
-      inferenceTime: inferenceTime,
-      relatedDiseases: relatedDiseases,
-      imageFile: imageFile,
-    );
+    print(result['label']);
+    print("[DEBUG] Raw name length: ${result['label'].length}");
+    // Return the raw prediction directly
+    return {
+      'scientificName': result['label'].trim(),
+      'confidence':  result['probability'],
+    };
   }
 
-  Future<List<MosquitoSpecies>> getAllMosquitoSpecies(String languageCode) async {
-    return await _databaseService.getAllMosquitoSpecies(languageCode);
-  }
+  // Future<List<MosquitoSpecies>> getAllMosquitoSpecies(String languageCode) async {
+  //   return await _databaseService.getAllMosquitoSpecies(languageCode);
+  // }
 
-  Future<List<Disease>> getAllDiseases(String languageCode) async {
-    return await _databaseService.getAllDiseases(languageCode);
-  }
+  // Future<List<Disease>> getAllDiseases(String languageCode) async {
+  //   return await _databaseService.getAllDiseases(languageCode);
+  // }
 
-  Future<MosquitoSpecies?> getMosquitoSpeciesById(String id, String languageCode) async {
-    return await _databaseService.getMosquitoSpeciesById(id, languageCode);
-  }
+  // Future<MosquitoSpecies?> getMosquitoSpeciesById(String id, String languageCode) async {
+  //   return await _databaseService.getMosquitoSpeciesById(id, languageCode);
+  // }
 
-  Future<Disease?> getDiseaseById(String id, String languageCode) async {
-    return await _databaseService.getDiseaseById(id, languageCode);
-  }
+  // Future<Disease?> getDiseaseById(String id, String languageCode) async {
+  //   return await _databaseService.getDiseaseById(id, languageCode);
+  // }
 
-  Future<List<Disease>> getDiseasesByVector(String speciesName, String languageCode) async {
-    return await _databaseService.getDiseasesByVector(speciesName, languageCode);
-  }
+  // Future<List<Disease>> getDiseasesByVector(String speciesName, String languageCode) async {
+  //   return await _databaseService.getDiseasesByVector(speciesName, languageCode);
+  // }
 }

@@ -291,4 +291,37 @@ class DatabaseService {
     }
     return diseases;
   }
+
+  Future<MosquitoSpecies?> getMosquitoSpeciesByName(String scientificName, String languageCode) async {
+    final db = await database;
+    print("[DEBUG] DatabaseService: Received name to query: $scientificName with lang: $languageCode");
+    final List<Map<String, dynamic>> maps = await db.rawQuery('''
+      SELECT
+        s.id, s.name, s.image_url,
+        t.common_name, t.description, t.habitat, t.distribution
+      FROM mosquito_species s
+      LEFT JOIN mosquito_species_translations t ON s.id = t.species_id
+      WHERE LOWER(s.name) = LOWER(?) AND t.language_code = ?
+    ''', [scientificName, languageCode]);
+
+    print("[DEBUG] DatabaseService: Raw query returned ${maps.length} rows.");
+    if (maps.isNotEmpty) {
+      print("[DEBUG] DatabaseService: First row data: ${maps.first}");
+    }
+    if (maps.isEmpty) return null;
+
+    final map = maps.first;
+    final diseaseNames = await _getDiseaseNamesForMosquito(db, map['id'], languageCode);
+
+    return MosquitoSpecies(
+      id: map['id'],
+      name: map['name'],
+      commonName: map['common_name'],
+      description: map['description'],
+      habitat: map['habitat'],
+      distribution: map['distribution'],
+      imageUrl: map['image_url'],
+      diseases: diseaseNames,
+    );
+  }
 }

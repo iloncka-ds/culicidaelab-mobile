@@ -27,4 +27,8 @@ class MosquitoRepository {
   Future<List<Disease>> getDiseasesByVector(String speciesName, String languageCode) async {
     return await _databaseService.getDiseasesByVector(speciesName, languageCode);
   }
+
+  Future<MosquitoSpecies?> getMosquitoSpeciesByName(String scientificName, String languageCode) async {
+    return await _databaseService.getMosquitoSpeciesByName(scientificName, languageCode);
+  }
 }

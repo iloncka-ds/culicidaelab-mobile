@@ -104,42 +104,50 @@ class ClassificationViewModel extends ChangeNotifier {
       _state = ClassificationState.loading;
       _errorMessage = null;
       notifyListeners();
+
+      // 1. Get the enriched (or marked) result from the repository
       final resultFromRepo = await _repository.classifyImage(
         _imageFile!,
         localizations.localeName,
       );
-      MosquitoSpecies displaySpecies = resultFromRepo.species;
+
+      // 2. Check for the "unknown species" marker
       if (resultFromRepo.species.id == '0') {
-        displaySpecies = MosquitoSpecies(
+        // If it's the unknown species, create a NEW, LOCALIZED species object
+        final localizedUnknownSpecies = MosquitoSpecies(
           id: resultFromRepo.species.id,
-          name: resultFromRepo.species.name, // keep original name from model
-          commonName:
-              localizations.classificationServiceUnknownSpeciesCommonName,
-          description:
-              localizations.classificationServiceUnknownSpeciesDescription,
+          name: resultFromRepo.species.name, 
+          commonName: localizations.classificationServiceUnknownSpeciesCommonName,
+          description: localizations.classificationServiceUnknownSpeciesDescription,
           habitat: localizations.classificationServiceUnknownSpeciesHabitat,
-          distribution:
-              localizations.classificationServiceUnknownSpeciesDistribution,
-          imageUrl: resultFromRepo.species.imageUrl,
-          diseases: resultFromRepo.species.diseases,
+          distribution: localizations.classificationServiceUnknownSpeciesDistribution,
+          imageUrl: resultFromRepo.species.imageUrl, // Keep the placeholder image
+          diseases: [], // Should be empty
         );
+
+        // 3. Update the final result with our new localized object
+        _result = ClassificationResult(
+          species: localizedUnknownSpecies, // Use the localized version
+          confidence: resultFromRepo.confidence,
+          inferenceTime: resultFromRepo.inferenceTime,
+          relatedDiseases: resultFromRepo.relatedDiseases,
+          imageFile: resultFromRepo.imageFile,
+        );
+
+      } else {
+        // If the species was found, the result from the repo is already perfect
+        _result = resultFromRepo;
       }
-      _result = ClassificationResult(
-        species: resultFromRepo.species,
-        confidence: resultFromRepo.confidence,
-        inferenceTime: resultFromRepo.inferenceTime,
-        relatedDiseases: resultFromRepo.relatedDiseases,
-        imageFile: resultFromRepo.imageFile,
-      );
+
       _state = ClassificationState.success;
       notifyListeners();
+
     } catch (e) {
       _state = ClassificationState.error;
       _errorMessage = localizations.errorClassificationFailed(e.toString());
       notifyListeners();
     }
   }
-
 
   Future<void> fetchWebPrediction(AppLocalizations localizations) async {
     if (_imageFile == null) return;

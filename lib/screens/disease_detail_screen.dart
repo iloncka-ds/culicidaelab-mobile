@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/disease_model.dart';
 import '../models/mosquito_model.dart';
-import '../services/classification_service.dart';
+// import '../services/classification_service.dart';
+import '../repositories/mosquito_repository.dart';
 import 'mosquito_detail_screen.dart';
 import '../widgets/icomoon_icons.dart';
 
@@ -9,7 +10,7 @@ import 'package:culicidaelab/l10n/app_localizations.dart';
 
 class DiseaseDetailScreen extends StatelessWidget {
   final Disease disease;
-  final ClassificationService _classificationService = ClassificationService();
+  final MosquitoRepository _mosquitoRepository = MosquitoRepository();
 
   DiseaseDetailScreen({Key? key, required this.disease}) : super(key: key);
 
@@ -18,7 +19,7 @@ class DiseaseDetailScreen extends StatelessWidget {
     final localizations = AppLocalizations.of(context)!;
 
     return FutureBuilder<List<MosquitoSpecies>>(
-      future: _classificationService.getAllMosquitoSpecies(
+      future: _mosquitoRepository.getAllMosquitoSpecies(
         localizations.localeName,
       ),
       builder: (context, snapshot) {

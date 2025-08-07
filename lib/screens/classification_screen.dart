@@ -198,7 +198,7 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
                     },
                   ),
                 ),
-                // --- END OF STYLING CHANGE ---
+                
                 const SizedBox(width: 8),
                 if (viewModel.shouldShowDiseaseRiskButton)
                   Expanded(
