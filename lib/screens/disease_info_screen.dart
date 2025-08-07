@@ -200,45 +200,42 @@ class _DiseaseInfoScreenState extends State<DiseaseInfoScreen> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: CachedNetworkImage(
-                  imageUrl: disease.imageUrl, // From model
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                  placeholder:
-                      (context, url) => Container(
-                        width: 80,
-                        height: 80,
-                        color: Colors.grey.shade200,
-                        child: const Center(child: CircularProgressIndicator()),
-                      ),
-                  errorWidget:
-                      (context, url, error) => Container(
-                        width: 80,
-                        height: 80,
-                        color: Colors.red.shade100,
-                        child: const Icon(
-                          Icons.local_hospital,
-                          color: Colors.red,
+             ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              // Image.asset for local files
+              child: Image.asset(
+                disease.imageUrl,
+                width: 80,
+                height: 80,
+                fit: BoxFit.cover,
+
+                // errorBuilder to handle cases where the asset is not found
+                errorBuilder: (context, error, stackTrace) {
+                  return Container(
+                    width: 80,
+                    height: 80,
+                    color: Colors.red.shade100,
+                    child: const Icon(
+                      Icons.local_hospital,
+                      color: Colors.red,
+                    ),
+                  );
+                },
+              ),
+            ),
+                const SizedBox(width: 16),
+
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        disease.name, // From model
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                ),
-              ),
-              const SizedBox(width: 16),
-
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      disease.name, // From model
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
                     const SizedBox(height: 8),
                     Text(
                       disease.description, // From model
