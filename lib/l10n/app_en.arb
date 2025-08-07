@@ -73,7 +73,7 @@
   "speciesInfoButton": "Species Info",
   "diseaseRisksButton": "Disease Risks",
   "noKnownDiseaseRisks": "No known disease risks for this species",
-  "potentialDiseaseRisksTitle": "Potential Disease Risks",
+  "potentialDiseaseRisksTitle": "Disease Risks",
   "potentialDiseaseRisksSubtitle": "This mosquito species is known to transmit the following diseases:",
   "disclaimerEducationalUse": "Disclaimer: This app provides information for educational purposes only. Always consult healthcare professionals for proper diagnosis and treatment.",
   "cameraButtonLabel": "Camera",

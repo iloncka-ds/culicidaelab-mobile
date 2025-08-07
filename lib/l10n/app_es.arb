@@ -37,7 +37,7 @@
   "speciesInfoButton": "Info de Especie",
   "diseaseRisksButton": "Riesgos de Enfermedad",
   "noKnownDiseaseRisks": "No se conocen riesgos de enfermedad para esta especie",
-  "potentialDiseaseRisksTitle": "Riesgos Potenciales de Enfermedad",
+  "potentialDiseaseRisksTitle": "Riesgos de Enfermedad",
   "potentialDiseaseRisksSubtitle": "Se sabe que esta especie de mosquito transmite las siguientes enfermedades:",
   "disclaimerEducationalUse": "Descargo de responsabilidad: Esta aplicación proporciona información únicamente con fines educativos. Siempre consulte a profesionales de la salud para un diagnóstico y tratamiento adecuados.",
   "cameraButtonLabel": "Cámara",

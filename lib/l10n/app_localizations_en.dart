@@ -92,7 +92,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noKnownDiseaseRisks => 'No known disease risks for this species';
 
   @override
-  String get potentialDiseaseRisksTitle => 'Potential Disease Risks';
+  String get potentialDiseaseRisksTitle => 'Disease Risks';
 
   @override
   String get potentialDiseaseRisksSubtitle => 'This mosquito species is known to transmit the following diseases:';

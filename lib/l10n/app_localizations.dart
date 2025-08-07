@@ -250,7 +250,7 @@ abstract class AppLocalizations {
   /// No description provided for @potentialDiseaseRisksTitle.
   ///
   /// In en, this message translates to:
-  /// **'Potential Disease Risks'**
+  /// **'Disease Risks'**
   String get potentialDiseaseRisksTitle;
 
   /// No description provided for @potentialDiseaseRisksSubtitle.
