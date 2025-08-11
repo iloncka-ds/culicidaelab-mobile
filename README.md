@@ -59,7 +59,7 @@ This platform is for educational and research purposes only. It does not replace
 
 ## License
 
-MIT License
+AGPL-3.0 License
 
 ---
 
