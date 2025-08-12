@@ -7,20 +7,27 @@ import 'package:culicidaelab/models/mosquito_model.dart';
 import 'package:culicidaelab/models/disease_model.dart';
 import 'package:culicidaelab/repositories/classification_repository.dart';
 import 'package:culicidaelab/view_models/classification_view_model.dart';
+import 'package:culicidaelab/l10n/app_localizations.dart';
 
 // Generate mock classes
-@GenerateMocks([ClassificationRepository, File, ImagePicker])
+@GenerateMocks([ClassificationRepository, File, ImagePicker, AppLocalizations])
 import 'classification_view_model_test.mocks.dart';
-
 void main() {
+  late MockAppLocalizations mockLocalizations;
   late ClassificationViewModel viewModel;
   late MockClassificationRepository mockRepository;
   late MockFile mockFile;
+  late MockImagePicker mockImagePicker;
 
   setUp(() {
     mockRepository = MockClassificationRepository();
     mockFile = MockFile();
-    viewModel = ClassificationViewModel(repository: mockRepository);
+    mockImagePicker = MockImagePicker();
+    mockLocalizations = MockAppLocalizations();
+    viewModel = ClassificationViewModel(
+      repository: mockRepository,
+      imagePicker: mockImagePicker
+    );
   });
 
   group('ClassificationViewModel Tests', () {
@@ -33,26 +40,66 @@ void main() {
     });
 
     test('initModel should call repository.loadModel', () async {
-      // Arrange
-      when(mockRepository.loadModel()).thenAnswer((_) async {});
+      await viewModel.initModel(mockLocalizations);
 
-      // Act
-      await viewModel.initModel();
-
-      // Assert
       verify(mockRepository.loadModel()).called(1);
     });
 
-    test('initModel should handle errors', () async {
-      // Arrange
+    test('initModel should throw if loadModel throws', () async {
       when(mockRepository.loadModel()).thenThrow(Exception('Test error'));
 
-      // Act
-      await viewModel.initModel();
-
-      // Assert
-      expect(viewModel.errorMessage, contains('Test error'));
+      try {
+        await viewModel.initModel(mockLocalizations);
+        fail('Should throw an exception');
+      } catch (e) {
+        expect(e, isA<Exception>());
+      }
     });
+
+    test('pickImage should set imageFile and update state', () async {
+      final mockXFile = XFile('test/path');
+      when(mockImagePicker.pickImage(source: ImageSource.gallery))
+          .thenAnswer((_) async => mockXFile);
+
+      viewModel.pickImage(ImageSource.gallery, mockLocalizations);
+
+      expect(viewModel.state, equals(ClassificationState.success));
+      expect(viewModel.imageFile, equals(mockXFile));
+    });
+
+    test('classifyImage should update state and result on success', () async {
+      final mockResult = ClassificationResult(
+        species: MosquitoSpecies(
+          id: '1',
+          name: 'Test Species',
+          commonName: 'Common Test Species',
+          description: 'Test Description',
+          habitat: 'Test Habitat',
+          distribution: 'Test Distribution',
+          imageUrl: 'test.jpg',
+          diseases: [],
+        ),
+        confidence: 0.9,
+        inferenceTime: 100,
+        imageFile: mockFile,
+        relatedDiseases: [],
+      );
+
+      when(mockRepository.classifyImage(any))
+          .thenAnswer((_) async => mockResult);
+
+      await viewModel.classifyImage(mockLocalizations);
+
+      expect(viewModel.state, equals(ClassificationState.success));
+      expect(viewModel.result, equals(mockResult));
+      expect(viewModel.isProcessing, isFalse);
+    });
+
+    test('classifyImage should update state and error on failure', () async {
+      when(mockRepository.classifyImage(any))
+          .thenThrow(Exception('Test error'));
+
+      await viewModel.classifyImage(mockLocalizations);
 
     test('classifyImage should update state correctly on success', () async {
       // Arrange
@@ -93,7 +140,7 @@ void main() {
 
       // Set image file
       viewModel = ClassificationViewModel(repository: mockRepository);
-      viewModel.pickImage(ImageSource.gallery);
+      viewModel.pickImage(ImageSource.gallery, mockLocalizations);
 
       // Mock that pickImage worked
       final mockImageFile = MockFile();
@@ -101,7 +148,7 @@ void main() {
       viewModel.setImageFile(mockImageFile);
 
       // Act
-      await viewModel.classifyImage();
+      await viewModel.classifyImage(fakeLocalizations);
 
       // Assert
       expect(viewModel.state, equals(ClassificationState.success));
@@ -122,7 +169,7 @@ void main() {
       viewModel.setImageFile(mockImageFile);
 
       // Act
-      await viewModel.classifyImage();
+      await viewModel.classifyImage(fakeLocalizations);
 
       // Assert
       expect(viewModel.state, equals(ClassificationState.error));
