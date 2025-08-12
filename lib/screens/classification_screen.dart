@@ -19,8 +19,8 @@ class ClassificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
 
-    return ChangeNotifierProvider<ClassificationViewModel>(
-      create: (_) => locator<ClassificationViewModel>(),
+    return ChangeNotifierProvider<ClassificationViewModel>.value(
+      value: locator<ClassificationViewModel>(),
       child: Scaffold(
         appBar: AppBar(
           title: Text(localizations.classificationScreenTitle),

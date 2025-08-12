@@ -16,12 +16,9 @@ class MosquitoGalleryScreen extends StatelessWidget {
     final localizations = AppLocalizations.of(context)!;
     final searchController = TextEditingController();
 
-    return ChangeNotifierProvider<MosquitoGalleryViewModel>(
-      create: (_) {
-        final viewModel = locator<MosquitoGalleryViewModel>();
-        viewModel.loadMosquitoSpecies(localizations);
-        return viewModel;
-      },
+    return ChangeNotifierProvider<MosquitoGalleryViewModel>.value(
+      value: locator<MosquitoGalleryViewModel>()
+        ..loadMosquitoSpecies(localizations),
       child: Scaffold(
         appBar: AppBar(
           title: Text(localizations.mosquitoGalleryScreenTitle),
