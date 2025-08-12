@@ -4,19 +4,20 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i5;
-import 'dart:convert' as _i12;
-import 'dart:io' as _i3;
-import 'dart:typed_data' as _i13;
-import 'dart:ui' as _i8;
+import 'dart:convert' as _i13;
+import 'dart:io' as _i2;
+import 'dart:typed_data' as _i14;
+import 'dart:ui' as _i11;
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart' as _i6;
+import 'package:culicidaelab/l10n/app_localizations.dart' as _i6;
+import 'package:culicidaelab/models/mosquito_model.dart' as _i9;
+import 'package:culicidaelab/models/observation_model.dart' as _i8;
+import 'package:culicidaelab/models/web_prediction_result.dart' as _i10;
+import 'package:culicidaelab/services/classification_service.dart' as _i12;
+import 'package:culicidaelab/view_models/classification_view_model.dart' as _i3;
 import 'package:image_picker/image_picker.dart' as _i7;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i11;
-import 'package:culicidaelab/models/disease_model.dart' as _i10;
-import 'package:culicidaelab/models/mosquito_model.dart' as _i2;
-import 'package:culicidaelab/services/classification_service.dart' as _i9;
-import 'package:culicidaelab/view_models/classification_view_model.dart' as _i4;
+import 'package:mockito/src/dummies.dart' as _i4;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -37,51 +38,45 @@ class _FakeStopwatch_0 extends _i1.SmartFake implements Stopwatch {
     : super(parent, parentInvocation);
 }
 
-class _FakeClassificationResult_1 extends _i1.SmartFake
-    implements _i2.ClassificationResult {
-  _FakeClassificationResult_1(Object parent, Invocation parentInvocation)
+class _FakeFile_1 extends _i1.SmartFake implements _i2.File {
+  _FakeFile_1(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeFile_2 extends _i1.SmartFake implements _i3.File {
-  _FakeFile_2(Object parent, Invocation parentInvocation)
+class _FakeUri_2 extends _i1.SmartFake implements Uri {
+  _FakeUri_2(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeUri_3 extends _i1.SmartFake implements Uri {
-  _FakeUri_3(Object parent, Invocation parentInvocation)
+class _FakeDirectory_3 extends _i1.SmartFake implements _i2.Directory {
+  _FakeDirectory_3(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeDirectory_4 extends _i1.SmartFake implements _i3.Directory {
-  _FakeDirectory_4(Object parent, Invocation parentInvocation)
+class _FakeFileSystemEntity_4 extends _i1.SmartFake
+    implements _i2.FileSystemEntity {
+  _FakeFileSystemEntity_4(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeFileSystemEntity_5 extends _i1.SmartFake
-    implements _i3.FileSystemEntity {
-  _FakeFileSystemEntity_5(Object parent, Invocation parentInvocation)
+class _FakeDateTime_5 extends _i1.SmartFake implements DateTime {
+  _FakeDateTime_5(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeDateTime_6 extends _i1.SmartFake implements DateTime {
-  _FakeDateTime_6(Object parent, Invocation parentInvocation)
+class _FakeRandomAccessFile_6 extends _i1.SmartFake
+    implements _i2.RandomAccessFile {
+  _FakeRandomAccessFile_6(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeRandomAccessFile_7 extends _i1.SmartFake
-    implements _i3.RandomAccessFile {
-  _FakeRandomAccessFile_7(Object parent, Invocation parentInvocation)
+class _FakeIOSink_7 extends _i1.SmartFake implements _i2.IOSink {
+  _FakeIOSink_7(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeIOSink_8 extends _i1.SmartFake implements _i3.IOSink {
-  _FakeIOSink_8(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
-}
-
-class _FakeFileStat_9 extends _i1.SmartFake implements _i3.FileStat {
-  _FakeFileStat_9(Object parent, Invocation parentInvocation)
+class _FakeFileStat_8 extends _i1.SmartFake implements _i2.FileStat {
+  _FakeFileStat_8(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
@@ -89,18 +84,29 @@ class _FakeFileStat_9 extends _i1.SmartFake implements _i3.FileStat {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockClassificationViewModel extends _i1.Mock
-    implements _i4.ClassificationViewModel {
+    implements _i3.ClassificationViewModel {
   MockClassificationViewModel() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.ClassificationState get state =>
+  String get modelId =>
+      (super.noSuchMethod(
+            Invocation.getter(#modelId),
+            returnValue: _i4.dummyValue<String>(
+              this,
+              Invocation.getter(#modelId),
+            ),
+          )
+          as String);
+
+  @override
+  _i3.ClassificationState get state =>
       (super.noSuchMethod(
             Invocation.getter(#state),
-            returnValue: _i4.ClassificationState.initial,
+            returnValue: _i3.ClassificationState.initial,
           )
-          as _i4.ClassificationState);
+          as _i3.ClassificationState);
 
   @override
   bool get hasImage =>
@@ -110,6 +116,19 @@ class MockClassificationViewModel extends _i1.Mock
   @override
   bool get isProcessing =>
       (super.noSuchMethod(Invocation.getter(#isProcessing), returnValue: false)
+          as bool);
+
+  @override
+  bool get isSubmitting =>
+      (super.noSuchMethod(Invocation.getter(#isSubmitting), returnValue: false)
+          as bool);
+
+  @override
+  bool get isFetchingWebPrediction =>
+      (super.noSuchMethod(
+            Invocation.getter(#isFetchingWebPrediction),
+            returnValue: false,
+          )
           as bool);
 
   @override
@@ -124,30 +143,6 @@ class MockClassificationViewModel extends _i1.Mock
   bool get hasListeners =>
       (super.noSuchMethod(Invocation.getter(#hasListeners), returnValue: false)
           as bool);
-
-  @override
-  void setState(_i4.ClassificationState? state) => super.noSuchMethod(
-    Invocation.method(#setState, [state]),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void setImageFile(_i3.File? file) => super.noSuchMethod(
-    Invocation.method(#setImageFile, [file]),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void setResult(_i2.ClassificationResult? result) => super.noSuchMethod(
-    Invocation.method(#setResult, [result]),
-    returnValueForMissingStub: null,
-  );
-
-  @override
-  void setErrorMessage(String? message) => super.noSuchMethod(
-    Invocation.method(#setErrorMessage, [message]),
-    returnValueForMissingStub: null,
-  );
 
   @override
   _i5.Future<void> initModel(_i6.AppLocalizations? localizations) =>
@@ -180,19 +175,74 @@ class MockClassificationViewModel extends _i1.Mock
           as _i5.Future<void>);
 
   @override
+  _i5.Future<void> fetchWebPrediction(_i6.AppLocalizations? localizations) =>
+      (super.noSuchMethod(
+            Invocation.method(#fetchWebPrediction, [localizations]),
+            returnValue: _i5.Future<void>.value(),
+            returnValueForMissingStub: _i5.Future<void>.value(),
+          )
+          as _i5.Future<void>);
+
+  @override
+  _i5.Future<_i8.Observation?> submitObservation({
+    required _i9.ClassificationResult? localResult,
+    required _i10.WebPredictionResult? webPrediction,
+    required double? latitude,
+    required double? longitude,
+    required String? notes,
+    required _i6.AppLocalizations? localizations,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#submitObservation, [], {
+              #localResult: localResult,
+              #webPrediction: webPrediction,
+              #latitude: latitude,
+              #longitude: longitude,
+              #notes: notes,
+              #localizations: localizations,
+            }),
+            returnValue: _i5.Future<_i8.Observation?>.value(),
+          )
+          as _i5.Future<_i8.Observation?>);
+
+  @override
   void reset() => super.noSuchMethod(
     Invocation.method(#reset, []),
     returnValueForMissingStub: null,
   );
 
   @override
-  void addListener(_i8.VoidCallback? listener) => super.noSuchMethod(
+  void setState(_i3.ClassificationState? state) => super.noSuchMethod(
+    Invocation.method(#setState, [state]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void setImageFile(_i2.File? file) => super.noSuchMethod(
+    Invocation.method(#setImageFile, [file]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void setResult(_i9.ClassificationResult? result) => super.noSuchMethod(
+    Invocation.method(#setResult, [result]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void setErrorMessage(String? message) => super.noSuchMethod(
+    Invocation.method(#setErrorMessage, [message]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void addListener(_i11.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#addListener, [listener]),
     returnValueForMissingStub: null,
   );
 
   @override
-  void removeListener(_i8.VoidCallback? listener) => super.noSuchMethod(
+  void removeListener(_i11.VoidCallback? listener) => super.noSuchMethod(
     Invocation.method(#removeListener, [listener]),
     returnValueForMissingStub: null,
   );
@@ -214,7 +264,7 @@ class MockClassificationViewModel extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockClassificationService extends _i1.Mock
-    implements _i9.ClassificationService {
+    implements _i12.ClassificationService {
   MockClassificationService() {
     _i1.throwOnMissingStub(this);
   }
@@ -237,85 +287,37 @@ class MockClassificationService extends _i1.Mock
           as _i5.Future<void>);
 
   @override
-  _i5.Future<_i2.ClassificationResult> classifyImage(_i3.File? imageFile) =>
+  _i5.Future<Map<String, dynamic>> classifyImage(_i2.File? imageFile) =>
       (super.noSuchMethod(
             Invocation.method(#classifyImage, [imageFile]),
-            returnValue: _i5.Future<_i2.ClassificationResult>.value(
-              _FakeClassificationResult_1(
-                this,
-                Invocation.method(#classifyImage, [imageFile]),
-              ),
+            returnValue: _i5.Future<Map<String, dynamic>>.value(
+              <String, dynamic>{},
             ),
           )
-          as _i5.Future<_i2.ClassificationResult>);
-
-  @override
-  _i5.Future<List<_i2.MosquitoSpecies>> getAllMosquitoSpecies() =>
-      (super.noSuchMethod(
-            Invocation.method(#getAllMosquitoSpecies, []),
-            returnValue: _i5.Future<List<_i2.MosquitoSpecies>>.value(
-              <_i2.MosquitoSpecies>[],
-            ),
-          )
-          as _i5.Future<List<_i2.MosquitoSpecies>>);
-
-  @override
-  _i5.Future<List<_i10.Disease>> getAllDiseases() =>
-      (super.noSuchMethod(
-            Invocation.method(#getAllDiseases, []),
-            returnValue: _i5.Future<List<_i10.Disease>>.value(<_i10.Disease>[]),
-          )
-          as _i5.Future<List<_i10.Disease>>);
-
-  @override
-  _i5.Future<_i2.MosquitoSpecies?> getMosquitoSpeciesById(String? id) =>
-      (super.noSuchMethod(
-            Invocation.method(#getMosquitoSpeciesById, [id]),
-            returnValue: _i5.Future<_i2.MosquitoSpecies?>.value(),
-          )
-          as _i5.Future<_i2.MosquitoSpecies?>);
-
-  @override
-  _i5.Future<_i10.Disease?> getDiseaseById(String? id) =>
-      (super.noSuchMethod(
-            Invocation.method(#getDiseaseById, [id]),
-            returnValue: _i5.Future<_i10.Disease?>.value(),
-          )
-          as _i5.Future<_i10.Disease?>);
-
-  @override
-  _i5.Future<List<_i10.Disease>> getDiseasesByVector(String? speciesName) =>
-      (super.noSuchMethod(
-            Invocation.method(#getDiseasesByVector, [speciesName]),
-            returnValue: _i5.Future<List<_i10.Disease>>.value(<_i10.Disease>[]),
-          )
-          as _i5.Future<List<_i10.Disease>>);
+          as _i5.Future<Map<String, dynamic>>);
 }
 
 /// A class which mocks [File].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFile extends _i1.Mock implements _i3.File {
+class MockFile extends _i1.Mock implements _i2.File {
   MockFile() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.File get absolute =>
+  _i2.File get absolute =>
       (super.noSuchMethod(
             Invocation.getter(#absolute),
-            returnValue: _FakeFile_2(this, Invocation.getter(#absolute)),
+            returnValue: _FakeFile_1(this, Invocation.getter(#absolute)),
           )
-          as _i3.File);
+          as _i2.File);
 
   @override
   String get path =>
       (super.noSuchMethod(
             Invocation.getter(#path),
-            returnValue: _i11.dummyValue<String>(
-              this,
-              Invocation.getter(#path),
-            ),
+            returnValue: _i4.dummyValue<String>(this, Invocation.getter(#path)),
           )
           as String);
 
@@ -323,7 +325,7 @@ class MockFile extends _i1.Mock implements _i3.File {
   Uri get uri =>
       (super.noSuchMethod(
             Invocation.getter(#uri),
-            returnValue: _FakeUri_3(this, Invocation.getter(#uri)),
+            returnValue: _FakeUri_2(this, Invocation.getter(#uri)),
           )
           as Uri);
 
@@ -333,15 +335,15 @@ class MockFile extends _i1.Mock implements _i3.File {
           as bool);
 
   @override
-  _i3.Directory get parent =>
+  _i2.Directory get parent =>
       (super.noSuchMethod(
             Invocation.getter(#parent),
-            returnValue: _FakeDirectory_4(this, Invocation.getter(#parent)),
+            returnValue: _FakeDirectory_3(this, Invocation.getter(#parent)),
           )
-          as _i3.Directory);
+          as _i2.Directory);
 
   @override
-  _i5.Future<_i3.File> create({
+  _i5.Future<_i2.File> create({
     bool? recursive = false,
     bool? exclusive = false,
   }) =>
@@ -350,8 +352,8 @@ class MockFile extends _i1.Mock implements _i3.File {
               #recursive: recursive,
               #exclusive: exclusive,
             }),
-            returnValue: _i5.Future<_i3.File>.value(
-              _FakeFile_2(
+            returnValue: _i5.Future<_i2.File>.value(
+              _FakeFile_1(
                 this,
                 Invocation.method(#create, [], {
                   #recursive: recursive,
@@ -360,7 +362,7 @@ class MockFile extends _i1.Mock implements _i3.File {
               ),
             ),
           )
-          as _i5.Future<_i3.File>);
+          as _i5.Future<_i2.File>);
 
   @override
   void createSync({bool? recursive = false, bool? exclusive = false}) =>
@@ -373,38 +375,38 @@ class MockFile extends _i1.Mock implements _i3.File {
       );
 
   @override
-  _i5.Future<_i3.File> rename(String? newPath) =>
+  _i5.Future<_i2.File> rename(String? newPath) =>
       (super.noSuchMethod(
             Invocation.method(#rename, [newPath]),
-            returnValue: _i5.Future<_i3.File>.value(
-              _FakeFile_2(this, Invocation.method(#rename, [newPath])),
+            returnValue: _i5.Future<_i2.File>.value(
+              _FakeFile_1(this, Invocation.method(#rename, [newPath])),
             ),
           )
-          as _i5.Future<_i3.File>);
+          as _i5.Future<_i2.File>);
 
   @override
-  _i3.File renameSync(String? newPath) =>
+  _i2.File renameSync(String? newPath) =>
       (super.noSuchMethod(
             Invocation.method(#renameSync, [newPath]),
-            returnValue: _FakeFile_2(
+            returnValue: _FakeFile_1(
               this,
               Invocation.method(#renameSync, [newPath]),
             ),
           )
-          as _i3.File);
+          as _i2.File);
 
   @override
-  _i5.Future<_i3.FileSystemEntity> delete({bool? recursive = false}) =>
+  _i5.Future<_i2.FileSystemEntity> delete({bool? recursive = false}) =>
       (super.noSuchMethod(
             Invocation.method(#delete, [], {#recursive: recursive}),
-            returnValue: _i5.Future<_i3.FileSystemEntity>.value(
-              _FakeFileSystemEntity_5(
+            returnValue: _i5.Future<_i2.FileSystemEntity>.value(
+              _FakeFileSystemEntity_4(
                 this,
                 Invocation.method(#delete, [], {#recursive: recursive}),
               ),
             ),
           )
-          as _i5.Future<_i3.FileSystemEntity>);
+          as _i5.Future<_i2.FileSystemEntity>);
 
   @override
   void deleteSync({bool? recursive = false}) => super.noSuchMethod(
@@ -413,25 +415,25 @@ class MockFile extends _i1.Mock implements _i3.File {
   );
 
   @override
-  _i5.Future<_i3.File> copy(String? newPath) =>
+  _i5.Future<_i2.File> copy(String? newPath) =>
       (super.noSuchMethod(
             Invocation.method(#copy, [newPath]),
-            returnValue: _i5.Future<_i3.File>.value(
-              _FakeFile_2(this, Invocation.method(#copy, [newPath])),
+            returnValue: _i5.Future<_i2.File>.value(
+              _FakeFile_1(this, Invocation.method(#copy, [newPath])),
             ),
           )
-          as _i5.Future<_i3.File>);
+          as _i5.Future<_i2.File>);
 
   @override
-  _i3.File copySync(String? newPath) =>
+  _i2.File copySync(String? newPath) =>
       (super.noSuchMethod(
             Invocation.method(#copySync, [newPath]),
-            returnValue: _FakeFile_2(
+            returnValue: _FakeFile_1(
               this,
               Invocation.method(#copySync, [newPath]),
             ),
           )
-          as _i3.File);
+          as _i2.File);
 
   @override
   _i5.Future<int> length() =>
@@ -451,7 +453,7 @@ class MockFile extends _i1.Mock implements _i3.File {
       (super.noSuchMethod(
             Invocation.method(#lastAccessed, []),
             returnValue: _i5.Future<DateTime>.value(
-              _FakeDateTime_6(this, Invocation.method(#lastAccessed, [])),
+              _FakeDateTime_5(this, Invocation.method(#lastAccessed, [])),
             ),
           )
           as _i5.Future<DateTime>);
@@ -460,7 +462,7 @@ class MockFile extends _i1.Mock implements _i3.File {
   DateTime lastAccessedSync() =>
       (super.noSuchMethod(
             Invocation.method(#lastAccessedSync, []),
-            returnValue: _FakeDateTime_6(
+            returnValue: _FakeDateTime_5(
               this,
               Invocation.method(#lastAccessedSync, []),
             ),
@@ -486,7 +488,7 @@ class MockFile extends _i1.Mock implements _i3.File {
       (super.noSuchMethod(
             Invocation.method(#lastModified, []),
             returnValue: _i5.Future<DateTime>.value(
-              _FakeDateTime_6(this, Invocation.method(#lastModified, [])),
+              _FakeDateTime_5(this, Invocation.method(#lastModified, [])),
             ),
           )
           as _i5.Future<DateTime>);
@@ -495,7 +497,7 @@ class MockFile extends _i1.Mock implements _i3.File {
   DateTime lastModifiedSync() =>
       (super.noSuchMethod(
             Invocation.method(#lastModifiedSync, []),
-            returnValue: _FakeDateTime_6(
+            returnValue: _FakeDateTime_5(
               this,
               Invocation.method(#lastModifiedSync, []),
             ),
@@ -517,30 +519,30 @@ class MockFile extends _i1.Mock implements _i3.File {
   );
 
   @override
-  _i5.Future<_i3.RandomAccessFile> open({
-    _i3.FileMode? mode = _i3.FileMode.read,
+  _i5.Future<_i2.RandomAccessFile> open({
+    _i2.FileMode? mode = _i2.FileMode.read,
   }) =>
       (super.noSuchMethod(
             Invocation.method(#open, [], {#mode: mode}),
-            returnValue: _i5.Future<_i3.RandomAccessFile>.value(
-              _FakeRandomAccessFile_7(
+            returnValue: _i5.Future<_i2.RandomAccessFile>.value(
+              _FakeRandomAccessFile_6(
                 this,
                 Invocation.method(#open, [], {#mode: mode}),
               ),
             ),
           )
-          as _i5.Future<_i3.RandomAccessFile>);
+          as _i5.Future<_i2.RandomAccessFile>);
 
   @override
-  _i3.RandomAccessFile openSync({_i3.FileMode? mode = _i3.FileMode.read}) =>
+  _i2.RandomAccessFile openSync({_i2.FileMode? mode = _i2.FileMode.read}) =>
       (super.noSuchMethod(
             Invocation.method(#openSync, [], {#mode: mode}),
-            returnValue: _FakeRandomAccessFile_7(
+            returnValue: _FakeRandomAccessFile_6(
               this,
               Invocation.method(#openSync, [], {#mode: mode}),
             ),
           )
-          as _i3.RandomAccessFile);
+          as _i2.RandomAccessFile);
 
   @override
   _i5.Stream<List<int>> openRead([int? start, int? end]) =>
@@ -551,16 +553,16 @@ class MockFile extends _i1.Mock implements _i3.File {
           as _i5.Stream<List<int>>);
 
   @override
-  _i3.IOSink openWrite({
-    _i3.FileMode? mode = _i3.FileMode.write,
-    _i12.Encoding? encoding = const _i12.Utf8Codec(),
+  _i2.IOSink openWrite({
+    _i2.FileMode? mode = _i2.FileMode.write,
+    _i13.Encoding? encoding = const _i13.Utf8Codec(),
   }) =>
       (super.noSuchMethod(
             Invocation.method(#openWrite, [], {
               #mode: mode,
               #encoding: encoding,
             }),
-            returnValue: _FakeIOSink_8(
+            returnValue: _FakeIOSink_7(
               this,
               Invocation.method(#openWrite, [], {
                 #mode: mode,
@@ -568,32 +570,32 @@ class MockFile extends _i1.Mock implements _i3.File {
               }),
             ),
           )
-          as _i3.IOSink);
+          as _i2.IOSink);
 
   @override
-  _i5.Future<_i13.Uint8List> readAsBytes() =>
+  _i5.Future<_i14.Uint8List> readAsBytes() =>
       (super.noSuchMethod(
             Invocation.method(#readAsBytes, []),
-            returnValue: _i5.Future<_i13.Uint8List>.value(_i13.Uint8List(0)),
+            returnValue: _i5.Future<_i14.Uint8List>.value(_i14.Uint8List(0)),
           )
-          as _i5.Future<_i13.Uint8List>);
+          as _i5.Future<_i14.Uint8List>);
 
   @override
-  _i13.Uint8List readAsBytesSync() =>
+  _i14.Uint8List readAsBytesSync() =>
       (super.noSuchMethod(
             Invocation.method(#readAsBytesSync, []),
-            returnValue: _i13.Uint8List(0),
+            returnValue: _i14.Uint8List(0),
           )
-          as _i13.Uint8List);
+          as _i14.Uint8List);
 
   @override
   _i5.Future<String> readAsString({
-    _i12.Encoding? encoding = const _i12.Utf8Codec(),
+    _i13.Encoding? encoding = const _i13.Utf8Codec(),
   }) =>
       (super.noSuchMethod(
             Invocation.method(#readAsString, [], {#encoding: encoding}),
             returnValue: _i5.Future<String>.value(
-              _i11.dummyValue<String>(
+              _i4.dummyValue<String>(
                 this,
                 Invocation.method(#readAsString, [], {#encoding: encoding}),
               ),
@@ -602,10 +604,10 @@ class MockFile extends _i1.Mock implements _i3.File {
           as _i5.Future<String>);
 
   @override
-  String readAsStringSync({_i12.Encoding? encoding = const _i12.Utf8Codec()}) =>
+  String readAsStringSync({_i13.Encoding? encoding = const _i13.Utf8Codec()}) =>
       (super.noSuchMethod(
             Invocation.method(#readAsStringSync, [], {#encoding: encoding}),
-            returnValue: _i11.dummyValue<String>(
+            returnValue: _i4.dummyValue<String>(
               this,
               Invocation.method(#readAsStringSync, [], {#encoding: encoding}),
             ),
@@ -614,7 +616,7 @@ class MockFile extends _i1.Mock implements _i3.File {
 
   @override
   _i5.Future<List<String>> readAsLines({
-    _i12.Encoding? encoding = const _i12.Utf8Codec(),
+    _i13.Encoding? encoding = const _i13.Utf8Codec(),
   }) =>
       (super.noSuchMethod(
             Invocation.method(#readAsLines, [], {#encoding: encoding}),
@@ -624,7 +626,7 @@ class MockFile extends _i1.Mock implements _i3.File {
 
   @override
   List<String> readAsLinesSync({
-    _i12.Encoding? encoding = const _i12.Utf8Codec(),
+    _i13.Encoding? encoding = const _i13.Utf8Codec(),
   }) =>
       (super.noSuchMethod(
             Invocation.method(#readAsLinesSync, [], {#encoding: encoding}),
@@ -633,9 +635,9 @@ class MockFile extends _i1.Mock implements _i3.File {
           as List<String>);
 
   @override
-  _i5.Future<_i3.File> writeAsBytes(
+  _i5.Future<_i2.File> writeAsBytes(
     List<int>? bytes, {
-    _i3.FileMode? mode = _i3.FileMode.write,
+    _i2.FileMode? mode = _i2.FileMode.write,
     bool? flush = false,
   }) =>
       (super.noSuchMethod(
@@ -644,8 +646,8 @@ class MockFile extends _i1.Mock implements _i3.File {
               [bytes],
               {#mode: mode, #flush: flush},
             ),
-            returnValue: _i5.Future<_i3.File>.value(
-              _FakeFile_2(
+            returnValue: _i5.Future<_i2.File>.value(
+              _FakeFile_1(
                 this,
                 Invocation.method(
                   #writeAsBytes,
@@ -655,12 +657,12 @@ class MockFile extends _i1.Mock implements _i3.File {
               ),
             ),
           )
-          as _i5.Future<_i3.File>);
+          as _i5.Future<_i2.File>);
 
   @override
   void writeAsBytesSync(
     List<int>? bytes, {
-    _i3.FileMode? mode = _i3.FileMode.write,
+    _i2.FileMode? mode = _i2.FileMode.write,
     bool? flush = false,
   }) => super.noSuchMethod(
     Invocation.method(#writeAsBytesSync, [bytes], {#mode: mode, #flush: flush}),
@@ -668,10 +670,10 @@ class MockFile extends _i1.Mock implements _i3.File {
   );
 
   @override
-  _i5.Future<_i3.File> writeAsString(
+  _i5.Future<_i2.File> writeAsString(
     String? contents, {
-    _i3.FileMode? mode = _i3.FileMode.write,
-    _i12.Encoding? encoding = const _i12.Utf8Codec(),
+    _i2.FileMode? mode = _i2.FileMode.write,
+    _i13.Encoding? encoding = const _i13.Utf8Codec(),
     bool? flush = false,
   }) =>
       (super.noSuchMethod(
@@ -680,8 +682,8 @@ class MockFile extends _i1.Mock implements _i3.File {
               [contents],
               {#mode: mode, #encoding: encoding, #flush: flush},
             ),
-            returnValue: _i5.Future<_i3.File>.value(
-              _FakeFile_2(
+            returnValue: _i5.Future<_i2.File>.value(
+              _FakeFile_1(
                 this,
                 Invocation.method(
                   #writeAsString,
@@ -691,13 +693,13 @@ class MockFile extends _i1.Mock implements _i3.File {
               ),
             ),
           )
-          as _i5.Future<_i3.File>);
+          as _i5.Future<_i2.File>);
 
   @override
   void writeAsStringSync(
     String? contents, {
-    _i3.FileMode? mode = _i3.FileMode.write,
-    _i12.Encoding? encoding = const _i12.Utf8Codec(),
+    _i2.FileMode? mode = _i2.FileMode.write,
+    _i13.Encoding? encoding = const _i13.Utf8Codec(),
     bool? flush = false,
   }) => super.noSuchMethod(
     Invocation.method(
@@ -729,7 +731,7 @@ class MockFile extends _i1.Mock implements _i3.File {
       (super.noSuchMethod(
             Invocation.method(#resolveSymbolicLinks, []),
             returnValue: _i5.Future<String>.value(
-              _i11.dummyValue<String>(
+              _i4.dummyValue<String>(
                 this,
                 Invocation.method(#resolveSymbolicLinks, []),
               ),
@@ -741,7 +743,7 @@ class MockFile extends _i1.Mock implements _i3.File {
   String resolveSymbolicLinksSync() =>
       (super.noSuchMethod(
             Invocation.method(#resolveSymbolicLinksSync, []),
-            returnValue: _i11.dummyValue<String>(
+            returnValue: _i4.dummyValue<String>(
               this,
               Invocation.method(#resolveSymbolicLinksSync, []),
             ),
@@ -749,28 +751,28 @@ class MockFile extends _i1.Mock implements _i3.File {
           as String);
 
   @override
-  _i5.Future<_i3.FileStat> stat() =>
+  _i5.Future<_i2.FileStat> stat() =>
       (super.noSuchMethod(
             Invocation.method(#stat, []),
-            returnValue: _i5.Future<_i3.FileStat>.value(
-              _FakeFileStat_9(this, Invocation.method(#stat, [])),
+            returnValue: _i5.Future<_i2.FileStat>.value(
+              _FakeFileStat_8(this, Invocation.method(#stat, [])),
             ),
           )
-          as _i5.Future<_i3.FileStat>);
+          as _i5.Future<_i2.FileStat>);
 
   @override
-  _i3.FileStat statSync() =>
+  _i2.FileStat statSync() =>
       (super.noSuchMethod(
             Invocation.method(#statSync, []),
-            returnValue: _FakeFileStat_9(
+            returnValue: _FakeFileStat_8(
               this,
               Invocation.method(#statSync, []),
             ),
           )
-          as _i3.FileStat);
+          as _i2.FileStat);
 
   @override
-  _i5.Stream<_i3.FileSystemEvent> watch({
+  _i5.Stream<_i2.FileSystemEvent> watch({
     int? events = 15,
     bool? recursive = false,
   }) =>
@@ -779,7 +781,7 @@ class MockFile extends _i1.Mock implements _i3.File {
               #events: events,
               #recursive: recursive,
             }),
-            returnValue: _i5.Stream<_i3.FileSystemEvent>.empty(),
+            returnValue: _i5.Stream<_i2.FileSystemEvent>.empty(),
           )
-          as _i5.Stream<_i3.FileSystemEvent>);
+          as _i5.Stream<_i2.FileSystemEvent>);
 }

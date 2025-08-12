@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:culicidaelab/services/classification_service.dart';
+
 import 'package:culicidaelab/services/pytorch_lite_model.dart';
 import 'package:culicidaelab/services/pytorch_wrapper.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -31,9 +32,11 @@ void main() {
   });
 
   group('ClassificationService', () {
+
     test('classifyImage returns a map of results', () async {
       final imageFile = File('test/fixtures/test_image.jpg');
       final prediction = {'label': 'Aedes aegypti', 'probability': 0.98};
+
 
       when(mockPytorchWrapper.loadClassificationModel(any, any, any,
               labelPath: anyNamed('labelPath')))
@@ -46,6 +49,7 @@ void main() {
 
       expect(result['scientificName'], 'Aedes aegypti');
       expect(result['confidence'], 0.98);
+
     });
   });
 }
