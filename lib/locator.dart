@@ -39,11 +39,11 @@ Future<void> setupLocator() async {
       httpClient: locator()));
 
   // ViewModels
-  locator.registerFactory(() => ClassificationViewModel(
+  locator.registerLazySingleton(() => ClassificationViewModel(
       repository: locator(), userService: locator()));
-  locator.registerFactory(
+  locator.registerLazySingleton(
       () => DiseaseInfoViewModel(repository: locator()));
-  locator.registerFactory(
+  locator.registerLazySingleton(
       () => MosquitoGalleryViewModel(repository: locator()));
 
   // Providers
