@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-
 import 'package:culicidaelab/locator.dart';
-
 
 import 'disease_info_view_model_test.mocks.dart';
 
@@ -33,7 +31,6 @@ void main() {
 
   setUp(() {
     mockMosquitoRepository = MockMosquitoRepository();
-
     locator.registerSingleton<MosquitoRepository>(mockMosquitoRepository);
     mockAppLocalizations = MockAppLocalizations();
     diseaseInfoViewModel =
@@ -42,7 +39,6 @@ void main() {
 
   tearDown(() {
     locator.unregister<MosquitoRepository>();
-
   });
 
   group('DiseaseInfoViewModel', () {

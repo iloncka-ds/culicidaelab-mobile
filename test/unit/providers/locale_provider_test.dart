@@ -4,9 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:culicidaelab/providers/locale_provider.dart';
-
 import 'package:culicidaelab/locator.dart';
-
 
 // Generate mock classes
 @GenerateMocks([SharedPreferences])
@@ -18,22 +16,18 @@ void main() {
 
   setUp(() {
     mockSharedPreferences = MockSharedPreferences();
-
     locator.registerSingleton<SharedPreferences>(mockSharedPreferences);
     localeProvider = LocaleProvider(prefs: locator());
   });
 
   tearDown(() {
     locator.unregister<SharedPreferences>();
-
-
   });
 
   group('LocaleProvider', () {
     test('initial locale is null and loads from prefs', () async {
       when(mockSharedPreferences.getString('selectedLanguageCode'))
           .thenReturn('es');
-
 
       await localeProvider.init();
 
@@ -48,29 +42,6 @@ void main() {
 
       verify(mockSharedPreferences.setString('selectedLanguageCode', 'ru'))
           .called(1);
-
-      localeProvider = LocaleProvider();
-      await Future.delayed(Duration.zero); // allow async _loadLocale to complete
-
-      // This test is tricky because the constructor calls an async method.
-      // A better approach would be to have an init method.
-      // Given the current implementation, we can't easily test the initial state before loading.
-      // We will test the state after loading.
-
-      // We can't easily inject the mock, so this test will not work as expected.
-      // I will write the test assuming I could inject the mock.
-    });
-
-    test('setLocale should persist the locale', () async {
-      SharedPreferences.setMockInitialValues({});
-      final prefs = await SharedPreferences.getInstance();
-      localeProvider = LocaleProvider();
-      await Future.delayed(Duration.zero);
-
-      await localeProvider.setLocale(const Locale('ru'));
-
-      expect(prefs.getString('selectedLanguageCode'), 'ru');
-
       expect(localeProvider.locale, const Locale('ru'));
     });
   });
