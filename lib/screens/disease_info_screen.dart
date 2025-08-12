@@ -20,8 +20,11 @@ class DiseaseInfoScreen extends StatelessWidget {
     final searchController = TextEditingController();
 
     return ChangeNotifierProvider<DiseaseInfoViewModel>(
-      create: (_) =>
-          locator<DiseaseInfoViewModel>()..loadDiseases(localizations),
+      create: (_) {
+        final viewModel = locator<DiseaseInfoViewModel>();
+        viewModel.loadDiseases(localizations);
+        return viewModel;
+      },
       child: Scaffold(
         appBar: AppBar(title: Text(localizations.diseaseInfoScreenTitle)),
         body: Column(

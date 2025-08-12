@@ -22,7 +22,9 @@ class ClassificationScreen extends StatelessWidget {
     return ChangeNotifierProvider<ClassificationViewModel>(
       create: (_) => locator<ClassificationViewModel>(),
       child: Scaffold(
-        appBar: AppBar(title: Text(localizations.classificationScreenTitle)),
+        appBar: AppBar(
+          title: Text(localizations.classificationScreenTitle),
+        ),
         body: Consumer<ClassificationViewModel>(
           builder: (context, viewModel, child) {
             return SingleChildScrollView(
@@ -260,7 +262,8 @@ class ClassificationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildImagePreview(ClassificationViewModel viewModel, AppLocalizations localizations) {
+  Widget _buildImagePreview(BuildContext context,
+      ClassificationViewModel viewModel, AppLocalizations localizations) {
     Widget content;
     if (viewModel.isProcessing) {
       content = Column(
