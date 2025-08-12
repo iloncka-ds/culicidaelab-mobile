@@ -5,10 +5,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:mockito/mockito.dart' as _i1;
 import 'package:culicidaelab/models/disease_model.dart' as _i6;
 import 'package:culicidaelab/models/mosquito_model.dart' as _i5;
 import 'package:culicidaelab/services/database_service.dart' as _i3;
+import 'package:mockito/mockito.dart' as _i1;
 import 'package:sqflite/sqflite.dart' as _i2;
 
 // ignore_for_file: type=lint
@@ -49,9 +49,11 @@ class MockDatabaseService extends _i1.Mock implements _i3.DatabaseService {
           as _i4.Future<_i2.Database>);
 
   @override
-  _i4.Future<List<_i5.MosquitoSpecies>> getAllMosquitoSpecies() =>
+  _i4.Future<List<_i5.MosquitoSpecies>> getAllMosquitoSpecies(
+    String? languageCode,
+  ) =>
       (super.noSuchMethod(
-            Invocation.method(#getAllMosquitoSpecies, []),
+            Invocation.method(#getAllMosquitoSpecies, [languageCode]),
             returnValue: _i4.Future<List<_i5.MosquitoSpecies>>.value(
               <_i5.MosquitoSpecies>[],
             ),
@@ -59,34 +61,57 @@ class MockDatabaseService extends _i1.Mock implements _i3.DatabaseService {
           as _i4.Future<List<_i5.MosquitoSpecies>>);
 
   @override
-  _i4.Future<_i5.MosquitoSpecies?> getMosquitoSpeciesById(String? id) =>
+  _i4.Future<_i5.MosquitoSpecies?> getMosquitoSpeciesById(
+    String? id,
+    String? languageCode,
+  ) =>
       (super.noSuchMethod(
-            Invocation.method(#getMosquitoSpeciesById, [id]),
+            Invocation.method(#getMosquitoSpeciesById, [id, languageCode]),
             returnValue: _i4.Future<_i5.MosquitoSpecies?>.value(),
           )
           as _i4.Future<_i5.MosquitoSpecies?>);
 
   @override
-  _i4.Future<List<_i6.Disease>> getAllDiseases() =>
+  _i4.Future<List<_i6.Disease>> getAllDiseases(String? languageCode) =>
       (super.noSuchMethod(
-            Invocation.method(#getAllDiseases, []),
+            Invocation.method(#getAllDiseases, [languageCode]),
             returnValue: _i4.Future<List<_i6.Disease>>.value(<_i6.Disease>[]),
           )
           as _i4.Future<List<_i6.Disease>>);
 
   @override
-  _i4.Future<_i6.Disease?> getDiseaseById(String? id) =>
+  _i4.Future<_i6.Disease?> getDiseaseById(String? id, String? languageCode) =>
       (super.noSuchMethod(
-            Invocation.method(#getDiseaseById, [id]),
+            Invocation.method(#getDiseaseById, [id, languageCode]),
             returnValue: _i4.Future<_i6.Disease?>.value(),
           )
           as _i4.Future<_i6.Disease?>);
 
   @override
-  _i4.Future<List<_i6.Disease>> getDiseasesByVector(String? speciesName) =>
+  _i4.Future<List<_i6.Disease>> getDiseasesByVector(
+    String? speciesName,
+    String? languageCode,
+  ) =>
       (super.noSuchMethod(
-            Invocation.method(#getDiseasesByVector, [speciesName]),
+            Invocation.method(#getDiseasesByVector, [
+              speciesName,
+              languageCode,
+            ]),
             returnValue: _i4.Future<List<_i6.Disease>>.value(<_i6.Disease>[]),
           )
           as _i4.Future<List<_i6.Disease>>);
+
+  @override
+  _i4.Future<_i5.MosquitoSpecies?> getMosquitoSpeciesByName(
+    String? scientificName,
+    String? languageCode,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#getMosquitoSpeciesByName, [
+              scientificName,
+              languageCode,
+            ]),
+            returnValue: _i4.Future<_i5.MosquitoSpecies?>.value(),
+          )
+          as _i4.Future<_i5.MosquitoSpecies?>);
 }

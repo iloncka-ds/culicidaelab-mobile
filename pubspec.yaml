@@ -77,6 +77,8 @@ dev_dependencies:
   flutter_native_splash: ^2.3.9
   flutter_launcher_icons: ^0.14.3
 
+  sqflite_common_ffi: ^2.3.6
+  sqlite3: ^2.9.0
 
   # Added for testing
   # bloc_test: ^10.0.0

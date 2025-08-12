@@ -19,8 +19,14 @@ import 'classification_view_model_test.mocks.dart';
 class MockAppLocalizations extends Mock implements AppLocalizations {
   @override
   String get localeName => 'en';
-}
 
+  @override
+  String errorFailedToLoadModel(String error) => 'Failed to load model: $error';
+
+  @override
+  String errorClassificationFailed(String error) =>
+      'Classification failed: $error';
+}
 
 void main() {
   late ClassificationViewModel viewModel;
@@ -29,7 +35,6 @@ void main() {
   late MockFile mockFile;
 
   late MockAppLocalizations mockAppLocalizations;
-
 
   setUp(() {
     mockRepository = MockClassificationRepository();
@@ -40,13 +45,14 @@ void main() {
     locator.registerSingleton<ClassificationRepository>(mockRepository);
     locator.registerSingleton<UserService>(mockUserService);
     viewModel = ClassificationViewModel(
-        repository: locator(), userService: locator());
+      repository: locator(),
+      userService: locator(),
+    );
   });
 
   tearDown(() {
     locator.unregister<ClassificationRepository>();
     locator.unregister<UserService>();
-
   });
 
   group('ClassificationViewModel Tests', () {
@@ -59,13 +65,11 @@ void main() {
     });
 
     test('initModel should call repository.loadModel', () async {
-
       // Arrange
       when(mockRepository.loadModel()).thenAnswer((_) async {});
 
       // Act
       await viewModel.initModel(mockAppLocalizations);
-
 
       // Assert
       verify(mockRepository.loadModel()).called(1);
@@ -74,20 +78,19 @@ void main() {
     test('initModel should handle errors', () async {
       // Arrange
       when(mockRepository.loadModel()).thenThrow(Exception('Test error'));
-      when(mockAppLocalizations.errorFailedToLoadModel(any))
-          .thenReturn('Failed to load model: Test error');
-
-
 
       // Act
       await viewModel.initModel(mockAppLocalizations);
 
       // Assert
-      expect(viewModel.errorMessage, 'Failed to load model: Test error');
-
+      expect(
+        viewModel.errorMessage,
+        'Failed to load model: Exception: Test error',
+      );
     });
 
     test('classifyImage should update state and result on success', () async {
+      // Arrange
       final mockResult = ClassificationResult(
         species: MosquitoSpecies(
           id: '1',
@@ -105,14 +108,21 @@ void main() {
         relatedDiseases: [],
       );
 
-      when(mockRepository.classifyImage(any))
-          .thenAnswer((_) async => mockResult);
+      when(
+        mockRepository.classifyImage(any, 'en'),
+      ).thenAnswer((_) async => mockResult);
 
-      await viewModel.classifyImage(mockLocalizations);
+      // Set image file before classification
+      viewModel.setImageFile(mockFile);
 
+      // Act
+      await viewModel.classifyImage(mockAppLocalizations);
 
       // Assert
-      expect(viewModel.errorMessage, 'Failed to load model: Test error');
+      expect(viewModel.state, equals(ClassificationState.success));
+      expect(viewModel.result, equals(mockResult));
+      expect(viewModel.isProcessing, isFalse);
+      expect(viewModel.errorMessage, isNull);
     });
 
     test('classifyImage should update state correctly on success', () async {
@@ -149,7 +159,7 @@ void main() {
       );
 
       when(
-        mockRepository.classifyImage(any, any),
+        mockRepository.classifyImage(any, 'en'),
       ).thenAnswer((_) async => mockResult);
 
       // Set image file
@@ -158,7 +168,6 @@ void main() {
 
       // Act
       await viewModel.classifyImage(mockAppLocalizations);
-
 
       // Assert
       expect(viewModel.state, equals(ClassificationState.success));
@@ -172,24 +181,21 @@ void main() {
       when(
         mockRepository.classifyImage(any, any),
       ).thenThrow(Exception('Classification error'));
-      when(mockAppLocalizations.errorClassificationFailed(any))
-          .thenReturn('Classification failed: Classification error');
 
       // Set image file
       viewModel.setImageFile(mockFile);
 
       // Act
-
-
       await viewModel.classifyImage(mockAppLocalizations);
-
 
       // Assert
       expect(viewModel.state, equals(ClassificationState.error));
       expect(viewModel.result, isNull);
       expect(viewModel.isProcessing, isFalse);
-      expect(viewModel.errorMessage,
-          'Classification failed: Classification error');
+      expect(
+        viewModel.errorMessage,
+        'Classification failed: Exception: Classification error',
+      );
     });
 
     test('reset should clear all state', () {

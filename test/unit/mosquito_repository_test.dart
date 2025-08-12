@@ -5,7 +5,6 @@ import 'package:culicidaelab/models/mosquito_model.dart';
 import 'package:culicidaelab/models/disease_model.dart';
 import 'package:culicidaelab/repositories/mosquito_repository.dart';
 import 'package:culicidaelab/services/database_service.dart';
-import 'package:culicidaelab/locator.dart';
 
 // Generate mock classes
 @GenerateMocks([DatabaseService])
@@ -17,12 +16,7 @@ void main() {
 
   setUp(() {
     mockDatabaseService = MockDatabaseService();
-    locator.registerSingleton<DatabaseService>(mockDatabaseService);
-    repository = MosquitoRepository(databaseService: locator());
-  });
-
-  tearDown(() {
-    locator.unregister<DatabaseService>();
+    repository = MosquitoRepository(databaseService: mockDatabaseService);
   });
 
   group('MosquitoRepository Tests', () {
@@ -121,8 +115,9 @@ void main() {
 
         // Assert
         expect(result, isNull);
-        verify(mockDatabaseService.getMosquitoSpeciesById('999', 'en'))
-            .called(1);
+        verify(
+          mockDatabaseService.getMosquitoSpeciesById('999', 'en'),
+        ).called(1);
       },
     );
 
@@ -177,8 +172,10 @@ void main() {
         ).thenAnswer((_) async => [mockDiseases[0]]);
 
         // Act
-        final result =
-            await repository.getDiseasesByVector('Aedes aegypti', 'en');
+        final result = await repository.getDiseasesByVector(
+          'Aedes aegypti',
+          'en',
+        );
 
         // Assert
         expect(result, equals([mockDiseases[0]]));
@@ -197,8 +194,10 @@ void main() {
         ).thenAnswer((_) async => []);
 
         // Act
-        final result =
-            await repository.getDiseasesByVector('Non-existent', 'en');
+        final result = await repository.getDiseasesByVector(
+          'Non-existent',
+          'en',
+        );
 
         // Assert
         expect(result, isEmpty);
