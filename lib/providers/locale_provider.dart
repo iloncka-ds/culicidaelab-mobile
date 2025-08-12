@@ -3,21 +3,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart'; // To access supportedLocales
 
 class LocaleProvider extends ChangeNotifier {
+  final SharedPreferences _prefs;
   Locale? _locale;
   static const String _selectedLanguageCodeKey = 'selectedLanguageCode';
 
   Locale? get locale => _locale;
 
-  LocaleProvider() {
-    _loadLocale();
-  }
+  LocaleProvider({required SharedPreferences prefs}) : _prefs = prefs;
 
   // List of supported locales from AppLocalizations
   List<Locale> get supportedLocales => AppLocalizations.supportedLocales;
 
-  Future<void> _loadLocale() async {
-    final prefs = await SharedPreferences.getInstance();
-    String? languageCode = prefs.getString(_selectedLanguageCodeKey);
+  Future<void> init() async {
+    String? languageCode = _prefs.getString(_selectedLanguageCodeKey);
 
     if (languageCode != null) {
       _locale = Locale(languageCode);
@@ -33,13 +31,13 @@ class LocaleProvider extends ChangeNotifier {
   }
 
   Future<void> setLocale(Locale newLocale) async {
-    if (!supportedLocales.contains(newLocale))
-      return; // Only allow supported locales
+    if (!supportedLocales.contains(newLocale)) {
+      return;
+    } // Only allow supported locales
 
     if (_locale != newLocale) {
       _locale = newLocale;
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString(_selectedLanguageCodeKey, newLocale.languageCode);
+      await _prefs.setString(_selectedLanguageCodeKey, newLocale.languageCode);
       notifyListeners();
     }
   }

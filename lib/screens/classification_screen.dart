@@ -9,26 +9,24 @@ import 'disease_detail_screen.dart';
 import '../widgets/custom_empty_widget.dart';
 import '../widgets/icomoon_icons.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart';
+import 'package:culicidaelab/locator.dart';
 import 'observation_details_screen.dart';
 
-class ClassificationScreen extends StatefulWidget {
+class ClassificationScreen extends StatelessWidget {
   const ClassificationScreen({Key? key}) : super(key: key);
 
-  @override
-  _ClassificationScreenState createState() => _ClassificationScreenState();
-}
-
-class _ClassificationScreenState extends State<ClassificationScreen> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
 
-    return Scaffold(
-      appBar: AppBar(title: Text(localizations.classificationScreenTitle)),
-      body: Consumer<ClassificationViewModel>(
-        builder: (context, viewModel, child) {
-          return SingleChildScrollView(
-            padding: const EdgeInsets.all(16.0),
+    return ChangeNotifierProvider<ClassificationViewModel>(
+      create: (_) => locator<ClassificationViewModel>(),
+      child: Scaffold(
+        appBar: AppBar(title: Text(localizations.classificationScreenTitle)),
+        body: Consumer<ClassificationViewModel>(
+          builder: (context, viewModel, child) {
+            return SingleChildScrollView(
+              padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

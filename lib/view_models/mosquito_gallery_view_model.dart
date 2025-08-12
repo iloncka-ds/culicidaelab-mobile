@@ -14,8 +14,8 @@ class MosquitoGalleryViewModel extends ChangeNotifier {
   String? _errorMessage; // Will be a pre-localized string
   String _searchQuery = '';
 
-  MosquitoGalleryViewModel({MosquitoRepository? repository})
-    : _repository = repository ?? MosquitoRepository();
+  MosquitoGalleryViewModel({required MosquitoRepository repository})
+    : _repository = repository;
 
   GalleryState get state => _state;
   List<MosquitoSpecies> get mosquitoSpecies => _mosquitoSpecies;

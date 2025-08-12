@@ -6,94 +6,56 @@ import '../models/mosquito_model.dart';
 import 'mosquito_detail_screen.dart';
 
 import 'package:culicidaelab/l10n/app_localizations.dart';
+import 'package:culicidaelab/locator.dart';
 
-class MosquitoGalleryScreen extends StatefulWidget {
+class MosquitoGalleryScreen extends StatelessWidget {
   const MosquitoGalleryScreen({Key? key}) : super(key: key);
 
   @override
-  _MosquitoGalleryScreenState createState() => _MosquitoGalleryScreenState();
-}
-
-class _MosquitoGalleryScreenState extends State<MosquitoGalleryScreen> {
-  final TextEditingController _searchController = TextEditingController();
-  AppLocalizations? _localizations;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) {
-        _localizations = AppLocalizations.of(context)!;
-        Provider.of<MosquitoGalleryViewModel>(
-          context,
-          listen: false,
-        ).loadMosquitoSpecies(_localizations!);
-      }
-    });
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    // Fallback if context wasn't ready in initState's post frame callback for some reason
-    if (_localizations == null && mounted) {
-      _localizations = AppLocalizations.of(context)!;
-      // Optionally re-trigger load if it depends on _localizations and might not have run
-      // This needs careful handling to avoid multiple calls.
-      // Provider.of<MosquitoGalleryViewModel>(context, listen: false).loadMosquitoSpecies(_localizations!);
-    }
-  }
-
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final localizations = _localizations ?? AppLocalizations.of(context)!;
+    final localizations = AppLocalizations.of(context)!;
+    final searchController = TextEditingController();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(localizations.mosquitoGalleryScreenTitle),
+    return ChangeNotifierProvider<MosquitoGalleryViewModel>(
+      create: (_) => locator<MosquitoGalleryViewModel>()
+        ..loadMosquitoSpecies(localizations),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(localizations.mosquitoGalleryScreenTitle),
         elevation: 0,
       ),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                hintText: localizations.searchMosquitoSpeciesHint,
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey.shade300),
-                ),
-                filled: true,
-                fillColor: Colors.grey.shade100,
-                contentPadding: const EdgeInsets.symmetric(vertical: 0),
-                suffixIcon:
-                    _searchController.text.isNotEmpty
+            child: Consumer<MosquitoGalleryViewModel>(
+              builder: (context, viewModel, child) {
+                return TextField(
+                  controller: searchController,
+                  decoration: InputDecoration(
+                    hintText: localizations.searchMosquitoSpeciesHint,
+                    prefixIcon: const Icon(Icons.search),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(color: Colors.grey.shade300),
+                    ),
+                    filled: true,
+                    fillColor: Colors.grey.shade100,
+                    contentPadding: const EdgeInsets.symmetric(vertical: 0),
+                    suffixIcon: searchController.text.isNotEmpty
                         ? IconButton(
-                          icon: const Icon(Icons.clear),
-                          onPressed: () {
-                            _searchController.clear();
-                            Provider.of<MosquitoGalleryViewModel>(
-                              context,
-                              listen: false,
-                            ).updateSearchQuery('');
-                          },
-                        )
+                            icon: const Icon(Icons.clear),
+                            onPressed: () {
+                              searchController.clear();
+                              viewModel.updateSearchQuery('');
+                            },
+                          )
                         : null,
-              ),
-              onChanged: (value) {
-                Provider.of<MosquitoGalleryViewModel>(
-                  context,
-                  listen: false,
-                ).updateSearchQuery(value);
+                  ),
+                  onChanged: (value) {
+                    viewModel.updateSearchQuery(value);
+                  },
+                );
               },
             ),
           ),
@@ -154,7 +116,7 @@ class _MosquitoGalleryScreenState extends State<MosquitoGalleryScreen> {
                             color: Colors.grey.shade600,
                           ),
                         ),
-                        if (_searchController.text.isNotEmpty)
+                        if (searchController.text.isNotEmpty)
                           Padding(
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Text(
@@ -178,7 +140,7 @@ class _MosquitoGalleryScreenState extends State<MosquitoGalleryScreen> {
                   itemCount: filteredSpecies.length,
                   itemBuilder: (context, index) {
                     final species = filteredSpecies[index];
-                    return _buildMosquitoCard(species, localizations);
+                    return _buildMosquitoCard(context, species, localizations);
                   },
                 );
               },
@@ -190,6 +152,7 @@ class _MosquitoGalleryScreenState extends State<MosquitoGalleryScreen> {
   }
 
   Widget _buildMosquitoCard(
+    BuildContext context,
     MosquitoSpecies species,
     AppLocalizations localizations,
   ) {

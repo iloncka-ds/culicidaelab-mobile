@@ -4,6 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:culicidaelab/providers/locale_provider.dart';
+import 'package:culicidaelab/locator.dart';
 
 // Generate mock classes
 @GenerateMocks([SharedPreferences])
@@ -15,7 +16,12 @@ void main() {
 
   setUp(() {
     mockSharedPreferences = MockSharedPreferences();
-    SharedPreferences.setMockInitialValues({});
+    locator.registerSingleton<SharedPreferences>(mockSharedPreferences);
+    localeProvider = LocaleProvider(prefs: locator());
+  });
+
+  tearDown(() {
+    locator.unregister<SharedPreferences>();
   });
 
   group('LocaleProvider', () {
@@ -23,27 +29,19 @@ void main() {
       when(mockSharedPreferences.getString('selectedLanguageCode'))
           .thenReturn('es');
 
-      localeProvider = LocaleProvider();
-      await Future.delayed(Duration.zero); // allow async _loadLocale to complete
+      await localeProvider.init();
 
-      // This test is tricky because the constructor calls an async method.
-      // A better approach would be to have an init method.
-      // Given the current implementation, we can't easily test the initial state before loading.
-      // We will test the state after loading.
-
-      // We can't easily inject the mock, so this test will not work as expected.
-      // I will write the test assuming I could inject the mock.
+      expect(localeProvider.locale, const Locale('es'));
     });
 
     test('setLocale should persist the locale', () async {
-      SharedPreferences.setMockInitialValues({});
-      final prefs = await SharedPreferences.getInstance();
-      localeProvider = LocaleProvider();
-      await Future.delayed(Duration.zero);
+      when(mockSharedPreferences.setString('selectedLanguageCode', 'ru'))
+          .thenAnswer((_) async => true);
 
       await localeProvider.setLocale(const Locale('ru'));
 
-      expect(prefs.getString('selectedLanguageCode'), 'ru');
+      verify(mockSharedPreferences.setString('selectedLanguageCode', 'ru'))
+          .called(1);
       expect(localeProvider.locale, const Locale('ru'));
     });
   });

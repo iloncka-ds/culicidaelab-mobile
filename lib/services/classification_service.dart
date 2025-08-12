@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 // import '../models/mosquito_model.dart';
 // import '../models/disease_model.dart';
 import 'pytorch_lite_model.dart';
-import 'database_service.dart';
+import 'pytorch_wrapper.dart';
 
 // For this service, direct localization of thrown Exception messages or default object values
 // is challenging without BuildContext or a similar mechanism to access AppLocalizations.
@@ -20,24 +20,25 @@ import 'database_service.dart';
 // placeholder text) and substitute localized text.
 
 class ClassificationService {
+  final PytorchWrapper _pytorchWrapper;
   ClassificationModel? _model;
   final stopwatch = Stopwatch();
-  final DatabaseService _databaseService = DatabaseService();
+
+  ClassificationService({required PytorchWrapper pytorchWrapper})
+      : _pytorchWrapper = pytorchWrapper;
 
   Future<void> loadModel() async {
-
     String pathImageModel = "assets/models/mosquito_classifier.pt";
     try {
-      _model = await PytorchLite.loadClassificationModel(
-        pathImageModel, 224, 224,
-        labelPath: "assets/labels/mosquito_species.txt"
-      );
+      _model = await _pytorchWrapper.loadClassificationModel(
+          pathImageModel, 224, 224,
+          labelPath: "assets/labels/mosquito_species.txt");
     } on PlatformException {
       throw Exception("Model loading failed - only supported for Android/iOS");
     }
   }
 
-    Future<Map<String, dynamic>> classifyImage(File imageFile) async {
+  Future<Map<String, dynamic>> classifyImage(File imageFile) async {
     if (_model == null) {
       throw Exception("Model not loaded");
     }

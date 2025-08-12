@@ -5,22 +5,42 @@ import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 import 'package:culicidaelab/models/mosquito_model.dart';
 import 'package:culicidaelab/models/disease_model.dart';
+import 'package:culicidaelab/l10n/app_localizations.dart';
 import 'package:culicidaelab/repositories/classification_repository.dart';
+import 'package:culicidaelab/services/user_service.dart';
 import 'package:culicidaelab/view_models/classification_view_model.dart';
+import 'package:culicidaelab/locator.dart';
 
 // Generate mock classes
-@GenerateMocks([ClassificationRepository, File, ImagePicker])
+@GenerateMocks([ClassificationRepository, UserService, File, ImagePicker])
 import 'classification_view_model_test.mocks.dart';
+
+class MockAppLocalizations extends Mock implements AppLocalizations {
+  @override
+  String get localeName => 'en';
+}
 
 void main() {
   late ClassificationViewModel viewModel;
   late MockClassificationRepository mockRepository;
+  late MockUserService mockUserService;
   late MockFile mockFile;
+  late MockAppLocalizations mockAppLocalizations;
 
   setUp(() {
     mockRepository = MockClassificationRepository();
+    mockUserService = MockUserService();
     mockFile = MockFile();
-    viewModel = ClassificationViewModel(repository: mockRepository);
+    mockAppLocalizations = MockAppLocalizations();
+    locator.registerSingleton<ClassificationRepository>(mockRepository);
+    locator.registerSingleton<UserService>(mockUserService);
+    viewModel = ClassificationViewModel(
+        repository: locator(), userService: locator());
+  });
+
+  tearDown(() {
+    locator.unregister<ClassificationRepository>();
+    locator.unregister<UserService>();
   });
 
   group('ClassificationViewModel Tests', () {
@@ -37,7 +57,7 @@ void main() {
       when(mockRepository.loadModel()).thenAnswer((_) async {});
 
       // Act
-      await viewModel.initModel();
+      await viewModel.initModel(mockAppLocalizations);
 
       // Assert
       verify(mockRepository.loadModel()).called(1);
@@ -46,12 +66,14 @@ void main() {
     test('initModel should handle errors', () async {
       // Arrange
       when(mockRepository.loadModel()).thenThrow(Exception('Test error'));
+      when(mockAppLocalizations.errorFailedToLoadModel(any))
+          .thenReturn('Failed to load model: Test error');
 
       // Act
-      await viewModel.initModel();
+      await viewModel.initModel(mockAppLocalizations);
 
       // Assert
-      expect(viewModel.errorMessage, contains('Test error'));
+      expect(viewModel.errorMessage, 'Failed to load model: Test error');
     });
 
     test('classifyImage should update state correctly on success', () async {
@@ -88,20 +110,14 @@ void main() {
       );
 
       when(
-        mockRepository.classifyImage(any),
+        mockRepository.classifyImage(any, any),
       ).thenAnswer((_) async => mockResult);
 
       // Set image file
-      viewModel = ClassificationViewModel(repository: mockRepository);
-      viewModel.pickImage(ImageSource.gallery);
-
-      // Mock that pickImage worked
-      final mockImageFile = MockFile();
-      viewModel = ClassificationViewModel(repository: mockRepository);
-      viewModel.setImageFile(mockImageFile);
+      viewModel.setImageFile(mockFile);
 
       // Act
-      await viewModel.classifyImage();
+      await viewModel.classifyImage(mockAppLocalizations);
 
       // Assert
       expect(viewModel.state, equals(ClassificationState.success));
@@ -113,22 +129,23 @@ void main() {
     test('classifyImage should handle errors', () async {
       // Arrange
       when(
-        mockRepository.classifyImage(any),
+        mockRepository.classifyImage(any, any),
       ).thenThrow(Exception('Classification error'));
+      when(mockAppLocalizations.errorClassificationFailed(any))
+          .thenReturn('Classification failed: Classification error');
 
       // Set image file
-      final mockImageFile = MockFile();
-      viewModel = ClassificationViewModel(repository: mockRepository);
-      viewModel.setImageFile(mockImageFile);
+      viewModel.setImageFile(mockFile);
 
       // Act
-      await viewModel.classifyImage();
+      await viewModel.classifyImage(mockAppLocalizations);
 
       // Assert
       expect(viewModel.state, equals(ClassificationState.error));
       expect(viewModel.result, isNull);
       expect(viewModel.isProcessing, isFalse);
-      expect(viewModel.errorMessage, contains('Classification error'));
+      expect(viewModel.errorMessage,
+          'Classification failed: Classification error');
     });
 
     test('reset should clear all state', () {

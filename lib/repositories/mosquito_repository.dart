@@ -5,8 +5,8 @@ import '../services/database_service.dart';
 class MosquitoRepository {
   final DatabaseService _databaseService;
 
-  MosquitoRepository({DatabaseService? databaseService})
-      : _databaseService = databaseService ?? DatabaseService();
+  MosquitoRepository({required DatabaseService databaseService})
+      : _databaseService = databaseService;
 
   Future<List<MosquitoSpecies>> getAllMosquitoSpecies(String languageCode) async {
     return await _databaseService.getAllMosquitoSpecies(languageCode);

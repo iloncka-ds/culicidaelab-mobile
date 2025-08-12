@@ -3,13 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
+import 'dart:async' as _i4;
 
-import 'package:culicidaelab/models/disease_model.dart' as _i7;
-import 'package:culicidaelab/models/mosquito_model.dart' as _i6;
-import 'package:culicidaelab/services/database_service.dart' as _i4;
+import 'package:culicidaelab/services/pytorch_lite_model.dart' as _i2;
+import 'package:culicidaelab/services/pytorch_wrapper.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:sqflite/sqflite.dart' as _i2;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -24,8 +22,9 @@ import 'package:sqflite/sqflite.dart' as _i2;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeDatabase_0 extends _i1.SmartFake implements _i2.Database {
-  _FakeDatabase_0(
+class _FakeClassificationModel_0 extends _i1.SmartFake
+    implements _i2.ClassificationModel {
+  _FakeClassificationModel_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -34,117 +33,43 @@ class _FakeDatabase_0 extends _i1.SmartFake implements _i2.Database {
         );
 }
 
-class _FakeMosquitoSpecies_1 extends _i1.SmartFake
-    implements _i6.MosquitoSpecies {
-  _FakeMosquitoSpecies_1(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-/// A class which mocks [DatabaseService].
+/// A class which mocks [PytorchWrapper].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDatabaseService extends _i1.Mock implements _i4.DatabaseService {
-  MockDatabaseService() {
+class MockPytorchWrapper extends _i1.Mock implements _i3.PytorchWrapper {
+  MockPytorchWrapper() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.Future<_i2.Database> get database => (super.noSuchMethod(
-        Invocation.getter(#database),
-        returnValue: _i5.Future<_i2.Database>.value(_FakeDatabase_0(
+  _i4.Future<_i2.ClassificationModel> loadClassificationModel(
+    String? pathImageModel,
+    int? imageWidth,
+    int? imageHeight, {
+    String? labelPath,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #loadClassificationModel,
+          [
+            pathImageModel,
+            imageWidth,
+            imageHeight,
+          ],
+          {#labelPath: labelPath},
+        ),
+        returnValue: _i4.Future<_i2.ClassificationModel>.value(
+            _FakeClassificationModel_0(
           this,
-          Invocation.getter(#database),
+          Invocation.method(
+            #loadClassificationModel,
+            [
+              pathImageModel,
+              imageWidth,
+              imageHeight,
+            ],
+            {#labelPath: labelPath},
+          ),
         )),
-      ) as _i5.Future<_i2.Database>);
-
-  @override
-  _i5.Future<List<_i6.MosquitoSpecies>> getAllMosquitoSpecies(
-          String? languageCode) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getAllMosquitoSpecies,
-          [languageCode],
-        ),
-        returnValue: _i5.Future<List<_i6.MosquitoSpecies>>.value(
-            <_i6.MosquitoSpecies>[]),
-      ) as _i5.Future<List<_i6.MosquitoSpecies>>);
-
-  @override
-  _i5.Future<_i6.MosquitoSpecies?> getMosquitoSpeciesById(
-    String? id,
-    String? languageCode,
-  ) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getMosquitoSpeciesById,
-          [
-            id,
-            languageCode,
-          ],
-        ),
-        returnValue: _i5.Future<_i6.MosquitoSpecies?>.value(),
-      ) as _i5.Future<_i6.MosquitoSpecies?>);
-
-  @override
-  _i5.Future<List<_i7.Disease>> getAllDiseases(String? languageCode) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getAllDiseases,
-          [languageCode],
-        ),
-        returnValue: _i5.Future<List<_i7.Disease>>.value(<_i7.Disease>[]),
-      ) as _i5.Future<List<_i7.Disease>>);
-
-  @override
-  _i5.Future<_i7.Disease?> getDiseaseById(
-    String? id,
-    String? languageCode,
-  ) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getDiseaseById,
-          [
-            id,
-            languageCode,
-          ],
-        ),
-        returnValue: _i5.Future<_i7.Disease?>.value(),
-      ) as _i5.Future<_i7.Disease?>);
-
-  @override
-  _i5.Future<List<_i7.Disease>> getDiseasesByVector(
-    String? speciesName,
-    String? languageCode,
-  ) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getDiseasesByVector,
-          [
-            speciesName,
-            languageCode,
-          ],
-        ),
-        returnValue: _i5.Future<List<_i7.Disease>>.value(<_i7.Disease>[]),
-      ) as _i5.Future<List<_i7.Disease>>);
-
-  @override
-  _i5.Future<_i6.MosquitoSpecies?> getMosquitoSpeciesByName(
-    String? scientificName,
-    String? languageCode,
-  ) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getMosquitoSpeciesByName,
-          [
-            scientificName,
-            languageCode,
-          ],
-        ),
-        returnValue: _i5.Future<_i6.MosquitoSpecies?>.value(),
-      ) as _i5.Future<_i6.MosquitoSpecies?>);
+      ) as _i4.Future<_i2.ClassificationModel>);
 }

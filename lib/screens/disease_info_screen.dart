@@ -9,88 +9,53 @@ import '../widgets/icomoon_icons.dart';
 
 // Add this import
 import 'package:culicidaelab/l10n/app_localizations.dart';
+import 'package:culicidaelab/locator.dart';
 
-class DiseaseInfoScreen extends StatefulWidget {
+class DiseaseInfoScreen extends StatelessWidget {
   const DiseaseInfoScreen({Key? key}) : super(key: key);
 
   @override
-  _DiseaseInfoScreenState createState() => _DiseaseInfoScreenState();
-}
-
-class _DiseaseInfoScreenState extends State<DiseaseInfoScreen> {
-  final TextEditingController _searchController = TextEditingController();
-  AppLocalizations? _localizations;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) {
-        _localizations = AppLocalizations.of(context)!;
-        Provider.of<DiseaseInfoViewModel>(
-          context,
-          listen: false,
-        ).loadDiseases(_localizations!);
-      }
-    });
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (_localizations == null && mounted) {
-      _localizations = AppLocalizations.of(context)!;
-      // Provider.of<DiseaseInfoViewModel>(context, listen: false).loadDiseases(_localizations!);
-    }
-  }
-
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final localizations = _localizations ?? AppLocalizations.of(context)!;
+    final localizations = AppLocalizations.of(context)!;
+    final searchController = TextEditingController();
 
-    return Scaffold(
-      appBar: AppBar(title: Text(localizations.diseaseInfoScreenTitle)),
+    return ChangeNotifierProvider<DiseaseInfoViewModel>(
+      create: (_) =>
+          locator<DiseaseInfoViewModel>()..loadDiseases(localizations),
+      child: Scaffold(
+        appBar: AppBar(title: Text(localizations.diseaseInfoScreenTitle)),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                hintText: localizations.searchDiseasesHint,
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey.shade300),
-                ),
-                filled: true,
-                fillColor: Colors.grey.shade100,
-                contentPadding: const EdgeInsets.symmetric(vertical: 0),
-                suffixIcon:
-                    _searchController.text.isNotEmpty
+            child: Consumer<DiseaseInfoViewModel>(
+              builder: (context, viewModel, child) {
+                return TextField(
+                  controller: searchController,
+                  decoration: InputDecoration(
+                    hintText: localizations.searchDiseasesHint,
+                    prefixIcon: const Icon(Icons.search),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(color: Colors.grey.shade300),
+                    ),
+                    filled: true,
+                    fillColor: Colors.grey.shade100,
+                    contentPadding: const EdgeInsets.symmetric(vertical: 0),
+                    suffixIcon: searchController.text.isNotEmpty
                         ? IconButton(
-                          icon: const Icon(Icons.clear),
-                          onPressed: () {
-                            _searchController.clear();
-                            Provider.of<DiseaseInfoViewModel>(
-                              context,
-                              listen: false,
-                            ).updateSearchQuery('');
-                          },
-                        )
+                            icon: const Icon(Icons.clear),
+                            onPressed: () {
+                              searchController.clear();
+                              viewModel.updateSearchQuery('');
+                            },
+                          )
                         : null,
-              ),
-              onChanged: (value) {
-                Provider.of<DiseaseInfoViewModel>(
-                  context,
-                  listen: false,
-                ).updateSearchQuery(value);
+                  ),
+                  onChanged: (value) {
+                    viewModel.updateSearchQuery(value);
+                  },
+                );
               },
             ),
           ),
@@ -151,7 +116,7 @@ class _DiseaseInfoScreenState extends State<DiseaseInfoScreen> {
                             color: Colors.grey.shade600,
                           ),
                         ),
-                        if (_searchController.text.isNotEmpty)
+                        if (searchController.text.isNotEmpty)
                           Padding(
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Text(
@@ -169,7 +134,7 @@ class _DiseaseInfoScreenState extends State<DiseaseInfoScreen> {
                   itemCount: filteredDiseases.length,
                   itemBuilder: (context, index) {
                     final disease = filteredDiseases[index];
-                    return _buildDiseaseCard(disease, localizations);
+                    return _buildDiseaseCard(context, disease, localizations);
                   },
                 );
               },
@@ -180,7 +145,8 @@ class _DiseaseInfoScreenState extends State<DiseaseInfoScreen> {
     );
   }
 
-  Widget _buildDiseaseCard(Disease disease, AppLocalizations localizations) {
+  Widget _buildDiseaseCard(
+      BuildContext context, Disease disease, AppLocalizations localizations) {
     return Card(
       elevation: 3,
       margin: const EdgeInsets.only(bottom: 16.0),

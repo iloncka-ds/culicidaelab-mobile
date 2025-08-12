@@ -14,8 +14,8 @@ class DiseaseInfoViewModel extends ChangeNotifier {
   String? _errorMessage; // Will be a pre-localized string
   String _searchQuery = '';
 
-  DiseaseInfoViewModel({MosquitoRepository? repository})
-    : _repository = repository ?? MosquitoRepository();
+  DiseaseInfoViewModel({required MosquitoRepository repository})
+    : _repository = repository;
 
   DiseaseInfoState get state => _state;
   List<Disease> get diseases => _diseases;

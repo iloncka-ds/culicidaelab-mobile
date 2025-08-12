@@ -29,26 +29,15 @@ import 'repositories/mosquito_repository.dart';
 
 // Add these imports for localization
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:culicidaelab/l10n/app_localizations.dart'; // Updated import path
+import 'packagepackage:culicidaelab/l10n/app_localizations.dart'; // Updated import path
+import 'package:culicidaelab/locator.dart';
 
 // Import LocaleProvider
 import 'providers/locale_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Initialize database
-  // Conditional initialization for different platforms
-  // if (kIsWeb) {
-  //   databaseFactory = databaseFactoryFfiWeb;
-  //   print("Sqflite initialized for web using FFI Web.");
-  // } else if (defaultTargetPlatform == TargetPlatform.windows ||
-  //     defaultTargetPlatform == TargetPlatform.macOS ||
-  //     defaultTargetPlatform == TargetPlatform.linux) {
-  //   sqfliteFfiInit();
-  //   databaseFactory = databaseFactoryFfi;
-  //   print("Sqflite initialized for desktop using FFI.");
-  // }
+  await setupLocator();
   runApp(const MosquitoClassifierApp());
 }
 
@@ -57,35 +46,8 @@ class MosquitoClassifierApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<LocaleProvider>(create: (_) => LocaleProvider()),
-        Provider<MosquitoRepository>(create: (_) => MosquitoRepository()),
-        Provider<ClassificationRepository>(
-          create:
-              (context) => ClassificationRepository(
-                // mosquitoRepository: context.read<MosquitoRepository>(),
-              ),
-        ),
-        ChangeNotifierProvider<ClassificationViewModel>(
-          create:
-              (context) => ClassificationViewModel(
-                repository: context.read<ClassificationRepository>(),
-              ),
-        ),
-        ChangeNotifierProvider<MosquitoGalleryViewModel>(
-          create:
-              (context) => MosquitoGalleryViewModel(
-                repository: context.read<MosquitoRepository>(),
-              ),
-        ),
-        ChangeNotifierProvider<DiseaseInfoViewModel>(
-          create:
-              (context) => DiseaseInfoViewModel(
-                repository: context.read<MosquitoRepository>(),
-              ),
-        ),
-      ],
+    return ChangeNotifierProvider<LocaleProvider>.value(
+      value: locator<LocaleProvider>()..init(),
       child: Consumer<LocaleProvider>(
         builder: (context, localeProvider, child) {
           return MaterialApp(
@@ -146,10 +108,7 @@ class _HomePageState extends State<HomePage> {
     if (!mounted) return;
     final localizations = AppLocalizations.of(context)!;
     try {
-      await Provider.of<ClassificationViewModel>(
-        context,
-        listen: false,
-      ).initModel(localizations);
+      await locator<ClassificationViewModel>().initModel(localizations);
       if (mounted) {
         setState(() {
           _isModelLoaded = true;
@@ -257,11 +216,6 @@ class _HomePageState extends State<HomePage> {
                   subtitle: localizations.mosquitoGalleryButtonSubtitle,
                   color: Color(0xFFF0BB78),
                   onTap: () {
-                    final currentLocalizations = AppLocalizations.of(context)!;
-                    Provider.of<MosquitoGalleryViewModel>(
-                      context,
-                      listen: false,
-                    ).loadMosquitoSpecies(currentLocalizations);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -277,11 +231,6 @@ class _HomePageState extends State<HomePage> {
                   subtitle: localizations.diseasesInfoButtonSubtitle,
                   color: Color(0xFFF38C79),
                   onTap: () {
-                    final currentLocalizations = AppLocalizations.of(context)!;
-                    Provider.of<DiseaseInfoViewModel>(
-                      context,
-                      listen: false,
-                    ).loadDiseases(currentLocalizations);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
