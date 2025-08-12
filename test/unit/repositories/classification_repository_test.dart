@@ -10,6 +10,9 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:http/http.dart' as http;
 
+import 'package:culicidaelab/locator.dart';
+
+
 import 'classification_repository_test.mocks.dart';
 
 @GenerateMocks([ClassificationService, MosquitoRepository, http.Client])
@@ -23,11 +26,25 @@ void main() {
     mockClassificationService = MockClassificationService();
     mockMosquitoRepository = MockMosquitoRepository();
     mockHttpClient = MockClient();
+
+    locator
+        .registerSingleton<ClassificationService>(mockClassificationService);
+    locator.registerSingleton<MosquitoRepository>(mockMosquitoRepository);
+    locator.registerSingleton<http.Client>(mockHttpClient);
     classificationRepository = ClassificationRepository(
-      classificationService: mockClassificationService,
-      mosquitoRepository: mockMosquitoRepository,
+      classificationService: locator(),
+      mosquitoRepository: locator(),
+      httpClient: locator(),
     );
   });
+
+  tearDown(() {
+    locator.unregister<ClassificationService>();
+    locator.unregister<MosquitoRepository>();
+    locator.unregister<http.Client>();
+  });
+
+
 
   group('classifyImage', () {
     test('should return a ClassificationResult when species is found',
@@ -42,7 +59,10 @@ void main() {
         id: '1',
         name: 'Aedes aegypti',
         commonName: 'Yellow Fever Mosquito',
-        description: 'A mosquito that can spread dengue fever, chikungunya, Zika fever, Mayaro and yellow fever viruses, and other disease agents.',
+
+        description:
+            'A mosquito that can spread dengue fever, chikungunya, Zika fever, Mayaro and yellow fever viruses, and other disease agents.',
+
         habitat: 'Urban areas',
         distribution: 'Tropical and subtropical regions',
         imageUrl: 'assets/images/species/aedes_aegypti.jpg',
@@ -52,8 +72,12 @@ void main() {
         Disease(
           id: '1',
           name: 'Dengue',
-          description: 'A viral infection that causes flu-like illness, and occasionally develops into a potentially lethal complication called severe dengue.',
-          symptoms: 'High fever, headache, vomiting, muscle and joint pains, and a characteristic skin rash.',
+
+          description:
+              'A viral infection that causes flu-like illness, and occasionally develops into a potentially lethal complication called severe dengue.',
+          symptoms:
+              'High fever, headache, vomiting, muscle and joint pains, and a characteristic skin rash.',
+
           treatment: 'No specific treatment',
           prevention: 'Mosquito control',
           vectors: ['Aedes aegypti'],

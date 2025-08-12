@@ -9,125 +9,128 @@ import 'disease_detail_screen.dart';
 import '../widgets/custom_empty_widget.dart';
 import '../widgets/icomoon_icons.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart';
+import 'package:culicidaelab/locator.dart';
 import 'observation_details_screen.dart';
 
-class ClassificationScreen extends StatefulWidget {
+class ClassificationScreen extends StatelessWidget {
   const ClassificationScreen({Key? key}) : super(key: key);
 
-  @override
-  _ClassificationScreenState createState() => _ClassificationScreenState();
-}
-
-class _ClassificationScreenState extends State<ClassificationScreen> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
 
-    return Scaffold(
-      appBar: AppBar(title: Text(localizations.classificationScreenTitle)),
-      body: Consumer<ClassificationViewModel>(
-        builder: (context, viewModel, child) {
-          return SingleChildScrollView(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Visibility(
-                  visible: !viewModel.hasImage,
-                  maintainState: true,
-                  child: Card(
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Icon(
-                            Icons.info_outline,
-                            color: Colors.teal,
-                            size: 32,
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            localizations.uploadImageHint,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            localizations.uploadImageSubHint,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey.shade600,
+    return ChangeNotifierProvider<ClassificationViewModel>.value(
+      value: locator<ClassificationViewModel>(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(localizations.classificationScreenTitle),
+        ),
+        body: Consumer<ClassificationViewModel>(
+          builder: (context, viewModel, child) {
+            return SingleChildScrollView(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Visibility(
+                    visible: !viewModel.hasImage,
+                    maintainState: true,
+                    child: Card(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.info_outline,
+                              color: Colors.teal,
+                              size: 32,
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                if (!viewModel.hasImage) const SizedBox(height: 16),
-
-                _buildImagePreview(viewModel, localizations),
-
-                if (viewModel.errorMessage != null)
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      viewModel.errorMessage!,
-                      style: const TextStyle(color: Colors.red),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-
-                if (viewModel.state == ClassificationState.success && viewModel.result != null)
-                  _buildResultCard(viewModel, localizations)
-                else if (viewModel.state == ClassificationState.submitted && viewModel.submissionResult != null)
-                  _buildSubmissionResult(viewModel, localizations),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildActionButton(
-                        icon: Icons.camera_alt,
-                        label: localizations.cameraButtonLabel,
-                        onPressed: () => _getImage(viewModel, ImageSource.camera, localizations),
-                      ),
-                      _buildActionButton(
-                        icon: Icons.photo_library,
-                        label: localizations.galleryButtonLabel,
-                        onPressed: () => _getImage(viewModel, ImageSource.gallery, localizations),
-                      ),
-                      if (viewModel.hasImage)
-                        _buildActionButton(
-                          icon: Icons.refresh,
-                          label: localizations.resetButtonLabel,
-                          onPressed: () => viewModel.reset(),
+                            const SizedBox(height: 8),
+                            Text(
+                              localizations.uploadImageHint,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              localizations.uploadImageSubHint,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey.shade600,
+                              ),
+                            ),
+                          ],
                         ),
-                    ],
+                      ),
+                    ),
                   ),
-                ),
-              ],
-            ),
-          );
-        },
+                  if (!viewModel.hasImage) const SizedBox(height: 16),
+                  _buildImagePreview(context, viewModel, localizations),
+                  if (viewModel.errorMessage != null)
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        viewModel.errorMessage!,
+                        style: const TextStyle(color: Colors.red),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  if (viewModel.state == ClassificationState.success &&
+                      viewModel.result != null)
+                    _buildResultCard(context, viewModel, localizations)
+                  else if (viewModel.state == ClassificationState.submitted &&
+                      viewModel.submissionResult != null)
+                    _buildSubmissionResult(context, viewModel, localizations),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _buildActionButton(
+                          icon: Icons.camera_alt,
+                          label: localizations.cameraButtonLabel,
+                          onPressed: () => _getImage(context, viewModel,
+                              ImageSource.camera, localizations),
+                        ),
+                        _buildActionButton(
+                          icon: Icons.photo_library,
+                          label: localizations.galleryButtonLabel,
+                          onPressed: () => _getImage(context, viewModel,
+                              ImageSource.gallery, localizations),
+                        ),
+                        if (viewModel.hasImage)
+                          _buildActionButton(
+                            icon: Icons.refresh,
+                            label: localizations.resetButtonLabel,
+                            onPressed: () => viewModel.reset(),
+                          ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
 
-  Widget _buildResultCard(ClassificationViewModel viewModel, AppLocalizations localizations) {
+  Widget _buildResultCard(BuildContext context,
+      ClassificationViewModel viewModel, AppLocalizations localizations) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 16.0),
       elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: Theme.of(context).colorScheme.outline.withOpacity(0.5)),
+        side: BorderSide(
+            color: Theme.of(context).colorScheme.outline.withOpacity(0.5)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -141,7 +144,8 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
                 Expanded(
                   child: Text(
                     localizations.speciesLabel(viewModel.result!.species.name),
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -150,8 +154,12 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 32.0),
               child: Text(
-                localizations.commonNameLabel(viewModel.result!.species.commonName),
-                style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic, color: Colors.black54),
+                localizations
+                    .commonNameLabel(viewModel.result!.species.commonName),
+                style: const TextStyle(
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.black54),
               ),
             ),
             const SizedBox(height: 12),
@@ -160,14 +168,16 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
                 const Icon(Icons.check_circle, color: Colors.green, size: 16),
                 const SizedBox(width: 4),
                 Text(
-                  localizations.confidenceLabel(viewModel.result!.confidence.toStringAsFixed(1)),
+                  localizations.confidenceLabel(
+                      viewModel.result!.confidence.toStringAsFixed(1)),
                   style: const TextStyle(fontSize: 14, color: Colors.green),
                 ),
                 const SizedBox(width: 16),
                 const Icon(Icons.timer, color: Colors.blue, size: 16),
                 const SizedBox(width: 4),
                 Text(
-                  localizations.inferenceTimeLabel(viewModel.result!.inferenceTime),
+                  localizations
+                      .inferenceTimeLabel(viewModel.result!.inferenceTime),
                   style: const TextStyle(fontSize: 14, color: Colors.blue),
                 ),
               ],
@@ -178,39 +188,59 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                // --- START OF STYLING CHANGE ---
+
                 Expanded(
-                  child: OutlinedButton.icon( // Changed to OutlinedButton
+                  child: OutlinedButton.icon(
+                    // Changed to OutlinedButton
                     icon: const Icon(Icons.info_outline),
-                    label: Text(localizations.speciesInfoButton),
+                    label: Flexible(
+                    child: Text(
+                      localizations.speciesInfoButton,
+                      textAlign: TextAlign.center, // Center the text
+                    ),
+                  ),
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.teal.shade700, // Dark teal for text and icon
-                      side: BorderSide(color: Colors.teal.shade400, width: 1.5), // Teal outline
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      foregroundColor:
+                          Colors.teal.shade700, // Dark teal for text and icon
+                      side: BorderSide(
+                          color: Colors.teal.shade400,
+                          width: 1.5), // Teal outline
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
                     ),
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MosquitoDetailScreen(species: viewModel.result!.species),
+                          builder: (context) => MosquitoDetailScreen(
+                              species: viewModel.result!.species),
                         ),
                       );
                     },
                   ),
                 ),
-                
+
                 const SizedBox(width: 8),
                 if (viewModel.shouldShowDiseaseRiskButton)
                   Expanded(
                     child: ElevatedButton.icon(
                       icon: const Icon(Icons.warning_amber),
-                      label: Text(localizations.diseaseRisksButton),
-                      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFF38C79), foregroundColor: Colors.white),
+                      label: Flexible(
+                      child: Text(
+                        localizations.diseaseRisksButton,
+                        textAlign: TextAlign.center, // Center the text
+                      ),
+                    ),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFFF38C79),
+                          foregroundColor: Colors.white),
                       onPressed: () {
                         showModalBottomSheet(
                           context: context,
                           isScrollControlled: true,
-                          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.vertical(top: Radius.circular(20))),
                           builder: (context) => DraggableScrollableSheet(
                             initialChildSize: 0.6,
                             minChildSize: 0.3,
@@ -219,7 +249,8 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
                             builder: (context, scrollController) {
                               return SingleChildScrollView(
                                 controller: scrollController,
-                                child: _buildDiseasesList(viewModel, localizations),
+                                child: _buildDiseasesList(
+                                    context, viewModel, localizations),
                               );
                             },
                           ),
@@ -234,8 +265,16 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
               width: double.infinity,
               child: ElevatedButton.icon(
                 icon: const Icon(Icons.add_location_alt_outlined),
-                label: Text(localizations.addDetailsButton),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.teal.shade700, foregroundColor: Colors.white, padding: const EdgeInsets.symmetric(vertical: 12)),
+                label: Flexible(
+                child: Text(
+                  localizations.addDetailsButton,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.teal.shade700,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 12)),
                 onPressed: () {
                   viewModel.fetchWebPrediction(localizations);
                   Navigator.push(
@@ -255,7 +294,8 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
     );
   }
 
-  Widget _buildImagePreview(ClassificationViewModel viewModel, AppLocalizations localizations) {
+  Widget _buildImagePreview(BuildContext context,
+      ClassificationViewModel viewModel, AppLocalizations localizations) {
     Widget content;
     if (viewModel.isProcessing) {
       content = Column(
@@ -347,7 +387,10 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
     );
   }
 
-  Widget _buildActionButton({required IconData icon, required String label, required VoidCallback onPressed}) {
+  Widget _buildActionButton(
+      {required IconData icon,
+      required String label,
+      required VoidCallback onPressed}) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -360,6 +403,7 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
         const SizedBox(height: 8),
         Text(
           label,
+          textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.grey.shade700,
             fontWeight: FontWeight.bold,
@@ -369,7 +413,8 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
     );
   }
 
-  Widget _buildDiseasesList(ClassificationViewModel viewModel, AppLocalizations localizations) {
+  Widget _buildDiseasesList(BuildContext context,
+      ClassificationViewModel viewModel, AppLocalizations localizations) {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -382,7 +427,10 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
               const SizedBox(width: 8),
               Text(
                 localizations.potentialDiseaseRisksTitle,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.black87),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge
+                    ?.copyWith(color: Colors.black87),
               ),
             ],
           ),
@@ -402,7 +450,8 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
                 margin: const EdgeInsets.symmetric(vertical: 4.0),
                 child: ListTile(
                   leading: CircleAvatar(
-                    backgroundColor: const Color(0xFFF38C79).withOpacity(0.2),
+                    backgroundColor:
+                        const Color(0xFFF38C79).withOpacity(0.2),
                     child: const Icon(
                       Icons.local_hospital_outlined,
                       color: Color(0xFFF38C79),
@@ -423,7 +472,8 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DiseaseDetailScreen(disease: disease),
+                        builder: (context) =>
+                            DiseaseDetailScreen(disease: disease),
                       ),
                     );
                   },
@@ -446,18 +496,20 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
     );
   }
 
-  void _getImage(ClassificationViewModel viewModel, ImageSource source, AppLocalizations localizations) async {
+  void _getImage(BuildContext context, ClassificationViewModel viewModel,
+      ImageSource source, AppLocalizations localizations) async {
     await viewModel.pickImage(source, localizations);
-    if (viewModel.hasImage && mounted) {
+    if (viewModel.hasImage) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && viewModel.hasImage) {
+        if (viewModel.hasImage) {
           viewModel.classifyImage(localizations);
         }
       });
     }
   }
 
-  Widget _buildSubmissionResult(ClassificationViewModel viewModel, AppLocalizations localizations) {
+  Widget _buildSubmissionResult(BuildContext context,
+      ClassificationViewModel viewModel, AppLocalizations localizations) {
     final result = viewModel.submissionResult!;
     return Card(
       elevation: 4,
@@ -472,12 +524,18 @@ class _ClassificationScreenState extends State<ClassificationScreen> {
             Text(
               localizations.thankYouForParticipation,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 24),
             const Divider(),
-            _buildInfoRow(localizations.submissionIdLabel(result.id), Icons.tag),
-            _buildInfoRow(localizations.speciesLabel(result.speciesScientificName), Icons.bug_report),
+            _buildInfoRow(
+                localizations.submissionIdLabel(result.id), Icons.tag),
+            _buildInfoRow(
+                localizations.speciesLabel(result.speciesScientificName),
+                Icons.bug_report),
             _buildInfoRow(
                 "${result.location.lat.toStringAsFixed(4)}, ${result.location.lng.toStringAsFixed(4)}",
                 Icons.location_on),

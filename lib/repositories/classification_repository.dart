@@ -14,13 +14,15 @@ import '../models/observation_model.dart';
 class ClassificationRepository {
   final ClassificationService _classificationService;
   final MosquitoRepository _mosquitoRepository;
-
+  final http.Client _httpClient;
 
   ClassificationRepository({
-    ClassificationService? classificationService,
-    MosquitoRepository? mosquitoRepository,
-  })  : _classificationService = classificationService ?? ClassificationService(),
-        _mosquitoRepository = mosquitoRepository ?? MosquitoRepository();
+    required ClassificationService classificationService,
+    required MosquitoRepository mosquitoRepository,
+    required http.Client httpClient,
+  })  : _classificationService = classificationService,
+        _mosquitoRepository = mosquitoRepository,
+        _httpClient = httpClient;
 
   final String _mosquitoPredictionUrl = "http://culicidealab.ru/api/predict";
   final String _mosquitoObservationUrl = "http://culicidealab.ru/api/observations";
@@ -96,7 +98,7 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
     // 3. Add the correctly typed file to the request
     request.files.add(multipartFile);
 
-    final streamedResponse = await request.send();
+    final streamedResponse = await _httpClient.send(request);
     final response = await http.Response.fromStream(streamedResponse);
 
     if (response.statusCode == 200) {
@@ -114,7 +116,7 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
   }) async {
     final url = Uri.parse(_mosquitoObservationUrl);
 
-    final response = await http.post(
+    final response = await _httpClient.post(
       url,
       headers: {'Content-Type': 'application/json; charset=UTF-8'},
       body: json.encode(finalPayload),

@@ -2,11 +2,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 class UserService {
+  final SharedPreferences _prefs;
+  final Uuid _uuid;
+
   // A private constant for the storage key
   static const _userIdKey = 'user_id';
 
-  // Use the Uuid package to generate unique IDs
-  final _uuid = const Uuid();
+  UserService({required SharedPreferences prefs, required Uuid uuid})
+      : _prefs = prefs,
+        _uuid = uuid;
 
   /// Gets the unique user ID.
   ///
@@ -14,10 +18,8 @@ class UserService {
   /// will generate a new one, save it to persistent storage, and then
   /// return it. On subsequent calls, it will return the existing saved ID.
   Future<String> getUserId() async {
-    final prefs = await SharedPreferences.getInstance();
-
     // Try to get the existing user ID from storage.
-    String? userId = prefs.getString(_userIdKey);
+    String? userId = _prefs.getString(_userIdKey);
 
     // If the user ID is not found (null), it's the user's first time.
     if (userId == null) {
@@ -25,7 +27,7 @@ class UserService {
       userId = _uuid.v4();
 
       // Save the new ID to the device's persistent storage.
-      await prefs.setString(_userIdKey, userId);
+      await _prefs.setString(_userIdKey, userId);
       print('New user ID generated and saved: $userId');
     } else {
       print('Existing user ID retrieved: $userId');

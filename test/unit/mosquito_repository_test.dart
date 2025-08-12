@@ -5,6 +5,7 @@ import 'package:culicidaelab/models/mosquito_model.dart';
 import 'package:culicidaelab/models/disease_model.dart';
 import 'package:culicidaelab/repositories/mosquito_repository.dart';
 import 'package:culicidaelab/services/database_service.dart';
+import 'package:culicidaelab/locator.dart';
 
 // Generate mock classes
 @GenerateMocks([DatabaseService])
@@ -16,7 +17,12 @@ void main() {
 
   setUp(() {
     mockDatabaseService = MockDatabaseService();
-    repository = MosquitoRepository(databaseService: mockDatabaseService);
+    locator.registerSingleton<DatabaseService>(mockDatabaseService);
+    repository = MosquitoRepository(databaseService: locator());
+  });
+
+  tearDown(() {
+    locator.unregister<DatabaseService>();
   });
 
   group('MosquitoRepository Tests', () {
@@ -73,15 +79,15 @@ void main() {
       () async {
         // Arrange
         when(
-          mockDatabaseService.getAllMosquitoSpecies(),
+          mockDatabaseService.getAllMosquitoSpecies('en'),
         ).thenAnswer((_) async => mockMosquitoSpecies);
 
         // Act
-        final result = await repository.getAllMosquitoSpecies();
+        final result = await repository.getAllMosquitoSpecies('en');
 
         // Assert
         expect(result, equals(mockMosquitoSpecies));
-        verify(mockDatabaseService.getAllMosquitoSpecies()).called(1);
+        verify(mockDatabaseService.getAllMosquitoSpecies('en')).called(1);
       },
     );
 
@@ -90,15 +96,15 @@ void main() {
       () async {
         // Arrange
         when(
-          mockDatabaseService.getMosquitoSpeciesById('1'),
+          mockDatabaseService.getMosquitoSpeciesById('1', 'en'),
         ).thenAnswer((_) async => mockMosquitoSpecies[0]);
 
         // Act
-        final result = await repository.getMosquitoSpeciesById('1');
+        final result = await repository.getMosquitoSpeciesById('1', 'en');
 
         // Assert
         expect(result, equals(mockMosquitoSpecies[0]));
-        verify(mockDatabaseService.getMosquitoSpeciesById('1')).called(1);
+        verify(mockDatabaseService.getMosquitoSpeciesById('1', 'en')).called(1);
       },
     );
 
@@ -107,58 +113,59 @@ void main() {
       () async {
         // Arrange
         when(
-          mockDatabaseService.getMosquitoSpeciesById('999'),
+          mockDatabaseService.getMosquitoSpeciesById('999', 'en'),
         ).thenAnswer((_) async => null);
 
         // Act
-        final result = await repository.getMosquitoSpeciesById('999');
+        final result = await repository.getMosquitoSpeciesById('999', 'en');
 
         // Assert
         expect(result, isNull);
-        verify(mockDatabaseService.getMosquitoSpeciesById('999')).called(1);
+        verify(mockDatabaseService.getMosquitoSpeciesById('999', 'en'))
+            .called(1);
       },
     );
 
     test('getAllDiseases should return list of diseases', () async {
       // Arrange
       when(
-        mockDatabaseService.getAllDiseases(),
+        mockDatabaseService.getAllDiseases('en'),
       ).thenAnswer((_) async => mockDiseases);
 
       // Act
-      final result = await repository.getAllDiseases();
+      final result = await repository.getAllDiseases('en');
 
       // Assert
       expect(result, equals(mockDiseases));
-      verify(mockDatabaseService.getAllDiseases()).called(1);
+      verify(mockDatabaseService.getAllDiseases('en')).called(1);
     });
 
     test('getDiseaseById should return a specific disease', () async {
       // Arrange
       when(
-        mockDatabaseService.getDiseaseById('1'),
+        mockDatabaseService.getDiseaseById('1', 'en'),
       ).thenAnswer((_) async => mockDiseases[0]);
 
       // Act
-      final result = await repository.getDiseaseById('1');
+      final result = await repository.getDiseaseById('1', 'en');
 
       // Assert
       expect(result, equals(mockDiseases[0]));
-      verify(mockDatabaseService.getDiseaseById('1')).called(1);
+      verify(mockDatabaseService.getDiseaseById('1', 'en')).called(1);
     });
 
     test('getDiseaseById should return null for non-existent ID', () async {
       // Arrange
       when(
-        mockDatabaseService.getDiseaseById('999'),
+        mockDatabaseService.getDiseaseById('999', 'en'),
       ).thenAnswer((_) async => null);
 
       // Act
-      final result = await repository.getDiseaseById('999');
+      final result = await repository.getDiseaseById('999', 'en');
 
       // Assert
       expect(result, isNull);
-      verify(mockDatabaseService.getDiseaseById('999')).called(1);
+      verify(mockDatabaseService.getDiseaseById('999', 'en')).called(1);
     });
 
     test(
@@ -166,16 +173,17 @@ void main() {
       () async {
         // Arrange
         when(
-          mockDatabaseService.getDiseasesByVector('Aedes aegypti'),
+          mockDatabaseService.getDiseasesByVector('Aedes aegypti', 'en'),
         ).thenAnswer((_) async => [mockDiseases[0]]);
 
         // Act
-        final result = await repository.getDiseasesByVector('Aedes aegypti');
+        final result =
+            await repository.getDiseasesByVector('Aedes aegypti', 'en');
 
         // Assert
         expect(result, equals([mockDiseases[0]]));
         verify(
-          mockDatabaseService.getDiseasesByVector('Aedes aegypti'),
+          mockDatabaseService.getDiseasesByVector('Aedes aegypti', 'en'),
         ).called(1);
       },
     );
@@ -185,16 +193,17 @@ void main() {
       () async {
         // Arrange
         when(
-          mockDatabaseService.getDiseasesByVector('Non-existent'),
+          mockDatabaseService.getDiseasesByVector('Non-existent', 'en'),
         ).thenAnswer((_) async => []);
 
         // Act
-        final result = await repository.getDiseasesByVector('Non-existent');
+        final result =
+            await repository.getDiseasesByVector('Non-existent', 'en');
 
         // Assert
         expect(result, isEmpty);
         verify(
-          mockDatabaseService.getDiseasesByVector('Non-existent'),
+          mockDatabaseService.getDiseasesByVector('Non-existent', 'en'),
         ).called(1);
       },
     );

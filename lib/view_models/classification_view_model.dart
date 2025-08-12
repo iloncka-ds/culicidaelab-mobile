@@ -39,10 +39,10 @@ class ClassificationViewModel extends ChangeNotifier {
   // --- SECTION 3: CONSTRUCTOR ---
 
   ClassificationViewModel({
-    ClassificationRepository? repository,
-    UserService? userService,
-  })  : _repository = repository ?? ClassificationRepository(),
-        _userService = userService ?? UserService();
+    required ClassificationRepository repository,
+    required UserService userService,
+  })  : _repository = repository,
+        _userService = userService;
 
   // --- SECTION 4: GETTERS FOR UI ---
   ClassificationState get state => _state;
