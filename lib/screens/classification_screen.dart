@@ -27,10 +27,10 @@ class ClassificationScreen extends StatelessWidget {
           builder: (context, viewModel, child) {
             return SingleChildScrollView(
               padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Visibility(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Visibility(
                   visible: !viewModel.hasImage,
                   maintainState: true,
                   child: Card(
@@ -70,7 +70,7 @@ class ClassificationScreen extends StatelessWidget {
                 ),
                 if (!viewModel.hasImage) const SizedBox(height: 16),
 
-                _buildImagePreview(viewModel, localizations),
+                _buildImagePreview(context, viewModel, localizations),
 
                 if (viewModel.errorMessage != null)
                   Padding(
@@ -82,10 +82,12 @@ class ClassificationScreen extends StatelessWidget {
                     ),
                   ),
 
-                if (viewModel.state == ClassificationState.success && viewModel.result != null)
-                  _buildResultCard(viewModel, localizations)
-                else if (viewModel.state == ClassificationState.submitted && viewModel.submissionResult != null)
-                  _buildSubmissionResult(viewModel, localizations),
+                if (viewModel.state == ClassificationState.success &&
+                    viewModel.result != null)
+                  _buildResultCard(context, viewModel, localizations)
+                else if (viewModel.state == ClassificationState.submitted &&
+                    viewModel.submissionResult != null)
+                  _buildSubmissionResult(context, viewModel, localizations),
 
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -95,12 +97,14 @@ class ClassificationScreen extends StatelessWidget {
                       _buildActionButton(
                         icon: Icons.camera_alt,
                         label: localizations.cameraButtonLabel,
-                        onPressed: () => _getImage(viewModel, ImageSource.camera, localizations),
+                        onPressed: () => _getImage(context, viewModel,
+                            ImageSource.camera, localizations),
                       ),
                       _buildActionButton(
                         icon: Icons.photo_library,
                         label: localizations.galleryButtonLabel,
-                        onPressed: () => _getImage(viewModel, ImageSource.gallery, localizations),
+                        onPressed: () => _getImage(context, viewModel,
+                            ImageSource.gallery, localizations),
                       ),
                       if (viewModel.hasImage)
                         _buildActionButton(
@@ -119,13 +123,15 @@ class ClassificationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildResultCard(ClassificationViewModel viewModel, AppLocalizations localizations) {
+  Widget _buildResultCard(BuildContext context, ClassificationViewModel viewModel,
+      AppLocalizations localizations) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 16.0),
       elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: Theme.of(context).colorScheme.outline.withOpacity(0.5)),
+        side: BorderSide(
+            color: Theme.of(context).colorScheme.outline.withOpacity(0.5)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -217,7 +223,8 @@ class ClassificationScreen extends StatelessWidget {
                             builder: (context, scrollController) {
                               return SingleChildScrollView(
                                 controller: scrollController,
-                                child: _buildDiseasesList(viewModel, localizations),
+                                child: _buildDiseasesList(
+                                    context, viewModel, localizations),
                               );
                             },
                           ),
@@ -367,7 +374,8 @@ class ClassificationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildDiseasesList(ClassificationViewModel viewModel, AppLocalizations localizations) {
+  Widget _buildDiseasesList(BuildContext context,
+      ClassificationViewModel viewModel, AppLocalizations localizations) {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -380,7 +388,10 @@ class ClassificationScreen extends StatelessWidget {
               const SizedBox(width: 8),
               Text(
                 localizations.potentialDiseaseRisksTitle,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.black87),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge
+                    ?.copyWith(color: Colors.black87),
               ),
             ],
           ),
@@ -444,18 +455,20 @@ class ClassificationScreen extends StatelessWidget {
     );
   }
 
-  void _getImage(ClassificationViewModel viewModel, ImageSource source, AppLocalizations localizations) async {
+  void _getImage(BuildContext context, ClassificationViewModel viewModel,
+      ImageSource source, AppLocalizations localizations) async {
     await viewModel.pickImage(source, localizations);
-    if (viewModel.hasImage && mounted) {
+    if (viewModel.hasImage) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && viewModel.hasImage) {
+        if (viewModel.hasImage) {
           viewModel.classifyImage(localizations);
         }
       });
     }
   }
 
-  Widget _buildSubmissionResult(ClassificationViewModel viewModel, AppLocalizations localizations) {
+  Widget _buildSubmissionResult(BuildContext context,
+      ClassificationViewModel viewModel, AppLocalizations localizations) {
     final result = viewModel.submissionResult!;
     return Card(
       elevation: 4,
@@ -470,7 +483,10 @@ class ClassificationScreen extends StatelessWidget {
             Text(
               localizations.thankYouForParticipation,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 24),
             const Divider(),

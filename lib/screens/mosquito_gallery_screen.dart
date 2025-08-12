@@ -22,9 +22,9 @@ class MosquitoGalleryScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(localizations.mosquitoGalleryScreenTitle),
-        elevation: 0,
-      ),
-      body: Column(
+          elevation: 0,
+        ),
+        body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),

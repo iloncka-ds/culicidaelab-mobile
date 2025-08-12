@@ -29,7 +29,7 @@ import 'repositories/mosquito_repository.dart';
 
 // Add these imports for localization
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'packagepackage:culicidaelab/l10n/app_localizations.dart'; // Updated import path
+import 'package:culicidaelab/l10n/app_localizations.dart'; // Updated import path
 import 'package:culicidaelab/locator.dart';
 
 // Import LocaleProvider

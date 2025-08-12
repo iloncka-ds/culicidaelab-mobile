@@ -8,9 +8,11 @@ import '../widgets/icomoon_icons.dart';
 
 import 'package:culicidaelab/l10n/app_localizations.dart';
 
+import 'package:culicidaelab/locator.dart';
+
 class DiseaseDetailScreen extends StatelessWidget {
   final Disease disease;
-  final MosquitoRepository _mosquitoRepository = MosquitoRepository();
+  final MosquitoRepository _mosquitoRepository = locator<MosquitoRepository>();
 
   DiseaseDetailScreen({Key? key, required this.disease}) : super(key: key);
 

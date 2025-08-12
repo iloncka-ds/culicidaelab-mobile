@@ -24,9 +24,9 @@ class DiseaseInfoScreen extends StatelessWidget {
           locator<DiseaseInfoViewModel>()..loadDiseases(localizations),
       child: Scaffold(
         appBar: AppBar(title: Text(localizations.diseaseInfoScreenTitle)),
-      body: Column(
-        children: [
-          Padding(
+        body: Column(
+          children: [
+            Padding(
             padding: const EdgeInsets.all(16.0),
             child: Consumer<DiseaseInfoViewModel>(
               builder: (context, viewModel, child) {
