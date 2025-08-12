@@ -279,8 +279,7 @@ class ClassificationScreen extends StatelessWidget {
 
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.teal.shade700,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 12)),
+                    foregroundColor: Colors.white),
                 onPressed: () {
                   viewModel.fetchWebPrediction(localizations);
                   Navigator.push(
