@@ -4,6 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:culicidaelab/providers/locale_provider.dart';
+import 'package:culicidaelab/locator.dart';
 
 import 'package:culicidaelab/locator.dart';
 
@@ -26,13 +27,13 @@ void main() {
   tearDown(() {
     locator.unregister<SharedPreferences>();
 
-
   });
 
   group('LocaleProvider', () {
     test('initial locale is null and loads from prefs', () async {
       when(mockSharedPreferences.getString('selectedLanguageCode'))
           .thenReturn('es');
+
 
 
       await localeProvider.init();
@@ -57,17 +58,16 @@ void main() {
       // Given the current implementation, we can't easily test the initial state before loading.
       // We will test the state after loading.
 
-      // We can't easily inject the mock, so this test will not work as expected.
-      // I will write the test assuming I could inject the mock.
+
+      expect(localeProvider.locale, const Locale('es'));
     });
 
     test('setLocale should persist the locale', () async {
-      SharedPreferences.setMockInitialValues({});
-      final prefs = await SharedPreferences.getInstance();
-      localeProvider = LocaleProvider();
-      await Future.delayed(Duration.zero);
+      when(mockSharedPreferences.setString('selectedLanguageCode', 'ru'))
+          .thenAnswer((_) async => true);
 
       await localeProvider.setLocale(const Locale('ru'));
+
 
       expect(prefs.getString('selectedLanguageCode'), 'ru');
 

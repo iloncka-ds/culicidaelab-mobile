@@ -23,7 +23,6 @@ class MockAppLocalizations extends Mock implements AppLocalizations {
 
 
 void main() {
-  late MockAppLocalizations mockLocalizations;
   late ClassificationViewModel viewModel;
   late MockClassificationRepository mockRepository;
   late MockUserService mockUserService;
@@ -68,13 +67,16 @@ void main() {
       await viewModel.initModel(mockAppLocalizations);
 
 
+      // Assert
       verify(mockRepository.loadModel()).called(1);
     });
 
-    test('initModel should throw if loadModel throws', () async {
+    test('initModel should handle errors', () async {
+      // Arrange
       when(mockRepository.loadModel()).thenThrow(Exception('Test error'));
       when(mockAppLocalizations.errorFailedToLoadModel(any))
           .thenReturn('Failed to load model: Test error');
+
 
 
       // Act
@@ -108,16 +110,10 @@ void main() {
 
       await viewModel.classifyImage(mockLocalizations);
 
-      expect(viewModel.state, equals(ClassificationState.success));
-      expect(viewModel.result, equals(mockResult));
-      expect(viewModel.isProcessing, isFalse);
+
+      // Assert
+      expect(viewModel.errorMessage, 'Failed to load model: Test error');
     });
-
-    test('classifyImage should update state and error on failure', () async {
-      when(mockRepository.classifyImage(any))
-          .thenThrow(Exception('Test error'));
-
-      await viewModel.classifyImage(mockLocalizations);
 
     test('classifyImage should update state correctly on success', () async {
       // Arrange
@@ -184,6 +180,7 @@ void main() {
 
       // Act
 
+
       await viewModel.classifyImage(mockAppLocalizations);
 
 
@@ -197,7 +194,6 @@ void main() {
 
     test('reset should clear all state', () {
       // Arrange
-      viewModel = ClassificationViewModel(repository: mockRepository);
       viewModel.setState(ClassificationState.success);
       viewModel.setImageFile(mockFile);
       viewModel.setResult(

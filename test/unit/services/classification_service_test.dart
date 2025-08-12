@@ -37,12 +37,12 @@ void main() {
       final imageFile = File('test/fixtures/test_image.jpg');
       final prediction = {'label': 'Aedes aegypti', 'probability': 0.98};
 
-
       when(mockPytorchWrapper.loadClassificationModel(any, any, any,
               labelPath: anyNamed('labelPath')))
           .thenAnswer((_) async => mockClassificationModel);
       when(mockClassificationModel.getImagePredictionResult(any))
           .thenAnswer((_) async => prediction);
+
 
       await classificationService.loadModel();
       final result = await classificationService.classifyImage(imageFile);

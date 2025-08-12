@@ -92,6 +92,7 @@ class ClassificationScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+
                         _buildActionButton(
                           icon: Icons.camera_alt,
                           label: localizations.cameraButtonLabel,
@@ -104,6 +105,7 @@ class ClassificationScreen extends StatelessWidget {
                           onPressed: () => _getImage(context, viewModel,
                               ImageSource.gallery, localizations),
                         ),
+
                         if (viewModel.hasImage)
                           _buildActionButton(
                             icon: Icons.refresh,
@@ -225,12 +227,14 @@ class ClassificationScreen extends StatelessWidget {
                   Expanded(
                     child: ElevatedButton.icon(
                       icon: const Icon(Icons.warning_amber),
+
                       label: Flexible(
                       child: Text(
                         localizations.diseaseRisksButton,
                         textAlign: TextAlign.center, // Center the text
                       ),
                     ),
+
                       style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFF38C79),
                           foregroundColor: Colors.white),
@@ -265,12 +269,14 @@ class ClassificationScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton.icon(
                 icon: const Icon(Icons.add_location_alt_outlined),
+
                 label: Flexible(
                 child: Text(
                   localizations.addDetailsButton,
                   textAlign: TextAlign.center,
                 ),
               ),
+
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.teal.shade700,
                     foregroundColor: Colors.white,

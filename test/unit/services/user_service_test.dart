@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 import 'package:culicidaelab/locator.dart';
 
+
 import 'user_service_test.mocks.dart';
 
 @GenerateMocks([SharedPreferences, Uuid])
