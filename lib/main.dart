@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
-import 'dart:io';
-import 'package:image_picker/image_picker.dart';
+// import 'dart:io';
+// import 'package:image_picker/image_picker.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'widgets/custom_empty_widget.dart';
+// import 'widgets/custom_empty_widget.dart';
 import 'widgets/icomoon_icons.dart';
 import 'package:provider/provider.dart';
 
@@ -18,17 +18,17 @@ import 'screens/classification_screen.dart';
 import 'screens/mosquito_gallery_screen.dart';
 import 'screens/disease_info_screen.dart';
 import 'screens/webview_screen.dart'; // Import WebViewScreen
-import 'models/mosquito_model.dart';
-import 'services/classification_service.dart';
-import 'services/database_service.dart';
+// import 'models/mosquito_model.dart';
+// import 'services/classification_service.dart';
+// import 'services/database_service.dart';
 import 'view_models/classification_view_model.dart';
-import 'view_models/mosquito_gallery_view_model.dart';
-import 'view_models/disease_info_view_model.dart';
-import 'repositories/classification_repository.dart';
-import 'repositories/mosquito_repository.dart';
+// import 'view_models/mosquito_gallery_view_model.dart';
+// import 'view_models/disease_info_view_model.dart';
+// import 'repositories/classification_repository.dart';
+// import 'repositories/mosquito_repository.dart';
 
 // Add these imports for localization
-import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart'; // Updated import path
 import 'package:culicidaelab/locator.dart';
 
