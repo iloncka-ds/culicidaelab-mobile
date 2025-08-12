@@ -28,128 +28,130 @@ class MosquitoGalleryScreen extends StatelessWidget {
           elevation: 0,
         ),
         body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Consumer<MosquitoGalleryViewModel>(
-              builder: (context, viewModel, child) {
-                return TextField(
-                  controller: searchController,
-                  decoration: InputDecoration(
-                    hintText: localizations.searchMosquitoSpeciesHint,
-                    prefixIcon: const Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(color: Colors.grey.shade300),
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Consumer<MosquitoGalleryViewModel>(
+                builder: (context, viewModel, child) {
+                  return TextField(
+                    controller: searchController,
+                    decoration: InputDecoration(
+                      hintText: localizations.searchMosquitoSpeciesHint,
+                      prefixIcon: const Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey.shade100,
+                      contentPadding: const EdgeInsets.symmetric(vertical: 0),
+                      suffixIcon: searchController.text.isNotEmpty
+                          ? IconButton(
+                              icon: const Icon(Icons.clear),
+                              onPressed: () {
+                                searchController.clear();
+                                viewModel.updateSearchQuery('');
+                              },
+                            )
+                          : null,
                     ),
-                    filled: true,
-                    fillColor: Colors.grey.shade100,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 0),
-                    suffixIcon: searchController.text.isNotEmpty
-                        ? IconButton(
-                            icon: const Icon(Icons.clear),
-                            onPressed: () {
-                              searchController.clear();
-                              viewModel.updateSearchQuery('');
-                            },
-                          )
-                        : null,
-                  ),
-                  onChanged: (value) {
-                    viewModel.updateSearchQuery(value);
-                  },
-                );
-              },
-            ),
-          ),
-
-          Expanded(
-            child: Consumer<MosquitoGalleryViewModel>(
-              builder: (context, viewModel, child) {
-                if (viewModel.isLoading) {
-                  return const Center(child: CircularProgressIndicator());
-                }
-
-                if (viewModel.state == GalleryState.error) {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(
-                          Icons.error_outline,
-                          color: Colors.red,
-                          size: 48,
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          viewModel.errorMessage ??
-                              localizations.anErrorOccurred,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: Colors.red),
-                        ),
-                        const SizedBox(height: 16),
-                        ElevatedButton(
-                          onPressed: () {
-                            viewModel.loadMosquitoSpecies(localizations);
-                          },
-                          child: Text(localizations.retryButton),
-                        ),
-                      ],
-                    ),
+                    onChanged: (value) {
+                      viewModel.updateSearchQuery(value);
+                    },
                   );
-                }
+                },
+              ),
+            ),
+            Expanded(
+              child: Consumer<MosquitoGalleryViewModel>(
+                builder: (context, viewModel, child) {
+                  if (viewModel.isLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
 
-                final filteredSpecies = viewModel.filteredSpecies;
-
-                if (filteredSpecies.isEmpty) {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.search_off,
-                          size: 64,
-                          color: Colors.grey.shade400,
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          localizations.noMosquitoSpeciesFound,
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.grey.shade600,
+                  if (viewModel.state == GalleryState.error) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.error_outline,
+                            color: Colors.red,
+                            size: 48,
                           ),
-                        ),
-                        if (searchController.text.isNotEmpty)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text(
-                              localizations.tryDifferentSearchTerm,
-                              style: TextStyle(color: Colors.grey.shade500),
+                          const SizedBox(height: 16),
+                          Text(
+                            viewModel.errorMessage ??
+                                localizations.anErrorOccurred,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: Colors.red),
+                          ),
+                          const SizedBox(height: 16),
+                          ElevatedButton(
+                            onPressed: () {
+                              viewModel.loadMosquitoSpecies(localizations);
+                            },
+                            child: Text(localizations.retryButton),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+
+                  final filteredSpecies = viewModel.filteredSpecies;
+
+                  if (filteredSpecies.isEmpty) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.search_off,
+                            size: 64,
+                            color: Colors.grey.shade400,
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            localizations.noMosquitoSpeciesFound,
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.grey.shade600,
                             ),
                           ),
-                      ],
-                    ),
-                  );
-                }
+                          if (searchController.text.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                localizations.tryDifferentSearchTerm,
+                                style: TextStyle(color: Colors.grey.shade500),
+                              ),
+                            ),
+                        ],
+                      ),
+                    );
+                  }
 
-                return GridView.builder(
-                  padding: const EdgeInsets.all(16),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.75,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                  ),
-                  itemCount: filteredSpecies.length,
-                  itemBuilder: (context, index) {
-                    final species = filteredSpecies[index];
-                    return _buildMosquitoCard(context, species, localizations);
-                  },
-                );
-              },
+                  return GridView.builder(
+                    padding: const EdgeInsets.all(16),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.75,
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 16,
+                    ),
+                    itemCount: filteredSpecies.length,
+                    itemBuilder: (context, index) {
+                      final species = filteredSpecies[index];
+                      return _buildMosquitoCard(
+                          context, species, localizations);
+                    },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -215,7 +217,6 @@ class MosquitoGalleryScreen extends StatelessWidget {
                 ],
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -233,7 +234,8 @@ class MosquitoGalleryScreen extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     localizations.habitatLabel(species.habitat),
-                    style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
+                    style: TextStyle(
+                        fontSize: 12, color: Colors.grey.shade700),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -243,10 +245,9 @@ class MosquitoGalleryScreen extends StatelessWidget {
                       Icon(
                         Icons.warning_amber,
                         size: 16,
-                        color:
-                            species.diseases.isNotEmpty
-                                ? Colors.red.shade300
-                                : Colors.grey,
+                        color: species.diseases.isNotEmpty
+                            ? Colors.red.shade300
+                            : Colors.grey,
                       ),
                       const SizedBox(width: 4),
                       Expanded(
@@ -256,10 +257,9 @@ class MosquitoGalleryScreen extends StatelessWidget {
                           ),
                           style: TextStyle(
                             fontSize: 12,
-                            color:
-                                species.diseases.isNotEmpty
-                                    ? Colors.red.shade300
-                                    : Colors.grey,
+                            color: species.diseases.isNotEmpty
+                                ? Colors.red.shade300
+                                : Colors.grey,
                           ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,

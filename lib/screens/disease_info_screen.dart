@@ -26,124 +26,126 @@ class DiseaseInfoScreen extends StatelessWidget {
         return viewModel;
       },
       child: Scaffold(
-        appBar: AppBar(title: Text(localizations.diseaseInfoScreenTitle)),
+        appBar: AppBar(
+          title: Text(localizations.diseaseInfoScreenTitle),
+        ),
         body: Column(
           children: [
             Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Consumer<DiseaseInfoViewModel>(
-              builder: (context, viewModel, child) {
-                return TextField(
-                  controller: searchController,
-                  decoration: InputDecoration(
-                    hintText: localizations.searchDiseasesHint,
-                    prefixIcon: const Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(color: Colors.grey.shade300),
+              padding: const EdgeInsets.all(16.0),
+              child: Consumer<DiseaseInfoViewModel>(
+                builder: (context, viewModel, child) {
+                  return TextField(
+                    controller: searchController,
+                    decoration: InputDecoration(
+                      hintText: localizations.searchDiseasesHint,
+                      prefixIcon: const Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey.shade100,
+                      contentPadding: const EdgeInsets.symmetric(vertical: 0),
+                      suffixIcon: searchController.text.isNotEmpty
+                          ? IconButton(
+                              icon: const Icon(Icons.clear),
+                              onPressed: () {
+                                searchController.clear();
+                                viewModel.updateSearchQuery('');
+                              },
+                            )
+                          : null,
                     ),
-                    filled: true,
-                    fillColor: Colors.grey.shade100,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 0),
-                    suffixIcon: searchController.text.isNotEmpty
-                        ? IconButton(
-                            icon: const Icon(Icons.clear),
-                            onPressed: () {
-                              searchController.clear();
-                              viewModel.updateSearchQuery('');
-                            },
-                          )
-                        : null,
-                  ),
-                  onChanged: (value) {
-                    viewModel.updateSearchQuery(value);
-                  },
-                );
-              },
-            ),
-          ),
-
-          Expanded(
-            child: Consumer<DiseaseInfoViewModel>(
-              builder: (context, viewModel, child) {
-                if (viewModel.isLoading) {
-                  return const Center(child: CircularProgressIndicator());
-                }
-
-                if (viewModel.state == DiseaseInfoState.error) {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(
-                          Icons.error_outline,
-                          color: Colors.red,
-                          size: 48,
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          viewModel.errorMessage ??
-                              localizations.anErrorOccurred,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: Colors.red),
-                        ),
-                        const SizedBox(height: 16),
-                        ElevatedButton(
-                          onPressed: () {
-                            viewModel.loadDiseases(localizations);
-                          },
-                          child: Text(localizations.retryButton),
-                        ),
-                      ],
-                    ),
+                    onChanged: (value) {
+                      viewModel.updateSearchQuery(value);
+                    },
                   );
-                }
+                },
+              ),
+            ),
+            Expanded(
+              child: Consumer<DiseaseInfoViewModel>(
+                builder: (context, viewModel, child) {
+                  if (viewModel.isLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
 
-                final filteredDiseases = viewModel.filteredDiseases;
-
-                if (filteredDiseases.isEmpty) {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.search_off,
-                          size: 64,
-                          color: Colors.grey.shade400,
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          localizations.noDiseasesFound,
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.grey.shade600,
+                  if (viewModel.state == DiseaseInfoState.error) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.error_outline,
+                            color: Colors.red,
+                            size: 48,
                           ),
-                        ),
-                        if (searchController.text.isNotEmpty)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text(
-                              localizations.tryDifferentSearchTerm,
-                              style: TextStyle(color: Colors.grey.shade500),
+                          const SizedBox(height: 16),
+                          Text(
+                            viewModel.errorMessage ??
+                                localizations.anErrorOccurred,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: Colors.red),
+                          ),
+                          const SizedBox(height: 16),
+                          ElevatedButton(
+                            onPressed: () {
+                              viewModel.loadDiseases(localizations);
+                            },
+                            child: Text(localizations.retryButton),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+
+                  final filteredDiseases = viewModel.filteredDiseases;
+
+                  if (filteredDiseases.isEmpty) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.search_off,
+                            size: 64,
+                            color: Colors.grey.shade400,
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            localizations.noDiseasesFound,
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.grey.shade600,
                             ),
                           ),
-                      ],
-                    ),
-                  );
-                }
+                          if (searchController.text.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                localizations.tryDifferentSearchTerm,
+                                style: TextStyle(color: Colors.grey.shade500),
+                              ),
+                            ),
+                        ],
+                      ),
+                    );
+                  }
 
-                return ListView.builder(
-                  padding: const EdgeInsets.all(16.0),
-                  itemCount: filteredDiseases.length,
-                  itemBuilder: (context, index) {
-                    final disease = filteredDiseases[index];
-                    return _buildDiseaseCard(context, disease, localizations);
-                  },
-                );
-              },
+                  return ListView.builder(
+                    padding: const EdgeInsets.all(16.0),
+                    itemCount: filteredDiseases.length,
+                    itemBuilder: (context, index) {
+                      final disease = filteredDiseases[index];
+                      return _buildDiseaseCard(context, disease, localizations);
+                    },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -169,42 +171,41 @@ class DiseaseInfoScreen extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-             ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              // Image.asset for local files
-              child: Image.asset(
-                disease.imageUrl,
-                width: 80,
-                height: 80,
-                fit: BoxFit.cover,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                // Image.asset for local files
+                child: Image.asset(
+                  disease.imageUrl,
+                  width: 80,
+                  height: 80,
+                  fit: BoxFit.cover,
 
-                // errorBuilder to handle cases where the asset is not found
-                errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    width: 80,
-                    height: 80,
-                    color: Colors.red.shade100,
-                    child: const Icon(
-                      Icons.local_hospital,
-                      color: Colors.red,
-                    ),
-                  );
-                },
-              ),
-            ),
-                const SizedBox(width: 16),
-
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        disease.name, // From model
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                  // errorBuilder to handle cases where the asset is not found
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      width: 80,
+                      height: 80,
+                      color: Colors.red.shade100,
+                      child: const Icon(
+                        Icons.local_hospital,
+                        color: Colors.red,
                       ),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      disease.name, // From model
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     const SizedBox(height: 8),
                     Text(
                       disease.description, // From model
@@ -260,8 +261,8 @@ class DiseaseInfoScreen extends StatelessWidget {
                   ],
                 ),
               ),
-
-              const Icon(Icons.arrow_forward_ios, color: Colors.teal, size: 16),
+              const Icon(Icons.arrow_forward_ios,
+                  color: Colors.teal, size: 16),
             ],
           ),
         ),

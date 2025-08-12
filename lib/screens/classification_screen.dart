@@ -33,100 +33,97 @@ class ClassificationScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Visibility(
-                  visible: !viewModel.hasImage,
-                  maintainState: true,
-                  child: Card(
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Icon(
-                            Icons.info_outline,
-                            color: Colors.teal,
-                            size: 32,
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            localizations.uploadImageHint,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            localizations.uploadImageSubHint,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey.shade600,
+                    visible: !viewModel.hasImage,
+                    maintainState: true,
+                    child: Card(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.info_outline,
+                              color: Colors.teal,
+                              size: 32,
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                if (!viewModel.hasImage) const SizedBox(height: 16),
-
-                _buildImagePreview(context, viewModel, localizations),
-
-                if (viewModel.errorMessage != null)
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      viewModel.errorMessage!,
-                      style: const TextStyle(color: Colors.red),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-
-                if (viewModel.state == ClassificationState.success &&
-                    viewModel.result != null)
-                  _buildResultCard(context, viewModel, localizations)
-                else if (viewModel.state == ClassificationState.submitted &&
-                    viewModel.submissionResult != null)
-                  _buildSubmissionResult(context, viewModel, localizations),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildActionButton(
-                        icon: Icons.camera_alt,
-                        label: localizations.cameraButtonLabel,
-                        onPressed: () => _getImage(context, viewModel,
-                            ImageSource.camera, localizations),
-                      ),
-                      _buildActionButton(
-                        icon: Icons.photo_library,
-                        label: localizations.galleryButtonLabel,
-                        onPressed: () => _getImage(context, viewModel,
-                            ImageSource.gallery, localizations),
-                      ),
-                      if (viewModel.hasImage)
-                        _buildActionButton(
-                          icon: Icons.refresh,
-                          label: localizations.resetButtonLabel,
-                          onPressed: () => viewModel.reset(),
+                            const SizedBox(height: 8),
+                            Text(
+                              localizations.uploadImageHint,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              localizations.uploadImageSubHint,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey.shade600,
+                              ),
+                            ),
+                          ],
                         ),
-                    ],
+                      ),
+                    ),
                   ),
-                ),
-              ],
-            ),
-          );
-        },
+                  if (!viewModel.hasImage) const SizedBox(height: 16),
+                  _buildImagePreview(context, viewModel, localizations),
+                  if (viewModel.errorMessage != null)
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        viewModel.errorMessage!,
+                        style: const TextStyle(color: Colors.red),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  if (viewModel.state == ClassificationState.success &&
+                      viewModel.result != null)
+                    _buildResultCard(context, viewModel, localizations)
+                  else if (viewModel.state == ClassificationState.submitted &&
+                      viewModel.submissionResult != null)
+                    _buildSubmissionResult(context, viewModel, localizations),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _buildActionButton(
+                          icon: Icons.camera_alt,
+                          label: localizations.cameraButtonLabel,
+                          onPressed: () => _getImage(context, viewModel,
+                              ImageSource.camera, localizations),
+                        ),
+                        _buildActionButton(
+                          icon: Icons.photo_library,
+                          label: localizations.galleryButtonLabel,
+                          onPressed: () => _getImage(context, viewModel,
+                              ImageSource.gallery, localizations),
+                        ),
+                        if (viewModel.hasImage)
+                          _buildActionButton(
+                            icon: Icons.refresh,
+                            label: localizations.resetButtonLabel,
+                            onPressed: () => viewModel.reset(),
+                          ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
 
-  Widget _buildResultCard(BuildContext context, ClassificationViewModel viewModel,
-      AppLocalizations localizations) {
+  Widget _buildResultCard(BuildContext context,
+      ClassificationViewModel viewModel, AppLocalizations localizations) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 16.0),
       elevation: 5,
@@ -147,7 +144,8 @@ class ClassificationScreen extends StatelessWidget {
                 Expanded(
                   child: Text(
                     localizations.speciesLabel(viewModel.result!.species.name),
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -156,8 +154,12 @@ class ClassificationScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 32.0),
               child: Text(
-                localizations.commonNameLabel(viewModel.result!.species.commonName),
-                style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic, color: Colors.black54),
+                localizations
+                    .commonNameLabel(viewModel.result!.species.commonName),
+                style: const TextStyle(
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.black54),
               ),
             ),
             const SizedBox(height: 12),
@@ -166,14 +168,16 @@ class ClassificationScreen extends StatelessWidget {
                 const Icon(Icons.check_circle, color: Colors.green, size: 16),
                 const SizedBox(width: 4),
                 Text(
-                  localizations.confidenceLabel(viewModel.result!.confidence.toStringAsFixed(1)),
+                  localizations.confidenceLabel(
+                      viewModel.result!.confidence.toStringAsFixed(1)),
                   style: const TextStyle(fontSize: 14, color: Colors.green),
                 ),
                 const SizedBox(width: 16),
                 const Icon(Icons.timer, color: Colors.blue, size: 16),
                 const SizedBox(width: 4),
                 Text(
-                  localizations.inferenceTimeLabel(viewModel.result!.inferenceTime),
+                  localizations
+                      .inferenceTimeLabel(viewModel.result!.inferenceTime),
                   style: const TextStyle(fontSize: 14, color: Colors.blue),
                 ),
               ],
@@ -186,37 +190,47 @@ class ClassificationScreen extends StatelessWidget {
               children: [
                 // --- START OF STYLING CHANGE ---
                 Expanded(
-                  child: OutlinedButton.icon( // Changed to OutlinedButton
+                  child: OutlinedButton.icon(
+                    // Changed to OutlinedButton
                     icon: const Icon(Icons.info_outline),
                     label: Text(localizations.speciesInfoButton),
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.teal.shade700, // Dark teal for text and icon
-                      side: BorderSide(color: Colors.teal.shade400, width: 1.5), // Teal outline
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      foregroundColor:
+                          Colors.teal.shade700, // Dark teal for text and icon
+                      side: BorderSide(
+                          color: Colors.teal.shade400,
+                          width: 1.5), // Teal outline
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
                     ),
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MosquitoDetailScreen(species: viewModel.result!.species),
+                          builder: (context) => MosquitoDetailScreen(
+                              species: viewModel.result!.species),
                         ),
                       );
                     },
                   ),
                 ),
-                
+
                 const SizedBox(width: 8),
                 if (viewModel.shouldShowDiseaseRiskButton)
                   Expanded(
                     child: ElevatedButton.icon(
                       icon: const Icon(Icons.warning_amber),
                       label: Text(localizations.diseaseRisksButton),
-                      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFF38C79), foregroundColor: Colors.white),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFFF38C79),
+                          foregroundColor: Colors.white),
                       onPressed: () {
                         showModalBottomSheet(
                           context: context,
                           isScrollControlled: true,
-                          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.vertical(top: Radius.circular(20))),
                           builder: (context) => DraggableScrollableSheet(
                             initialChildSize: 0.6,
                             minChildSize: 0.3,
@@ -242,7 +256,10 @@ class ClassificationScreen extends StatelessWidget {
               child: ElevatedButton.icon(
                 icon: const Icon(Icons.add_location_alt_outlined),
                 label: Text(localizations.addDetailsButton),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.teal.shade700, foregroundColor: Colors.white, padding: const EdgeInsets.symmetric(vertical: 12)),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.teal.shade700,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 12)),
                 onPressed: () {
                   viewModel.fetchWebPrediction(localizations);
                   Navigator.push(
@@ -355,7 +372,10 @@ class ClassificationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildActionButton({required IconData icon, required String label, required VoidCallback onPressed}) {
+  Widget _buildActionButton(
+      {required IconData icon,
+      required String label,
+      required VoidCallback onPressed}) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -414,7 +434,8 @@ class ClassificationScreen extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(vertical: 4.0),
                 child: ListTile(
                   leading: CircleAvatar(
-                    backgroundColor: const Color(0xFFF38C79).withOpacity(0.2),
+                    backgroundColor:
+                        const Color(0xFFF38C79).withOpacity(0.2),
                     child: const Icon(
                       Icons.local_hospital_outlined,
                       color: Color(0xFFF38C79),
@@ -435,7 +456,8 @@ class ClassificationScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DiseaseDetailScreen(disease: disease),
+                        builder: (context) =>
+                            DiseaseDetailScreen(disease: disease),
                       ),
                     );
                   },
@@ -493,8 +515,11 @@ class ClassificationScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             const Divider(),
-            _buildInfoRow(localizations.submissionIdLabel(result.id), Icons.tag),
-            _buildInfoRow(localizations.speciesLabel(result.speciesScientificName), Icons.bug_report),
+            _buildInfoRow(
+                localizations.submissionIdLabel(result.id), Icons.tag),
+            _buildInfoRow(
+                localizations.speciesLabel(result.speciesScientificName),
+                Icons.bug_report),
             _buildInfoRow(
                 "${result.location.lat.toStringAsFixed(4)}, ${result.location.lng.toStringAsFixed(4)}",
                 Icons.location_on),
