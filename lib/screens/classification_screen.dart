@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
+// import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import '../view_models/classification_view_model.dart';
-import '../models/mosquito_model.dart';
+// import '../models/mosquito_model.dart';
 import 'mosquito_detail_screen.dart';
 import 'disease_detail_screen.dart';
 import '../widgets/custom_empty_widget.dart';
