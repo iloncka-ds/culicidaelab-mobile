@@ -7,177 +7,94 @@ CulicidaeLab is a cross-platform Flutter application designed to help users iden
 ```mermaid
 flowchart TD
 
-subgraph L0 [" "]
-
-    %% Define layers with subgraphs
-
-    subgraph L1 ["Data Layer"]
-
-        DS1["🦟 mosquito_dataset_46_3139<br/>Base Diversity Dataset<br/>(46 species, 3139 unique images)<br/>📄 CC-BY-SA-4.0"]
-
-        DS2["📊 mosquito-species-<br/>classification-dataset<br/>📄 CC-BY-SA-4.0"]
-
-        DS3["🔍 mosquito-species-<br/>detection-dataset<br/>📄 CC-BY-SA-4.0"]
-
-        DS4["✂️ mosquito-species-<br/>segmentation-dataset<br/>📄 CC-BY-SA-4.0"]
-
-    end
-
-
-
-    subgraph L2 ["AI Model Layer"]
-
-        subgraph M_COLLECTION ["Top-5 Model Collection"]
-
-            M4["📊 exp_7_new_bg_simple-subs_1_v_5<br/>pvt_v2_b0.in1k_ep_60<br/>(Classification)<br/>📄 Apache 2.0"]
-
-        end
-		subgraph M_DEFAULT ["Top-1 Models used as default in 'culicidaelab'"]
-        M1["📊 culico-net-cls-v1<br/>(Classification)<br/>📄 Apache 2.0"]
-
-        M2["🔍 culico-net-det-v1<br/>(Detection)<br/>📄 AGPL-3.0"]
-
-        M3["✂️ culico-net-segm-v1-nano<br/>(Segmentation)<br/>📄 Apache 2.0"]
-		end
-    end
-
-
-
-    subgraph L3 ["Application Layer"]
-
-        APP1["🐍 culicidaelab<br/>Python Library<br/>(Core ML functionality) <br/>📄 AGPL-3.0"]
-
-        APP2["🌐 culicidaelab-server<br/>Web Application<br/>(API services)<br/>📄 AGPL-3.0"]
-
-        APP3["📸 culicidaelab-mobile<br/>Mobile Application<br/><br/>📄 AGPL-3.0"]
-
-    end
-
-
-
-    subgraph L4 ["API Service Layer"]
-
-        S1["🗲 Prediction Service<br/>(ML inference)"]
-
-        S2["💾 Observation Service<br/>(Data storage & retrieval)"]
-
-        S3["🗺️ Map Service<br/>(Geospatial visualization)"]
-
-        S4["🦟 Mosquito Gallery Service<br/>"]
-       
-        S5["💊 Diseases Gallery Service<br/>"]
-
-    end
-
-  end
-
-   
-
-    %% Dataset derivation and training flows
-
-    DS1 -.->|"derives"| DS2
-
-    DS1 -.->|"derives"| DS3
-
-    DS1 -.->|"derives"| DS4
-
-    DS2 -->|"used for train"| M1
-
-    DS3 -->|"used for train"| M2
-
-    DS4 -->|"used for train"| M3
-
-    DS2 -->|"used for train"| M4
-
-
-
-    %% Model integration
-
-    M1 -->|"integrated into"| APP1
-
-    M2 -->|"integrated into"| APP1
-
-    M3 -->|"integrated into"| APP1
-
-    M4 -->|"integrated into"| APP3
-
-
-
-    %% Data source for gallery
-
-    DS1 -->|"provides photos"| APP2
-	  DS1 -->|"provides photos"| APP3
-
-
-    %% Library to server integration
-
-    APP1 -->|"powers"| APP2
-
-
-    %% Service provisioning
-
-    APP2 -->|"hosts"| S1
-
-    APP2 -->|"hosts"| S2
-
-    APP2 -->|"hosts"| S3
-
-    APP2 -->|"hosts"| S4
-
-	  APP2 -->|"hosts"| S5
-
-    %% Mobile app service consumption
-
-    APP3 <-->|"API calls"| S1
-
-    APP3 <-->|"API calls"| S2
-
-    APP3 -->|"WebView"| S3
-
-
-
-    %% Styling
-
-    classDef dataLayer fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-
-    classDef modelLayer fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-
-    classDef appLayer fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
-
-    classDef serviceLayer fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-   
-    classDef collections fill:#f4dbf8,stroke:#9b3ac5,stroke-width:1px,stroke-dasharray:5,5	 
-
-
-
-    classDef dataset fill:#bbdefb,stroke:#1565c0,stroke-width:2px
-
-    classDef model fill:#e1bee7,stroke:#8e24aa,stroke-width:2px
-
-    classDef application fill:#c8e6c9,stroke:#43a047,stroke-width:2px
-
-    classDef service fill:#ffe0b2,stroke:#fb8c00,stroke-width:2px   
-
-
-
-    class L1 dataLayer
-
-    class L2 modelLayer
-
-    class L3 appLayer
-
-    class L4 serviceLayer
-   
-	  class L5 collections
-   
-    class DS1,DS2,DS3,DS4 dataset
-
-    class M1,M2,M3,M4 model
-
-    class APP1,APP2,APP3 application
-
-    class S1,S2,S3,S4,S5 service
-
+    %% Define layers with subgraphs
+    subgraph L1 ["Data Layer"]
+        DS1["🦟 mosquito_dataset_46_3139<br/>Base Diversity Dataset<br/>(46 species, 3139 unique images)<br/>📄 CC-BY-SA-4.0"]
+        DS2["📊 mosquito-species-<br/>classification-dataset<br/>📄 CC-BY-SA-4.0"]
+        DS3["🔍 mosquito-species-<br/>detection-dataset<br/>📄 CC-BY-SA-4.0"]
+        DS4["✂️ mosquito-species-<br/>segmentation-dataset<br/>📄 CC-BY-SA-4.0"]
+    end
+
+    subgraph L2 ["AI Model Layer"]
+        subgraph M_COLLECTION ["Top-5 Model Collection"]
+            M4["📊 exp_7_new_bg_simple-subs_1_v_5<br/>pvt_v2_b0.in1k_ep_60<br/>(Classification)<br/>📄 Apache 2.0"]
+        end
+        subgraph M_DEFAULT ["Top-1 Models used as default in 'culicidaelab'"]
+            M1["📊 culico-net-cls-v1<br/>(Classification)<br/>📄 Apache 2.0"]
+            M2["🔍 culico-net-det-v1<br/>(Detection)<br/>📄 AGPL-3.0"]
+            M3["✂️ culico-net-segm-v1-nano<br/>(Segmentation)<br/>📄 Apache 2.0"]
+        end
+    end
+
+    subgraph L3 ["Application Layer"]
+        APP1["🐍 culicidaelab<br/>Python Library<br/>(Core ML functionality) <br/>📄 AGPL-3.0"]
+        APP2["🌐 culicidaelab-server<br/>Web Application<br/>(API services)<br/>📄 AGPL-3.0"]
+        APP3["📸 culicidaelab-mobile<br/>Mobile Application<br/><br/>📄 AGPL-3.0"]
+    end
+
+    subgraph L4 ["API Service Layer"]
+        S1["🗲 Prediction Service<br/>(ML inference)"]
+        S2["💾 Observation Service<br/>(Data storage & retrieval)"]
+        S3["🗺️ Map Service<br/>(Geospatial visualization)"]
+        S4["🦟 Mosquito Gallery Service<br/>"]
+        S5["💊 Diseases Gallery Service<br/>"]
+    end
+
+    %% Dataset derivation and training flows
+    DS1 -.->|"derives"| DS2
+    DS1 -.->|"derives"| DS3
+    DS1 -.->|"derives"| DS4
+    DS2 -->|"used for train"| M1
+    DS3 -->|"used for train"| M2
+    DS4 -->|"used for train"| M3
+    DS2 -->|"used for train"| M4
+
+    %% Model integration
+    M1 -->|"integrated into"| APP1
+    M2 -->|"integrated into"| APP1
+    M3 -->|"integrated into"| APP1
+    M4 -->|"integrated into"| APP3
+
+    %% Data source for gallery
+    DS1 -->|"provides photos"| APP2
+    DS1 -->|"provides photos"| APP3
+
+    %% Library to server integration
+    APP1 -->|"powers"| APP2
+
+    %% Service provisioning
+    APP2 -->|"hosts"| S1
+    APP2 -->|"hosts"| S2
+    APP2 -->|"hosts"| S3
+    APP2 -->|"hosts"| S4
+    APP2 -->|"hosts"| S5
+
+    %% Mobile app service consumption
+    APP3 <-->|"API calls"| S1
+    APP3 <-->|"API calls"| S2
+    APP3 -->|"WebView"| S3
+
+    %% Styling
+    classDef dataLayer fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef modelLayer fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef appLayer fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+    classDef serviceLayer fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef collections fill:#f4dbf8,stroke:#9b3ac5,stroke-width:1px,stroke-dasharray:5,5
+
+    classDef dataset fill:#bbdefb,stroke:#1565c0,stroke-width:2px
+    classDef model fill:#e1bee7,stroke:#8e24aa,stroke-width:2px
+    classDef application fill:#c8e6c9,stroke:#43a047,stroke-width:2px
+    classDef service fill:#ffe0b2,stroke:#fb8c00,stroke-width:2px
+
+    class L1 dataLayer
+    class L2 modelLayer
+    class L3 appLayer
+    class L4 serviceLayer
+
+    class DS1,DS2,DS3,DS4 dataset
+    class M1,M2,M3,M4 model
+    class APP1,APP2,APP3 application
+    class S1,S2,S3,S4,S5 service
     class M_DEFAULT,M_COLLECTION collections
    
 ```
