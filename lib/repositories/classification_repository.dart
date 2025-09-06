@@ -24,8 +24,8 @@ class ClassificationRepository {
         _mosquitoRepository = mosquitoRepository,
         _httpClient = httpClient;
 
-  final String _mosquitoPredictionUrl = "http://culicidealab.ru/api/predict";
-  final String _mosquitoObservationUrl = "http://culicidealab.ru/api/observations";
+  final String _mosquitoPredictionUrl = "https://culicidealab.ru/api/predict";
+  final String _mosquitoObservationUrl = "https://culicidealab.ru/api/observations";
   /// Load the classification model
   Future<void> loadModel() async {
 

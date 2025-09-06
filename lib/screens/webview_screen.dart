@@ -25,6 +25,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
     super.initState();
 
     _controller = WebViewController()
+      // ..setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36")
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(const Color(0x00000000))
       ..setNavigationDelegate(
@@ -115,9 +116,23 @@ Page resource error:
                     ElevatedButton(
                         onPressed: () => _controller.loadRequest(Uri.parse(widget.url)),
                         child: const Text("Retry") // Should be localized
-                    )
+                    ),
                     // For debugging, you could display _loadingError
-                    // Text(_loadingError!, style: TextStyle(color: Colors.red.shade300)),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(top: 16.0),
+                    //   child: Card(
+                    //     color: Colors.grey.shade100,
+                    //     elevation: 0,
+                    //     child: Padding(
+                    //       padding: const EdgeInsets.all(8.0),
+                    //       child: SelectableText(
+                    //         _loadingError!,
+                    //         style: TextStyle(color: Colors.red.shade900, fontSize: 12),
+                    //         textAlign: TextAlign.left,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
               ),

@@ -1,3 +1,4 @@
+import 'package:culicidaelab/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -81,149 +82,152 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<ClassificationViewModel>(context);
     final localizations = AppLocalizations.of(context)!;
-
-    return Scaffold(
-      appBar: AppBar(title: Text(localizations.observationDetailsTitle)),
-      body: _isLoadingLocation
-          ? const Center(child: CircularProgressIndicator())
-          : Form(
-              key: _formKey,
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(localizations.locationSectionTitle, style: Theme.of(context).textTheme.titleLarge),
-                    const SizedBox(height: 8),
-                    Text(localizations.locationInstruction),
-                    const SizedBox(height: 16),
-                    SizedBox(
-                      height: 300,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: FlutterMap(
-                          mapController: _mapController,
-                          options: MapOptions(
-                            initialCenter: _initialCenter,
-                            initialZoom: _isLoadingLocation ? 2.0 : 13.0,
-                            onTap: (_, latlng) => _updateLocation(latlng),
-                          ),
-                          children: [
-                            TileLayer(
-                              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                              userAgentPackageName: 'com.culicidaelab.app',
+    return ChangeNotifierProvider<ClassificationViewModel>.value(
+      value: locator<ClassificationViewModel>(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(localizations.observationDetailsTitle),
+        ),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  height: 250,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: _isLoadingLocation
+                        ? const Center(child: CircularProgressIndicator())
+                        : FlutterMap(
+                            mapController: _mapController,
+                            options: MapOptions(
+                              initialCenter: _initialCenter,
+                              initialZoom: _isLoadingLocation ? 2.0 : 13.0,
+                              onTap: (_, latlng) => _updateLocation(latlng),
                             ),
-                            if (_selectedLocation != null)
-                              MarkerLayer(markers: [
-                                Marker(
-                                  point: _selectedLocation!,
-                                  child: Icon(Icons.location_on, color: Colors.red.shade700, size: 40),
-                                ),
-                              ]),
+                            children: [
+                              TileLayer(
+                                urlTemplate:
+                                    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                                userAgentPackageName: 'com.culicidaelab.app',
+                              ),
+                              if (_selectedLocation != null)
+                                MarkerLayer(markers: [
+                                  Marker(
+                                    point: _selectedLocation!,
+                                    child: Icon(Icons.location_on,
+                                        color: Colors.red.shade700, size: 40),
+                                  ),
+                                ]),
+                            ],
+                          ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  controller: _notesController,
+                  decoration: InputDecoration(
+                    labelText: localizations.notesLabel,
+                    hintText: localizations.notesHint,
+                    border: const OutlineInputBorder(),
+                  ),
+                  maxLines: 4,
+                ),
+                const SizedBox(height: 24),
+                Consumer<ClassificationViewModel>(
+                  builder: (context, vm, child) {
+                    // State 1: Loading (either fetching or submitting)
+                    if (vm.isFetchingWebPrediction || vm.isSubmitting) {
+                      return Center(
+                        child: Column(
+                          children: [
+                            const CircularProgressIndicator(),
+                            const SizedBox(height: 16),
+                            Text(
+                              vm.isSubmitting
+                                  ? localizations.submittingObservation
+                                  : localizations.fetchingWebPrediction,
+                              style: TextStyle(color: Colors.grey.shade700),
+                            ),
                           ],
                         ),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    TextFormField(
-                      controller: _notesController,
-                      decoration: InputDecoration(
-                        labelText: localizations.notesLabel,
-                        hintText: localizations.notesHint,
-                        border: const OutlineInputBorder(),
-                      ),
-                      maxLines: 4,
-                    ),
-                    const SizedBox(height: 24),
+                      );
+                    }
 
-                    Consumer<ClassificationViewModel>(
-                      builder: (context, vm, child) {
-                        // State 1: Loading (either fetching or submitting)
-                        if (vm.isFetchingWebPrediction || vm.isSubmitting) {
-                          return Center(
-                            child: Column(
-                              children: [
-                                const CircularProgressIndicator(),
-                                const SizedBox(height: 16),
-                                Text(
-                                  vm.isSubmitting
-                                      ? localizations.submittingObservation
-                                      : localizations.fetchingWebPrediction,
-                                  style: TextStyle(color: Colors.grey.shade700),
-                                ),
-                              ],
+                    // State 2: Error has occurred
+                    if (vm.errorMessage != null) {
+                      return Column(
+                        children: [
+                          Card(
+                            color: Colors.red.shade50,
+                            elevation: 0,
+                            child: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Text(
+                                vm.errorMessage!,
+                                textAlign: TextAlign.center,
+                                style:
+                                    TextStyle(color: Colors.red.shade900),
+                              ),
                             ),
-                          );
-                        }
-
-                        // State 2: Error has occurred
-                        if (vm.errorMessage != null) {
-                          return Column(
-                            children: [
-                              Card(
-                                color: Colors.red.shade50,
-                                elevation: 0,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Text(
-                                    vm.errorMessage!,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(color: Colors.red.shade900),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 16),
-                              // --- THIS IS THE NEW "RETRY" BUTTON ---
-                              // It only shows when there's an error.
-                              ElevatedButton.icon(
-                                icon: const Icon(Icons.refresh),
-                                label: Text(localizations.retryButtonLabel), // Add "Retry" to your .arb files
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.teal.shade400,
-                                  foregroundColor: Colors.white,
-                                ),
-                                onPressed: () {
-                                  // Simply call the fetch function again.
-                                  vm.fetchWebPrediction(localizations);
-                                },
-                              ),
-                            ],
-                          );
-                        }
-
-                        // State 3: Success. Show the active submit button.
-                        return ElevatedButton.icon(
-                          icon: const Icon(Icons.cloud_upload),
-                          label: Text(localizations.submitObservationButton),
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
                           ),
-                          onPressed: _selectedLocation == null
-                            ? null
-                            : () async {
-                                final submissionResult = await viewModel.submitObservation(
-                                  localResult: widget.classificationResult,
-                                  webPrediction: vm.webPredictionResult,
-                                  latitude: _selectedLocation!.latitude,
-                                  longitude: _selectedLocation!.longitude,
-                                  notes: _notesController.text,
-                                  localizations: localizations,
-                                );
+                          const SizedBox(height: 16),
+                          // --- THIS IS THE NEW "RETRY" BUTTON ---
+                          // It only shows when there's an error.
+                          ElevatedButton.icon(
+                            icon: const Icon(Icons.refresh),
+                            label: Text(localizations
+                                .retryButtonLabel), // Add "Retry" to your .arb files
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.teal.shade400,
+                              foregroundColor: Colors.white,
+                            ),
+                            onPressed: () {
+                              // Simply call the fetch function again.
+                              vm.fetchWebPrediction(localizations);
+                            },
+                          ),
+                        ],
+                      );
+                    }
 
-                                if (submissionResult != null && mounted) {
-                                  Navigator.pop(context);
-                                }
-                              },
-                        );
-                      },
-                    )
+                    // State 3: Success. Show the active submit button.
+                    return ElevatedButton.icon(
+                      icon: const Icon(Icons.cloud_upload),
+                      label: Text(localizations.submitObservationButton),
+                      style: ElevatedButton.styleFrom(
+                        padding:
+                            const EdgeInsets.symmetric(vertical: 16),
+                      ),
+                      onPressed: _selectedLocation == null
+                          ? null
+                          : () async {
+                              final submissionResult =
+                                  await vm.submitObservation(
+                                localResult: widget.classificationResult,
+                                webPrediction: vm.webPredictionResult,
+                                latitude: _selectedLocation!.latitude,
+                                longitude: _selectedLocation!.longitude,
+                                notes: _notesController.text,
+                                localizations: localizations,
+                              );
 
-                  ],
-                ),
-              ),
+                              if (submissionResult != null && mounted) {
+                                Navigator.pop(context);
+                              }
+                            },
+                    );
+                  },
+                )
+              ],
             ),
+          ),
+        ),
+      ),
     );
   }
 }
