@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-// Import AppLocalizations if you need to localize strings within this screen,
-// like a loading message or error message, though for a simple WebView,
-// the title is passed in.
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class WebViewScreen extends StatefulWidget {
   final String title;
@@ -16,83 +12,44 @@ class WebViewScreen extends StatefulWidget {
 }
 
 class _WebViewScreenState extends State<WebViewScreen> {
-  late final WebViewController _controller;
-  bool _isLoading = true;
-  String? _loadingError;
+  InAppWebViewController? _webViewController;
+  PullToRefreshController? _pullToRefreshController;
+  double _progress = 0;
+  String? _error;
 
   @override
   void initState() {
     super.initState();
 
-    _controller = WebViewController()
-      // ..setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36")
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setBackgroundColor(const Color(0x00000000))
-      ..setNavigationDelegate(
-        NavigationDelegate(
-          onProgress: (int progress) {
-            // Update loading bar.
-            // You can add a LinearProgressIndicator if you want
-            print('WebView is loading (progress : $progress%)');
-          },
-          onPageStarted: (String url) {
-            setState(() {
-              _isLoading = true;
-              _loadingError = null;
-            });
-            print('Page started loading: $url');
-          },
-          onPageFinished: (String url) {
-            setState(() {
-              _isLoading = false;
-            });
-            print('Page finished loading: $url');
-          },
-          onWebResourceError: (WebResourceError error) {
-            setState(() {
-              _isLoading = false;
-              _loadingError = '''
-Page resource error:
-  code: ${error.errorCode}
-  description: ${error.description}
-  errorType: ${error.errorType}
-  isForMainFrame: ${error.isForMainFrame}
-          ''';
-            });
-            print(_loadingError);
-          },
-          onNavigationRequest: (NavigationRequest request) {
-            if (request.url.startsWith('https://www.youtube.com/')) { // Example: prevent navigation to youtube
-              print('blocking navigation to $request');
-              return NavigationDecision.prevent;
-            }
-            print('allowing navigation to $request');
-            return NavigationDecision.navigate;
-          },
-        ),
-      )
-      ..loadRequest(Uri.parse(widget.url));
+    _pullToRefreshController = PullToRefreshController(
+      onRefresh: () async {
+        if (Theme.of(context).platform == TargetPlatform.android) {
+          _webViewController?.reload();
+        } else if (Theme.of(context).platform == TargetPlatform.iOS) {
+          _webViewController?.loadUrl(
+              urlRequest: URLRequest(url: await _webViewController?.getUrl()));
+        }
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    // final localizations = AppLocalizations.of(context)!; // If needed for internal strings
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
-          // Optional: Add refresh button for WebView
-          if (!_isLoading && _loadingError == null)
-            IconButton(
-              icon: const Icon(Icons.refresh),
-              onPressed: () => _controller.reload(),
-            ),
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              _webViewController?.reload();
+            },
+          )
         ],
       ),
       body: Stack(
         children: [
-          if (_loadingError != null)
+          if (_error != null)
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -102,48 +59,77 @@ Page resource error:
                     const Icon(Icons.error_outline, color: Colors.red, size: 48),
                     const SizedBox(height: 16),
                     Text(
-                      "Failed to load page", // Should be localized: localizations.webViewFailedToLoad,
+                      "Failed to load page",
                       style: Theme.of(context).textTheme.titleLarge,
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 8),
-                    Text(
-                      widget.url,
-                      style: Theme.of(context).textTheme.bodySmall,
+                    SelectableText(
+                      _error!,
                       textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.red.shade900),
                     ),
-                     const SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     ElevatedButton(
-                        onPressed: () => _controller.loadRequest(Uri.parse(widget.url)),
-                        child: const Text("Retry") // Should be localized
+                      onPressed: () {
+                        _webViewController?.reload();
+                        setState(() {
+                          _error = null;
+                        });
+                      },
+                      child: const Text("Retry"),
                     ),
-                    // For debugging, you could display _loadingError
-                    // Padding(
-                    //   padding: const EdgeInsets.only(top: 16.0),
-                    //   child: Card(
-                    //     color: Colors.grey.shade100,
-                    //     elevation: 0,
-                    //     child: Padding(
-                    //       padding: const EdgeInsets.all(8.0),
-                    //       child: SelectableText(
-                    //         _loadingError!,
-                    //         style: TextStyle(color: Colors.red.shade900, fontSize: 12),
-                    //         textAlign: TextAlign.left,
-                    //       ),
-                    //     ),
-                    //   ),
-                    // )
                   ],
                 ),
               ),
             )
           else
-            WebViewWidget(controller: _controller),
-
-          if (_isLoading)
-            const Center(
-              child: CircularProgressIndicator(),
+            InAppWebView(
+              initialUrlRequest: URLRequest(url: WebUri(widget.url)),
+              pullToRefreshController: _pullToRefreshController,
+              onWebViewCreated: (controller) {
+                _webViewController = controller;
+              },
+              onLoadStart: (controller, url) {
+                setState(() {
+                  _progress = 0;
+                });
+              },
+              onLoadStop: (controller, url) {
+                _pullToRefreshController?.endRefreshing();
+                setState(() {
+                  _progress = 1;
+                });
+              },
+              onProgressChanged: (controller, progress) {
+                if (progress == 100) {
+                  _pullToRefreshController?.endRefreshing();
+                }
+                setState(() {
+                  _progress = progress / 100;
+                });
+              },
+              onLoadError: (controller, url, code, message) {
+                _pullToRefreshController?.endRefreshing();
+                setState(() {
+                  _error = "Error: $message (Code: $code)";
+                });
+              },
+              onLoadHttpError: (controller, url, statusCode, description) {
+                _pullToRefreshController?.endRefreshing();
+                setState(() {
+                  _error = "HTTP Error: $description (Code: $statusCode)";
+                });
+              },
+              onReceivedServerTrustAuthRequest: (controller, challenge) async {
+                // This is the insecure part that bypasses SSL certificate validation.
+                // This should only be used for development/testing.
+                return ServerTrustAuthResponse(
+                    action: ServerTrustAuthResponseAction.PROCEED);
+              },
             ),
+          if (_progress < 1.0 && _error == null)
+            LinearProgressIndicator(value: _progress),
         ],
       ),
     );
