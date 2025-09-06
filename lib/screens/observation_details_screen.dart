@@ -23,7 +23,7 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
 
   LatLng? _selectedLocation;
   bool _isLoadingLocation = true;
-  LatLng _initialCenter = const LatLng(20.0, 0.0);
+  LatLng _initialCenter = const LatLng(12.6392, -8.0028); // Bamako, Mali
 
   @override
   void initState() {
@@ -96,8 +96,12 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Text(localizations.locationSectionTitle, style: Theme.of(context).textTheme.titleLarge),
+                const SizedBox(height: 8),
+                Text(localizations.locationInstruction),
+                const SizedBox(height: 16),
                 SizedBox(
-                  height: 250,
+                  height: 300,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: _isLoadingLocation
@@ -176,8 +180,7 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
                             ),
                           ),
                           const SizedBox(height: 16),
-                          // --- THIS IS THE NEW "RETRY" BUTTON ---
-                          // It only shows when there's an error.
+
                           ElevatedButton.icon(
                             icon: const Icon(Icons.refresh),
                             label: Text(localizations
