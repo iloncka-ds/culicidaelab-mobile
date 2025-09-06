@@ -76,7 +76,7 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
   void _updateLocation(LatLng location) {
     setState(() {
       _selectedLocation = location;
-      _mapController.move(location, _mapController.zoom);
+      _mapController.move(location, _mapController.camera.zoom);
     });
   }
 
