@@ -56,7 +56,11 @@ class DiseaseDetailScreen extends StatelessWidget {
             }).toList();
 
         return Scaffold(
-          appBar: AppBar(title: Text(disease.name)),
+          appBar: AppBar(
+            title: Text(disease.name),
+            centerTitle: true,
+          ),
+
           body: SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(

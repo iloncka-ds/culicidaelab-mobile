@@ -24,6 +24,7 @@ class DiseaseInfoScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(localizations.diseaseInfoScreenTitle),
+          centerTitle: true,
         ),
         body: Column(
           children: [

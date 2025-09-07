@@ -24,6 +24,7 @@ class ClassificationScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(localizations.classificationScreenTitle),
+          centerTitle: true,
         ),
         body: Consumer<ClassificationViewModel>(
           builder: (context, viewModel, child) {

@@ -54,7 +54,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get loadingModelDialogContent => 'Пожалуйста, подождите, пока загружается модель классификации...';
 
   @override
-  String get classificationScreenTitle => 'Классифицировать комара';
+  String get classificationScreenTitle => 'Определить вид комара';
 
   @override
   String get uploadImageHint => 'Загрузите четкое изображение комара для идентификации';
@@ -143,7 +143,7 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get mosquitoGalleryScreenTitle => 'Информация об эпидемиологически опасных видах комаров';
+  String get mosquitoGalleryScreenTitle => 'Информация о видах комаров';
 
   @override
   String get searchMosquitoSpeciesHint => 'Поиск видов комаров...';

@@ -38,6 +38,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        centerTitle: true,
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),

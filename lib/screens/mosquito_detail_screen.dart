@@ -20,6 +20,7 @@ class MosquitoDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(species.commonName),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

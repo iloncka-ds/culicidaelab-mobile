@@ -88,6 +88,7 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(localizations.observationDetailsTitle),
+          centerTitle: true,
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),

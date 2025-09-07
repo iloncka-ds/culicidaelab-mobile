@@ -29,7 +29,7 @@
   "loadingModelDialogTitle": "Загрузка модели",
   "loadingModelDialogContent": "Пожалуйста, подождите, пока загружается модель классификации...",
 
-  "classificationScreenTitle": "Классифицировать комара",
+  "classificationScreenTitle": "Определить вид комара",
   "uploadImageHint": "Загрузите четкое изображение комара для идентификации",
   "uploadImageSubHint": "Более точные результаты можно получить только с хорошо освещенными, сфокусированными изображениями",
   "speciesLabel": "Вид: {speciesName}",
@@ -96,7 +96,7 @@
     "placeholders": { "error": { "type": "String" } }
   },
 
-  "mosquitoGalleryScreenTitle": "Информация об эпидемиологически опасных видах комаров",
+  "mosquitoGalleryScreenTitle": "Информация о видах комаров",
   "searchMosquitoSpeciesHint": "Поиск видов комаров...",
   "anErrorOccurred": "Произошла ошибка",
   "retryButton": "Повторить",

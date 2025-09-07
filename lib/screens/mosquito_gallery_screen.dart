@@ -23,6 +23,7 @@ class MosquitoGalleryScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(localizations.mosquitoGalleryScreenTitle),
           elevation: 0,
+          centerTitle: true,
         ),
         body: Column(
           children: [
