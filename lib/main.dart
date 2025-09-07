@@ -74,10 +74,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _isModelLoaded = false;
+  int _selectedIndex = 0;
 
-  // Define your target URL for the mosquito activity map
-  // Replace with your actual URL
   final String _mosquitoActivityMapUrl = "https://culicidealab.ru/map";
 
   @override
@@ -95,20 +93,32 @@ class _HomePageState extends State<HomePage> {
     final localizations = AppLocalizations.of(context)!;
     try {
       await locator<ClassificationViewModel>().initModel(localizations);
-      if (mounted) {
-        setState(() {
-          _isModelLoaded = true;
-        });
-      }
     } catch (e) {
       print('Error loading model: $e');
     }
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
     final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
+
+    final List<Widget> _widgetOptions = <Widget>[
+      _buildHomeScreen(localizations),
+      const ClassificationScreen(),
+      const MosquitoGalleryScreen(),
+      const DiseaseInfoScreen(),
+      WebViewScreen(
+        title: localizations.webViewScreenTitleMosquitoMap,
+        url: _mosquitoActivityMapUrl,
+      ),
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -132,199 +142,197 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.teal.shade50, Colors.white],
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _widgetOptions,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.home),
+            // label: localizations.homePageTitle,
           ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.camera_alt),
+            // label: localizations.classifyMosquitoButtonTitle,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icomoon.mosquitoB),
+            // label: localizations.mosquitoGalleryButtonTitle,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.local_hospital),
+            // label: localizations.diseasesInfoButtonTitle,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.map_outlined),
+            // label: localizations.homePageMosquitoActivityMapButtonTitle,
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.teal,
+        unselectedItemColor: Colors.grey,
+        onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed,
+      ),
+    );
+  }
+
+  Widget _buildHomeScreen(AppLocalizations localizations) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Colors.teal.shade50, Colors.white],
         ),
-        child: ListView(
-          padding: const EdgeInsets.all(16.0),
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 150,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    color: Colors.teal.shade100,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icomoon.mosquitoT,
-                    size: 80,
-                    color: Colors.teal.shade800,
-                  ),
+      ),
+      child: ListView(
+        padding: const EdgeInsets.all(16.0),
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 150,
+                height: 150,
+                decoration: BoxDecoration(
+                  color: Colors.teal.shade100,
+                  shape: BoxShape.circle,
                 ),
-                const SizedBox(height: 16),
-                Text(
-                  localizations.homePageBannerTitle,
-                  style: const TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.teal,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  localizations.homePageBannerSubtitle,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 16, color: Colors.grey),
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 32),
-
-            Column(
-              children: [
-                _buildNavigationButton(
-                  icon: Icons.camera_alt,
-                  title: localizations.classifyMosquitoButtonTitle,
-                  subtitle: localizations.classifyMosquitoButtonSubtitle,
-                  color: Colors.teal,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ClassificationScreen(),
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 16),
-                _buildNavigationButton(
-                  icon: Icomoon.mosquitoB,
-                  title: localizations.mosquitoGalleryButtonTitle,
-                  subtitle: localizations.mosquitoGalleryButtonSubtitle,
-                  color: Color(0xFFF0BB78),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MosquitoGalleryScreen(),
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 16),
-                _buildNavigationButton(
-                  icon: Icons.local_hospital,
-                  title: localizations.diseasesInfoButtonTitle,
-                  subtitle: localizations.diseasesInfoButtonSubtitle,
-                  color: Color(0xFFF38C79),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const DiseaseInfoScreen(),
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 16), // Added space
-                _buildNavigationButton(
-                  // New Card for WebView
-                  icon: Icons.map_outlined,
-                  title: localizations.homePageMosquitoActivityMapButtonTitle,
-                  subtitle:
-                      localizations.homePageMosquitoActivityMapButtonSubtitle,
-                  color: Colors.blueAccent, // Different color for distinction
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder:
-                            (context) => WebViewScreen(
-                              title:
-                                  localizations.webViewScreenTitleMosquitoMap,
-                              url: _mosquitoActivityMapUrl,
-                            ),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 32),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 8.0,
-              ), // Relies on ListView's horizontal padding
-              child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  style: TextStyle(
-                    color: Colors.grey.shade700,
-                    fontSize: 12,
-                    height: 1.5,
-                  ), // Base style
-                  children: <TextSpan>[
-                    TextSpan(
-                      text:
-                          localizations
-                              .appDisclaimerTitle, // "Отказ от ответственности:" or "Disclaimer:"
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    TextSpan(
-                      text:
-                          ' ${localizations.appDisclaimerBody}', // The rest of the disclaimer text
-                    ),
-                  ],
+                child: Icon(
+                  Icomoon.mosquitoT,
+                  size: 80,
+                  color: Colors.teal.shade800,
                 ),
               ),
-            ),
-
-            // Footer Section with Divider and Grant Info
-            const SizedBox(height: 8), // Space before the divider
-            const Divider(
-              height:
-                  20, // Total vertical space taken by divider (includes padding)
-              thickness: 0.5,
-              indent: 50, // Indentation from left
-              endIndent: 50, // Indentation from right
-              color: Colors.grey,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                0,
-                8.0,
-                0,
-                16.0,
-              ), // Top padding 8, bottom padding 16. Relies on ListView's horizontal padding.
-              child: Linkify(
-                onOpen: (link) async {
-                  final uri = Uri.parse(link.url);
-                  if (await canLaunchUrl(uri)) {
-                    await launchUrl(uri);
-                  } else {
-                    throw 'Could not launch $link';
-                  }
-                },
-                text:
-                    localizations.appFooterGrantInfo, // New key for grant info
+              const SizedBox(height: 16),
+              Text(
+                localizations.homePageBannerTitle,
+                style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                localizations.homePageBannerSubtitle,
                 textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 16, color: Colors.grey),
+              ),
+            ],
+          ),
+          const SizedBox(height: 32),
+          Column(
+            children: [
+              _buildNavigationButton(
+                icon: Icons.camera_alt,
+                title: localizations.classifyMosquitoButtonTitle,
+                subtitle: localizations.classifyMosquitoButtonSubtitle,
+                color: Colors.teal,
+                onTap: () {
+                  _onItemTapped(1);
+                },
+              ),
+              const SizedBox(height: 16),
+              _buildNavigationButton(
+                icon: Icomoon.mosquitoB,
+                title: localizations.mosquitoGalleryButtonTitle,
+                subtitle: localizations.mosquitoGalleryButtonSubtitle,
+                color: const Color(0xFFF0BB78),
+                onTap: () {
+                  _onItemTapped(2);
+                },
+              ),
+              const SizedBox(height: 16),
+              _buildNavigationButton(
+                icon: Icons.local_hospital,
+                title: localizations.diseasesInfoButtonTitle,
+                subtitle: localizations.diseasesInfoButtonSubtitle,
+                color: const Color(0xFFF38C79),
+                onTap: () {
+                  _onItemTapped(3);
+                },
+              ),
+              const SizedBox(height: 16),
+              _buildNavigationButton(
+                icon: Icons.map_outlined,
+                title: localizations.homePageMosquitoActivityMapButtonTitle,
+                subtitle:
+                    localizations.homePageMosquitoActivityMapButtonSubtitle,
+                color: Colors.blueAccent,
+                onTap: () {
+                  _onItemTapped(4);
+                },
+              ),
+            ],
+          ),
+          const SizedBox(height: 32),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 8.0,
+            ),
+            child: RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
                 style: TextStyle(
-                  color: Colors.grey.shade600,
+                  color: Colors.grey.shade700,
                   fontSize: 12,
                   height: 1.5,
                 ),
-                linkStyle: TextStyle(
-                  color: Colors.teal.shade700,
-                  fontSize: 12,
-                  decoration: TextDecoration.underline,
-                  decorationColor:
-                      Colors.teal.shade700, // Explicitly set underline color
-                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: localizations.appDisclaimerTitle,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: ' ${localizations.appDisclaimerBody}',
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 8),
+          const Divider(
+            height: 20,
+            thickness: 0.5,
+            indent: 50,
+            endIndent: 50,
+            color: Colors.grey,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              0,
+              8.0,
+              0,
+              16.0,
+            ),
+            child: Linkify(
+              onOpen: (link) async {
+                final uri = Uri.parse(link.url);
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri);
+                } else {
+                  throw 'Could not launch $link';
+                }
+              },
+              text: localizations.appFooterGrantInfo,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.grey.shade600,
+                fontSize: 12,
+                height: 1.5,
+              ),
+              linkStyle: TextStyle(
+                color: Colors.teal.shade700,
+                fontSize: 12,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.teal.shade700,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
