@@ -150,23 +150,23 @@ class _HomePageState extends State<HomePage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: const Icon(Icons.home),
-            // label: localizations.homePageTitle,
+            label: localizations.homePageTitle,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.camera_alt),
-            // label: localizations.classifyMosquitoButtonTitle,
+            label: localizations.classifyMosquitoButtonTitle,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icomoon.mosquitoB),
-            // label: localizations.mosquitoGalleryButtonTitle,
+            label: localizations.mosquitoGalleryButtonTitle,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.local_hospital),
-            // label: localizations.diseasesInfoButtonTitle,
+            label: localizations.diseasesInfoButtonTitle,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.map_outlined),
-            // label: localizations.homePageMosquitoActivityMapButtonTitle,
+            label: localizations.homePageMosquitoActivityMapButtonTitle,
           ),
         ],
         currentIndex: _selectedIndex,
@@ -174,6 +174,8 @@ class _HomePageState extends State<HomePage> {
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
       ),
     );
   }
