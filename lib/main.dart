@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:flutter/services.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'widgets/icomoon_icons.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/foundation.dart'; // Needed for defaultTargetPlatform
-
+import 'providers/locale_provider.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 // Import app screens
 import 'screens/classification_screen.dart';
@@ -17,10 +16,12 @@ import 'view_models/classification_view_model.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart';
 import 'package:culicidaelab/locator.dart';
 
-// Import LocaleProvider
-import 'providers/locale_provider.dart';
 
-Future<void> main() async {
+
+
+Future<void> main()  async{
+  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   WidgetsFlutterBinding.ensureInitialized();
   await setupLocator();
   runApp(const MosquitoClassifierApp());
