@@ -5,7 +5,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'widgets/icomoon_icons.dart';
 import 'package:provider/provider.dart';
 import 'providers/locale_provider.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 // Import app screens
 import 'screens/classification_screen.dart';
