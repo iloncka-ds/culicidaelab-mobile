@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import '../view_models/classification_view_model.dart';
-// import '../models/mosquito_model.dart';
 import 'mosquito_detail_screen.dart';
 import 'disease_detail_screen.dart';
 import '../widgets/custom_empty_widget.dart';
@@ -196,12 +194,11 @@ class ClassificationScreen extends StatelessWidget {
                   child: OutlinedButton.icon(
                     // Changed to OutlinedButton
                     icon: const Icon(Icons.info_outline),
-                    label: Flexible(
-                    child: Text(
+                    label: Text(
                       localizations.speciesInfoButton,
                       textAlign: TextAlign.center, // Center the text
                     ),
-                  ),
+
                     style: OutlinedButton.styleFrom(
                       foregroundColor:
                           Colors.teal.shade700, // Dark teal for text and icon
@@ -229,12 +226,11 @@ class ClassificationScreen extends StatelessWidget {
                     child: ElevatedButton.icon(
                       icon: const Icon(Icons.warning_amber),
 
-                      label: Flexible(
-                      child: Text(
+                      label: Text(
                         localizations.diseaseRisksButton,
                         textAlign: TextAlign.center, // Center the text
                       ),
-                    ),
+
 
                       style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFF38C79),
@@ -271,12 +267,11 @@ class ClassificationScreen extends StatelessWidget {
               child: ElevatedButton.icon(
                 icon: const Icon(Icons.add_location_alt_outlined),
 
-                label: Flexible(
-                child: Text(
+                label:  Text(
                   localizations.addDetailsButton,
                   textAlign: TextAlign.center,
                 ),
-              ),
+
 
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.teal.shade700,

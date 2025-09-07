@@ -148,23 +148,23 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: const Icon(Icons.home),
+            icon: const Icon(Icons.home,  key: const Key('bottom_nav_home')),
             label: localizations.homePageTitle,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.camera_alt),
+            icon: const Icon(Icons.camera_alt,  key: const Key('bottom_nav_camera')),
             label: localizations.classifyMosquitoButtonTitle,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icomoon.mosquitoB),
+            icon: const Icon(Icomoon.mosquitoB,  key: const Key('bottom_nav_mosquito')),
             label: localizations.mosquitoGalleryButtonTitle,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.local_hospital),
+            icon: const Icon(Icons.local_hospital,  key: const Key('bottom_nav_hospital')),
             label: localizations.diseasesInfoButtonTitle,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.map_outlined),
+            icon: const Icon(Icons.map_outlined,  key: const Key('bottom_nav_map')),
             label: localizations.homePageMosquitoActivityMapButtonTitle,
           ),
         ],

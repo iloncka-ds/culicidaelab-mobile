@@ -6,7 +6,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:culicidaelab/providers/locale_provider.dart';
 import 'package:culicidaelab/locator.dart';
 
-import 'package:culicidaelab/locator.dart';
 
 // Generate mock classes
 @GenerateMocks([SharedPreferences])

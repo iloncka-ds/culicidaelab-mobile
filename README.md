@@ -189,10 +189,6 @@ If you prefer not to use a Dev Container, you can configure your environment man
         *   Android SDK Platform **35**
         *   Android SDK Build-Tools **34.0.0**
         *   Android NDK **27.0.12077973**
-*   **For iOS Development:**
-    *   macOS is required.
-    *   Install [Xcode](https://developer.apple.com/xcode/).
-    *   Install [CocoaPods](https://cocoapods.org/).
 *   **Editor:**
     *   [Visual Studio Code](https://code.visualstudio.com/) is recommended with the following extensions:
         *   `Dart` (dart-code.dart-code)
