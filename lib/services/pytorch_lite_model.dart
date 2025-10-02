@@ -12,14 +12,6 @@ const TORCHVISION_NORM_MEAN_RGB = [0.485, 0.456, 0.406];
 const TORCHVISION_NORM_STD_RGB = [0.229, 0.224, 0.225];
 
 class PytorchLite {
-  /*
-  ///Sets pytorch model path and returns Model
-  static Future<CustomModel> loadCustomModel(String path) async {
-    String absPathModelPath = await _getAbsolutePath(path);
-    int index = await ModelApi().loadModel(absPathModelPath, null, 0, 0);
-    return CustomModel(index);
-  }
-   */
 
   ///Sets pytorch model path and returns Model
   static Future<ClassificationModel> loadClassificationModel(
@@ -97,21 +89,7 @@ Future<List<String>> _getLabelsTxt(String labelPath) async {
   return labelsData.split("\n");
 }
 
-/*
-class CustomModel {
-  final int _index;
 
-  CustomModel(this._index);
-
-  ///predicts abstract number input
-  Future<List?> getPrediction(
-      List<double> input, List<int> shape, DType dtype) async {
-    final List? prediction = await ModelApi().getPredictionCustom(
-        _index, input, shape, dtype.toString().split(".").last);
-    return prediction;
-  }
-}
-*/
 class ClassificationModel {
   final int _index;
   final List<String> labels;
@@ -382,18 +360,10 @@ class ModelObjectDetection {
     return prediction;
   }
 
-  /*
-
-   */
   Widget renderBoxesOnImage(
       File image, List<ResultObjectDetection?> recognitions,
       {Color? boxesColor, bool showPercentage = true}) {
-    //if (_recognitions == null) return Cont;
-    //if (_imageHeight == null || _imageWidth == null) return [];
 
-    //double factorX = screen.width;
-    //double factorY = _imageHeight / _imageWidth * screen.width;
-    //boxesColor ??= Color.fromRGBO(37, 213, 253, 1.0);
 
     print(recognitions.length);
     return LayoutBuilder(builder: (context, constraints) {
@@ -440,13 +410,7 @@ class ModelObjectDetection {
             return Positioned(
               left: re.rect.left * factorX,
               top: re.rect.top * factorY - 20,
-              //width: re.rect.width.toDouble(),
-              //height: re.rect.height.toDouble(),
 
-              //left: re?.rect.left.toDouble(),
-              //top: re?.rect.top.toDouble(),
-              //right: re.rect.right.toDouble(),
-              //bottom: re.rect.bottom.toDouble(),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -472,24 +436,7 @@ class ModelObjectDetection {
                   ),
                 ],
               ),
-              /*
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  border: Border.all(
-                    color: boxesColor!,
-                    width: 2,
-                  ),
-                ),
-                child: Text(
-                  "${re.className ?? re.classIndex} ${(re.score * 100).toStringAsFixed(0)}%",
-                  style: TextStyle(
-                    background: Paint()..color = boxesColor!,
-                    color: Colors.white,
-                    fontSize: 12.0,
-                  ),
-                ),
-              ),*/
+
             );
           })
         ],
@@ -497,62 +444,4 @@ class ModelObjectDetection {
     });
   }
 
-/*
-  ///predicts image and returns the supposed label belonging to it
-  Future<String> getImagePrediction(
-      File image, int width, int height, String labelPath,
-      {List<double> mean = TORCHVISION_NORM_MEAN_RGB,
-      List<double> std = TORCHVISION_NORM_STD_RGB}) async {
-    // Assert mean std
-    assert(mean.length == 3, "mean should have size of 3");
-    assert(std.length == 3, "std should have size of 3");
-
-    List<String> labels = [];
-    if (labelPath.endsWith(".txt")) {
-      labels = await _getLabelsTxt(labelPath);
-    } else {
-      labels = await _getLabelsCsv(labelPath);
-    }
-
-    List byteArray = image.readAsBytesSync();
-    final List? prediction =
-        await _channel.invokeListMethod("predictImage_ObjectDetection", {
-      "index": _index,
-      "image": byteArray,
-      "width": width,
-      "height": height,
-      "mean": mean,
-      "std": std
-    });
-    double maxScore = double.negativeInfinity;
-    int maxScoreIndex = -1;
-    for (int i = 0; i < prediction!.length; i++) {
-      if (prediction[i] > maxScore) {
-        maxScore = prediction[i];
-        maxScoreIndex = i;
-      }
-    }
-    return labels[maxScoreIndex];
-  }
-
-  ///predicts image but returns the raw net output
-  Future<List?> getImagePredictionList(File image, int width, int height,
-      {List<double> mean = TORCHVISION_NORM_MEAN_RGB,
-      List<double> std = TORCHVISION_NORM_STD_RGB}) async {
-    // Assert mean std
-    assert(mean.length == 3, "Mean should have size of 3");
-    assert(std.length == 3, "STD should have size of 3");
-    final List? prediction =
-        await _channel.invokeListMethod("predictImage_ObjectDetection", {
-      "index": _index,
-      "image": image.readAsBytesSync(),
-      "width": width,
-      "height": height,
-      "mean": mean,
-      "std": std
-    });
-    return prediction;
-  }
-
- */
 }
