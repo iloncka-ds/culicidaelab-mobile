@@ -1,13 +1,24 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
-
+/// Service for managing user-specific data and preferences.
+///
+/// This service handles user identification and persistent storage
+/// of user-specific settings using SharedPreferences. It ensures
+/// each device has a unique, persistent user identifier.
 class UserService {
+  /// SharedPreferences instance for persistent storage.
   final SharedPreferences _prefs;
+
+  /// UUID generator for creating unique user identifiers.
   final Uuid _uuid;
 
-  // A private constant for the storage key
+  /// Private key constant for storing the user ID.
   static const _userIdKey = 'user_id';
 
+  /// Creates a new user service with required dependencies.
+  ///
+  /// @param prefs The SharedPreferences instance for data persistence
+  /// @param uuid The UUID generator for creating unique identifiers
   UserService({required SharedPreferences prefs, required Uuid uuid})
       : _prefs = prefs,
         _uuid = uuid;

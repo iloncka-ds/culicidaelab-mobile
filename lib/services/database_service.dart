@@ -5,10 +5,26 @@ import 'package:path/path.dart';
 import '../models/mosquito_model.dart';
 import '../models/disease_model.dart';
 
+/// Service for managing mosquito and disease data using SQLite database.
+///
+/// This singleton service provides CRUD operations for mosquito species and diseases,
+/// including multi-language support and relationship management between species and diseases.
+/// It handles database initialization, data population from JSON assets, and localized queries.
 class DatabaseService {
   static final DatabaseService _instance = DatabaseService._internal();
   static Database? _database;
 
+  /// Gets the singleton instance of the database service.
+  ///
+  /// @return The single instance of DatabaseService
+  /// Private constructor for singleton pattern.
+
+  /// Gets or creates the database instance.
+  ///
+  /// If the database doesn't exist, it will be created and initialized.
+  /// Subsequent calls return the cached database instance.
+  ///
+  /// @return A Future that completes with the database instance
   factory DatabaseService() => _instance;
   DatabaseService._internal();
 
@@ -18,6 +34,9 @@ class DatabaseService {
     return _database!;
   }
 
+  /// Initializes the database with tables and initial data.
+  ///
+  /// @return A Future that completes with the database instance
   Future<Database> _initDatabase() async {
     final path = join(await getDatabasesPath(), 'mosquito_scan_v1.db');
     // To reset the DB during development, uncomment the next line
@@ -29,7 +48,14 @@ class DatabaseService {
     );
   }
 
-  Future<void> _createDatabase(Database db, int version) async {
+  /// Initializes the database and creates tables if they don't exist.
+  ///
+  /// Creates all necessary tables for mosquito species, diseases, translations,
+  /// and their relationships. Also populates the database with initial data.
+  ///
+  /// @param db The database instance
+  /// @param version The database version
+Future<void> _createDatabase(Database db, int version) async {
     // --- Create Tables ---
     await db.execute('''
       CREATE TABLE mosquito_species(
@@ -89,8 +115,13 @@ class DatabaseService {
     await _insertDataFromJson(db);
   }
 
-  /// Loads data from the JSON asset and populates all tables.
-  Future<void> _insertDataFromJson(Database db) async {
+  /// Populates the database with data from JSON assets.
+  ///
+  /// Loads mosquito species, diseases, translations, and relationships
+  /// from the database_data.json asset file.
+  ///
+  /// @param db The database instance to populate
+Future<void> _insertDataFromJson(Database db) async {
     // 1. Load the JSON string from assets
     final String jsonString = await rootBundle.loadString('assets/database/database_data.json');
 
@@ -132,8 +163,12 @@ class DatabaseService {
     // 8. Commit the batch operation
     await batch.commit(noResult: true);
   }
-  // Helper to get all disease vectors (mosquito names) for a given disease ID
-  Future<List<String>> _getVectorNamesForDisease(Database db, String diseaseId) async {
+  /// Helper method to get vector names for a disease.
+  ///
+  /// @param db The database instance
+  /// @param diseaseId The disease ID
+  /// @return A Future that completes with a list of mosquito species names
+Future<List<String>> _getVectorNamesForDisease(Database db, String diseaseId) async {
       final List<Map<String, dynamic>> relationMaps = await db.query('mosquito_disease_relation', where: 'disease_id = ?', whereArgs: [diseaseId]);
       final List<String> mosquitoIds = relationMaps.map((r) => r['mosquito_id'] as String).toList();
       final List<String> vectorNames = [];
@@ -146,8 +181,13 @@ class DatabaseService {
       return vectorNames;
   }
 
-  // Helper to get all disease names for a given mosquito ID
-  Future<List<String>> _getDiseaseNamesForMosquito(Database db, String mosquitoId, String languageCode) async {
+  /// Helper method to get disease names for a mosquito species.
+  ///
+  /// @param db The database instance
+  /// @param mosquitoId The mosquito species ID
+  /// @param languageCode The language code for localization
+  /// @return A Future that completes with a list of disease names
+Future<List<String>> _getDiseaseNamesForMosquito(Database db, String mosquitoId, String languageCode) async {
       final List<Map<String, dynamic>> relationMaps = await db.query('mosquito_disease_relation', where: 'mosquito_id = ?', whereArgs: [mosquitoId]);
       final List<String> diseaseIds = relationMaps.map((r) => r['disease_id'] as String).toList();
       final List<String> diseaseNames = [];
@@ -163,9 +203,14 @@ class DatabaseService {
   }
 
 
-  // --- CRUD Operations (now with languageCode) ---
-
-  Future<List<MosquitoSpecies>> getAllMosquitoSpecies(String languageCode) async {
+  /// Retrieves all mosquito species for a specific language.
+  ///
+  /// Returns a list of mosquito species with their localized information
+  /// and associated diseases for the specified language.
+  ///
+  /// @param languageCode The language code (e.g., 'en', 'es')
+  /// @return A Future that completes with a list of MosquitoSpecies
+Future<List<MosquitoSpecies>> getAllMosquitoSpecies(String languageCode) async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.rawQuery('''
       SELECT
@@ -191,9 +236,17 @@ class DatabaseService {
     }).toList());
   }
 
+  /// Retrieves a specific mosquito species by ID for a specific language.
+  ///
+  /// Returns a single mosquito species with localized information
+  /// and associated diseases, or null if not found.
+  ///
+  /// @param id The unique identifier of the mosquito species
+  /// @param languageCode The language code (e.g., 'en', 'es')
+  /// @return A Future that completes with a MosquitoSpecies or null
   Future<MosquitoSpecies?> getMosquitoSpeciesById(String id, String languageCode) async {
     final db = await database;
-     final List<Map<String, dynamic>> maps = await db.rawQuery('''
+    final List<Map<String, dynamic>> maps = await db.rawQuery('''
       SELECT
         s.id, s.name, s.image_url,
         t.common_name, t.description, t.habitat, t.distribution
@@ -218,6 +271,13 @@ class DatabaseService {
     );
   }
 
+  /// Retrieves all diseases for a specific language.
+  ///
+  /// Returns a list of diseases with their localized information
+  /// and associated mosquito vectors for the specified language.
+  ///
+  /// @param languageCode The language code (e.g., 'en', 'es')
+  /// @return A Future that completes with a list of Disease objects
   Future<List<Disease>> getAllDiseases(String languageCode) async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.rawQuery('''
@@ -245,6 +305,14 @@ class DatabaseService {
     }).toList());
   }
 
+  /// Retrieves a specific disease by ID for a specific language.
+  ///
+  /// Returns a single disease with localized information
+  /// and associated mosquito vectors, or null if not found.
+  ///
+  /// @param id The unique identifier of the disease
+  /// @param languageCode The language code (e.g., 'en', 'es')
+  /// @return A Future that completes with a Disease or null
   Future<Disease?> getDiseaseById(String id, String languageCode) async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.rawQuery('''
@@ -273,7 +341,15 @@ class DatabaseService {
     );
   }
 
-  Future<List<Disease>> getDiseasesByVector(String speciesName, String languageCode) async {
+  /// Retrieves diseases associated with a specific mosquito species.
+  ///
+  /// Returns all diseases that can be transmitted by the specified
+  /// mosquito species for the given language.
+  ///
+  /// @param speciesName The scientific name of the mosquito species
+  /// @param languageCode The language code (e.g., 'en', 'es')
+  /// @return A Future that completes with a list of Disease objects
+    Future<List<Disease>> getDiseasesByVector(String speciesName, String languageCode) async {
     final db = await database;
     final List<Map<String, dynamic>> mosquitoMaps = await db.query('mosquito_species', where: 'name = ?', whereArgs: [speciesName]);
     if (mosquitoMaps.isEmpty) return [];
@@ -292,7 +368,15 @@ class DatabaseService {
     return diseases;
   }
 
-  Future<MosquitoSpecies?> getMosquitoSpeciesByName(String scientificName, String languageCode) async {
+  /// Retrieves a mosquito species by its scientific name for a specific language.
+  ///
+  /// Returns a single mosquito species with localized information
+  /// and associated diseases, or null if not found.
+  ///
+  /// @param scientificName The scientific name of the mosquito species
+  /// @param languageCode The language code (e.g., 'en', 'es')
+  /// @return A Future that completes with a MosquitoSpecies or null
+Future<MosquitoSpecies?> getMosquitoSpeciesByName(String scientificName, String languageCode) async {
     final db = await database;
     print("[DEBUG] DatabaseService: Received name to query: $scientificName with lang: $languageCode");
     final List<Map<String, dynamic>> maps = await db.rawQuery('''

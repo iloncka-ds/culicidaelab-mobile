@@ -11,6 +11,22 @@ import 'dart:math' as math;
 const TORCHVISION_NORM_MEAN_RGB = [0.485, 0.456, 0.406];
 const TORCHVISION_NORM_STD_RGB = [0.229, 0.224, 0.225];
 
+/// Utility class for loading and using PyTorch Lite models.
+///
+/// Provides static methods for loading classification and object detection models,
+/// as well as helper functions for processing model outputs and loading labels.
+/// This class serves as a bridge between the Flutter app and the native PyTorch implementation.
+
+  /// Loads a classification model from the specified asset path.
+  ///
+  /// Creates a ClassificationModel instance with the loaded PyTorch model
+  /// and optional label mappings for prediction results.
+  ///
+  /// @param path The asset path to the PyTorch model file
+  /// @param imageWidth The expected width for input images
+  /// @param imageHeight The expected height for input images
+  /// @param labelPath Optional path to a labels file (.txt or .csv format)
+  /// @return A Future that completes with a ClassificationModel instance
 class PytorchLite {
 
   ///Sets pytorch model path and returns Model
@@ -32,7 +48,17 @@ class PytorchLite {
     return ClassificationModel(index, labels);
   }
 
-  ///Sets pytorch object detection model (path and lables) and returns Model
+  /// Loads an object detection model from the specified asset path.
+  ///
+  /// Creates a ModelObjectDetection instance with the loaded PyTorch model,
+  /// configured dimensions, and optional label mappings.
+  ///
+  /// @param path The asset path to the PyTorch model file
+  /// @param numberOfClasses The number of classes the model can detect
+  /// @param imageWidth The expected width for input images
+  /// @param imageHeight The expected height for input images
+  /// @param labelPath Optional path to a labels file (.txt or .csv format)
+  /// @return A Future that completes with a ModelObjectDetection instance
   static Future<ModelObjectDetection> loadObjectDetectionModel(
       String path, int numberOfClasses, int imageWidth, int imageHeight,
       {String? labelPath}) async {
@@ -51,7 +77,14 @@ class PytorchLite {
     return ModelObjectDetection(index, imageWidth, imageHeight, labels);
   }
 
-  static Future<String> _getAbsolutePath(String path) async {
+  /// Copies an asset file to the device's documents directory.
+  ///
+  /// Creates necessary subdirectories and returns the absolute path
+  /// to the copied file for use with native code.
+  ///
+  /// @param path The asset path to copy
+  /// @return A Future that completes with the absolute file path
+static Future<String> _getAbsolutePath(String path) async {
     Directory dir = await getApplicationDocumentsDirectory();
     String dirPath = join(dir.path, path);
     ByteData data = await rootBundle.load(path);
@@ -75,27 +108,48 @@ class PytorchLite {
   }
 }
 
-///get labels in csv format
-///labels are separated by commas
+/// Parses labels from a CSV format string.
+///
+/// Labels are expected to be separated by commas.
+///
+/// @param labelPath The path to the CSV labels file
+/// @return A Future that completes with a list of label strings
 Future<List<String>> _getLabelsCsv(String labelPath) async {
   String labelsData = await rootBundle.loadString(labelPath);
   return labelsData.split(",");
 }
 
-///get labels in txt format
-///each line is a label
+/// Parses labels from a text format file.
+///
+/// Each line in the file represents a single label.
+///
+/// @param labelPath The path to the text labels file
+/// @return A Future that completes with a list of label strings
 Future<List<String>> _getLabelsTxt(String labelPath) async {
   String labelsData = await rootBundle.loadString(labelPath);
   return labelsData.split("\n");
 }
 
 
+/// Model wrapper for PyTorch classification tasks.
+///
+/// Provides methods for running image classification predictions
+/// with various output formats including labels, probabilities,
+/// and raw prediction scores.
 class ClassificationModel {
   final int _index;
   final List<String> labels;
   ClassificationModel(this._index, this.labels);
 
-  ///predicts image and returns the supposed label belonging to it
+  /// Runs image classification and returns the predicted label.
+  ///
+  /// Processes the image through the model and returns the label
+  /// with the highest confidence score.
+  ///
+  /// @param imageAsBytes The raw image bytes
+  /// @param mean Optional normalization mean values (default: ImageNet means)
+  /// @param std Optional normalization std values (default: ImageNet stds)
+  /// @return A Future that completes with the predicted label string
   Future<String> getImagePrediction(Uint8List imageAsBytes,
       {List<double> mean = TORCHVISION_NORM_MEAN_RGB,
       List<double> std = TORCHVISION_NORM_STD_RGB}) async {
@@ -118,7 +172,16 @@ class ClassificationModel {
     return labels[maxScoreIndex];
   }
 
-  Future<Map<String, dynamic>> getImagePredictionResult(Uint8List imageAsBytes,
+  /// Runs image classification and returns label with confidence.
+  ///
+  /// Processes the image through the model and returns both the predicted
+  /// label and its confidence probability.
+  ///
+  /// @param imageAsBytes The raw image bytes
+  /// @param mean Optional normalization mean values (default: ImageNet means)
+  /// @param std Optional normalization std values (default: ImageNet stds)
+  /// @return A Future that completes with a map containing 'label' and 'probability' keys
+Future<Map<String, dynamic>> getImagePredictionResult(Uint8List imageAsBytes,
       {List<double> mean = TORCHVISION_NORM_MEAN_RGB,
       List<double> std = TORCHVISION_NORM_STD_RGB}) async {
     // Assert mean std
@@ -151,7 +214,15 @@ class ClassificationModel {
     };
   }
 
-  ///predicts image but returns the raw net output
+  /// Runs image classification and returns raw prediction scores with probabilities.
+  ///
+  /// Returns both the raw prediction scores and their softmax probabilities.
+  /// Useful for advanced analysis or custom confidence thresholds.
+  ///
+  /// @param imageAsBytes The raw image bytes
+  /// @param mean Optional normalization mean values (default: ImageNet means)
+  /// @param std Optional normalization std values (default: ImageNet stds)
+  /// @return A Future that completes with a map containing 'predList' and 'predListProba' keys
   Future<Map<String, List<double?>>> getImagePredictionListAndProbs(
       Uint8List imageAsBytes,
       {List<double> mean = TORCHVISION_NORM_MEAN_RGB,
@@ -185,7 +256,15 @@ class ClassificationModel {
     return result;
   }
 
-  ///predicts image but returns the raw net output
+  /// Runs image classification and returns raw prediction scores.
+  ///
+  /// Returns the raw output scores from the neural network before
+  /// applying softmax or argmax operations.
+  ///
+  /// @param imageAsBytes The raw image bytes
+  /// @param mean Optional normalization mean values (default: ImageNet means)
+  /// @param std Optional normalization std values (default: ImageNet stds)
+  /// @return A Future that completes with a list of raw prediction scores
   Future<List<double?>?> getImagePredictionList(Uint8List imageAsBytes,
       {List<double> mean = TORCHVISION_NORM_MEAN_RGB,
       List<double> std = TORCHVISION_NORM_STD_RGB}) async {
@@ -197,8 +276,15 @@ class ClassificationModel {
     return prediction;
   }
 
-  ///predicts image but returns the output as probabilities
-  ///[image] takes the File of the image
+  /// Runs image classification and returns softmax probabilities.
+  ///
+  /// Returns the prediction scores converted to probabilities using softmax.
+  /// All probabilities sum to 1.0.
+  ///
+  /// @param imageAsBytes The raw image bytes
+  /// @param mean Optional normalization mean values (default: ImageNet means)
+  /// @param std Optional normalization std values (default: ImageNet stds)
+  /// @return A Future that completes with a list of prediction probabilities
   Future<List<double?>?> getImagePredictionListProbabilities(
       Uint8List imageAsBytes,
       {List<double> mean = TORCHVISION_NORM_MEAN_RGB,
@@ -226,7 +312,17 @@ class ClassificationModel {
     return predictionProbabilities;
   }
 
-  ///predicts image and returns the supposed label belonging to it
+  /// Runs batch image classification and returns predicted labels.
+  ///
+  /// Processes multiple images in a single batch for improved performance.
+  /// Returns the label with the highest confidence for each image.
+  ///
+  /// @param imageAsBytesList List of raw image bytes
+  /// @param imageWidth The width to resize images to
+  /// @param imageHeight The height to resize images to
+  /// @param mean Optional normalization mean values (default: ImageNet means)
+  /// @param std Optional normalization std values (default: ImageNet stds)
+  /// @return A Future that completes with the predicted label string
   Future<String> getImagePredictionFromBytesList(
       List<Uint8List> imageAsBytesList, int imageWidth, int imageHeight,
       {List<double> mean = TORCHVISION_NORM_MEAN_RGB,
@@ -250,7 +346,17 @@ class ClassificationModel {
     return labels[maxScoreIndex];
   }
 
-  ///predicts image but returns the raw net output
+  /// Runs batch image classification and returns raw prediction scores.
+  ///
+  /// Processes multiple images in a single batch and returns raw scores.
+  /// Useful for custom post-processing or ensemble methods.
+  ///
+  /// @param imageAsBytesList List of raw image bytes
+  /// @param imageWidth The width to resize images to
+  /// @param imageHeight The height to resize images to
+  /// @param mean Optional normalization mean values (default: ImageNet means)
+  /// @param std Optional normalization std values (default: ImageNet stds)
+  /// @return A Future that completes with a list of raw prediction scores
   Future<List<double?>?> getImagePredictionListFromBytesList(
       List<Uint8List> imageAsBytesList, int imageWidth, int imageHeight,
       {List<double> mean = TORCHVISION_NORM_MEAN_RGB,
@@ -263,8 +369,17 @@ class ClassificationModel {
     return prediction;
   }
 
-  ///predicts image but returns the output as probabilities
-  ///[image] takes the File of the image
+  /// Runs batch image classification and returns softmax probabilities.
+  ///
+  /// Processes multiple images in a single batch and returns probability
+  /// distributions. All probabilities for each image sum to 1.0.
+  ///
+  /// @param imageAsBytesList List of raw image bytes
+  /// @param imageWidth The width to resize images to
+  /// @param imageHeight The height to resize images to
+  /// @param mean Optional normalization mean values (default: ImageNet means)
+  /// @param std Optional normalization std values (default: ImageNet stds)
+  /// @return A Future that completes with a list of prediction probabilities
   Future<List<double?>?> getImagePredictionListProbabilitiesFromBytesList(
       List<Uint8List> imageAsBytesList, int imageWidth, int imageHeight,
       {List<double> mean = TORCHVISION_NORM_MEAN_RGB,
@@ -293,6 +408,11 @@ class ClassificationModel {
   }
 }
 
+/// Model wrapper for PyTorch object detection tasks.
+///
+/// Provides methods for running object detection predictions
+/// with configurable confidence thresholds and result filtering.
+/// Also includes functionality to render detection results on images.
 class ModelObjectDetection {
   final int _index;
   final int imageWidth;
@@ -302,8 +422,17 @@ class ModelObjectDetection {
   ModelObjectDetection(
       this._index, this.imageWidth, this.imageHeight, this.labels);
 
-  ///predicts image and returns the supposed label belonging to it
-  Future<List<ResultObjectDetection?>> getImagePrediction(
+  /// Runs object detection and returns filtered results.
+  ///
+  /// Processes the image through the model and returns detections
+  /// that meet the specified confidence and overlap thresholds.
+  ///
+  /// @param imageAsBytes The raw image bytes
+  /// @param minimumScore Minimum confidence score for detections (0.0-1.0)
+  /// @param IOUThershold Maximum overlap allowed between detections
+  /// @param boxesLimit Maximum number of detections to return
+  /// @return A Future that completes with a list of detection results
+Future<List<ResultObjectDetection?>> getImagePrediction(
       Uint8List imageAsBytes,
       {double minimumScore = 0.5,
       double IOUThershold = 0.5,
@@ -319,7 +448,18 @@ class ModelObjectDetection {
     return prediction;
   }
 
-  ///predicts image and returns the supposed label belonging to it
+  /// Runs batch object detection and returns filtered results.
+  ///
+  /// Processes multiple images in a single batch for improved performance.
+  /// Returns detections that meet the specified confidence thresholds.
+  ///
+  /// @param imageAsBytesList List of raw image bytes
+  /// @param imageWidth The width to resize images to
+  /// @param imageHeight The height to resize images to
+  /// @param minimumScore Minimum confidence score for detections (0.0-1.0)
+  /// @param IOUThershold Maximum overlap allowed between detections
+  /// @param boxesLimit Maximum number of detections to return
+  /// @return A Future that completes with a list of detection results
   Future<List<ResultObjectDetection?>> getImagePredictionFromBytesList(
       List<Uint8List> imageAsBytesList, int imageWidth, int imageHeight,
       {double minimumScore = 0.5,
@@ -336,7 +476,16 @@ class ModelObjectDetection {
     return prediction;
   }
 
-  ///predicts image but returns the raw net output
+  /// Runs object detection and returns raw results.
+  ///
+  /// Returns all raw detection results without filtering.
+  /// Useful for custom post-processing or different threshold requirements.
+  ///
+  /// @param imageAsBytes The raw image bytes
+  /// @param minimumScore Minimum confidence score for detections (0.0-1.0)
+  /// @param IOUThershold Maximum overlap allowed between detections
+  /// @param boxesLimit Maximum number of detections to return
+  /// @return A Future that completes with a list of raw detection results
   Future<List<ResultObjectDetection?>> getImagePredictionList(
       Uint8List imageAsBytes,
       {double minimumScore = 0.5,
@@ -348,8 +497,19 @@ class ModelObjectDetection {
     return prediction;
   }
 
-  ///predicts image but returns the raw net output
-  Future<List<ResultObjectDetection?>> getImagePredictionListFromBytesList(
+  /// Runs batch object detection and returns raw results.
+  ///
+  /// Processes multiple images and returns all raw detection results.
+  /// Useful for custom filtering or when batch processing is needed.
+  ///
+  /// @param imageAsBytesList List of raw image bytes
+  /// @param imageWidth The width to resize images to
+  /// @param imageHeight The height to resize images to
+  /// @param minimumScore Minimum confidence score for detections (0.0-1.0)
+  /// @param IOUThershold Maximum overlap allowed between detections
+  /// @param boxesLimit Maximum number of detections to return
+  /// @return A Future that completes with a list of raw detection results
+    Future<List<ResultObjectDetection?>> getImagePredictionListFromBytesList(
       List<Uint8List> imageAsBytesList, int imageWidth, int imageHeight,
       {double minimumScore = 0.5,
       double IOUThershold = 0.5,
@@ -360,10 +520,19 @@ class ModelObjectDetection {
     return prediction;
   }
 
+  /// Renders object detection results as an overlay on the original image.
+  ///
+  /// Creates a Flutter widget that displays the original image with
+  /// bounding boxes and labels overlaid on detected objects.
+  ///
+  /// @param image The original image file
+  /// @param recognitions List of detection results to display
+  /// @param boxesColor Optional color for bounding boxes
+  /// @param showPercentage Whether to show confidence percentages
+  /// @return A widget displaying the image with detection overlays
   Widget renderBoxesOnImage(
       File image, List<ResultObjectDetection?> recognitions,
       {Color? boxesColor, bool showPercentage = true}) {
-
 
     print(recognitions.length);
     return LayoutBuilder(builder: (context, constraints) {
