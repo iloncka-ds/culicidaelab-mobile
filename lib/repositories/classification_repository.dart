@@ -11,6 +11,16 @@ import 'mosquito_repository.dart';
 import '../models/web_prediction_result.dart';
 import '../models/observation_model.dart';
 
+/// Repository for handling mosquito image classification and observation operations.
+///
+/// This repository orchestrates the classification of mosquito images using both
+/// local ML models and web-based prediction services. It enriches classification
+/// results with species data from the database and handles observation submissions.
+///
+/// The repository coordinates between:
+/// - [ClassificationService] for local ML model inference
+/// - [MosquitoRepository] for species and disease data
+/// - HTTP client for web API calls
 class ClassificationRepository {
   final ClassificationService _classificationService;
   final MosquitoRepository _mosquitoRepository;
@@ -24,16 +34,32 @@ class ClassificationRepository {
         _mosquitoRepository = mosquitoRepository,
         _httpClient = httpClient;
 
+  /// The base URL for mosquito prediction API endpoint.
   final String _mosquitoPredictionUrl = "https://culicidealab.ru/api/predict";
+  /// The base URL for mosquito observation submission API endpoint.
   final String _mosquitoObservationUrl = "https://culicidealab.ru/api/observations";
-  /// Load the classification model
+/// Loads the local mosquito classification model.
+///
+/// This method initializes the machine learning model used for local
+/// image classification. Must be called before using [classifyImage].
+/// Throws an exception if the model fails to load.
+
   Future<void> loadModel() async {
-
     await _classificationService.loadModel();
-
   }
 
-  /// Classify a mosquito image and return the result with related data
+  /// Classifies a mosquito image and returns enriched results with species data.
+  ///
+  /// This method performs a complete classification workflow:
+  /// 1. Runs local ML model inference on the image
+  /// 2. Enriches results with species data from database
+  /// 3. Retrieves associated diseases for identified species
+  /// 4. Returns comprehensive classification results
+  ///
+  /// [imageFile] The image file to classify.
+  /// [languageCode] The language code (e.g., 'en', 'es') for localized content.
+  /// Returns a [ClassificationResult] with species, confidence, and related diseases.
+  /// Throws an exception if classification fails.
 Future<ClassificationResult> classifyImage(File imageFile, String languageCode) async {
     final stopwatch = Stopwatch()..start();
 
@@ -47,7 +73,7 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
     print("[DEBUG] Repository: Result from DB is: ${speciesFromDb == null ? 'NULL' : speciesFromDb.name}");
     final MosquitoSpecies finalSpecies;
     if (speciesFromDb == null) {
-      // Logic for "unknown" species now lives here, in the repository
+      // Logic for "unknown" species
       finalSpecies = MosquitoSpecies(
         id: '0', // Special ID for unknown
         name: scientificName, // Show what the model actually predicted
@@ -79,6 +105,14 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
       imageFile: imageFile,
     );
   }
+/// Gets a web-based prediction for a mosquito image.
+///
+/// Sends the image to a remote prediction service for classification.
+/// This provides an alternative to local model classification.
+///
+/// [imageFile] The image file to get prediction for.
+/// Returns a [WebPredictionResult] with prediction data.
+/// Throws an exception if the web request fails.
   Future<WebPredictionResult> getWebPrediction(File imageFile) async {
     final url = Uri.parse(_mosquitoPredictionUrl);
     var request = http.MultipartRequest('POST', url);
@@ -104,13 +138,19 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
     if (response.statusCode == 200) {
       return WebPredictionResult.fromJson(json.decode(response.body));
     } else {
-      // Provide a more detailed error message
-      throw Exception(
-        // TODO: Localize this message
+            throw Exception(
           'Failed to get web prediction. Status: ${response.statusCode}, Body: ${response.body}');
     }
   }
 
+  /// Submits a mosquito observation to the remote server.
+  ///
+  /// Sends observation data including location, species information,
+  /// and other metadata to the central database.
+  ///
+  /// [finalPayload] A map containing all observation data to submit.
+  /// Returns an [Observation] object representing the submitted record.
+  /// Throws an exception if submission fails.
   Future<Observation> submitObservation({
     required Map<String, dynamic> finalPayload,
   }) async {
@@ -123,7 +163,6 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
     );
 
     if (response.statusCode >= 200 && response.statusCode < 300) {
-
       return Observation.fromJson(json.decode(response.body));
     } else {
       throw Exception('Failed to submit observation: ${response.statusCode} - ${response.body}');
