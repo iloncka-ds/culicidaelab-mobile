@@ -139,7 +139,7 @@ class LocaleProvider extends ChangeNotifier {
     // So, hardcoding for simplicity here or using a separate map.
     switch (locale.languageCode) {
       case 'en':
-        return "English"; // Or AppLocalizations.of(context)!.languageEnglish if you set it up
+        return "English"; // Or AppLocalizations.of(context)!.languageEnglish
       case 'es':
         return "Español"; // Or AppLocalizations.of(context)!.languageSpanish
       case 'ru':

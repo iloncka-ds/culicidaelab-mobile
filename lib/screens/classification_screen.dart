@@ -1,3 +1,16 @@
+/// ClassificationScreen provides the main interface for mosquito species identification and classification.
+///
+/// This screen allows users to:
+/// - Capture or select images using camera or gallery
+/// - Display real-time classification results with confidence scores
+/// - View detailed species information and associated diseases
+/// - Submit observations with location data and notes
+///
+/// The screen uses a [ClassificationViewModel] to manage state and communicates
+/// with the classification service for image analysis.
+///
+/// {@category Screens}
+/// {@subCategory Classification}
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -10,9 +23,40 @@ import 'package:culicidaelab/l10n/app_localizations.dart';
 import 'package:culicidaelab/locator.dart';
 import 'observation_details_screen.dart';
 
+/// Main screen for mosquito species classification and identification.
+///
+/// This screen provides a comprehensive interface for users to:
+/// - Select images from camera or gallery for classification
+/// - View real-time classification results with confidence scores and inference time
+/// - Access detailed information about identified species
+/// - View associated disease risks and information
+/// - Submit observation data with location and notes
+///
+/// The screen uses the Provider pattern with [ClassificationViewModel] to manage
+/// state and business logic. It displays different UI states based on the
+/// classification process: no image selected, processing, results, or submission.
+///
+/// **Key Features:**
+/// - Image capture and selection
+/// - Real-time classification processing
+/// - Disease risk assessment
+/// - Observation submission with location data
 class ClassificationScreen extends StatelessWidget {
   const ClassificationScreen({Key? key}) : super(key: key);
 
+  /// Builds the main UI for the classification screen.
+  ///
+  /// This method creates a responsive layout that adapts to different states:
+  /// - Shows upload hints when no image is selected
+  /// - Displays image preview during processing
+  /// - Shows classification results with species information
+  /// - Provides action buttons for camera, gallery, and reset
+  ///
+  /// The layout uses a [Scaffold] with an [AppBar] and a scrollable body
+  /// containing the main content area with image preview and action buttons.
+  ///
+  /// [context] The build context for accessing theme and localization data.
+  /// Returns a [Widget] representing the complete classification screen UI.
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
@@ -123,7 +167,23 @@ class ClassificationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildResultCard(BuildContext context,
+
+  /// Builds the result card displaying classification results.
+  ///
+  /// Creates a visually appealing card that shows:
+  /// - Species name and common name
+  /// - Confidence score and inference time
+  /// - Action buttons for species info and disease risks
+  /// - Navigation to observation details
+  ///
+  /// The card includes proper styling with rounded corners, elevation,
+  /// and color-coded elements for better user experience.
+  ///
+  /// [context] The build context for theme access.
+  /// [viewModel] The classification view model containing result data.
+  /// [localizations] Localization strings for UI text.
+  /// Returns a [Widget] representing the result card.
+Widget _buildResultCard(BuildContext context,
       ClassificationViewModel viewModel, AppLocalizations localizations) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 16.0),
@@ -388,6 +448,16 @@ class ClassificationScreen extends StatelessWidget {
     );
   }
 
+  /// Creates a styled action button with icon and label.
+  ///
+  /// This method generates a column containing a [FloatingActionButton]
+  /// with an icon and a text label below it. The button uses a consistent
+  /// teal color scheme for visual coherence across the application.
+  ///
+  /// [icon] The icon to display inside the button.
+  /// [label] The text label to show below the button.
+  /// [onPressed] The callback function to execute when the button is pressed.
+  /// Returns a [Widget] representing the action button with label.
   Widget _buildActionButton(
       {required IconData icon,
       required String label,
@@ -414,7 +484,22 @@ class ClassificationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildDiseasesList(BuildContext context,
+
+  /// Builds a list of diseases associated with the identified mosquito species.
+  ///
+  /// This method creates a scrollable bottom sheet that displays:
+  /// - A warning icon and title indicating potential disease risks
+  /// - A list of related diseases with descriptions and navigation to detail screens
+  /// - A disclaimer about educational use
+  ///
+  /// Each disease item is displayed as a tappable card that navigates
+  /// to the disease detail screen when selected.
+  ///
+  /// [context] The build context for theme access and navigation.
+  /// [viewModel] The classification view model containing disease data.
+  /// [localizations] Localization strings for UI text.
+  /// Returns a [Widget] representing the diseases list in a scrollable container.
+Widget _buildDiseasesList(BuildContext context,
       ClassificationViewModel viewModel, AppLocalizations localizations) {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -497,6 +582,19 @@ class ClassificationScreen extends StatelessWidget {
     );
   }
 
+  /// Handles image selection from camera or gallery.
+  ///
+  /// This method initiates the image picking process using the provided
+  /// [ImageSource] (camera or gallery). After a successful image selection,
+  /// it automatically triggers the classification process.
+  ///
+  /// The method uses a post-frame callback to ensure the image is properly
+  /// loaded before starting classification to avoid UI conflicts.
+  ///
+  /// [context] The build context for UI operations.
+  /// [viewModel] The classification view model to handle image processing.
+  /// [source] The image source (camera or gallery).
+  /// [localizations] Localization strings for potential error messages.
   void _getImage(BuildContext context, ClassificationViewModel viewModel,
       ImageSource source, AppLocalizations localizations) async {
     await viewModel.pickImage(source, localizations);
@@ -509,7 +607,20 @@ class ClassificationScreen extends StatelessWidget {
     }
   }
 
-  Widget _buildSubmissionResult(BuildContext context,
+
+  /// Builds the submission result display after successful observation submission.
+  ///
+  /// Creates a success card showing:
+  /// - A checkmark icon indicating successful submission
+  /// - Thank you message for participation
+  /// - Submission details including ID, species, location, and notes
+  /// - Proper styling with teal accent colors
+  ///
+  /// [context] The build context for theme access.
+  /// [viewModel] The classification view model containing submission data.
+  /// [localizations] Localization strings for UI text.
+  /// Returns a [Widget] representing the submission success card.
+Widget _buildSubmissionResult(BuildContext context,
       ClassificationViewModel viewModel, AppLocalizations localizations) {
     final result = viewModel.submissionResult!;
     return Card(
@@ -548,7 +659,17 @@ class ClassificationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoRow(String text, IconData icon) {
+
+  /// Creates a row displaying an icon and text for information display.
+  ///
+  /// This helper method creates a consistent layout for showing
+  /// information with an icon and text. Used in the submission result
+  /// display to show details like submission ID, species, and location.
+  ///
+  /// [text] The text content to display.
+  /// [icon] The icon to show before the text.
+  /// Returns a [Widget] representing a row with icon and text.
+Widget _buildInfoRow(String text, IconData icon) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(

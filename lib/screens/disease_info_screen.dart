@@ -1,3 +1,18 @@
+/// DiseaseInfoScreen displays a searchable gallery of mosquito-borne diseases.
+///
+/// This screen provides users with a comprehensive, searchable collection of
+/// disease information including:
+/// - Searchable list with real-time filtering
+/// - Disease cards with images, descriptions, and key information
+/// - Vector species information for each disease
+/// - Geographic prevalence data
+/// - Navigation to detailed disease information screens
+///
+/// The screen uses a [DiseaseInfoViewModel] for state management and implements
+/// a search-as-you-type functionality for improved user experience.
+///
+/// {@category Screens}
+/// {@subCategory Disease Information}
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/disease_model.dart';
@@ -11,9 +26,43 @@ import '../widgets/icomoon_icons.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart';
 import 'package:culicidaelab/locator.dart';
 
+/// Searchable gallery screen for browsing mosquito-borne diseases.
+///
+/// This screen provides an interactive interface for exploring disease information:
+///
+/// - **Search Functionality**: Real-time search with query filtering
+/// - **Disease Cards**: Visual cards showing disease images, names, and descriptions
+/// - **Vector Information**: Display of mosquito species that transmit each disease
+/// - **Prevalence Data**: Geographic distribution information
+/// - **Error Handling**: Proper loading states and error recovery
+/// - **Empty States**: Helpful messaging when no results are found
+///
+/// The screen uses the Provider pattern with [DiseaseInfoViewModel] for state
+/// management. It loads disease data on initialization and provides search
+/// functionality that filters results based on user input.
+///
+/// **Key Features:**
+/// - Real-time search with debounced filtering
+/// - Visual disease cards with images and key information
+/// - Loading states and error handling
+/// - Empty state messaging for better UX
+/// - Navigation to detailed disease screens
 class DiseaseInfoScreen extends StatelessWidget {
   const DiseaseInfoScreen({Key? key}) : super(key: key);
 
+  /// Builds the main UI for the disease information screen.
+  ///
+  /// Creates a responsive layout with:
+  /// - App bar with screen title
+  /// - Search text field for filtering diseases
+  /// - List/Grid view of disease cards based on search results
+  /// - Loading, error, and empty state handling
+  ///
+  /// The layout uses [Consumer] widgets to react to state changes in the
+  /// [DiseaseInfoViewModel] and updates the UI accordingly.
+  ///
+  /// [context] The build context for accessing theme and localization data.
+  /// Returns a [Widget] representing the complete disease info screen UI.
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
@@ -147,6 +196,22 @@ class DiseaseInfoScreen extends StatelessWidget {
     );
   }
 
+  /// Creates a disease information card for the gallery view.
+  ///
+  /// Builds an interactive card displaying:
+  /// - Disease image with error handling
+  /// - Disease name and description
+  /// - Vector species information
+  /// - Geographic prevalence data
+  /// - Tap navigation to disease detail screen
+  ///
+  /// The card uses proper styling with rounded corners, elevation,
+  /// and appropriate spacing for a clean, professional appearance.
+  ///
+  /// [context] The build context for navigation and theme access.
+  /// [disease] The disease model containing information to display.
+  /// [localizations] Localization strings for UI text.
+  /// Returns a [Widget] representing a single disease information card.
   Widget _buildDiseaseCard(
       BuildContext context, Disease disease, AppLocalizations localizations) {
     return Card(

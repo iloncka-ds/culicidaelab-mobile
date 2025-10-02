@@ -1,3 +1,17 @@
+/// MosquitoDetailScreen displays comprehensive information about mosquito species.
+///
+/// This screen provides detailed information about a specific mosquito species including:
+/// - Species identification and taxonomy
+/// - Physical description and characteristics
+/// - Habitat preferences and geographic distribution
+/// - Disease transmission capabilities and associated diseases
+/// - Navigation to detailed disease information
+///
+/// The screen uses asynchronous data loading for disease associations and provides
+/// an intuitive interface for exploring mosquito-borne disease relationships.
+///
+/// {@category Screens}
+/// {@subCategory Species Information}
 import 'package:culicidaelab/repositories/mosquito_repository.dart';
 import 'package:flutter/material.dart';
 import '../models/mosquito_model.dart';
@@ -6,12 +20,51 @@ import 'disease_detail_screen.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart';
 import 'package:culicidaelab/locator.dart';
 
+/// Detailed screen displaying comprehensive mosquito species information.
+///
+/// This screen provides in-depth information about a specific mosquito species,
+/// serving as a reference for identification and understanding disease vectors.
+/// Key information includes:
+///
+/// - **Species Overview**: Scientific and common names with visual identification
+/// - **Description**: Physical characteristics and behavioral traits
+/// - **Habitat**: Environmental preferences and breeding sites
+/// - **Distribution**: Geographic range and regional presence
+/// - **Disease Associations**: List of diseases transmitted by this species
+///
+/// The screen uses a [FutureBuilder] to asynchronously load associated diseases
+/// and displays them in an interactive list with navigation to disease details.
+/// Each disease entry shows the disease name, description, and provides tap
+/// navigation to the [DiseaseDetailScreen] for comprehensive medical information.
+///
+/// **Key Features:**
+/// - Visual species identification with image display
+/// - Comprehensive species information sections
+/// - Dynamic disease association loading
+/// - Interactive disease list with navigation
+/// - Error handling for missing images and data
+/// - Consistent styling with proper information hierarchy
 class MosquitoDetailScreen extends StatelessWidget {
   final MosquitoSpecies species;
 
   const MosquitoDetailScreen({Key? key, required this.species})
       : super(key: key);
 
+  /// Builds the mosquito species detail screen with comprehensive information.
+  ///
+  /// Creates a scrollable layout displaying:
+  /// - Species image with error handling for missing assets
+  /// - Scientific and common names
+  /// - Detailed sections for description, habitat, and distribution
+  /// - Associated diseases list with interactive navigation
+  /// - Proper loading states and error handling
+  ///
+  /// The layout uses a [FutureBuilder] to asynchronously load disease data
+  /// associated with this mosquito species. During loading, a progress indicator
+  /// is shown in the diseases section.
+  ///
+  /// [context] The build context for accessing theme and localization data.
+  /// Returns a [Widget] representing the complete mosquito detail screen UI.
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;

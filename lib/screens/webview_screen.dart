@@ -1,6 +1,45 @@
+/// WebViewScreen displays web content within the application.
+///
+/// This screen provides a full-featured web browsing experience using the
+/// flutter_inappwebview plugin, offering:
+/// - Full web page rendering and interaction
+/// - Pull-to-refresh functionality
+/// - Loading progress indication
+/// - Error handling and retry mechanisms
+/// - SSL certificate handling for secure connections
+///
+/// The screen is designed for displaying external web content or web-based
+/// documentation within the application context.
+///
+/// {@category Screens}
+/// {@subCategory Utilities}
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
+
+/// Stateful screen for displaying web content with advanced browser features.
+///
+/// This screen provides a comprehensive web viewing experience with:
+///
+/// - **Full Web Rendering**: Complete web page display and interaction
+/// - **Pull-to-Refresh**: Native refresh gesture support on iOS and Android
+/// - **Progress Indication**: Visual loading progress for better UX
+/// - **Error Handling**: Graceful error display with retry functionality
+/// - **SSL Management**: Certificate handling for secure connections
+/// - **Platform Optimization**: Platform-specific refresh behaviors
+///
+/// The screen uses the flutter_inappwebview plugin to provide a native
+/// web browsing experience within the Flutter application. It's ideal for
+/// displaying external documentation, web-based tools, or any web content
+/// that needs to be integrated into the application flow.
+///
+/// **Key Features:**
+/// - Complete web page rendering and JavaScript execution
+/// - Pull-to-refresh with platform-specific implementations
+/// - Loading progress visualization
+/// - Comprehensive error handling and recovery
+/// - SSL certificate management for secure browsing
+/// - Responsive design that adapts to content
 class WebViewScreen extends StatefulWidget {
   final String title;
   final String url;
@@ -11,12 +50,22 @@ class WebViewScreen extends StatefulWidget {
   State<WebViewScreen> createState() => _WebViewScreenState();
 }
 
+/// State class managing the WebView functionality and user interactions.
+///
+/// Handles web page loading, progress tracking, error management, and
+/// pull-to-refresh functionality. Manages the complex state of web content
+/// loading and user interactions with the web view.
 class _WebViewScreenState extends State<WebViewScreen> {
   InAppWebViewController? _webViewController;
   PullToRefreshController? _pullToRefreshController;
   double _progress = 0;
   String? _error;
 
+  /// Initializes the WebView state and configures pull-to-refresh functionality.
+  ///
+  /// Sets up the [PullToRefreshController] with platform-specific refresh
+  /// behaviors. On Android, it uses the WebView's reload method, while on
+  /// iOS it reloads the current URL to ensure proper refresh functionality.
   @override
   void initState() {
     super.initState();
@@ -33,6 +82,21 @@ class _WebViewScreenState extends State<WebViewScreen> {
     );
   }
 
+  /// Builds the WebView interface with comprehensive browsing features.
+  ///
+  /// Creates a full-featured web browsing interface featuring:
+  /// - App bar with title and manual refresh button
+  /// - WebView widget for content display
+  /// - Progress indicator during page loading
+  /// - Error state display with retry functionality
+  /// - Pull-to-refresh capability (configured in initState)
+  ///
+  /// The layout uses a [Stack] to overlay the progress indicator and error
+  /// states on top of the WebView. It handles various loading states and
+  /// provides multiple recovery mechanisms for failed loads.
+  ///
+  /// [context] The build context for accessing theme and platform information.
+  /// Returns a [Widget] representing the complete WebView interface.
   @override
   Widget build(BuildContext context) {
     return Scaffold(

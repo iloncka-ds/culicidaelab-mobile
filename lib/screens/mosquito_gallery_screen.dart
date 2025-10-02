@@ -1,3 +1,18 @@
+/// MosquitoGalleryScreen displays a searchable grid gallery of mosquito species.
+///
+/// This screen provides users with a visual, searchable collection of mosquito
+/// species information including:
+/// - Grid-based gallery layout for easy browsing
+/// - Real-time search functionality with query filtering
+/// - Species cards with images, names, and key characteristics
+/// - Habitat and disease vector information for each species
+/// - Navigation to detailed species information screens
+///
+/// The screen uses a [MosquitoGalleryViewModel] for state management and implements
+/// a search-as-you-type functionality with a modern grid layout.
+///
+/// {@category Screens}
+/// {@subCategory Species Information}
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -8,9 +23,47 @@ import 'mosquito_detail_screen.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart';
 import 'package:culicidaelab/locator.dart';
 
+/// Visual gallery screen for browsing mosquito species in a grid layout.
+///
+/// This screen provides an interactive, visual interface for exploring mosquito
+/// species with modern design patterns:
+///
+/// - **Grid Layout**: Two-column responsive grid for optimal viewing
+/// - **Search Integration**: Real-time search with instant filtering
+/// - **Visual Cards**: Rich species cards with images and key information
+/// - **Interactive Elements**: Tap navigation to detailed species screens
+/// - **State Management**: Loading, error, and empty state handling
+/// - **Responsive Design**: Adapts to different screen sizes and orientations
+///
+/// The screen uses the Provider pattern with [MosquitoGalleryViewModel] for
+/// state management. It loads species data on initialization and provides
+/// search functionality that filters results based on user input.
+///
+/// **Key Features:**
+/// - Modern grid-based gallery layout
+/// - Real-time search with debounced filtering
+/// - Visual species identification cards
+/// - Disease vector indicators and counts
+/// - Loading states and error handling
+/// - Empty state messaging for better UX
+/// - Navigation to detailed species information
 class MosquitoGalleryScreen extends StatelessWidget {
   const MosquitoGalleryScreen({Key? key}) : super(key: key);
 
+  /// Builds the main UI for the mosquito gallery screen.
+  ///
+  /// Creates a responsive layout featuring:
+  /// - App bar with gallery title
+  /// - Search text field for species filtering
+  /// - Grid view of mosquito species cards
+  /// - Loading, error, and empty state handling
+  ///
+  /// The layout uses [Consumer] widgets to react to state changes in the
+  /// [MosquitoGalleryViewModel] and updates the UI accordingly. The grid
+  /// layout adapts to different screen sizes using a 2-column configuration.
+  ///
+  /// [context] The build context for accessing theme and localization data.
+  /// Returns a [Widget] representing the complete mosquito gallery screen UI.
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
@@ -154,6 +207,22 @@ class MosquitoGalleryScreen extends StatelessWidget {
     );
   }
 
+  /// Creates a mosquito species card for the gallery grid.
+  ///
+  /// Builds an interactive card displaying:
+  /// - Species image with overlay text showing scientific name
+  /// - Common name and habitat information
+  /// - Disease vector count with visual indicators
+  /// - Tap navigation to species detail screen
+  ///
+  /// The card uses a stacked layout with the image as background and
+  /// an overlay for the scientific name. The bottom section contains
+  /// species details with proper styling and visual hierarchy.
+  ///
+  /// [context] The build context for navigation and theme access.
+  /// [species] The mosquito species model containing information to display.
+  /// [localizations] Localization strings for UI text.
+  /// Returns a [Widget] representing a single mosquito species card.
   Widget _buildMosquitoCard(
     BuildContext context,
     MosquitoSpecies species,

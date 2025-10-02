@@ -1,3 +1,16 @@
+/// ObservationDetailsScreen allows users to submit mosquito observation data.
+///
+/// This screen enables users to contribute to the mosquito surveillance database by:
+/// - Selecting observation location using an interactive map
+/// - Adding optional notes about the observation
+/// - Submitting classification results with location data
+/// - Handling location permissions and GPS functionality
+///
+/// The screen uses geolocation services to get the user's current position and
+/// provides an interactive map interface for precise location selection.
+///
+/// {@category Screens}
+/// {@subCategory Observation Management}
 import 'package:culicidaelab/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -8,6 +21,29 @@ import '../view_models/classification_view_model.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart';
 import 'package:geolocator/geolocator.dart';
 
+/// Screen for collecting and submitting mosquito observation details.
+///
+/// This stateful screen provides a comprehensive interface for users to:
+///
+/// - **Location Selection**: Interactive map with current location detection
+/// - **Observation Notes**: Optional text field for additional context
+/// - **Data Submission**: Integration with classification results for database storage
+/// - **Permission Handling**: Location services permission management
+/// - **Error Handling**: Graceful handling of location and submission errors
+///
+/// The screen uses the [ClassificationViewModel] to manage submission state and
+/// integrates with geolocation services for precise positioning. It features a
+/// map interface built with [flutter_map] for location selection and includes
+/// proper loading states during submission processes.
+///
+/// **Key Features:**
+/// - Interactive map interface for location selection
+/// - GPS location detection and permission handling
+/// - Optional notes field for observation context
+/// - Integration with classification results
+/// - Loading states during web prediction and submission
+/// - Error handling with retry functionality
+/// - Responsive form validation and submission
 class ObservationDetailsScreen extends StatefulWidget {
   final ClassificationResult classificationResult;
   const ObservationDetailsScreen({Key? key, required this.classificationResult}) : super(key: key);
@@ -16,6 +52,11 @@ class ObservationDetailsScreen extends StatefulWidget {
   _ObservationDetailsScreenState createState() => _ObservationDetailsScreenState();
 }
 
+/// State class managing the observation details screen functionality.
+///
+/// Handles location services, map interactions, form validation, and
+/// observation submission. Manages the complex state transitions between
+/// location detection, web prediction fetching, and final submission.
 class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
   final _formKey = GlobalKey<FormState>();
   final MapController _mapController = MapController();
@@ -25,6 +66,23 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
   bool _isLoadingLocation = true;
   LatLng _initialCenter = const LatLng(12.6392, -8.0028); // Bamako, Mali
 
+  /// Initializes the screen state and begins location detection.
+  ///
+  /// This method is called when the screen is first created and starts
+  /// the location permission and positioning process. It handles the
+  /// initial setup of location services and map positioning.
+
+  /// Determines the user's current position using geolocation services.
+  ///
+  /// This method handles the complete location permission and positioning workflow:
+  /// - Checks if location services are enabled
+  /// - Requests location permissions if needed
+  /// - Gets current position and updates map center
+  /// - Handles permission denials and service unavailability
+  ///
+  /// Uses the Geolocator package to access device GPS capabilities and
+  /// updates the UI state accordingly. Falls back to default coordinates
+  /// if location services are unavailable.
   @override
   void initState() {
     super.initState();
@@ -32,7 +90,6 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
   }
 
   Future<void> _determinePosition() async {
-    // This logic remains the same
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -73,6 +130,13 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
     }
   }
 
+  /// Updates the selected location when user taps on the map.
+  ///
+  /// This method handles map tap interactions, updating both the selected
+  /// location state and the map camera position to center on the tapped point.
+  /// It ensures the map stays synchronized with user selections.
+  ///
+  /// [location] The LatLng coordinates of the tapped map position.
   void _updateLocation(LatLng location) {
     setState(() {
       _selectedLocation = location;
@@ -80,6 +144,21 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
     });
   }
 
+  /// Builds the observation details form with map and submission interface.
+  ///
+  /// Creates a comprehensive form interface featuring:
+  /// - Interactive map for location selection
+  /// - Current location detection and display
+  /// - Optional notes field for observation context
+  /// - Submission button with loading states
+  /// - Error handling and retry functionality
+  ///
+  /// The layout uses a scrollable form with proper validation and state
+  /// management through the ClassificationViewModel. It handles complex
+  /// state transitions between location detection, web prediction, and submission.
+  ///
+  /// [context] The build context for accessing theme and localization data.
+  /// Returns a [Widget] representing the complete observation form UI.
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
@@ -191,7 +270,7 @@ class _ObservationDetailsScreenState extends State<ObservationDetailsScreen> {
                               foregroundColor: Colors.white,
                             ),
                             onPressed: () {
-                              // Simply call the fetch function again.
+                              // Call the fetch function again.
                               vm.fetchWebPrediction(localizations);
                             },
                           ),
