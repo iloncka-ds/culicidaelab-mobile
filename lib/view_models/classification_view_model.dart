@@ -8,8 +8,16 @@ import 'package:culicidaelab/l10n/app_localizations.dart';
 import '../models/web_prediction_result.dart';
 import '../models/observation_model.dart';
 
+/// Represents the different states of the classification process
 enum ClassificationState { initial, loading, success, error, submitting, submitted }
 
+/// A view model that manages the classification of mosquito images.
+///
+/// This class handles the entire classification workflow including:
+/// - Image selection from device
+/// - Local image classification
+/// - Web-based prediction fallback
+/// - Observation submission
 class ClassificationViewModel extends ChangeNotifier {
   // --- SECTION 1: FINAL PROPERTIES ---
   final ClassificationRepository _repository;
@@ -60,6 +68,15 @@ class ClassificationViewModel extends ChangeNotifier {
 
   // --- SECTION 5: PUBLIC METHODS (The "API" of this ViewModel) ---
 
+  /// Initializes the classification model for local predictions.
+  ///
+  /// Loads the machine learning model required for local image classification.
+  ///
+  /// Parameters:
+  ///   - localizations: Used for localized error messages
+  ///
+  /// Throws:
+  ///   - Exception if model loading fails
   Future<void> initModel(AppLocalizations localizations) async {
     try {
       await _repository.loadModel();
@@ -73,6 +90,20 @@ class ClassificationViewModel extends ChangeNotifier {
     }
   }
 
+  /// Picks an image from the specified source for classification.
+  ///
+  /// Parameters:
+  ///   - source: The image source (camera or gallery)
+  ///   - localizations: Used for localized error messages
+  ///
+  /// Updates the UI state and notifies listeners when complete.
+  /// Picks an image from the specified source for classification.
+  ///
+  /// Parameters:
+  ///   - source: The image source (camera or gallery)
+  ///   - localizations: Used for localized error messages
+  ///
+  /// Updates the UI state and notifies listeners when complete.
   Future<void> pickImage(
     ImageSource source,
     AppLocalizations localizations,
@@ -94,6 +125,18 @@ class ClassificationViewModel extends ChangeNotifier {
     }
   }
 
+  /// Classifies the currently selected image using the local model.
+  ///
+  /// Processes the image and updates the UI with classification results.
+  /// Handles unknown species by providing localized descriptions.
+  ///
+  /// Parameters:
+  ///   - localizations: Used for localized strings and error messages
+  ///
+  /// Updates:
+  ///   - _state: Updates to loading/success/error states
+  ///   - _result: Contains classification results on success
+  ///   - _errorMessage: Contains error details if classification fails
   Future<void> classifyImage(AppLocalizations localizations) async {
     if (_imageFile == null) {
       _errorMessage = localizations.errorNoImageSelected;
@@ -116,7 +159,7 @@ class ClassificationViewModel extends ChangeNotifier {
         // If it's the unknown species, create a NEW, LOCALIZED species object
         final localizedUnknownSpecies = MosquitoSpecies(
           id: resultFromRepo.species.id,
-          name: resultFromRepo.species.name, 
+          name: resultFromRepo.species.name,
           commonName: localizations.classificationServiceUnknownSpeciesCommonName,
           description: localizations.classificationServiceUnknownSpeciesDescription,
           habitat: localizations.classificationServiceUnknownSpeciesHabitat,
@@ -149,6 +192,18 @@ class ClassificationViewModel extends ChangeNotifier {
     }
   }
 
+  /// Fetches a prediction from the web-based classification service.
+  ///
+  /// This is typically used as a fallback when local classification
+  /// results in low confidence or unknown species.
+  ///
+  /// Parameters:
+  ///   - localizations: Used for localized error messages
+  ///
+  /// Updates:
+  ///   - _isFetchingWebPrediction: Tracks the web request state
+  ///   - _webPredictionResult: Contains the web prediction results
+  ///   - _errorMessage: Contains error details if the request fails
   Future<void> fetchWebPrediction(AppLocalizations localizations) async {
     if (_imageFile == null) return;
 
@@ -159,18 +214,7 @@ class ClassificationViewModel extends ChangeNotifier {
 
     try {
       final result = await _repository.getWebPrediction(_imageFile!);
-    //   if (result.scientificName == "Species not defined") {_webPredictionResult = WebPredictionResult(
-    //     id: result.id,
-    //     // Replace the name with the localized version
-    //     scientificName: localizations.speciesNotDefinedWebPrediction,
-    //     probabilities: result.probabilities,
-    //     modelId: result.modelId,
-    //     confidence: result.confidence,
-    //     imageUrlSpecies: result.imageUrlSpecies,
-    //   );
-    // } else {
-    //   _webPredictionResult = result;
-    // }
+
     _webPredictionResult = result;
     } catch (e) {
       print("!!! ERROR fetching web prediction: $e");
@@ -182,6 +226,26 @@ class ClassificationViewModel extends ChangeNotifier {
   }
 
 
+  /// Submits an observation to the server with classification results.
+  ///
+  /// Handles both local-only and web+local prediction submissions.
+  ///
+  /// Parameters:
+  ///   - localResult: The classification result from the local model
+  ///   - webPrediction: Optional web prediction result (for hybrid submissions)
+  ///   - latitude: Observation location latitude
+  ///   - longitude: Observation location longitude
+  ///   - notes: User-provided notes about the observation
+  ///   - localizations: Used for localized error messages
+  ///
+  /// Returns:
+  ///   - Observation: The created observation if successful
+  ///   - null: If submission fails
+  ///
+  /// Updates:
+  ///   - _state: Updates to submitting/submitted/error states
+  ///   - _submissionResult: Contains the created observation on success
+  ///   - _errorMessage: Contains error details if submission fails
   Future<Observation?> submitObservation({
     required ClassificationResult localResult,
     required WebPredictionResult? webPrediction,
@@ -264,10 +328,19 @@ class ClassificationViewModel extends ChangeNotifier {
     }
   }
 
+  /// Determines if the disease risk button should be shown.
+  ///
+  /// Returns:
+  ///   - true: If there are related diseases for the current classification
+  ///   - false: Otherwise
   bool get shouldShowDiseaseRiskButton {
     return _result != null && _result!.relatedDiseases.isNotEmpty;
   }
 
+  /// Resets the view model to its initial state.
+  ///
+  /// Clears all classification results, selected image, and error messages.
+  /// Notifies listeners after resetting the state.
   void reset() {
     _state = ClassificationState.initial;
     _imageFile = null;
@@ -280,12 +353,24 @@ class ClassificationViewModel extends ChangeNotifier {
   }
 
   // --- SECTION 6: PRIVATE/TESTING METHODS (Keep these at the bottom) ---
+  /// Updates the current state of the view model.
+  ///
+  /// This method is visible for testing purposes only.
+  ///
+  /// Parameters:
+  ///   - state: The new state to set
   @visibleForTesting
   void setState(ClassificationState state) {
     _state = state;
     notifyListeners();
   }
 
+  /// Sets the current image file and resets related state if needed.
+  ///
+  /// This method is visible for testing purposes only.
+  ///
+  /// Parameters:
+  ///   - file: The image file to set, or null to clear
   @visibleForTesting
   void setImageFile(File? file) {
     _imageFile = file;
@@ -295,12 +380,24 @@ class ClassificationViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Sets the classification result.
+  ///
+  /// This method is visible for testing purposes only.
+  ///
+  /// Parameters:
+  ///   - result: The classification result to set, or null to clear
   @visibleForTesting
   void setResult(ClassificationResult? result) {
     _result = result;
     notifyListeners();
   }
 
+  /// Sets an error message to be displayed to the user.
+  ///
+  /// This method is visible for testing purposes only.
+  ///
+  /// Parameters:
+  ///   - message: The error message to set, or null to clear
   @visibleForTesting
   void setErrorMessage(String? message) {
     _errorMessage = message;
