@@ -1,5 +1,14 @@
 import 'dart:convert';
 
+/// Represents the result of a web-based mosquito species prediction.
+///
+/// This model contains prediction results from remote classification services,
+/// including species identification, confidence scores, probability distributions
+/// across all possible species, and associated metadata. It's used when
+/// classification is performed on external servers rather than locally on the device.
+///
+/// The prediction result includes comprehensive probability data for transparency
+/// and supports both single-prediction and multi-class classification scenarios.
 class WebPredictionResult {
   final String id;
   final String scientificName;

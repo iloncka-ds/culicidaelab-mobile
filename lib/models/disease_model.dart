@@ -1,3 +1,9 @@
+/// Represents a disease that can be transmitted by mosquitoes or other vectors.
+///
+/// This model contains comprehensive information about a specific disease including
+/// its symptoms, treatment options, prevention methods, and associated vectors.
+/// It's used throughout the application to display disease information to users
+/// and provide context for mosquito identification results.
 class Disease {
   final String id;
   final String name;

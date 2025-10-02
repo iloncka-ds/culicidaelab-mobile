@@ -1,12 +1,15 @@
 import 'dart:convert';
 
-// Corresponds to the Pydantic 'Location' model
+/// Represents a geographical location with latitude and longitude coordinates.
+///
+/// This model is used to store precise location data for mosquito observations,
+/// supporting both the submission of new observations and the retrieval of
+/// existing observation data from external sources.
 class Location {
   final double lat;
   final double lng;
 
   Location({required this.lat, required this.lng});
-
   factory Location.fromJson(Map<String, dynamic> json) {
     return Location(
       lat: (json['lat'] as num).toDouble(),
@@ -20,8 +23,16 @@ class Location {
   };
 }
 
-// Corresponds to the Pydantic 'Observation' model
-// This REPLACES the old SubmissionResult model
+/// Represents a mosquito observation record with comprehensive metadata.
+///
+/// This model corresponds to the Pydantic 'Observation' model.
+/// It contains detailed information about a mosquito
+/// including species identification, location, timestamp, and various
+/// metadata fields for tracking data quality and provenance.
+///
+/// The observation data supports both user-submitted sightings and data imported
+/// from external sources, providing a unified structure for mosquito surveillance
+/// and research applications.
 class Observation {
   final String id; // This was observationId
   final String speciesScientificName; // This was scientificName
