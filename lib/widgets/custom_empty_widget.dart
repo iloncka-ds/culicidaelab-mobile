@@ -1,37 +1,83 @@
 import 'package:flutter/material.dart';
 
-/// A custom implementation of the empty_widget package that uses the updated TextTheme API
+/// {@template custom_empty_widget}
+/// A custom implementation of an empty state widget that uses the updated TextTheme API.
+///
+/// This widget displays an empty state with optional image, title, and subtitle.
+/// It provides flexibility to customize the appearance and content according to
+/// different use cases in the application.
+///
+/// Example usage:
+/// ```dart
+/// CustomEmptyWidget(
+///   title: 'No items found',
+///   subtitle: 'Try adjusting your search criteria',
+///   image: 'assets/images/empty_state.png',
+/// )
+/// ```
+/// {@endtemplate}
 class CustomEmptyWidget extends StatelessWidget {
-  /// Title displayed in the empty widget
+  /// The title text to display in the empty state.
+  ///
+  /// If null, no title will be shown unless [hideTitle] is false.
   final String? title;
 
-  /// Subtitle displayed in the empty widget
+  /// The subtitle text to display in the empty state.
+  ///
+  /// If null, no subtitle will be shown unless [hideSubTitle] is false.
   final String? subtitle;
 
-  /// Image path to display
+  /// The path to the image asset to display in the empty state.
+  ///
+  /// This should be a path to an image file in your assets folder.
+  /// If null, no image will be shown unless [imageWidget] is provided.
   final String? image;
 
-  /// Package name if the image is from a package
+  /// The package name if the image is from a package.
+  ///
+  /// This is used when the image asset is defined in a different package.
+  /// Leave null if the image is from the current package's assets.
   final String? packageImage;
 
-  /// Custom widget to display instead of the default content
+  /// A custom widget to display instead of the default content.
+  ///
+  /// When provided, this widget will be displayed instead of the standard
+  /// image, title, and subtitle layout. This allows for complete customization
+  /// of the empty state appearance.
   final Widget? customWidget;
 
-  /// Widget to display in place of the image
+  /// A custom widget to display in place of the default image.
+  ///
+  /// When provided, this widget will be used instead of loading an image
+  /// from [image] or [packageImage]. This allows for custom illustrations
+  /// or icons to be displayed.
   final Widget? imageWidget;
 
-  /// Hide the title
+  /// Whether to hide the title text.
+  ///
+  /// When true, the title will not be displayed even if [title] is provided.
+  /// Defaults to false.
   final bool hideTitle;
 
-  /// Hide the subtitle
+  /// Whether to hide the subtitle text.
+  ///
+  /// When true, the subtitle will not be displayed even if [subtitle] is provided.
+  /// Defaults to false.
   final bool hideSubTitle;
 
-  /// Title text style
+  /// The text style to apply to the title text.
+  ///
+  /// If null, the default style will be used which applies
+  /// [Theme.of(context).textTheme.headlineSmall] with bold weight and black color.
   final TextStyle? titleTextStyle;
 
-  /// Subtitle text style
+  /// The text style to apply to the subtitle text.
+  ///
+  /// If null, the default style will be used which applies
+  /// [Theme.of(context).textTheme.bodyMedium] with black color.
   final TextStyle? subtitleTextStyle;
 
+/// {@macro custom_empty_widget}
   const CustomEmptyWidget({
     Key? key,
     this.title,
@@ -107,9 +153,19 @@ class CustomEmptyWidget extends StatelessWidget {
   }
 }
 
-/// Helper class for the CustomEmptyWidget
+/// {@template custom_empty_widget_helper}
+/// A helper class that provides utility functions for the [CustomEmptyWidget].
+///
+/// This class contains static methods that assist in styling and theme management
+/// for empty state widgets throughout the application.
+/// {@endtemplate}
 class CustomEmptyWidgetHelper {
-  /// Get the font size from the theme
+  /// Gets the font size from the current theme's body medium text style.
+  ///
+  /// This method retrieves the font size value from [Theme.of(context).textTheme.bodyMedium]
+  /// which can be useful for maintaining consistent typography across the application.
+  ///
+  /// Returns the font size as a double, or null if the theme doesn't specify one.
   static double? getFontSize(BuildContext context) {
     return Theme.of(context).textTheme.bodyMedium!.fontSize!;
   }
