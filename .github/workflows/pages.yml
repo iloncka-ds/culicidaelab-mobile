@@ -34,7 +34,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      FLUTTER_VERSION: '3.16.0'
+      FLUTTER_VERSION: '3.29.3'
       PYTHON_VERSION: '3.11'
     
     steps:
