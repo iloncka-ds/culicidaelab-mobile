@@ -152,7 +152,7 @@ docs/
 ├── contribution/               # Contributor guidelines
 │   └── issue-templates/       # GitHub issue templates
 ├── developer-guide/            # Technical documentation
-├── research/                   # Research and ecosystem documentation
+├── developer-guide/            # Technical and research documentation
 ├── user-guide/                 # End-user documentation
 ├── _config/                    # Documentation build configuration
 │   ├── mkdocs.yml             # MkDocs configuration

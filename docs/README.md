@@ -17,9 +17,13 @@ Complete guides for end-users of the CulicidaeLab mobile app:
 Technical documentation for developers working on the project:
 - Project architecture and structure
 - Development environment setup
+- Data models for research applications
+- API integration guides
 - AI model integration
+- CulicidaeLab ecosystem integration
 - State management patterns
 - Testing strategies
+- Extending functionality
 
 ### 📚 [API Reference](api-reference/)
 Auto-generated API documentation from the Flutter codebase:
@@ -34,12 +38,9 @@ Guidelines for contributing to the open-source project:
 - Pull request process
 - Issue templates
 
-### 🔬 [Research Documentation](research/)
+### 🔬 [Research Documentation](developer-guide/)
 Documentation for researchers and ecosystem integration:
-- CulicidaeLab ecosystem integration
-- Data models for research applications
-- API integration guides
-- Extending functionality
+
 
 ## Quick Links
 

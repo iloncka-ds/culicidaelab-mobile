@@ -146,14 +146,14 @@ nav:
     - Architecture: developer-guide/architecture.md
     - Development Setup: developer-guide/setup-development.md
     - Project Structure: developer-guide/project-structure.md
-    - Data Models: research/data-models.md
-    - API Integration: research/api-integration.md
+    - Data Models: developer-guide/data-models.md
+    - API Integration: developer-guide/api-integration.md
     - AI Model Integration: developer-guide/ai-model-integration.md
-    - Ecosystem Integration: research/ecosystem-integration.md
+    - Ecosystem Integration: developer-guide/ecosystem-integration.md
     - State Management: developer-guide/state-management.md
     - Testing Guide: developer-guide/testing-guide.md
     - Performance Optimization: developer-guide/performance-optimization.md
-    - Extending Functionality: research/extending-functionality.md
+    - Extending Functionality: developer-guide/extending-functionality.md
   
   - API Reference:
     - api-reference/index.md
