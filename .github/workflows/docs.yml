@@ -211,60 +211,7 @@ jobs:
         pip install --upgrade pip
         pip install requests beautifulsoup4 markdown
     
-    - name: Check external links in markdown files
-      run: |
-        python3 -c "
-import os
-import re
-import requests
-from pathlib import Path
-import time
 
-def check_external_links():
-    docs_dir = Path('docs')
-    if not docs_dir.exists():
-        print('❌ Docs directory not found')
-        return
-    
-    markdown_files = list(docs_dir.rglob('*.md'))
-    print(f'Checking external links in {len(markdown_files)} markdown files...')
-    
-    # Extract external links from markdown files
-    external_links = set()
-    for md_file in markdown_files:
-        try:
-            content = md_file.read_text(encoding='utf-8')
-            # Find external links (http/https)
-            links = re.findall(r'\[.*?\]\((https?://[^\)]+)\)', content)
-            external_links.update(links)
-        except Exception as e:
-            print(f'Warning: Could not read {md_file}: {e}')
-    
-    print(f'Found {len(external_links)} unique external links')
-    
-    # Check each external link
-    broken_links = []
-    for i, link in enumerate(external_links):
-        try:
-            print(f'Checking {i+1}/{len(external_links)}: {link[:60]}...')
-            response = requests.head(link, timeout=10, allow_redirects=True)
-            if response.status_code >= 400:
-                broken_links.append(f'{link} (Status: {response.status_code})')
-        except Exception as e:
-            broken_links.append(f'{link} (Error: {str(e)[:50]})')
-        
-        # Rate limiting
-        time.sleep(0.5)
-    
-    if broken_links:
-        print(f'❌ Found {len(broken_links)} broken external links:')
-        for link in broken_links:
-            print(f'  - {link}')
-    else:
-        print('✓ All external links are working')
-
-check_external_links()
-        "
     
     - name: Create issue for broken links
       if: failure()

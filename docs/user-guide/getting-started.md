@@ -49,8 +49,8 @@ When you first open CulicidaeLab:
 
 CulicidaeLab uses a bottom navigation bar with five main sections:
 
-![CulicidaeLab Home Screen](../assets/images/screenshots/home-screen-overview.png)
-*Figure 1: CulicidaeLab home screen showing the main interface and navigation options*
+<!-- ![CulicidaeLab Home Screen](../assets/images/screenshots/home-screen-overview.png) -->
+<!-- *Figure 1: CulicidaeLab home screen showing the main interface and navigation options* -->
 
 ### 🏠 Home
 - Welcome screen with feature overview
@@ -77,8 +77,8 @@ CulicidaeLab uses a bottom navigation bar with five main sections:
 - See observation data from other users
 - Explore geographic distribution patterns
 
-![Bottom Navigation Bar](../assets/images/screenshots/bottom-navigation-bar.png)
-*Figure 2: Bottom navigation bar with five main sections clearly labeled*
+<!-- ![Bottom Navigation Bar](../assets/images/screenshots/bottom-navigation-bar.png) -->
+<!-- *Figure 2: Bottom navigation bar with five main sections clearly labeled* -->
 ## Language Settings
 
 CulicidaeLab supports multiple languages to serve users worldwide:
@@ -91,8 +91,8 @@ CulicidaeLab supports multiple languages to serve users worldwide:
    - **Русский**: Complete Russian translation
 3. The app will immediately switch to your selected language
 
-![Language Selection Menu](../assets/images/screenshots/language-selection.png)
-*Figure 3: Language selection dropdown showing available languages*
+<!-- ![Language Selection Menu](../assets/images/screenshots/language-selection.png) -->
+<!-- *Figure 3: Language selection dropdown showing available languages* -->
 
 ### Language Features
 - All text content is translated

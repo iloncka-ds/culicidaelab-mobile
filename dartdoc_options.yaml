@@ -51,8 +51,8 @@ dartdoc:
     root: "."
     uriTemplate: "https://github.com/culicidaelab/culicidaelab-mobile/-/blob/main/%f#L%l"
 
-  # Favicon for generated documentation
-  favicon: "docs/assets/images/favicon.ico"
+  # Favicon for generated documentation (commented out until favicon file is added)
+  # favicon: "docs/assets/images/favicon.ico"
 
   # Custom CSS for styling
   # customCss: "docs/_config/custom.css"

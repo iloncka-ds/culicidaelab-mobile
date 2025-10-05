@@ -53,9 +53,9 @@ theme:
     - content.action.edit
     - content.action.view
 
-  # Custom logo and favicon
-  logo: assets/images/logo.png
-  favicon: assets/images/favicon.ico
+  # Custom logo and favicon (commented out until images are added)
+  # logo: assets/images/logo.png
+  # favicon: assets/images/favicon.ico
 
   # Font configuration
   font:
