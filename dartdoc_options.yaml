@@ -17,3 +17,4 @@ dartdoc:
     - "ios/**"
     - ".dart_tool/**"
     - "docs/**"
+    - "screens/widgets"
