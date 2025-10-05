@@ -1,0 +1,64 @@
+dartdoc:
+  # Categories for organizing the API documentation
+  categoryOrder:
+    - "Models"
+    - "Services" 
+    - "Repositories"
+    - "Screens"
+    - "Widgets"
+    - "View Models"
+    - "Providers"
+    - "Utilities"
+
+  # Files and directories to exclude from documentation generation
+  exclude:
+    - "test/**"
+    - "integration_test/**"
+    - "build/**"
+    - "android/**"
+    - "ios/**"
+    - ".dart_tool/**"
+    - "docs/**"
+
+  # External libraries to include in documentation
+  includeExternal:
+    - "dart:core"
+    - "dart:async"
+    - "dart:io"
+    - "dart:convert"
+    - "dart:math"
+    - "package:flutter/material.dart"
+    - "package:flutter/widgets.dart"
+    - "package:provider/provider.dart"
+
+  # Documentation generation options
+  showUndocumentedCategories: false
+  validateLinks: true
+  
+  # Output configuration
+  output: "docs/api-reference/generated"
+  
+  # Header and footer customization
+  header:
+    - "CulicidaeLab API Reference"
+  
+  footer:
+    - "Generated from CulicidaeLab Flutter codebase"
+    - "Part of the CulicidaeLab ecosystem for mosquito research"
+
+  # Link to source code
+  linkToSource:
+    root: "."
+    uriTemplate: "https://github.com/culicidaelab/culicidaelab-mobile/-/blob/main/%f#L%l"
+
+  # Favicon for generated documentation
+  favicon: "docs/assets/images/favicon.ico"
+
+  # Custom CSS for styling
+  # customCss: "docs/_config/custom.css"
+
+  # Package metadata
+  packageMeta:
+    description: "CulicidaeLab mobile application for mosquito species identification and disease information"
+    homepage: "https://github.com/culicidaelab/culicidaelab-mobile"
+    repository: "https://github.com/culicidaelab/culicidaelab-mobile"

@@ -1,0 +1,63 @@
+# GitHub Pages Configuration for CulicidaeLab Documentation
+# This file contains configuration settings for GitHub Pages deployment
+
+# Build settings
+source: docs
+destination: _site
+
+# GitHub Pages specific settings
+github:
+  repository_nwo: culicidaelab/culicidaelab-mobile
+  
+# Site settings
+title: CulicidaeLab Documentation
+description: Comprehensive documentation for the CulicidaeLab Flutter mobile application
+baseurl: "/culicidaelab-mobile"
+url: "https://culicidaelab.github.io"
+
+# Build exclusions
+exclude:
+  - .git/
+  - .github/
+  - node_modules/
+  - vendor/
+  - .bundle/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - yarn.lock
+  - "*.tmp"
+  - "*.bak"
+
+# Include files that start with underscores
+include:
+  - _config/
+  - .htaccess
+  - .nojekyll
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+
+# Plugin settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+author: CulicidaeLab Team
+twitter:
+  username: culicidaelab
+  card: summary_large_image
+
+# Social settings
+social:
+  name: CulicidaeLab Team
+  links:
+    - https://github.com/culicidaelab/culicidaelab-mobile
+    - https://github.com/iloncka-ds/culicidaelab

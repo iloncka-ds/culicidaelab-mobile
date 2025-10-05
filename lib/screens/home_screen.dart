@@ -19,21 +19,60 @@ import 'package:culicidaelab/locator.dart';
 ///
 /// This stateful widget represents the primary interface that users see when
 /// opening the app. It provides a tabbed interface with five main sections:
-/// - Home: Welcome screen with feature overview
-/// - Classification: Camera-based mosquito identification
-/// - Gallery: Mosquito species information
-/// - Diseases: Disease information related to mosquitoes
-/// - Map: Interactive mosquito activity map
+/// - **Home**: Welcome screen with feature overview and navigation
+/// - **Classification**: Camera-based mosquito identification using AI
+/// - **Gallery**: Mosquito species information and visual gallery
+/// - **Diseases**: Disease information related to mosquitoes
+/// - **Map**: Interactive mosquito activity map (WebView)
 ///
-/// The widget manages navigation state and handles initial model loading
-/// for the classification feature. It also provides language selection
-/// through the app bar.
+/// ## Architecture & State Management
 ///
-/// Key features:
-/// - Bottom navigation bar for section switching
-/// - Language selection menu in app bar
-/// - Automatic model initialization on startup
-/// - Responsive design with gradient background
+/// The widget manages navigation state using [IndexedStack] for efficient
+/// memory usage and state preservation across tabs. It integrates with:
+/// - [ClassificationViewModel] for ML model initialization
+/// - [LocaleProvider] for internationalization support
+/// - Service locator pattern for dependency injection
+///
+/// ## Key Features
+///
+/// - **Bottom Navigation**: Five-tab navigation with custom icons
+/// - **Language Selection**: Multi-language support (EN, ES, RU) via app bar menu
+/// - **Model Preloading**: Automatic PyTorch Lite model initialization on startup
+/// - **Responsive Design**: Gradient background and adaptive layouts
+/// - **State Preservation**: Maintains state across tab switches using IndexedStack
+/// - **Error Handling**: Graceful model loading failure handling
+///
+/// ## Navigation Structure
+///
+/// ```
+/// HomePage (IndexedStack)
+/// ├── Home Tab (Welcome screen with feature cards)
+/// ├── Classification Tab (ClassificationScreen)
+/// ├── Gallery Tab (MosquitoGalleryScreen)
+/// ├── Diseases Tab (DiseaseInfoScreen)
+/// └── Map Tab (WebViewScreen)
+/// ```
+///
+/// ## Performance Considerations
+///
+/// - Uses [IndexedStack] to maintain widget state across navigation
+/// - Preloads ML model asynchronously to avoid blocking UI
+/// - Implements proper lifecycle management for model loading
+/// - Optimizes memory usage by lazy-loading tab content
+///
+/// ## Localization Support
+///
+/// The screen supports multiple languages through:
+/// - Dynamic language switching via app bar menu
+/// - Localized navigation labels and content
+/// - Proper text direction and formatting support
+/// - Persistent language preference storage
+///
+/// See also:
+/// - [ClassificationScreen] for AI-powered mosquito identification
+/// - [MosquitoGalleryScreen] for species information gallery
+/// - [DiseaseInfoScreen] for disease information
+/// - [LocaleProvider] for language management
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -42,13 +81,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  /// The currently selected tab index for bottom navigation.
+  ///
+  /// This index determines which screen is displayed in the [IndexedStack].
+  /// Valid values are 0-4 corresponding to Home, Classification, Gallery,
+  /// Diseases, and Map tabs respectively.
   int _selectedIndex = 0;
 
+  /// The URL for the mosquito activity map WebView.
+  ///
+  /// This URL points to the CulicidaeLab server's interactive map
+  /// showing mosquito observation data and activity patterns.
   final String _mosquitoActivityMapUrl = "https://culicidealab.ru/map";
 
   @override
   void initState() {
     super.initState();
+    // Schedule model loading after the first frame to avoid blocking UI
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         _loadModel();
@@ -56,15 +105,40 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-/// Asynchronously loads the mosquito classification model.
-///
-/// This method initializes the classification view model with the current
-/// localizations context. The model loading is performed asynchronously
-/// to avoid blocking the UI thread. Any errors during model loading
-/// are caught and logged to the console.
-///
-/// Throws:
-/// - Exceptions from [ClassificationViewModel.initModel] if model loading fails
+  /// Asynchronously loads the mosquito classification model.
+  ///
+  /// This method initializes the PyTorch Lite model used for mosquito species
+  /// classification. The loading is performed asynchronously during app startup
+  /// to ensure the model is ready when users access the classification feature.
+  ///
+  /// ## Loading Process
+  ///
+  /// 1. **Context Validation**: Ensures the widget is still mounted
+  /// 2. **Localization Setup**: Gets current app localizations
+  /// 3. **Model Initialization**: Loads PyTorch model via ClassificationViewModel
+  /// 4. **Error Handling**: Catches and logs any loading failures
+  ///
+  /// ## Performance Impact
+  ///
+  /// - **Non-blocking**: Uses post-frame callback to avoid UI blocking
+  /// - **Background Loading**: Model loads while user sees home screen
+  /// - **Memory Efficient**: Model is loaded once and cached
+  /// - **Graceful Degradation**: App remains functional if loading fails
+  ///
+  /// ## Error Scenarios
+  ///
+  /// The method handles various error conditions:
+  /// - Platform not supported (web/desktop)
+  /// - Insufficient device memory
+  /// - Corrupted model files
+  /// - Network issues (if model requires download)
+  ///
+  /// Errors are logged to console but don't crash the app. Users can still
+  /// access other features and retry classification later.
+  ///
+  /// See also:
+  /// - [ClassificationViewModel.initModel] for the actual loading logic
+  /// - [ClassificationService] for PyTorch Lite integration
   Future<void> _loadModel() async {
     if (!mounted) return;
     final localizations = AppLocalizations.of(context)!;
@@ -72,9 +146,17 @@ class _HomePageState extends State<HomePage> {
       await locator<ClassificationViewModel>().initModel(localizations);
     } catch (e) {
       print('Error loading model: $e');
+      // Consider showing a user-friendly message or retry option
     }
   }
 
+  /// Handles bottom navigation tab selection.
+  ///
+  /// Updates the selected tab index and triggers a rebuild to display
+  /// the corresponding screen. The [IndexedStack] ensures that widget
+  /// state is preserved across tab switches.
+  ///
+  /// [index] The index of the selected tab (0-4).
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;

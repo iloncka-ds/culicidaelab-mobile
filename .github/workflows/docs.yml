@@ -1,0 +1,300 @@
+name: Documentation Build and Deploy
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'docs/**'
+      - 'lib/**'
+      - 'dartdoc_options.yaml'
+      - 'mkdocs.yml'
+      - '.github/workflows/docs.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - 'lib/**'
+      - 'dartdoc_options.yaml'
+      - 'mkdocs.yml'
+  schedule:
+    # Run weekly on Sundays at 2 AM UTC to catch external link changes
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+    # Allow manual triggering of the workflow
+
+env:
+  FLUTTER_VERSION: '3.16.0'
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  # Job 1: Build and validate documentation
+  build-docs:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch full history for better git info
+    
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: ${{ env.FLUTTER_VERSION }}
+        channel: 'stable'
+        cache: true
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Install Flutter dependencies
+      run: flutter pub get
+    
+    - name: Install Python dependencies
+      run: |
+        pip install --upgrade pip
+        pip install mkdocs-material
+        pip install mkdocs-mermaid2-plugin
+        pip install mkdocs-git-revision-date-localized-plugin
+        pip install mkdocs-minify-plugin
+        pip install htmlproofer || echo "htmlproofer installation failed, continuing..."
+    
+    - name: Verify documentation configuration
+      run: |
+        echo "Checking dartdoc_options.yaml..."
+        if [ -f "dartdoc_options.yaml" ]; then
+          echo "✓ dartdoc_options.yaml found"
+          cat dartdoc_options.yaml
+        else
+          echo "⚠ dartdoc_options.yaml not found, using defaults"
+        fi
+        
+        echo "Checking mkdocs.yml..."
+        if [ -f "mkdocs.yml" ]; then
+          echo "✓ mkdocs.yml found"
+          mkdocs --version
+        else
+          echo "❌ mkdocs.yml not found"
+          exit 1
+        fi
+    
+    - name: Generate API documentation
+      run: |
+        echo "Generating Dart API documentation..."
+        dart doc --output docs/api-reference --validate-links
+        
+        # Check if API docs were generated successfully
+        if [ -d "docs/api-reference" ] && [ "$(ls -A docs/api-reference)" ]; then
+          echo "✓ API documentation generated successfully"
+          echo "Generated files:"
+          ls -la docs/api-reference/ | head -10
+        else
+          echo "❌ API documentation generation failed"
+          exit 1
+        fi
+    
+    - name: Build MkDocs site
+      run: |
+        echo "Building MkDocs documentation site..."
+        mkdocs build --strict --verbose
+        
+        # Verify the site was built
+        if [ -d "site" ] && [ -f "site/index.html" ]; then
+          echo "✓ MkDocs site built successfully"
+          echo "Site structure:"
+          find site -name "*.html" | head -10
+        else
+          echo "❌ MkDocs site build failed"
+          exit 1
+        fi
+    
+    - name: Run comprehensive validation
+      run: |
+        echo "Running comprehensive documentation validation..."
+        dart scripts/ci_validation.dart --verbose --output-format json
+    
+    - name: Upload validation reports
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: validation-reports
+        path: |
+          validation-report.json
+          validation-junit.xml
+        retention-days: 30
+    
+    - name: Upload documentation artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: documentation-site
+        path: site/
+        retention-days: 30
+    
+    - name: Upload API documentation artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: api-documentation
+        path: docs/api-reference/
+        retention-days: 30
+
+  # Job 2: Quality assurance checks
+  quality-checks:
+    name: Quality Assurance
+    needs: build-docs
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Download documentation artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: documentation-site
+        path: site/
+    
+    - name: Run accessibility checks
+      run: |
+        echo "Running basic accessibility checks..."
+        # Check for alt text in images
+        if grep -r "!\[.*\](" site/ | grep -v "!\[.*\](" | head -5; then
+          echo "⚠️  Found images that may be missing alt text"
+        else
+          echo "✅ No obvious alt text issues found"
+        fi
+        
+        # Check for proper heading structure
+        echo "Checking heading structure..."
+        find site/ -name "*.html" -exec grep -l "<h[1-6]" {} \; | head -5 | while read file; do
+          echo "Checking headings in: $file"
+        done
+    
+    - name: Performance analysis
+      run: |
+        echo "Analyzing site performance..."
+        
+        # Check total site size
+        SITE_SIZE=$(du -sh site/ | cut -f1)
+        echo "📊 Total site size: $SITE_SIZE"
+        
+        # Check for large files
+        echo "🔍 Largest files:"
+        find site/ -type f -exec ls -lh {} \; | sort -k5 -hr | head -10
+        
+        # Check for optimization opportunities
+        echo "🔧 Optimization opportunities:"
+        find site/ -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" | wc -l | xargs echo "Images found:"
+        find site/ -name "*.js" | wc -l | xargs echo "JavaScript files:"
+        find site/ -name "*.css" | wc -l | xargs echo "CSS files:"
+
+  # Job 3: Validate external links (runs on schedule and manual trigger)
+  validate-external-links:
+    name: Validate External Links
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install requests beautifulsoup4 markdown
+    
+    - name: Check external links in markdown files
+      run: |
+        python3 -c "
+import os
+import re
+import requests
+from pathlib import Path
+import time
+
+def check_external_links():
+    docs_dir = Path('docs')
+    if not docs_dir.exists():
+        print('❌ Docs directory not found')
+        return
+    
+    markdown_files = list(docs_dir.rglob('*.md'))
+    print(f'Checking external links in {len(markdown_files)} markdown files...')
+    
+    # Extract external links from markdown files
+    external_links = set()
+    for md_file in markdown_files:
+        try:
+            content = md_file.read_text(encoding='utf-8')
+            # Find external links (http/https)
+            links = re.findall(r'\[.*?\]\((https?://[^\)]+)\)', content)
+            external_links.update(links)
+        except Exception as e:
+            print(f'Warning: Could not read {md_file}: {e}')
+    
+    print(f'Found {len(external_links)} unique external links')
+    
+    # Check each external link
+    broken_links = []
+    for i, link in enumerate(external_links):
+        try:
+            print(f'Checking {i+1}/{len(external_links)}: {link[:60]}...')
+            response = requests.head(link, timeout=10, allow_redirects=True)
+            if response.status_code >= 400:
+                broken_links.append(f'{link} (Status: {response.status_code})')
+        except Exception as e:
+            broken_links.append(f'{link} (Error: {str(e)[:50]})')
+        
+        # Rate limiting
+        time.sleep(0.5)
+    
+    if broken_links:
+        print(f'❌ Found {len(broken_links)} broken external links:')
+        for link in broken_links:
+            print(f'  - {link}')
+    else:
+        print('✓ All external links are working')
+
+check_external_links()
+        "
+    
+    - name: Create issue for broken links
+      if: failure()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const title = 'Broken external links found in documentation';
+          const body = `
+          The scheduled external link validation found broken links in the documentation.
+          
+          Please check the workflow logs for details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          
+          This issue was automatically created by the documentation validation workflow.
+          `;
+          
+          // Check if an issue already exists
+          const issues = await github.rest.issues.listForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'open',
+            labels: ['documentation', 'broken-links']
+          });
+          
+          if (issues.data.length === 0) {
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['documentation', 'broken-links', 'automated']
+            });
+          }

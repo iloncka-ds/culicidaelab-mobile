@@ -1,0 +1,12 @@
+# Developer Guide Directory
+
+This directory contains technical documentation for developers.
+
+Files to be created:
+- architecture.md
+- setup-development.md
+- project-structure.md
+- ai-model-integration.md
+- state-management.md
+- testing-guide.md
+- performance-optimization.md

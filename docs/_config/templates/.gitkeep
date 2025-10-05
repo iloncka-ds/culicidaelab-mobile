@@ -1,0 +1,5 @@
+# Templates Directory
+
+This directory contains custom templates for documentation generation:
+- HTML templates for dart doc
+- Markdown templates for consistent documentation structure

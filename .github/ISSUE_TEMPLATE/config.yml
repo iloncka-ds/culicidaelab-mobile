@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🤔 General Discussion
+    url: https://github.com/culicidaelab/culicidaelab-mobile/discussions
+    about: Ask questions and discuss ideas with the community
+  - name: 🔬 Research Collaboration
+    url: https://github.com/culicidaelab/culicidaelab-mobile/discussions/categories/research
+    about: Discuss research applications and scientific collaboration
+  - name: 📚 Documentation
+    url: https://culicidaelab.github.io/culicidaelab-mobile/
+    about: Browse the complete project documentation
+  - name: 🚀 CulicidaeLab Ecosystem
+    url: https://github.com/culicidaelab
+    about: Explore other components of the CulicidaeLab ecosystem

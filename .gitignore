@@ -5,6 +5,7 @@
 *.swp
 .DS_Store
 .atom/
+.kiro/
 .build/
 .buildlog/
 .history
@@ -35,6 +36,12 @@ migrate_working_dir/
 .pub/
 /build/
 /build*/
+
+# Documentation generation
+docs/api-reference/generated/
+docs/_site/
+site/
+.mkdocs_cache/
 # Symbolication related
 app.*.symbols
 

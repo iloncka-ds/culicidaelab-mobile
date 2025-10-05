@@ -1,0 +1,6 @@
+# Configuration Directory
+
+This directory contains documentation generation configuration files:
+- mkdocs.yml - MkDocs static site generator configuration
+- dartdoc_options.yaml - Dart documentation generation options
+- templates/ - Custom templates for documentation generation

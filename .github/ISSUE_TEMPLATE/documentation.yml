@@ -1,0 +1,142 @@
+name: Documentation Improvement
+description: Suggest improvements to project documentation
+title: "[DOCS] "
+labels: ["documentation", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve our documentation! Clear documentation is essential for project success.
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Type of Documentation
+      description: What type of documentation needs improvement?
+      options:
+        - User Guide
+        - Developer Guide
+        - API Documentation
+        - Contributing Guidelines
+        - README
+        - Code Comments
+        - Architecture Documentation
+        - Setup Instructions
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: doc-location
+    attributes:
+      label: Document Location
+      description: Which specific document or section needs improvement?
+      placeholder: e.g., docs/user-guide/getting-started.md, lines 45-60
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: problem-type
+    attributes:
+      label: What's the problem?
+      description: Select all that apply
+      options:
+        - label: Information is outdated
+        - label: Information is incorrect
+        - label: Information is missing
+        - label: Information is unclear/confusing
+        - label: Poor organization/structure
+        - label: Broken links
+        - label: Missing code examples
+        - label: Inconsistent formatting
+        - label: Accessibility issues
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem Description
+      description: Provide specific details about what needs to be improved.
+      placeholder: Describe the specific issues with the current documentation...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Describe what changes you think should be made.
+      placeholder: Describe your suggested improvements...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: target-audience
+    attributes:
+      label: Target Audience
+      description: Who would benefit from this improvement?
+      options:
+        - label: New users
+        - label: Experienced users
+        - label: New developers
+        - label: Experienced developers
+        - label: Researchers
+        - label: Contributors
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this improvement?
+      options:
+        - Critical - Blocking users from completing tasks
+        - High - Causing significant confusion
+        - Medium - Noticeable improvement needed
+        - Low - Minor enhancement
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: content-type
+    attributes:
+      label: Content Type Needed
+      description: What type of content improvements are needed?
+      options:
+        - label: Text content
+        - label: Code examples
+        - label: Screenshots/Images
+        - label: Diagrams
+        - label: Videos
+        - label: Interactive elements
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other context, examples, or references that would help improve the documentation.
+      placeholder: Additional information, examples, or references...
+
+  - type: checkboxes
+    id: volunteer
+    attributes:
+      label: Can you help implement this improvement?
+      description: Select all that apply
+      options:
+        - label: Yes, I can write the content
+        - label: Yes, I can provide technical review
+        - label: Yes, I can create screenshots/diagrams
+        - label: Yes, I can test the documentation
+        - label: No, but I can provide feedback
+        - label: No, I'm just reporting the issue
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched for existing documentation issues
+          required: true
+        - label: I have clearly identified the problem
+          required: true
+        - label: I have provided specific suggestions
+          required: true

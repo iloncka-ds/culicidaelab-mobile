@@ -10,24 +10,91 @@ import '../models/disease_model.dart';
 /// This singleton service provides CRUD operations for mosquito species and diseases,
 /// including multi-language support and relationship management between species and diseases.
 /// It handles database initialization, data population from JSON assets, and localized queries.
+///
+/// ## Database Schema
+///
+/// The service manages a normalized SQLite database with the following tables:
+/// - `mosquito_species`: Core species data (ID, scientific name, image URL)
+/// - `mosquito_species_translations`: Localized species information
+/// - `diseases`: Core disease data (ID, name key, image URL)
+/// - `disease_translations`: Localized disease information
+/// - `mosquito_disease_relation`: Many-to-many relationships between species and diseases
+///
+/// ## Localization Support
+///
+/// All user-facing content supports multiple languages through translation tables:
+/// - **English** (`en`): Primary language with complete coverage
+/// - **Spanish** (`es`): Full translation support
+/// - **Russian** (`ru`): Full translation support
+///
+/// ## Data Sources
+///
+/// Initial data is populated from `assets/database/database_data.json` which contains:
+/// - Species information from scientific literature
+/// - Disease data from WHO and CDC sources
+/// - Vector-disease relationships from epidemiological studies
+///
+/// ## Usage Example
+///
+/// ```dart
+/// final dbService = DatabaseService();
+/// 
+/// // Get all mosquito species in Spanish
+/// final species = await dbService.getAllMosquitoSpecies('es');
+/// 
+/// // Find a specific species by scientific name
+/// final aedes = await dbService.getMosquitoSpeciesByName('Aedes aegypti', 'en');
+/// 
+/// // Get diseases transmitted by a species
+/// final diseases = await dbService.getDiseasesByVector('Aedes aegypti', 'en');
+/// ```
+///
+/// ## Performance Considerations
+///
+/// - Database is created once and cached for the app lifetime
+/// - Queries use indexes on frequently accessed columns
+/// - Batch operations are used for initial data population
+/// - Connection pooling is handled by SQLite
+///
+/// See also:
+/// - [MosquitoRepository] for higher-level data access patterns
+/// - [MosquitoSpecies] and [Disease] for the data models
 class DatabaseService {
   static final DatabaseService _instance = DatabaseService._internal();
   static Database? _database;
 
   /// Gets the singleton instance of the database service.
   ///
-  /// @return The single instance of DatabaseService
+  /// This ensures only one database connection exists throughout the app lifecycle,
+  /// improving performance and preventing connection conflicts.
+  ///
+  /// Example:
+  /// ```dart
+  /// final dbService = DatabaseService();
+  /// final species = await dbService.getAllMosquitoSpecies('en');
+  /// ```
+  factory DatabaseService() => _instance;
+
   /// Private constructor for singleton pattern.
+  ///
+  /// Prevents direct instantiation and ensures the singleton pattern
+  /// is properly maintained throughout the application.
+  DatabaseService._internal();
 
   /// Gets or creates the database instance.
   ///
-  /// If the database doesn't exist, it will be created and initialized.
-  /// Subsequent calls return the cached database instance.
+  /// If the database doesn't exist, it will be created and initialized with
+  /// all necessary tables and data. Subsequent calls return the cached
+  /// database instance for optimal performance.
   ///
-  /// @return A Future that completes with the database instance
-  factory DatabaseService() => _instance;
-  DatabaseService._internal();
-
+  /// The database is created with version 1 and includes:
+  /// - All required tables with proper foreign key constraints
+  /// - Initial data populated from JSON assets
+  /// - Indexes for optimal query performance
+  ///
+  /// Returns a [Database] instance ready for use.
+  ///
+  /// Throws [DatabaseException] if database creation or initialization fails.
   Future<Database> get database async {
     if (_database != null) return _database!;
     _database = await _initDatabase();
@@ -36,7 +103,22 @@ class DatabaseService {
 
   /// Initializes the database with tables and initial data.
   ///
-  /// @return A Future that completes with the database instance
+  /// Creates the SQLite database file in the app's documents directory
+  /// and sets up the complete schema with initial data population.
+  ///
+  /// ## Database Location
+  ///
+  /// The database is stored at: `{app_documents}/mosquito_scan_v1.db`
+  ///
+  /// ## Version Management
+  ///
+  /// - **Current Version**: 1
+  /// - **Migration Strategy**: Future versions will use `onUpgrade` callback
+  /// - **Development Reset**: Uncomment `deleteDatabase(path)` to reset during development
+  ///
+  /// Returns a [Database] instance ready for use.
+  ///
+  /// Throws [DatabaseException] if database creation fails.
   Future<Database> _initDatabase() async {
     final path = join(await getDatabasesPath(), 'mosquito_scan_v1.db');
     // To reset the DB during development, uncomment the next line
@@ -48,14 +130,38 @@ class DatabaseService {
     );
   }
 
-  /// Initializes the database and creates tables if they don't exist.
+  /// Creates the database schema and populates initial data.
   ///
-  /// Creates all necessary tables for mosquito species, diseases, translations,
-  /// and their relationships. Also populates the database with initial data.
+  /// This method is called only when the database is created for the first time.
+  /// It sets up the complete normalized schema with proper foreign key constraints
+  /// and populates all tables with initial data from JSON assets.
   ///
-  /// @param db The database instance
-  /// @param version The database version
-Future<void> _createDatabase(Database db, int version) async {
+  /// ## Schema Design
+  ///
+  /// The database uses a normalized design to support:
+  /// - **Internationalization**: Separate translation tables for each entity
+  /// - **Relationships**: Many-to-many relationships between species and diseases
+  /// - **Data Integrity**: Foreign key constraints ensure referential integrity
+  /// - **Performance**: Indexes on frequently queried columns
+  ///
+  /// ## Tables Created
+  ///
+  /// 1. **mosquito_species**: Core species data (id, name, image_url)
+  /// 2. **mosquito_species_translations**: Localized species content
+  /// 3. **diseases**: Core disease data (id, name_key, image_url)
+  /// 4. **disease_translations**: Localized disease content
+  /// 5. **mosquito_disease_relation**: Species-disease relationships
+  ///
+  /// ## Data Population
+  ///
+  /// After creating tables, the method populates them with data from
+  /// `assets/database/database_data.json` using batch operations for performance.
+  ///
+  /// [db] The database instance to initialize.
+  /// [version] The database version (currently 1).
+  ///
+  /// Throws [DatabaseException] if table creation or data population fails.
+  Future<void> _createDatabase(Database db, int version) async {
     // --- Create Tables ---
     await db.execute('''
       CREATE TABLE mosquito_species(

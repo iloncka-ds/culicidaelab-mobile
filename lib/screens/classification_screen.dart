@@ -1,13 +1,47 @@
 /// ClassificationScreen provides the main interface for mosquito species identification and classification.
 ///
-/// This screen allows users to:
-/// - Capture or select images using camera or gallery
-/// - Display real-time classification results with confidence scores
-/// - View detailed species information and associated diseases
-/// - Submit observations with location data and notes
+/// This screen serves as the core feature of the CulicidaeLab application, enabling users to:
+/// - **Image Capture**: Take photos using device camera or select from gallery
+/// - **AI Classification**: Real-time species identification using PyTorch Lite models
+/// - **Result Display**: Show confidence scores, inference time, and species information
+/// - **Disease Information**: Access associated disease risks and detailed information
+/// - **Observation Submission**: Submit findings with location data and notes to the research database
 ///
-/// The screen uses a [ClassificationViewModel] to manage state and communicates
-/// with the classification service for image analysis.
+/// ## Architecture & State Management
+///
+/// The screen implements the MVVM pattern using:
+/// - [ClassificationViewModel] for business logic and state management
+/// - [Provider] pattern for reactive UI updates
+/// - Service locator for dependency injection
+/// - Asynchronous operations for image processing and API calls
+///
+/// ## User Workflow
+///
+/// ```
+/// 1. User selects image source (camera/gallery)
+/// 2. Image is captured/selected and displayed
+/// 3. AI model processes image and returns prediction
+/// 4. Results shown with species info and confidence
+/// 5. User can view disease risks or submit observation
+/// 6. Optional: Add location data and notes for research
+/// ```
+///
+/// ## Key Features
+///
+/// - **Multi-source Image Input**: Camera capture and gallery selection
+/// - **Real-time Processing**: On-device AI inference with progress indicators
+/// - **Rich Results Display**: Species information, confidence scores, inference timing
+/// - **Disease Risk Assessment**: Interactive disease list with detailed information
+/// - **Research Integration**: Observation submission to CulicidaeLab database
+/// - **Error Handling**: Graceful handling of classification and network errors
+/// - **Responsive Design**: Adaptive layouts for different screen sizes
+///
+/// ## Performance Considerations
+///
+/// - **On-device Processing**: Uses PyTorch Lite for fast, offline classification
+/// - **Image Optimization**: Automatic image resizing and preprocessing
+/// - **Memory Management**: Efficient image handling and model caching
+/// - **Background Processing**: Non-blocking UI during classification
 ///
 /// {@category Screens}
 /// {@subCategory Classification}
@@ -26,21 +60,46 @@ import 'observation_details_screen.dart';
 /// Main screen for mosquito species classification and identification.
 ///
 /// This screen provides a comprehensive interface for users to:
-/// - Select images from camera or gallery for classification
-/// - View real-time classification results with confidence scores and inference time
-/// - Access detailed information about identified species
-/// - View associated disease risks and information
-/// - Submit observation data with location and notes
+/// - **Image Selection**: Choose images from camera or gallery for analysis
+/// - **AI Processing**: Real-time classification with progress indicators
+/// - **Results Display**: Show species information, confidence scores, and inference timing
+/// - **Disease Assessment**: Access detailed information about associated disease risks
+/// - **Research Contribution**: Submit observations with location data and notes
+///
+/// ## State Management Architecture
 ///
 /// The screen uses the Provider pattern with [ClassificationViewModel] to manage
-/// state and business logic. It displays different UI states based on the
-/// classification process: no image selected, processing, results, or submission.
+/// complex state transitions and business logic. State flow includes:
+///
+/// ```
+/// Initial → Image Selected → Processing → Results → Submission
+///    ↓           ↓             ↓          ↓          ↓
+/// Empty UI → Preview → Loading → Species → Success
+/// ```
+///
+/// ## UI State Handling
+///
+/// The screen dynamically adapts its interface based on current state:
+/// - **Empty State**: Shows upload hints and action buttons
+/// - **Image Preview**: Displays selected image with analyze button
+/// - **Processing State**: Shows loading indicator with progress message
+/// - **Results State**: Rich display of classification results and actions
+/// - **Submission State**: Success confirmation with submission details
+/// - **Error State**: User-friendly error messages with retry options
+///
+/// ## Interactive Elements
+///
+/// - **Action Buttons**: Camera, gallery, and reset functionality
+/// - **Result Cards**: Expandable cards with species and disease information
+/// - **Navigation**: Deep links to species and disease detail screens
+/// - **Bottom Sheets**: Modal disease risk information display
+/// - **Form Integration**: Observation submission with location and notes
 ///
 /// **Key Features:**
-/// - Image capture and selection
-/// - Real-time classification processing
-/// - Disease risk assessment
-/// - Observation submission with location data
+/// - Responsive image capture and selection
+/// - Real-time AI classification processing
+/// - Comprehensive disease risk assessment
+/// - Research-grade observation submission with metadata
 class ClassificationScreen extends StatelessWidget {
   const ClassificationScreen({Key? key}) : super(key: key);
 

@@ -1,0 +1,159 @@
+name: Question or Discussion
+description: Ask a question or start a discussion about the project
+title: "[QUESTION] "
+labels: ["question", "discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question about the project? We're here to help! Please provide as much context as possible.
+
+  - type: dropdown
+    id: question-category
+    attributes:
+      label: Question Category
+      description: What type of question is this?
+      options:
+        - General Usage Question
+        - Development/Technical Question
+        - Architecture/Design Question
+        - Research/Scientific Question
+        - Integration Question
+        - Best Practices Question
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question-summary
+    attributes:
+      label: Question Summary
+      description: Provide a clear, concise summary of your question.
+      placeholder: What would you like to know?
+    validations:
+      required: true
+
+  - type: textarea
+    id: question-details
+    attributes:
+      label: Detailed Question
+      description: Provide more context and details about what you're trying to understand or accomplish.
+      placeholder: Provide more details about your question...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: What are you trying to do?
+      description: Describe your goal or what you're working on.
+      placeholder: Describe your goal or use case...
+    validations:
+      required: true
+
+  - type: textarea
+    id: attempted-solutions
+    attributes:
+      label: What have you tried?
+      description: List any approaches you've already attempted or resources you've consulted.
+      placeholder: What have you already tried?
+
+  - type: checkboxes
+    id: resources-checked
+    attributes:
+      label: Where did you look for answers?
+      description: Check all that apply
+      options:
+        - label: Project documentation
+        - label: Existing issues
+        - label: Code comments
+        - label: External resources
+
+  - type: textarea
+    id: code-example
+    attributes:
+      label: Code Example (if applicable)
+      description: If your question involves code, please provide an example
+      render: dart
+      placeholder: |
+        // Paste your code here
+        void example() {
+          // Your code
+        }
+
+  - type: input
+    id: flutter-version
+    attributes:
+      label: Flutter Version (if applicable)
+      description: What version of Flutter are you using?
+      placeholder: e.g., 3.29.3
+
+  - type: input
+    id: platform
+    attributes:
+      label: Platform (if applicable)
+      description: What platform are you working with?
+      placeholder: e.g., Android, iOS, Web
+
+  - type: checkboxes
+    id: research-area
+    attributes:
+      label: Research Area (if applicable)
+      description: If this is research-related, what area?
+      options:
+        - label: Mosquito Classification
+        - label: Species Distribution
+        - label: Disease Epidemiology
+        - label: Data Collection Methods
+        - label: AI/ML Applications
+        - label: Public Health Applications
+
+  - type: dropdown
+    id: response-type
+    attributes:
+      label: What kind of response are you looking for?
+      description: This helps us provide the most helpful answer
+      options:
+        - Technical explanation
+        - Code examples
+        - Best practice recommendations
+        - Design guidance
+        - Research insights
+        - Community experiences
+        - Documentation references
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Timeline
+      description: How urgent is this question?
+      options:
+        - No rush, whenever someone has time
+        - Would appreciate a response within a week
+        - Somewhat urgent, needed for current work
+        - Very urgent, blocking progress
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that might be helpful
+      placeholder: Any additional context...
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues and discussions
+          required: true
+        - label: I have checked the documentation
+          required: true
+        - label: I have provided sufficient context
+          required: true

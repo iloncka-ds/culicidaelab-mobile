@@ -4,14 +4,97 @@ import '../services/database_service.dart';
 
 /// Repository for handling mosquito and disease data operations.
 ///
-/// This repository provides an abstraction layer over the database service
+/// This repository provides a clean abstraction layer over the database service
 /// for retrieving mosquito species and disease information. It handles
-/// localization by accepting language codes for internationalized content.
+/// localization by accepting language codes for internationalized content
+/// and implements the Repository pattern for better separation of concerns.
 ///
-/// The repository requires a [DatabaseService] to be injected for data access.
+/// ## Repository Pattern Benefits
+///
+/// - **Abstraction**: Hides database implementation details from business logic
+/// - **Testability**: Easy to mock for unit testing
+/// - **Consistency**: Provides a consistent API for data access
+/// - **Future-Proofing**: Can switch data sources without changing business logic
+///
+/// ## Localization Support
+///
+/// All methods accept a language code parameter to return localized content:
+/// - **English** (`'en'`): Primary language with complete coverage
+/// - **Spanish** (`'es'`): Full translation support for Latin American users
+/// - **Russian** (`'ru'`): Full translation support for Eastern European users
+///
+/// ## Data Relationships
+///
+/// The repository handles complex relationships between entities:
+/// - **Species ↔ Diseases**: Many-to-many relationships via vector transmission
+/// - **Translations**: One-to-many relationships for localized content
+/// - **Images**: One-to-one relationships for visual assets
+///
+/// ## Usage Example
+///
+/// ```dart
+/// final repository = MosquitoRepository(
+///   databaseService: DatabaseService(),
+/// );
+///
+/// // Get all species in Spanish
+/// final species = await repository.getAllMosquitoSpecies('es');
+/// 
+/// // Find a specific species
+/// final aedes = await repository.getMosquitoSpeciesByName('Aedes aegypti', 'en');
+/// 
+/// // Get diseases transmitted by this species
+/// if (aedes != null) {
+///   final diseases = await repository.getDiseasesByVector(aedes.name, 'en');
+///   print('${aedes.commonName} can transmit: ${diseases.map((d) => d.name).join(', ')}');
+/// }
+/// ```
+///
+/// ## Performance Characteristics
+///
+/// - **Caching**: Database connections are cached by the service layer
+/// - **Indexing**: Queries use database indexes for optimal performance
+/// - **Lazy Loading**: Data is loaded only when requested
+/// - **Batch Operations**: Multiple related queries are optimized
+///
+/// ## Error Handling
+///
+/// The repository propagates database errors but provides meaningful context:
+/// - **Not Found**: Returns null for missing entities
+/// - **Database Errors**: Throws exceptions with descriptive messages
+/// - **Localization Fallbacks**: Gracefully handles missing translations
+///
+/// See also:
+/// - [DatabaseService] for the underlying database operations
+/// - [MosquitoSpecies] and [Disease] for the data models
+/// - [ClassificationRepository] which uses this repository for data enrichment
 class MosquitoRepository {
+  /// The database service for data access operations.
+  ///
+  /// Provides the underlying database connectivity and query execution
+  /// for all mosquito and disease data operations.
   final DatabaseService _databaseService;
 
+  /// Creates a new mosquito repository with the required database service.
+  ///
+  /// The [databaseService] parameter is required and provides access to
+  /// the SQLite database containing mosquito species, diseases, and
+  /// their relationships.
+  ///
+  /// Example:
+  /// ```dart
+  /// final repository = MosquitoRepository(
+  ///   databaseService: DatabaseService(),
+  /// );
+  /// ```
+  ///
+  /// For testing, a mock database service can be injected:
+  /// ```dart
+  /// final mockDbService = MockDatabaseService();
+  /// final repository = MosquitoRepository(
+  ///   databaseService: mockDbService,
+  /// );
+  /// ```
   MosquitoRepository({required DatabaseService databaseService})
       : _databaseService = databaseService;
 
