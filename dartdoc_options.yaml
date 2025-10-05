@@ -38,13 +38,12 @@ dartdoc:
   # Output configuration
   output: "docs/api-reference/generated"
   
-  # Header and footer customization
-  header:
-    - "CulicidaeLab API Reference"
-  
-  footer:
-    - "Generated from CulicidaeLab Flutter codebase"
-    - "Part of the CulicidaeLab ecosystem for mosquito research"
+  # Header and footer customization (commented out - these expect file paths, not text)
+  # header:
+  #   - "path/to/header/file.html"
+  # 
+  # footer:
+  #   - "path/to/footer/file.html"
 
   # Link to source code
   linkToSource:
