@@ -20,16 +20,16 @@ dartdoc:
     - ".dart_tool/**"
     - "docs/**"
 
-  # External libraries to include in documentation
-  includeExternal:
-    - "dart:core"
-    - "dart:async"
-    - "dart:io"
-    - "dart:convert"
-    - "dart:math"
-    - "package:flutter/material.dart"
-    - "package:flutter/widgets.dart"
-    - "package:provider/provider.dart"
+  # External libraries to include in documentation (commented out - this setting expects file paths)
+  # includeExternal:
+  #   - "dart:core"
+  #   - "dart:async"
+  #   - "dart:io"
+  #   - "dart:convert"
+  #   - "dart:math"
+  #   - "package:flutter/material.dart"
+  #   - "package:flutter/widgets.dart"
+  #   - "package:provider/provider.dart"
 
   # Documentation generation options
   showUndocumentedCategories: false
