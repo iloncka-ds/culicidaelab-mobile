@@ -9,9 +9,6 @@ This document outlines the organizational structure of the CulicidaeLab Flutter 
 ```
 culicidaelab/
 ├── .devcontainer/              # Development container configuration
-├── .git/                       # Git version control
-├── .kiro/                      # Kiro IDE configuration and specs
-├── .vscode/                    # VS Code workspace settings
 ├── android/                    # Android-specific configuration and build files
 ├── assets/                     # Application assets (images, models, fonts, etc.)
 ├── docs/                       # Project documentation
