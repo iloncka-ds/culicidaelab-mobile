@@ -73,7 +73,6 @@
   <p>Creates a new <a href="../../models_disease_model/Disease-class.html">Disease</a> instance.</p>
 <p>All parameters are required to ensure complete disease information
 is available for educational and informational purposes.</p>
-<p>Throws <a href="https://api.flutter.dev/flutter/dart-core/ArgumentError-class.html">ArgumentError</a> if any required field is empty.</p>
 </section>
 
 
@@ -91,8 +90,7 @@ is available for educational and informational purposes.</p>
   required this.prevalence,
   required this.imageUrl,
 }) : assert(id.isNotEmpty, &#39;Disease ID cannot be empty&#39;),
-     assert(name.isNotEmpty, &#39;Disease name cannot be empty&#39;),
-     assert(vectors.isNotEmpty, &#39;Disease must have at least one vector&#39;);</code></pre>
+     assert(name.isNotEmpty, &#39;Disease name cannot be empty&#39;);</code></pre>
 </section>
 
 

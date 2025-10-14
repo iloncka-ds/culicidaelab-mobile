@@ -69,8 +69,6 @@
   <p>Creates a new <a href="../../models_mosquito_model/ClassificationResult-class.html">ClassificationResult</a> instance.</p>
 <p>All parameters are required to provide complete classification
 information to the user.</p>
-<p>Throws <a href="https://api.flutter.dev/flutter/dart-core/ArgumentError-class.html">ArgumentError</a> if confidence is not between 0.0 and 1.0,
-or if inference time is negative.</p>
 </section>
 
 
@@ -83,10 +81,7 @@ or if inference time is negative.</p>
   required this.inferenceTime,
   required this.relatedDiseases,
   required this.imageFile,
-}) : assert(confidence &gt;= 0.0 &amp;&amp; confidence &lt;= 1.0,
-            &#39;Confidence must be between 0.0 and 1.0&#39;),
-     assert(inferenceTime &gt;= 0,
-            &#39;Inference time cannot be negative&#39;);</code></pre>
+});</code></pre>
 </section>
 
 
