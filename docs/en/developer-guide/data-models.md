@@ -15,12 +15,12 @@ graph TB
         LOC[Location Data]
         META[User Metadata]
     end
-    
+
     subgraph "Classification Models"
         LOCAL[Local Classification]
         WEB[Web Classification]
     end
-    
+
     subgraph "Core Data Models"
         MS[MosquitoSpecies]
         CR[ClassificationResult]
@@ -29,13 +29,13 @@ graph TB
         DIS[Disease]
         LOC_M[Location]
     end
-    
+
     subgraph "Research Outputs"
         API[API Submission]
         DB[Database Storage]
         ANALYSIS[Research Analysis]
     end
-    
+
     IMG --> LOCAL
     IMG --> WEB
     LOCAL --> CR
@@ -77,7 +77,7 @@ class Location {
       "description": "Latitude in decimal degrees"
     },
     "lng": {
-      "type": "number", 
+      "type": "number",
       "minimum": -180.0,
       "maximum": 180.0,
       "description": "Longitude in decimal degrees"
@@ -88,23 +88,6 @@ class Location {
 ```
 
 ### Research Applications
-
-**Spatial Analysis:**
-```dart
-// Calculate distance between observations
-final distance = location1.distanceTo(location2); // Returns km
-
-// Spatial clustering example
-List<Observation> findNearbyObservations(
-  Location center, 
-  double radiusKm,
-  List<Observation> observations
-) {
-  return observations.where((obs) => 
-    obs.location.distanceTo(center) <= radiusKm
-  ).toList();
-}
-```
 
 **Coordinate Validation:**
 - Automatic validation ensures coordinates are within valid ranges
@@ -158,7 +141,7 @@ class MosquitoSpecies {
       "description": "Preferred habitats and breeding sites"
     },
     "distribution": {
-      "type": "string", 
+      "type": "string",
       "description": "Geographic distribution and range"
     },
     "image_url": {
@@ -185,7 +168,7 @@ final genus = genusSpecies[0];
 final specificEpithet = genusSpecies[1];
 
 // Vector competence analysis
-final vectorSpecies = allSpecies.where((s) => 
+final vectorSpecies = allSpecies.where((s) =>
   s.diseases.contains('dengue')
 ).toList();
 ```
@@ -283,7 +266,7 @@ Map<String, List<String>> buildVectorDiseaseNetwork(
 
 // Disease risk assessment
 bool isHighRiskVector(String speciesId, List<Disease> diseases) {
-  final transmittedDiseases = diseases.where((d) => 
+  final transmittedDiseases = diseases.where((d) =>
     d.isTransmittedBy(speciesId)
   ).toList();
   return transmittedDiseases.length >= 2; // Multiple disease vector
@@ -312,7 +295,7 @@ class ClassificationResult {
 ```dart
 // Performance metrics calculation
 class ClassificationMetrics {
-  static double calculateAccuracy(List<ClassificationResult> results, 
+  static double calculateAccuracy(List<ClassificationResult> results,
                                  List<String> groundTruth) {
     int correct = 0;
     for (int i = 0; i < results.length; i++) {
@@ -320,7 +303,7 @@ class ClassificationMetrics {
     }
     return correct / results.length;
   }
-  
+
   static Map<String, double> calculateConfidenceDistribution(
     List<ClassificationResult> results
   ) {
@@ -343,7 +326,7 @@ class PerformanceAnalyzer {
   ) {
     final times = results.map((r) => r.inferenceTime).toList();
     times.sort();
-    
+
     return {
       'mean': times.reduce((a, b) => a + b) / times.length,
       'median': times[times.length ~/ 2],
@@ -434,7 +417,7 @@ class ModelComparison {
     }
     return agreements / localResults.length;
   }
-  
+
   static Map<String, double> analyzeConfidenceCorrelation(
     List<ClassificationResult> localResults,
     List<WebPredictionResult> webResults
@@ -442,7 +425,7 @@ class ModelComparison {
     // Calculate Pearson correlation coefficient
     final localConf = localResults.map((r) => r.confidence).toList();
     final webConf = webResults.map((r) => r.confidence).toList();
-    
+
     // Implementation of correlation calculation
     return {'correlation': calculatePearsonCorrelation(localConf, webConf)};
   }
@@ -462,9 +445,9 @@ class UncertaintyAnalyzer {
     }
     return entropy;
   }
-  
+
   static bool isAmbiguousPrediction(WebPredictionResult result) {
-    return result.hasCloseAlternatives || 
+    return result.hasCloseAlternatives ||
            calculateEntropy(result.probabilities) > 0.5;
   }
 }
@@ -577,7 +560,7 @@ class TemporalAnalyzer {
     }
     return distribution;
   }
-  
+
   static List<Observation> getObservationsInDateRange(
     List<Observation> observations,
     DateTime start,
@@ -590,49 +573,6 @@ class TemporalAnalyzer {
 }
 ```
 
-**Spatial Analysis:**
-```dart
-// Spatial clustering and hotspot analysis
-class SpatialAnalyzer {
-  static Map<String, List<Observation>> clusterBySpecies(
-    List<Observation> observations
-  ) {
-    final clusters = <String, List<Observation>>{};
-    for (final obs in observations) {
-      clusters.putIfAbsent(obs.speciesScientificName, () => []).add(obs);
-    }
-    return clusters;
-  }
-  
-  static List<Location> identifyHotspots(
-    List<Observation> observations,
-    double radiusKm,
-    int minObservations
-  ) {
-    final hotspots = <Location>[];
-    final processed = <String>{};
-    
-    for (final obs in observations) {
-      final key = '${obs.location.lat}_${obs.location.lng}';
-      if (processed.contains(key)) continue;
-      
-      final nearby = observations.where((other) =>
-        obs.location.distanceTo(other.location) <= radiusKm
-      ).toList();
-      
-      if (nearby.length >= minObservations) {
-        hotspots.add(obs.location);
-        for (final nearbyObs in nearby) {
-          processed.add('${nearbyObs.location.lat}_${nearbyObs.location.lng}');
-        }
-      }
-    }
-    
-    return hotspots;
-  }
-}
-```
-
 **Data Quality Assessment:**
 ```dart
 // Quality metrics and filtering
@@ -641,10 +581,10 @@ class QualityAssessment {
     final total = observations.length;
     final highQuality = observations.where((obs) => obs.isHighQuality).length;
     final aiIdentified = observations.where((obs) => obs.isAiIdentified).length;
-    final withLocation = observations.where((obs) => 
+    final withLocation = observations.where((obs) =>
       obs.locationAccuracyM != null && obs.locationAccuracyM! <= 100
     ).length;
-    
+
     return {
       'total_observations': total,
       'high_quality_percentage': (highQuality / total * 100).toStringAsFixed(1),
@@ -652,9 +592,9 @@ class QualityAssessment {
       'accurate_location_percentage': (withLocation / total * 100).toStringAsFixed(1),
     };
   }
-  
+
   static List<Observation> filterHighQuality(List<Observation> observations) {
-    return observations.where((obs) => 
+    return observations.where((obs) =>
       obs.isHighQuality &&
       obs.locationAccuracyM != null &&
       obs.locationAccuracyM! <= 50 && // High GPS accuracy
@@ -677,7 +617,7 @@ erDiagram
     WebPredictionResult ||--|| Observation : creates
     Location ||--|| Observation : locates
     Disease ||--o{ MosquitoSpecies : transmitted_by
-    
+
     MosquitoSpecies {
         string id PK
         string name
@@ -688,7 +628,7 @@ erDiagram
         string image_url
         string[] diseases FK
     }
-    
+
     Disease {
         string id PK
         string name
@@ -700,7 +640,7 @@ erDiagram
         string prevalence
         string image_url
     }
-    
+
     ClassificationResult {
         MosquitoSpecies species FK
         double confidence
@@ -708,7 +648,7 @@ erDiagram
         Disease[] related_diseases
         File image_file
     }
-    
+
     WebPredictionResult {
         string id PK
         string scientific_name
@@ -717,7 +657,7 @@ erDiagram
         double confidence
         string image_url_species
     }
-    
+
     Observation {
         string id PK
         string species_scientific_name FK
@@ -733,7 +673,7 @@ erDiagram
         double confidence
         map metadata
     }
-    
+
     Location {
         double lat
         double lng
@@ -751,7 +691,7 @@ class SpeciesDiseaseAnalyzer {
     List<Disease> diseases
   ) {
     final map = <String, List<String>>{};
-    
+
     for (final sp in species) {
       final speciesDiseases = diseases
           .where((d) => d.vectors.contains(sp.id))
@@ -759,7 +699,7 @@ class SpeciesDiseaseAnalyzer {
           .toList();
       map[sp.id] = speciesDiseases;
     }
-    
+
     return map;
   }
 }
@@ -792,7 +732,7 @@ class ObservationFactory {
       },
     );
   }
-  
+
   static Observation fromWebPredictionResult(
     WebPredictionResult result,
     Location location,
@@ -830,7 +770,7 @@ For research data analysis, observations can be exported in CSV format:
 class DataExporter {
   static String exportObservationsToCSV(List<Observation> observations) {
     final buffer = StringBuffer();
-    
+
     // Header
     buffer.writeln([
       'id',
@@ -848,7 +788,7 @@ class DataExporter {
       'confidence',
       'metadata_json'
     ].join(','));
-    
+
     // Data rows
     for (final obs in observations) {
       buffer.writeln([
@@ -868,7 +808,7 @@ class DataExporter {
         obs.metadata != null ? '"${jsonEncode(obs.metadata!)}"' : ''
       ].join(','));
     }
-    
+
     return buffer.toString();
   }
 }
@@ -915,62 +855,62 @@ class GeoJSONExporter {
 class DataValidator {
   static List<String> validateObservation(Observation observation) {
     final errors = <String>[];
-    
+
     // Required field validation
     if (observation.id.isEmpty) {
       errors.add('Observation ID is required');
     }
-    
+
     if (observation.speciesScientificName.isEmpty) {
       errors.add('Species scientific name is required');
     }
-    
+
     if (observation.count <= 0) {
       errors.add('Count must be positive');
     }
-    
+
     // Location validation
     if (observation.location.lat < -90 || observation.location.lat > 90) {
       errors.add('Invalid latitude: ${observation.location.lat}');
     }
-    
+
     if (observation.location.lng < -180 || observation.location.lng > 180) {
       errors.add('Invalid longitude: ${observation.location.lng}');
     }
-    
+
     // Confidence validation
     if (observation.confidence != null) {
       if (observation.confidence! < 0.0 || observation.confidence! > 1.0) {
         errors.add('Confidence must be between 0.0 and 1.0');
       }
     }
-    
+
     // Location accuracy validation
     if (observation.locationAccuracyM != null) {
       if (observation.locationAccuracyM! < 0) {
         errors.add('Location accuracy cannot be negative');
       }
     }
-    
+
     // Temporal validation
     if (observation.observedAt.isAfter(DateTime.now())) {
       errors.add('Observation date cannot be in the future');
     }
-    
+
     return errors;
   }
-  
+
   static bool isValidSpeciesName(String scientificName) {
     // Basic binomial nomenclature validation
     final parts = scientificName.split(' ');
     if (parts.length < 2) return false;
-    
+
     // Genus should start with capital letter
     if (!RegExp(r'^[A-Z][a-z]+$').hasMatch(parts[0])) return false;
-    
+
     // Species epithet should be lowercase
     if (!RegExp(r'^[a-z]+$').hasMatch(parts[1])) return false;
-    
+
     return true;
   }
 }
@@ -997,14 +937,14 @@ class DataManager {
       await Future.delayed(Duration.zero);
     }
   }
-  
+
   // Memory-efficient streaming for large exports
   static Stream<String> streamObservationsAsCSV(
     Stream<Observation> observations
   ) async* {
     // Yield header
     yield 'id,species_scientific_name,count,latitude,longitude,observed_at\n';
-    
+
     // Stream data rows
     await for (final obs in observations) {
       yield '${obs.id},"${obs.speciesScientificName}",${obs.count},'
@@ -1028,7 +968,7 @@ class ResearchDatabaseIntegration {
     final validObservations = observations
         .where((obs) => DataValidator.validateObservation(obs).isEmpty)
         .toList();
-    
+
     // Batch insert for efficiency
     await DataManager.processBatchObservations(
       validObservations,
@@ -1038,82 +978,22 @@ class ResearchDatabaseIntegration {
       batchSize: 50
     );
   }
-  
+
   static Future<void> insertObservationToResearchDB(Observation obs) async {
     // Implementation would depend on specific database system
     // This is a conceptual example
     final query = '''
-      INSERT INTO mosquito_observations 
+      INSERT INTO mosquito_observations
       (id, species, count, lat, lng, observed_at, confidence, data_source)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     ''';
-    
+
     // Execute database insertion
     // await database.execute(query, [
     //   obs.id, obs.speciesScientificName, obs.count,
     //   obs.location.lat, obs.location.lng, obs.observedAt,
     //   obs.confidence, obs.dataSource
     // ]);
-  }
-}
-```
-
-### Statistical Analysis Integration
-
-```dart
-// Example integration with R or Python for statistical analysis
-class StatisticalAnalysis {
-  static Map<String, dynamic> generateSpeciesStatistics(
-    List<Observation> observations
-  ) {
-    final speciesGroups = <String, List<Observation>>{};
-    
-    // Group by species
-    for (final obs in observations) {
-      speciesGroups.putIfAbsent(obs.speciesScientificName, () => []).add(obs);
-    }
-    
-    final statistics = <String, dynamic>{};
-    
-    for (final entry in speciesGroups.entries) {
-      final species = entry.key;
-      final speciesObs = entry.value;
-      
-      statistics[species] = {
-        'count': speciesObs.length,
-        'mean_confidence': speciesObs
-            .where((obs) => obs.confidence != null)
-            .map((obs) => obs.confidence!)
-            .fold(0.0, (a, b) => a + b) / speciesObs.length,
-        'geographic_spread': calculateGeographicSpread(speciesObs),
-        'temporal_range': {
-          'earliest': speciesObs.map((obs) => obs.observedAt).reduce(
-            (a, b) => a.isBefore(b) ? a : b
-          ),
-          'latest': speciesObs.map((obs) => obs.observedAt).reduce(
-            (a, b) => a.isAfter(b) ? a : b
-          ),
-        },
-      };
-    }
-    
-    return statistics;
-  }
-  
-  static double calculateGeographicSpread(List<Observation> observations) {
-    if (observations.length < 2) return 0.0;
-    
-    double maxDistance = 0.0;
-    for (int i = 0; i < observations.length; i++) {
-      for (int j = i + 1; j < observations.length; j++) {
-        final distance = observations[i].location.distanceTo(
-          observations[j].location
-        );
-        if (distance > maxDistance) maxDistance = distance;
-      }
-    }
-    
-    return maxDistance;
   }
 }
 ```
@@ -1138,17 +1018,17 @@ class QualityAssurance {
     return observations.where((obs) =>
       // High location accuracy
       obs.locationAccuracyM != null && obs.locationAccuracyM! <= 50 &&
-      
+
       // High classification confidence
       obs.confidence != null && obs.confidence! >= 0.8 &&
-      
+
       // Valid temporal range (not future, not too old)
       obs.observedAt.isBefore(DateTime.now()) &&
       obs.observedAt.isAfter(DateTime.now().subtract(Duration(days: 365 * 5))) &&
-      
+
       // Valid species name format
       DataValidator.isValidSpeciesName(obs.speciesScientificName) &&
-      
+
       // Has data source information
       obs.dataSource != null && obs.dataSource!.isNotEmpty
     ).toList();
@@ -1183,7 +1063,7 @@ class EnhancedObservation extends Observation {
   final EnvironmentalData? environmentalData;
   final BehavioralObservation? behavior;
   final PopulationEstimate? populationData;
-  
+
   EnhancedObservation({
     required super.id,
     required super.speciesScientificName,

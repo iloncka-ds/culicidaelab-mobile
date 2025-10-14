@@ -56,9 +56,9 @@ class Location {
   ///
   /// Throws [ArgumentError] if coordinates are outside valid ranges.
   Location({required this.lat, required this.lng})
-      : assert(lat >= -90.0 && lat <= 90.0, 
+      : assert(lat >= -90.0 && lat <= 90.0,
                'Latitude must be between -90.0 and 90.0'),
-        assert(lng >= -180.0 && lng <= 180.0, 
+        assert(lng >= -180.0 && lng <= 180.0,
                'Longitude must be between -180.0 and 180.0');
 
   /// Creates a [Location] from a JSON map.
@@ -85,34 +85,7 @@ class Location {
         'lng': lng,
       };
 
-  /// Calculates the approximate distance to another location in kilometers.
-  ///
-  /// Uses the Haversine formula to calculate the great-circle distance
-  /// between two points on Earth's surface.
-  ///
-  /// Example:
-  /// ```dart
-  /// final nyc = Location(lat: 40.7128, lng: -74.0060);
-  /// final la = Location(lat: 34.0522, lng: -118.2437);
-  /// final distance = nyc.distanceTo(la); // ~3944 km
-  /// ```
-  double distanceTo(Location other) {
-    const double earthRadius = 6371.0; // Earth's radius in kilometers
-    
-    final double lat1Rad = lat * (3.14159265359 / 180.0);
-    final double lat2Rad = other.lat * (3.14159265359 / 180.0);
-    final double deltaLatRad = (other.lat - lat) * (3.14159265359 / 180.0);
-    final double deltaLngRad = (other.lng - lng) * (3.14159265359 / 180.0);
-
-    final double a = (deltaLatRad / 2).sin() * (deltaLatRad / 2).sin() +
-        lat1Rad.cos() * lat2Rad.cos() *
-        (deltaLngRad / 2).sin() * (deltaLngRad / 2).sin();
-    
-    final double c = 2 * (a.sqrt()).asin();
-    
-    return earthRadius * c;
-  }
-
+  
   /// Returns a string representation of this location.
   ///
   /// Format: "Location(lat: 40.7128, lng: -74.0060)"
@@ -129,7 +102,7 @@ class Location {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Location) return false;
-    
+
     const double tolerance = 1e-6;
     return (lat - other.lat).abs() < tolerance &&
            (lng - other.lng).abs() < tolerance;
@@ -425,7 +398,7 @@ class Observation {
   ///
   /// Returns a descriptive string based on the location accuracy:
   /// - 'Very High' for < 5m
-  /// - 'High' for 5-20m  
+  /// - 'High' for 5-20m
   /// - 'Moderate' for 20-100m
   /// - 'Low' for > 100m
   /// - 'Unknown' if not specified
