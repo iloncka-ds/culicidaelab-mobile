@@ -21,7 +21,7 @@ Before contributing, ensure you have:
 
 1. **Development Environment**: Set up your development environment following our [Development Setup Guide](../developer-guide/setup-development.md)
 2. **Project Understanding**: Read the [Architecture Documentation](../developer-guide/architecture.md) and [Project Structure Guide](../developer-guide/project-structure.md)
-3. **Code Style**: Familiarize yourself with our [Code Style Guide](../developer-guide/code-style.md)
+3. **Code Style**: Familiarize yourself with our [Code Style Guide](code-style.md)
 
 ### First-Time Setup
 
@@ -194,18 +194,18 @@ test(services): add unit tests for user service
 // Good: Following MVVM pattern
 class MosquitoGalleryViewModel extends ChangeNotifier {
   final MosquitoRepository _repository;
-  
+
   List<MosquitoModel> _mosquitoes = [];
   bool _isLoading = false;
   String? _error;
-  
+
   MosquitoGalleryViewModel({required MosquitoRepository repository})
       : _repository = repository;
-  
+
   List<MosquitoModel> get mosquitoes => _mosquitoes;
   bool get isLoading => _isLoading;
   String? get error => _error;
-  
+
   Future<void> loadMosquitoes() async {
     _setLoading(true);
     try {
@@ -217,7 +217,7 @@ class MosquitoGalleryViewModel extends ChangeNotifier {
       _setLoading(false);
     }
   }
-  
+
   void _setLoading(bool loading) {
     _isLoading = loading;
     notifyListeners();
@@ -240,36 +240,36 @@ void main() {
   group('MosquitoGalleryViewModel', () {
     late MosquitoGalleryViewModel viewModel;
     late MockMosquitoRepository mockRepository;
-    
+
     setUp(() {
       mockRepository = MockMosquitoRepository();
       viewModel = MosquitoGalleryViewModel(repository: mockRepository);
     });
-    
+
     group('loadMosquitoes', () {
       test('should load mosquitoes successfully', () async {
         // Arrange
         final mosquitoes = [MosquitoModel(id: 1, name: 'Aedes aegypti')];
         when(mockRepository.getAllMosquitoes())
             .thenAnswer((_) async => mosquitoes);
-        
+
         // Act
         await viewModel.loadMosquitoes();
-        
+
         // Assert
         expect(viewModel.mosquitoes, equals(mosquitoes));
         expect(viewModel.isLoading, isFalse);
         expect(viewModel.error, isNull);
       });
-      
+
       test('should handle errors gracefully', () async {
         // Arrange
         when(mockRepository.getAllMosquitoes())
             .thenThrow(Exception('Network error'));
-        
+
         // Act
         await viewModel.loadMosquitoes();
-        
+
         // Assert
         expect(viewModel.mosquitoes, isEmpty);
         expect(viewModel.isLoading, isFalse);

@@ -1,0 +1,97 @@
+INHERIT: mkdocs.common.yml
+
+
+site_description: 'Полная документация для мобильного приложения CulicidaeLab на Flutter.'
+site_author: Ilona Kovaleva
+site_url: 'https://iloncka-ds.github.io/culicidaelab-mobile/ru'
+site_dir: 'site/ru/'
+edit_uri: 'blob/main/docs/ru'
+copyright: Copyright &copy; 2025 Kovaleva Ilona
+
+theme:
+  language: ru
+
+docs_dir: 'docs/ru'
+
+
+plugins:
+
+  - search:
+      lang: en
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - sys.path.insert(0, '..')
+          options:
+            docstring_style: google
+            show_root_heading: yes
+            show_source: yes
+            force_inspection: true
+            heading_level: 4
+            inherited_members: true
+            members_order: source
+            show_bases: false
+            show_if_no_docstring: true
+            show_overloads: false
+            show_signature_annotations: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+
+
+nav:
+  - Главная: index.md
+
+  - Руководство пользователя:
+    - Начало работы: user-guide/getting-started.md
+    - Идентификация комаров: user-guide/mosquito-identification.md
+    - Использование галереи: user-guide/using-gallery.md
+    - Информация о заболеваниях: user-guide/disease-information.md
+    - Устранение неполадок: user-guide/troubleshooting.md
+    - Часто задаваемые вопросы: user-guide/faq.md
+
+  - Руководство разработчика:
+
+    - Архитектура: developer-guide/architecture.md
+    - Настройка для разработки: developer-guide/setup-development.md
+    - Структура проекта: developer-guide/project-structure.md
+    - Интеграция ИИ-моделей: developer-guide/ai-model-integration.md
+    - Руководство по тестированию: developer-guide/testing-guide.md
+    - Оптимизация производительности: developer-guide/performance-optimization.md
+    - Интеграция с экосистемой: developer-guide/ecosystem-integration.md
+    - Модели данных: developer-guide/data-models.md
+    - Интеграция API: developer-guide/api-integration.md
+    - Расширение функциональности: developer-guide/extending-functionality.md
+    - Паттерны Flutter: developer-guide/flutter-patterns.md
+
+  - Справочник по API:
+    - api-reference/
+
+  - Участие в проекте:
+    - Как внести вклад: contribution/contributing.md
+    - Стиль кода: contribution/code-style.md
+    - Pull Request:
+      - Процесс создания Pull Request: contribution/pull-request-process.md
+      - Шаблон Pull Request: contribution\pull_request_template.md
+    - Процесс разработки: contribution/development-workflow.md
+    - Шаблоны задач:
+      - Шаблон отчета об ошибке: contribution\issue-templates\bug_report.md
+      - Шаблон улучшения документации: contribution\issue-templates\documentation_improvement.md
+      - Шаблон запроса новой функциональности: contribution\issue-templates\feature_request.md
+      - Шаблон вопроса: contribution\issue-templates\question.md
+
+extra:
+  alternate:
+    - name: English
+      link: https://iloncka-ds.github.io/culicidaelab-mobile/en
+      lang: en
+    - name: Русский
+      link: https://iloncka-ds.github.io/culicidaelab-mobile/ru
+      lang: ru
+
+  social:
+      - icon: fontawesome/brands/github
+        link: https://github.com/iloncka-ds/culicidaelab-mobile
+      - icon: fontawesome/solid/paper-plane
+        link: mailto:culicidaelab@gmail.com

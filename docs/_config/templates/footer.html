@@ -1,0 +1,25 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Dartdoc's markdown processor creates <pre><code class="language-mermaid">...</code></pre>.
+    // Mermaid.js by default looks for elements with `class="mermaid"`.
+    // This script finds the mermaid code blocks and prepares them for Mermaid.
+    const mermaidCodeBlocks = document.querySelectorAll('code.language-mermaid');
+
+    mermaidCodeBlocks.forEach(block => {
+      const parent = block.parentElement;
+      if (parent && parent.tagName === 'PRE') {
+        // Add the "mermaid" class to the parent <pre> tag.
+        parent.classList.add('mermaid');
+
+        // The mermaid library expects the diagram definition to be the direct
+        // text content of the element with the "mermaid" class.
+        // We need to move the text from the <code> tag to the <pre> tag.
+        parent.textContent = block.textContent;
+      }
+    });
+
+    // Now that the DOM is corrected, initialize Mermaid.
+    // It will automatically find and render the elements we just tagged.
+    mermaid.initialize({ startOnLoad: true });
+  });
+</script>

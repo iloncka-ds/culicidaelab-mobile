@@ -2,10 +2,10 @@ name: Documentation Build and Deploy
 
 on:
   push:
-    tags: [ 'docs v*' ]
+    tags: [ 'docs*' ]
 
   pull_request:
-    tags: [ 'docs v*' ]
+    tags: [ 'docs*' ]
 
   workflow_dispatch:
     # Allow manual triggering of the workflow

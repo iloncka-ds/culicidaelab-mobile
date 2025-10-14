@@ -1,0 +1,98 @@
+INHERIT: mkdocs.common.yml
+
+site_description: 'Comprehensive documentation for the CulicidaeLab Flutter mobile application'
+site_author: Ilona Kovaleva
+site_url: 'https://iloncka-ds.github.io/culicidaelab-mobile/en'
+site_dir: 'site/en/'
+edit_uri: 'blob/main/docs/en'
+copyright: Copyright &copy; 2025 Kovaleva Ilona
+
+theme:
+  language: en
+
+docs_dir: 'docs/en'
+
+
+plugins:
+
+  - search:
+      lang: en
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - sys.path.insert(0, '..')
+          options:
+            docstring_style: google
+            show_root_heading: yes
+            show_source: yes
+            force_inspection: true
+            heading_level: 4
+            inherited_members: true
+            members_order: source
+            show_bases: false
+            show_if_no_docstring: true
+            show_overloads: false
+            show_signature_annotations: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+
+
+nav:
+  - Home: index.md
+
+  - User Guide:
+    - Getting Started: user-guide/getting-started.md
+    - Mosquito Identification: user-guide/mosquito-identification.md
+    - Using Gallery: user-guide/using-gallery.md
+    - Disease Information: user-guide/disease-information.md
+    - Troubleshooting: user-guide/troubleshooting.md
+    - FAQ: user-guide/faq.md
+
+  - Developer Guide:
+
+    - Architecture: developer-guide/architecture.md
+    - Development Setup: developer-guide/setup-development.md
+    - Project Structure: developer-guide/project-structure.md
+    - AI Model Integration: developer-guide/ai-model-integration.md
+    - Testing Guide: developer-guide/testing-guide.md
+    - Performance Optimization: developer-guide/performance-optimization.md
+    - Ecosystem Integration: developer-guide/ecosystem-integration.md
+    - Data Models: developer-guide/data-models.md
+    - API Integration: developer-guide/api-integration.md
+    - Extending Functionality: developer-guide/extending-functionality.md
+    - Flutter Patterns: developer-guide/flutter-patterns.md
+
+  - API Reference:
+    - api-reference/
+
+  - Contribution:
+    - Contributing: contribution/contributing.md
+    - Code Style: contribution/code-style.md
+    - Pull Request:
+      - Pull Request Process: contribution/pull-request-process.md
+      - Pull Request Template: contribution\pull_request_template.md
+    - Development Workflow: contribution/development-workflow.md
+    - Issue Templates:
+      - Bug Report Template: contribution\issue-templates\bug_report.md
+      - Documentation Improvement Template: contribution\issue-templates\documentation_improvement.md
+      - Feature Request Template: contribution\issue-templates\feature_request.md
+      - Question Template: contribution\issue-templates\question.md
+
+
+
+extra:
+  alternate:
+    - name: English
+      link: https://iloncka-ds.github.io/culicidaelab-mobile/en
+      lang: en
+    - name: Русский
+      link: https://iloncka-ds.github.io/culicidaelab-mobile/ru
+      lang: ru
+
+  social:
+      - icon: fontawesome/brands/github
+        link: https://github.com/culicidaelab/culicidaelab-mobile
+      - icon: fontawesome/solid/paper-plane
+        link: mailto:culicidaelab@gmail.com

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the MosquitoDetailScreen class, for the Dart programming language.">
+  <title>build method - MosquitoDetailScreen class - mosquito_detail_screen library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">culicidaelab</a></li>
+    <li><a href="../../screens_mosquito_detail_screen">screens\mosquito_detail_screen.dart</a></li>
+    <li><a href="../../screens_mosquito_detail_screen/MosquitoDetailScreen-class.html">MosquitoDetailScreen</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="screens_mosquito_detail_screen&#47;MosquitoDetailScreen-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">build</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Builds the mosquito species detail screen with comprehensive information.</p>
+<p>Creates a scrollable layout displaying:</p>
+<ul>
+<li>Species image with error handling for missing assets</li>
+<li>Scientific and common names</li>
+<li>Detailed sections for description, habitat, and distribution</li>
+<li>Associated diseases list with interactive navigation</li>
+<li>Proper loading states and error handling</li>
+</ul>
+<p>The layout uses a <a href="https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html">FutureBuilder</a> to asynchronously load disease data
+associated with this mosquito species. During loading, a progress indicator
+is shown in the diseases section.</p>
+<p><code>context</code> The build context for accessing theme and localization data.
+Returns a <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a> representing the complete mosquito detail screen UI.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  final localizations = AppLocalizations.of(context)!;
+  final mosquitoRepository = locator&lt;MosquitoRepository&gt;();
+
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(species.commonName),
+      centerTitle: true,
+    ),
+    body: SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12.0),
+            child: Image.asset(
+              species.imageUrl,
+              width: double.infinity,
+              height: 250,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Container(
+                  width: double.infinity,
+                  height: 250,
+                  color: Colors.grey.shade300,
+                  child: const Icon(
+                    Icons.image_not_supported,
+                    size: 80,
+                    color: Colors.grey,
+                  ),
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            species.name,
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            species.commonName,
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey.shade700,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+          const Divider(height: 32),
+          Text(
+            localizations.mosquitoDetailScreenDescription,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            species.description,
+            style: TextStyle(fontSize: 16, color: Colors.grey.shade800),
+          ),
+          const Divider(height: 32),
+          Text(
+            localizations.mosquitoDetailScreenHabitat,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            species.habitat,
+            style: TextStyle(fontSize: 16, color: Colors.grey.shade800),
+          ),
+          const Divider(height: 32),
+          Text(
+            localizations.mosquitoDetailScreenDistribution,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            species.distribution,
+            style: TextStyle(fontSize: 16, color: Colors.grey.shade800),
+          ),
+          const Divider(height: 32),
+          Text(
+            localizations.mosquitoDetailScreenAssociatedDiseases,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 8),
+          FutureBuilder&lt;List&lt;Disease&gt;&gt;(
+            future: mosquitoRepository.getDiseasesByVector(
+                species.name, localizations.localeName),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              }
+              if (snapshot.hasError) {
+                return Text(&#39;Error: ${snapshot.error}&#39;);
+              }
+              final relatedDiseases = snapshot.data ?? [];
+              if (relatedDiseases.isEmpty) {
+                return Text(
+                  localizations.mosquitoDetailScreenNoAssociatedDiseases,
+                  style:
+                      TextStyle(fontSize: 16, color: Colors.grey.shade600),
+                );
+              }
+              return ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: relatedDiseases.length,
+                itemBuilder: (context, index) {
+                  final disease = relatedDiseases[index];
+                  return Card(
+                    margin: const EdgeInsets.only(bottom: 8.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: ListTile(
+                      leading: const CircleAvatar(
+                        backgroundColor: Color(0xFFF38C79),
+                        child: Icon(
+                          Icons.local_hospital,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                      ),
+                      title: Text(disease.name),
+                      subtitle: Text(
+                        disease.description,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =&gt;
+                                DiseaseDetailScreen(disease: disease),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ],
+      ),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">culicidaelab</a></li>
+    <li><a href="../../screens_mosquito_detail_screen">mosquito_detail_screen</a></li>
+    <li><a href="../../screens_mosquito_detail_screen/MosquitoDetailScreen-class.html">MosquitoDetailScreen</a></li>
+    <li class="self-crumb">build method</li>
+</ol>
+
+    <h5>MosquitoDetailScreen class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    culicidaelab
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Dartdoc's markdown processor creates <pre><code class="language-mermaid">...</code></pre>.
+    // Mermaid.js by default looks for elements with `class="mermaid"`.
+    // This script finds the mermaid code blocks and prepares them for Mermaid.
+    const mermaidCodeBlocks = document.querySelectorAll('code.language-mermaid');
+
+    mermaidCodeBlocks.forEach(block => {
+      const parent = block.parentElement;
+      if (parent && parent.tagName === 'PRE') {
+        // Add the "mermaid" class to the parent <pre> tag.
+        parent.classList.add('mermaid');
+
+        // The mermaid library expects the diagram definition to be the direct
+        // text content of the element with the "mermaid" class.
+        // We need to move the text from the <code> tag to the <pre> tag.
+        parent.textContent = block.textContent;
+      }
+    });
+
+    // Now that the DOM is corrected, initialize Mermaid.
+    // It will automatically find and render the elements we just tagged.
+    mermaid.initialize({ startOnLoad: true });
+  });
+</script>
+</body>
+</html>
+
