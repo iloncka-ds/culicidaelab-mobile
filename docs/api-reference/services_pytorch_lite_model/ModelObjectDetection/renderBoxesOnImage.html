@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the renderBoxesOnImage method from the ModelObjectDetection class, for the Dart programming language.">
+  <title>renderBoxesOnImage method - ModelObjectDetection class - pytorch_lite_model library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">culicidaelab</a></li>
+    <li><a href="../../services_pytorch_lite_model">services\pytorch_lite_model.dart</a></li>
+    <li><a href="../../services_pytorch_lite_model/ModelObjectDetection-class.html">ModelObjectDetection</a></li>
+    <li class="self-crumb">renderBoxesOnImage method</li>
+  </ol>
+  <div class="self-name">renderBoxesOnImage</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="services_pytorch_lite_model&#47;ModelObjectDetection-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">renderBoxesOnImage</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">renderBoxesOnImage</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="renderBoxesOnImage-param-image"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">image</span>, </span></li>
+<li><span class="parameter" id="renderBoxesOnImage-param-recognitions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/pytorch_lite/4.3.2/pytorch_lite/ResultObjectDetection-class.html">ResultObjectDetection</a>?</span>&gt;</span></span> <span class="parameter-name">recognitions</span>, {</span></li>
+<li><span class="parameter" id="renderBoxesOnImage-param-boxesColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a>?</span> <span class="parameter-name">boxesColor</span>, </span></li>
+<li><span class="parameter" id="renderBoxesOnImage-param-showPercentage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showPercentage</span> = <span class="default-value">true</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Renders object detection results as an overlay on the original image.</p>
+<p>Creates a Flutter widget that displays the original image with
+bounding boxes and labels overlaid on detected objects.</p>
+<p>@param image The original image file
+@param recognitions List of detection results to display
+@param boxesColor Optional color for bounding boxes
+@param showPercentage Whether to show confidence percentages
+@return A widget displaying the image with detection overlays</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Widget renderBoxesOnImage(
+    File image, List&lt;ResultObjectDetection?&gt; recognitions,
+    {Color? boxesColor, bool showPercentage = true}) {
+
+  print(recognitions.length);
+  return LayoutBuilder(builder: (context, constraints) {
+    debugPrint(
+        &#39;Max height: ${constraints.maxHeight}, max width: ${constraints.maxWidth}&#39;);
+    double factorX = constraints.maxWidth;
+    double factorY = constraints.maxHeight;
+    return Stack(
+      children: [
+        Positioned(
+          left: 0,
+          top: 0,
+          width: factorX,
+          height: factorY,
+          child: Container(
+              child: Image.file(
+            image,
+            fit: BoxFit.fill,
+          )),
+        ),
+        ...recognitions.map((re) {
+          if (re == null) {
+            return Container();
+          }
+          Color usedColor;
+          if (boxesColor == null) {
+            &#47;&#47;change colors for each label
+            usedColor = Colors.primaries[
+                ((re.className ?? re.classIndex.toString()).length +
+                        (re.className ?? re.classIndex.toString())
+                            .codeUnitAt(0) +
+                        re.classIndex) %
+                    Colors.primaries.length];
+          } else {
+            usedColor = boxesColor;
+          }
+
+          print({
+            &quot;left&quot;: re.rect.left.toDouble() * factorX,
+            &quot;top&quot;: re.rect.top.toDouble() * factorY,
+            &quot;width&quot;: re.rect.width.toDouble() * factorX,
+            &quot;height&quot;: re.rect.height.toDouble() * factorY,
+          });
+          return Positioned(
+            left: re.rect.left * factorX,
+            top: re.rect.top * factorY - 20,
+
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 20,
+                  alignment: Alignment.centerRight,
+                  color: usedColor,
+                  child: Text(
+                    &quot;${re.className ?? re.classIndex.toString()}_${showPercentage
+                            ? &quot;${(re.score * 100).toStringAsFixed(2)}%&quot;
+                            : &quot;&quot;}&quot;,
+                  ),
+                ),
+                Container(
+                  width: re.rect.width.toDouble() * factorX,
+                  height: re.rect.height.toDouble() * factorY,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: usedColor, width: 3),
+                      borderRadius: const BorderRadius.all(Radius.circular(2))),
+                  child: Container(),
+                ),
+              ],
+            ),
+
+          );
+        })
+      ],
+    );
+  });
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">culicidaelab</a></li>
+    <li><a href="../../services_pytorch_lite_model">pytorch_lite_model</a></li>
+    <li><a href="../../services_pytorch_lite_model/ModelObjectDetection-class.html">ModelObjectDetection</a></li>
+    <li class="self-crumb">renderBoxesOnImage method</li>
+</ol>
+
+    <h5>ModelObjectDetection class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    culicidaelab
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

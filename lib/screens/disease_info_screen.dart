@@ -15,11 +15,11 @@
 /// {@subCategory Disease Information}
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/disease_model.dart';
-import '../view_models/disease_info_view_model.dart';
+import 'package:culicidaelab/models/disease_model.dart';
+import 'package:culicidaelab/view_models/disease_info_view_model.dart';
 import 'disease_detail_screen.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
-import '../widgets/icomoon_icons.dart';
+import 'package:culicidaelab/widgets/icomoon_icons.dart';
 // import '../widgets/custom_empty_widget.dart'; // Not directly used, but available
 
 // Add this import

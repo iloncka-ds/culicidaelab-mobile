@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getWebPrediction method from the ClassificationRepository class, for the Dart programming language.">
+  <title>getWebPrediction method - ClassificationRepository class - classification_repository library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">culicidaelab</a></li>
+    <li><a href="../../repositories_classification_repository">repositories\classification_repository.dart</a></li>
+    <li><a href="../../repositories_classification_repository/ClassificationRepository-class.html">ClassificationRepository</a></li>
+    <li class="self-crumb">getWebPrediction method</li>
+  </ol>
+  <div class="self-name">getWebPrediction</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="repositories_classification_repository&#47;ClassificationRepository-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">getWebPrediction</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../models_web_prediction_result/WebPredictionResult-class.html">WebPredictionResult</a></span>&gt;</span></span>
+<span class="name ">getWebPrediction</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getWebPrediction-param-imageFile"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">imageFile</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Gets a web-based prediction for a mosquito image.</p>
+<p>Sends the image to a remote prediction service for classification.
+This provides an alternative to local model classification.</p>
+<p><code>imageFile</code> The image file to get prediction for.
+Returns a <a href="../../models_web_prediction_result/WebPredictionResult-class.html">WebPredictionResult</a> with prediction data.
+Throws an exception if the web request fails.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;WebPredictionResult&gt; getWebPrediction(File imageFile) async {
+    final url = Uri.parse(_mosquitoPredictionUrl);
+    var request = http.MultipartRequest(&#39;POST&#39;, url);
+
+    &#47;&#47; 1. Detect the file&#39;s MIME type from its name
+    final mimeType = lookupMimeType(imageFile.path, headerBytes: [0xFF, 0xD8]);
+    print(&quot;Detected MIME type: $mimeType&quot;);
+
+    &#47;&#47; 2. Create a MultipartFile with the correct Content-Type
+    final multipartFile = await http.MultipartFile.fromPath(
+      &#39;file&#39;, &#47;&#47; This is the field name the backend expects
+      imageFile.path,
+      &#47;&#47; Use the detected MIME type. Fallback to a default if not found.
+      contentType: MediaType.parse(mimeType ?? &#39;image&#47;jpeg&#39;),
+    );
+
+    &#47;&#47; 3. Add the correctly typed file to the request
+    request.files.add(multipartFile);
+
+    final streamedResponse = await _httpClient.send(request);
+    final response = await http.Response.fromStream(streamedResponse);
+
+    if (response.statusCode == 200) {
+      return WebPredictionResult.fromJson(json.decode(response.body));
+    } else {
+            throw Exception(
+          &#39;Failed to get web prediction. Status: ${response.statusCode}, Body: ${response.body}&#39;);
+    }
+  }</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">culicidaelab</a></li>
+    <li><a href="../../repositories_classification_repository">classification_repository</a></li>
+    <li><a href="../../repositories_classification_repository/ClassificationRepository-class.html">ClassificationRepository</a></li>
+    <li class="self-crumb">getWebPrediction method</li>
+</ol>
+
+    <h5>ClassificationRepository class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    culicidaelab
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

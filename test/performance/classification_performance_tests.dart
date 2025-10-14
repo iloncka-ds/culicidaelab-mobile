@@ -1,14 +1,14 @@
 import 'dart:developer' as developer;
 import 'dart:io';
 import 'dart:isolate';
-import 'dart:typed_data';
+// import 'dart:typed_data';
 import 'dart:ui'; // Add this import for Locale
 
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart'; // Correct import path
 import 'package:flutter_test/flutter_test.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:culicidaelab/models/mosquito_model.dart';
+// import 'package:image_picker/image_picker.dart';
+// import 'package:culicidaelab/models/mosquito_model.dart';
 import 'package:culicidaelab/repositories/classification_repository.dart';
 import 'package:culicidaelab/view_models/classification_view_model.dart';
 

@@ -9,11 +9,11 @@ import 'dart:typed_data';
 import 'package:path/path.dart';
 
 
-import '../../lib/services/classification_service.dart';
-import '../../lib/services/database_service.dart';
-import '../../lib/models/mosquito_model.dart';
-import '../../lib/models/disease_model.dart';
-import '../../lib/services/pytorch_lite_model.dart';
+import 'package:culicidaelab/services/classification_service.dart';
+import 'package:culicidaelab/services/database_service.dart';
+import 'package:culicidaelab/models/mosquito_model.dart';
+import 'package:culicidaelab/models/disease_model.dart';
+import 'package:culicidaelab/services/pytorch_lite_model.dart';
 
 // Mock classes for testing
 @GenerateMocks([ClassificationModel, File])

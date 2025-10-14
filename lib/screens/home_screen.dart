@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'widgets/icomoon_icons.dart';
+import 'package:culicidaelab/widgets/icomoon_icons.dart';
 import 'package:provider/provider.dart';
-import 'providers/locale_provider.dart';
+import 'package:culicidaelab/providers/locale_provider.dart';
 
 // Import app screens
-import 'screens/classification_screen.dart';
-import 'screens/mosquito_gallery_screen.dart';
-import 'screens/disease_info_screen.dart';
-import 'screens/webview_screen.dart';
-import 'view_models/classification_view_model.dart';
+import 'package:culicidaelab/screens/classification_screen.dart';
+import 'package:culicidaelab/screens/mosquito_gallery_screen.dart';
+import 'package:culicidaelab/screens/disease_info_screen.dart';
+import 'package:culicidaelab/screens/webview_screen.dart';
+import 'package:culicidaelab/view_models/classification_view_model.dart';
 import 'package:culicidaelab/l10n/app_localizations.dart';
 import 'package:culicidaelab/locator.dart';
 

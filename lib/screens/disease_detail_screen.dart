@@ -14,12 +14,12 @@
 /// {@category Screens}
 /// {@subCategory Disease Information}
 import 'package:flutter/material.dart';
-import '../models/disease_model.dart';
-import '../models/mosquito_model.dart';
+import 'package:culicidaelab/models/disease_model.dart';
+import 'package:culicidaelab/models/mosquito_model.dart';
 
-import '../repositories/mosquito_repository.dart';
+import 'package:culicidaelab/repositories/mosquito_repository.dart';
 import 'mosquito_detail_screen.dart';
-import '../widgets/icomoon_icons.dart';
+import 'package:culicidaelab/widgets/icomoon_icons.dart';
 
 import 'package:culicidaelab/l10n/app_localizations.dart';
 

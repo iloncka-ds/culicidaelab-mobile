@@ -1,13 +1,13 @@
 dartdoc:
   # Basic configuration for API documentation generation
-  
+
   # Output configuration
   output: "docs/api-reference"
-  
+
   # Documentation generation options
   showUndocumentedCategories: false
   validateLinks: false
-  
+
   # Files and directories to exclude from documentation generation
   exclude:
     - "test/**"
@@ -17,4 +17,4 @@ dartdoc:
     - "ios/**"
     - ".dart_tool/**"
     - "docs/**"
-    - "screens/widgets"
+    # - "screens/widgets"
