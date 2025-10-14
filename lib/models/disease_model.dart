@@ -115,8 +115,7 @@ class Disease {
   ///
   /// All parameters are required to ensure complete disease information
   /// is available for educational and informational purposes.
-  ///
-  /// Throws [ArgumentError] if any required field is empty.
+
   Disease({
     required this.id,
     required this.name,
@@ -128,9 +127,8 @@ class Disease {
     required this.prevalence,
     required this.imageUrl,
   }) : assert(id.isNotEmpty, 'Disease ID cannot be empty'),
-       assert(name.isNotEmpty, 'Disease name cannot be empty'),
-       assert(vectors.isNotEmpty, 'Disease must have at least one vector');
-
+       assert(name.isNotEmpty, 'Disease name cannot be empty');
+       
   /// Creates a [Disease] from a JSON map.
   ///
   /// Used for deserializing disease data from JSON sources such as

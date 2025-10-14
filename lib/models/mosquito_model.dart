@@ -234,7 +234,7 @@ class ClassificationResult {
   /// Higher values indicate more confident predictions.
   ///
   /// - 0.9-1.0: Very high confidence
-  /// - 0.7-0.9: High confidence  
+  /// - 0.7-0.9: High confidence
   /// - 0.5-0.7: Moderate confidence
   /// - 0.0-0.5: Low confidence
   final double confidence;
@@ -264,49 +264,15 @@ class ClassificationResult {
   ///
   /// All parameters are required to provide complete classification
   /// information to the user.
-  ///
-  /// Throws [ArgumentError] if confidence is not between 0.0 and 1.0,
-  /// or if inference time is negative.
+
   ClassificationResult({
     required this.species,
     required this.confidence,
     required this.inferenceTime,
     required this.relatedDiseases,
     required this.imageFile,
-  }) : assert(confidence >= 0.0 && confidence <= 1.0, 
-              'Confidence must be between 0.0 and 1.0'),
-       assert(inferenceTime >= 0, 
-              'Inference time cannot be negative');
+  });
 
-  /// Gets the confidence as a percentage string.
-  ///
-  /// Returns a formatted string representation of the confidence
-  /// score as a percentage with one decimal place.
-  ///
-  /// Example: `'87.3%'` for confidence of 0.873
-  String get confidencePercentage => 
-      '${(confidence * 100).toStringAsFixed(1)}%';
-
-  /// Checks if the classification result has high confidence.
-  ///
-  /// Returns `true` if confidence is 0.7 or higher, indicating
-  /// a reliable identification that can be presented to users
-  /// with confidence.
-  bool get isHighConfidence => confidence >= 0.7;
-
-  /// Gets a human-readable confidence level description.
-  ///
-  /// Returns a descriptive string based on the confidence score:
-  /// - 'Very High' for 0.9+
-  /// - 'High' for 0.7-0.9
-  /// - 'Moderate' for 0.5-0.7
-  /// - 'Low' for below 0.5
-  String get confidenceLevel {
-    if (confidence >= 0.9) return 'Very High';
-    if (confidence >= 0.7) return 'High';
-    if (confidence >= 0.5) return 'Moderate';
-    return 'Low';
-  }
 
   /// Returns a string representation of this classification result.
   ///
@@ -315,7 +281,7 @@ class ClassificationResult {
   String toString() {
     return 'ClassificationResult('
            'species: ${species.name}, '
-           'confidence: $confidencePercentage, '
+           'confidence: ${confidence}, '
            'inferenceTime: ${inferenceTime}ms)';
   }
 }
