@@ -2,23 +2,11 @@ name: Documentation Build and Deploy
 
 on:
   push:
-    branches: [ main, develop ]
-    paths:
-      - 'docs/**'
-      - 'lib/**'
-      - 'dartdoc_options.yaml'
-      - 'mkdocs.yml'
-      - '.github/workflows/docs.yml'
+    tags: [ 'docs v*' ]
+
   pull_request:
-    branches: [ main ]
-    paths:
-      - 'docs/**'
-      - 'lib/**'
-      - 'dartdoc_options.yaml'
-      - 'mkdocs.yml'
-  schedule:
-    # Run weekly on Sundays at 2 AM UTC to catch external link changes
-    - cron: '0 2 * * 0'
+    tags: [ 'docs v*' ]
+
   workflow_dispatch:
     # Allow manual triggering of the workflow
 
@@ -42,28 +30,28 @@ jobs:
   build-docs:
     name: Build Documentation
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         fetch-depth: 0  # Fetch full history for better git info
-    
+
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
         flutter-version: ${{ env.FLUTTER_VERSION }}
         channel: 'stable'
         cache: true
-    
+
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
         python-version: ${{ env.PYTHON_VERSION }}
-    
+
     - name: Install Flutter dependencies
       run: flutter pub get
-    
+
     - name: Install Python dependencies
       run: |
         pip install --upgrade pip
@@ -72,7 +60,7 @@ jobs:
         pip install mkdocs-git-revision-date-localized-plugin
         pip install mkdocs-minify-plugin
         pip install htmlproofer || echo "htmlproofer installation failed, continuing..."
-    
+
     - name: Verify documentation configuration
       run: |
         echo "Checking dartdoc_options.yaml..."
@@ -82,7 +70,7 @@ jobs:
         else
           echo "⚠ dartdoc_options.yaml not found, using defaults"
         fi
-        
+
         echo "Checking mkdocs.yml..."
         if [ -f "mkdocs.yml" ]; then
           echo "✓ mkdocs.yml found"
@@ -91,12 +79,12 @@ jobs:
           echo "❌ mkdocs.yml not found"
           exit 1
         fi
-    
+
     - name: Generate API documentation
       run: |
         echo "Generating Dart API documentation..."
         dart doc --output docs/api-reference --validate-links
-        
+
         # Check if API docs were generated successfully
         if [ -d "docs/api-reference" ] && [ "$(ls -A docs/api-reference)" ]; then
           echo "✓ API documentation generated successfully"
@@ -106,12 +94,12 @@ jobs:
           echo "❌ API documentation generation failed"
           exit 1
         fi
-    
+
     - name: Build MkDocs site
       run: |
         echo "Building MkDocs documentation site..."
         mkdocs build --strict --verbose
-        
+
         # Verify the site was built
         if [ -d "site" ] && [ -f "site/index.html" ]; then
           echo "✓ MkDocs site built successfully"
@@ -121,12 +109,12 @@ jobs:
           echo "❌ MkDocs site build failed"
           exit 1
         fi
-    
+
     - name: Run comprehensive validation
       run: |
         echo "Running comprehensive documentation validation..."
         dart scripts/ci_validation.dart --verbose --output-format json
-    
+
     - name: Upload validation reports
       if: always()
       uses: actions/upload-artifact@v4
@@ -136,7 +124,7 @@ jobs:
           validation-report.json
           validation-junit.xml
         retention-days: 30
-    
+
     - name: Setup Pages (for main branch only)
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       uses: actions/configure-pages@v3
@@ -159,7 +147,7 @@ jobs:
         name: documentation-site
         path: site/
         retention-days: 30
-    
+
     - name: Upload API documentation artifacts
       uses: actions/upload-artifact@v4
       with:
@@ -173,17 +161,17 @@ jobs:
     needs: build-docs
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    
+
     - name: Download documentation artifacts
       uses: actions/download-artifact@v4
       with:
         name: documentation-site
         path: site/
-    
+
     - name: Run accessibility checks
       run: |
         echo "Running basic accessibility checks..."
@@ -193,25 +181,25 @@ jobs:
         else
           echo "✅ No obvious alt text issues found"
         fi
-        
+
         # Check for proper heading structure
         echo "Checking heading structure..."
         find site/ -name "*.html" -exec grep -l "<h[1-6]" {} \; | head -5 | while read file; do
           echo "Checking headings in: $file"
         done
-    
+
     - name: Performance analysis
       run: |
         echo "Analyzing site performance..."
-        
+
         # Check total site size
         SITE_SIZE=$(du -sh site/ | cut -f1)
         echo "📊 Total site size: $SITE_SIZE"
-        
+
         # Check for large files
         echo "🔍 Largest files:"
         find site/ -type f -exec ls -lh {} \; | sort -k5 -hr | head -10
-        
+
         # Check for optimization opportunities
         echo "🔧 Optimization opportunities:"
         find site/ -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" | wc -l | xargs echo "Images found:"
@@ -223,23 +211,23 @@ jobs:
     name: Validate External Links
     runs-on: ubuntu-latest
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    
+
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
         python-version: ${{ env.PYTHON_VERSION }}
-    
+
     - name: Install dependencies
       run: |
         pip install --upgrade pip
         pip install requests beautifulsoup4 markdown
-    
 
-    
+
+
     - name: Create issue for broken links
       if: failure()
       uses: actions/github-script@v7
@@ -248,12 +236,12 @@ jobs:
           const title = 'Broken external links found in documentation';
           const body = `
           The scheduled external link validation found broken links in the documentation.
-          
+
           Please check the workflow logs for details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          
+
           This issue was automatically created by the documentation validation workflow.
           `;
-          
+
           // Check if an issue already exists
           const issues = await github.rest.issues.listForRepo({
             owner: context.repo.owner,
@@ -261,7 +249,7 @@ jobs:
             state: 'open',
             labels: ['documentation', 'broken-links']
           });
-          
+
           if (issues.data.length === 0) {
             await github.rest.issues.create({
               owner: context.repo.owner,
@@ -281,7 +269,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-docs
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    
+
     steps:
     - name: Deploy to GitHub Pages
       id: deployment
@@ -292,10 +280,10 @@ jobs:
         echo "🎉 Documentation deployed successfully!"
         echo "📍 Site URL: ${{ steps.deployment.outputs.page_url }}"
         echo "🔍 Verifying deployment..."
-        
+
         # Wait a moment for deployment to propagate
         sleep 10
-        
+
         # Basic verification that the site is accessible
         if curl -f -s "${{ steps.deployment.outputs.page_url }}" > /dev/null; then
           echo "✅ Site is accessible"
