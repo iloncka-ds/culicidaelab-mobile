@@ -1,0 +1,53 @@
+/* Custom CSS for CulicidaeLab Documentation */
+
+/* Brand colors */
+:root {
+  --culicidae-primary: #B1DEDA;
+  --culicidae-secondary: #2E8B8B;
+  --culicidae-accent: #4A9B9B;
+}
+
+/* Custom styling for code blocks */
+.highlight {
+  border-radius: 4px;
+}
+
+/* Custom styling for admonitions */
+.md-typeset .admonition.note {
+  border-color: var(--culicidae-primary);
+}
+
+.md-typeset .admonition.tip {
+  border-color: var(--culicidae-accent);
+}
+
+/* Custom styling for navigation */
+.md-nav__title {
+  font-weight: 600;
+}
+
+/* Custom styling for tables */
+.md-typeset table:not([class]) {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Custom styling for images */
+.md-typeset img {
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom styling for mermaid diagrams */
+.mermaid {
+  text-align: center;
+  margin: 1em 0;
+}
+
+/* Responsive image styling */
+@media screen and (max-width: 768px) {
+  .md-typeset img {
+    max-width: 100%;
+    height: auto;
+  }
+}
