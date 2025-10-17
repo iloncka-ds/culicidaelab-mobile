@@ -96,3 +96,12 @@ extra:
         link: https://github.com/culicidaelab/culicidaelab-mobile
       - icon: fontawesome/solid/paper-plane
         link: mailto:culicidaelab@gmail.com
+
+extra_css:
+  - assets/css/custom.css
+
+# Custom JavaScript
+extra_javascript:
+  - assets/js/custom.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
