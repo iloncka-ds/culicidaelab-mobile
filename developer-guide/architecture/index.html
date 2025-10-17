@@ -1,18 +1,18 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="ru" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Comprehensive documentation for the CulicidaeLab Flutter mobile application">
+        <meta name="description" content="Полная документация для мобильного приложения CulicidaeLab на Flutter.">
       
       
         <meta name="author" content="Ilona Kovaleva">
       
       
-        <link rel="canonical" href="https://iloncka-ds.github.io/culicidaelab-mobile/en/developer-guide/architecture/">
+        <link rel="canonical" href="https://iloncka-ds.github.io/culicidaelab-mobile/ru/developer-guide/architecture/">
       
       
         <link rel="prev" href="../../user-guide/faq/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Architecture - CulicidaeLab Documentation</title>
+        <title>Архитектура - CulicidaeLab Documentation</title>
       
     
     
@@ -82,8 +82,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#culicidaelab-architecture-overview" class="md-skip">
-          Skip to content
+        <a href="#culicidaelab" class="md-skip">
+          Перейти к содержанию
         </a>
       
     </div>
@@ -97,7 +97,7 @@
   
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../.." title="CulicidaeLab Documentation" class="md-header__button md-logo" aria-label="CulicidaeLab Documentation" data-md-component="logo">
       
   <img src="../../assets/images/logo.png" alt="logo">
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Architecture
+              Архитектура
             
           </span>
         </div>
@@ -157,7 +157,7 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Select language">
+    <button class="md-header__button md-icon" aria-label="Выберите язык">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
@@ -189,21 +189,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Поиск">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Поделиться" aria-label="Поделиться" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -216,7 +216,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            Инициализация поиска
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -227,7 +227,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Перейти к репозиторию" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -242,7 +242,7 @@
   
     
       
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -256,7 +256,7 @@
   
     
   
-  Home
+  Главная
 
       </a>
     </li>
@@ -275,7 +275,7 @@
   
     
   
-  User Guide
+  Руководство пользователя
 
         </a>
       </li>
@@ -297,7 +297,7 @@
   
     
   
-  Developer Guide
+  Руководство разработчика
 
         </a>
       </li>
@@ -317,7 +317,7 @@
   
     
   
-  API Reference
+  Справочник по API
 
         </a>
       </li>
@@ -337,7 +337,7 @@
   
     
   
-  Contribution
+  Участие в проекте
 
         </a>
       </li>
@@ -373,7 +373,7 @@
 
   
 
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="CulicidaeLab Documentation" class="md-nav__button md-logo" aria-label="CulicidaeLab Documentation" data-md-component="logo">
       
@@ -384,7 +384,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Перейти к репозиторию" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -408,7 +408,7 @@
         
   
   <span class="md-ellipsis">
-    Home
+    Главная
   </span>
   
 
@@ -459,7 +459,7 @@
             
   
   <span class="md-ellipsis">
-    User Guide
+    Руководство пользователя
   </span>
   
 
@@ -469,7 +469,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            User Guide
+            Руководство пользователя
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -484,7 +484,7 @@
         
   
   <span class="md-ellipsis">
-    Getting Started
+    Начало работы
   </span>
   
 
@@ -505,7 +505,7 @@
         
   
   <span class="md-ellipsis">
-    Mosquito Identification
+    Идентификация комаров
   </span>
   
 
@@ -526,7 +526,7 @@
         
   
   <span class="md-ellipsis">
-    Using Gallery
+    Использование галереи
   </span>
   
 
@@ -547,7 +547,7 @@
         
   
   <span class="md-ellipsis">
-    Disease Information
+    Информация о заболеваниях
   </span>
   
 
@@ -568,7 +568,7 @@
         
   
   <span class="md-ellipsis">
-    Troubleshooting
+    Устранение неполадок
   </span>
   
 
@@ -589,7 +589,7 @@
         
   
   <span class="md-ellipsis">
-    FAQ
+    Часто задаваемые вопросы
   </span>
   
 
@@ -661,7 +661,7 @@
             
   
   <span class="md-ellipsis">
-    Developer Guide
+    Руководство разработчика
   </span>
   
 
@@ -671,7 +671,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Developer Guide
+            Руководство разработчика
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -695,7 +695,7 @@
           
   
   <span class="md-ellipsis">
-    Architecture
+    Архитектура
   </span>
   
 
@@ -706,7 +706,7 @@
         
   
   <span class="md-ellipsis">
-    Architecture
+    Архитектура
   </span>
   
 
@@ -730,55 +730,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Введение
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#high-level-architecture" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      High-Level Architecture
+      Высокоуровневая архитектура
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mvvm-pattern-implementation" class="md-nav__link">
+  <a href="#mvvm" class="md-nav__link">
     <span class="md-ellipsis">
-      MVVM Pattern Implementation
+      Реализация паттерна MVVM
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="MVVM Pattern Implementation">
+    <nav class="md-nav" aria-label="Реализация паттерна MVVM">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-layer" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      View Layer
+      Слой представления
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#viewmodel-layer" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      ViewModel Layer
+      Слой модели представления
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#model-layer" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Model Layer
+      Слой модели
     </span>
   </a>
   
@@ -790,19 +790,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#component-relationships" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      Component Relationships
+      Отношения компонентов
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Component Relationships">
+    <nav class="md-nav" aria-label="Отношения компонентов">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Components
+      Основные компоненты
     </span>
   </a>
   
@@ -814,28 +814,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-flow-architecture" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Flow Architecture
+      Архитектура потока данных
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Data Flow Architecture">
+    <nav class="md-nav" aria-label="Архитектура потока данных">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#classification-workflow" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      Classification Workflow
+      Рабочий процесс классификации
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-persistence-flow" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Persistence Flow
+      Поток сохранения данных
     </span>
   </a>
   
@@ -847,28 +847,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dependency-injection" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
-      Dependency Injection
+      Внедрение зависимостей
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Dependency Injection">
+    <nav class="md-nav" aria-label="Внедрение зависимостей">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#service-registration-order" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
-      Service Registration Order
+      Порядок регистрации сервисов
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dependency-graph" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
-      Dependency Graph
+      Граф зависимостей
     </span>
   </a>
   
@@ -880,28 +880,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#state-management-with-provider" class="md-nav__link">
+  <a href="#provider" class="md-nav__link">
     <span class="md-ellipsis">
-      State Management with Provider
+      Управление состоянием с Provider
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="State Management with Provider">
+    <nav class="md-nav" aria-label="Управление состоянием с Provider">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#provider-architecture" class="md-nav__link">
+  <a href="#provider_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Provider Architecture
+      Архитектура Provider
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#state-flow-pattern" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
-      State Flow Pattern
+      Паттерн потока состояния
     </span>
   </a>
   
@@ -913,28 +913,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ai-model-integration" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
-      AI Model Integration
+      Интеграция модели ИИ
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="AI Model Integration">
+    <nav class="md-nav" aria-label="Интеграция модели ИИ">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pytorch-lite-integration" class="md-nav__link">
+  <a href="#pytorch-lite" class="md-nav__link">
     <span class="md-ellipsis">
-      PyTorch Lite Integration
+      Интеграция PyTorch Lite
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#classification-service-architecture" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
-      Classification Service Architecture
+      Архитектура сервиса классификации
     </span>
   </a>
   
@@ -946,28 +946,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-architecture" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Architecture
+      Архитектура базы данных
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Architecture">
+    <nav class="md-nav" aria-label="Архитектура базы данных">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sqlite-schema" class="md-nav__link">
+  <a href="#sqlite" class="md-nav__link">
     <span class="md-ellipsis">
-      SQLite Schema
+      Схема SQLite
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-access-pattern" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Access Pattern
+      Паттерн доступа к данным
     </span>
   </a>
   
@@ -979,28 +979,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-architecture" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Architecture
+      Архитектура безопасности
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Security Architecture">
+    <nav class="md-nav" aria-label="Архитектура безопасности">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#data-protection" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Protection
+      Защита данных
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#permission-management" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
-      Permission Management
+      Управление разрешениями
     </span>
   </a>
   
@@ -1012,28 +1012,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-considerations" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance Considerations
+      Соображения производительности
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Performance Considerations">
+    <nav class="md-nav" aria-label="Соображения производительности">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#memory-management" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
-      Memory Management
+      Управление памятью
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#optimization-strategies" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
-      Optimization Strategies
+      Стратегии оптимизации
     </span>
   </a>
   
@@ -1045,28 +1045,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-architecture" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing Architecture
+      Архитектура тестирования
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Testing Architecture">
+    <nav class="md-nav" aria-label="Архитектура тестирования">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#testing-layers" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing Layers
+      Слои тестирования
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#testing-strategy" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing Strategy
+      Стратегия тестирования
     </span>
   </a>
   
@@ -1078,28 +1078,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment-architecture" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     <span class="md-ellipsis">
-      Deployment Architecture
+      Архитектура развертывания
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Deployment Architecture">
+    <nav class="md-nav" aria-label="Архитектура развертывания">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#build-configuration" class="md-nav__link">
+  <a href="#_29" class="md-nav__link">
     <span class="md-ellipsis">
-      Build Configuration
+      Конфигурация сборки
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#platform-specific-considerations" class="md-nav__link">
+  <a href="#-" class="md-nav__link">
     <span class="md-ellipsis">
-      Platform-Specific Considerations
+      Платформо-специфические соображения
     </span>
   </a>
   
@@ -1111,28 +1111,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#extension-points" class="md-nav__link">
+  <a href="#_30" class="md-nav__link">
     <span class="md-ellipsis">
-      Extension Points
+      Точки расширения
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Extension Points">
+    <nav class="md-nav" aria-label="Точки расширения">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#customization-areas" class="md-nav__link">
+  <a href="#_31" class="md-nav__link">
     <span class="md-ellipsis">
-      Customization Areas
+      Области кастомизации
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#integration-capabilities" class="md-nav__link">
+  <a href="#_32" class="md-nav__link">
     <span class="md-ellipsis">
-      Integration Capabilities
+      Возможности интеграции
     </span>
   </a>
   
@@ -1144,9 +1144,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#_33" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      Заключение
     </span>
   </a>
   
@@ -1172,7 +1172,7 @@
         
   
   <span class="md-ellipsis">
-    Development Setup
+    Настройка для разработки
   </span>
   
 
@@ -1193,7 +1193,7 @@
         
   
   <span class="md-ellipsis">
-    Project Structure
+    Структура проекта
   </span>
   
 
@@ -1214,7 +1214,7 @@
         
   
   <span class="md-ellipsis">
-    AI Model Integration
+    Интеграция ИИ-моделей
   </span>
   
 
@@ -1235,7 +1235,7 @@
         
   
   <span class="md-ellipsis">
-    Testing Guide
+    Руководство по тестированию
   </span>
   
 
@@ -1256,7 +1256,7 @@
         
   
   <span class="md-ellipsis">
-    Performance Optimization
+    Оптимизация производительности
   </span>
   
 
@@ -1277,7 +1277,7 @@
         
   
   <span class="md-ellipsis">
-    Ecosystem Integration
+    Интеграция с экосистемой
   </span>
   
 
@@ -1298,7 +1298,7 @@
         
   
   <span class="md-ellipsis">
-    Data Models
+    Модели данных
   </span>
   
 
@@ -1319,7 +1319,7 @@
         
   
   <span class="md-ellipsis">
-    API Integration
+    Интеграция API
   </span>
   
 
@@ -1340,7 +1340,7 @@
         
   
   <span class="md-ellipsis">
-    Extending Functionality
+    Расширение функциональности
   </span>
   
 
@@ -1361,7 +1361,7 @@
         
   
   <span class="md-ellipsis">
-    Flutter Patterns
+    Паттерны Flutter
   </span>
   
 
@@ -1410,7 +1410,7 @@
             
   
   <span class="md-ellipsis">
-    API Reference
+    Справочник по API
   </span>
   
 
@@ -1420,7 +1420,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            API Reference
+            Справочник по API
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1492,7 +1492,7 @@
             
   
   <span class="md-ellipsis">
-    Contribution
+    Участие в проекте
   </span>
   
 
@@ -1502,7 +1502,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Contribution
+            Участие в проекте
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1517,7 +1517,7 @@
         
   
   <span class="md-ellipsis">
-    Contributing
+    Как внести вклад
   </span>
   
 
@@ -1538,7 +1538,7 @@
         
   
   <span class="md-ellipsis">
-    Code Style
+    Стиль кода
   </span>
   
 
@@ -1607,7 +1607,7 @@
         
   
   <span class="md-ellipsis">
-    Pull Request Process
+    Процесс создания Pull Request
   </span>
   
 
@@ -1628,7 +1628,7 @@
         
   
   <span class="md-ellipsis">
-    Pull Request Template
+    Шаблон Pull Request
   </span>
   
 
@@ -1657,7 +1657,7 @@
         
   
   <span class="md-ellipsis">
-    Development Workflow
+    Процесс разработки
   </span>
   
 
@@ -1705,7 +1705,7 @@
             
   
   <span class="md-ellipsis">
-    Issue Templates
+    Шаблоны задач
   </span>
   
 
@@ -1715,7 +1715,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
-            Issue Templates
+            Шаблоны задач
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1730,7 +1730,7 @@
         
   
   <span class="md-ellipsis">
-    Bug Report Template
+    Шаблон отчета об ошибке
   </span>
   
 
@@ -1751,7 +1751,7 @@
         
   
   <span class="md-ellipsis">
-    Documentation Improvement Template
+    Шаблон улучшения документации
   </span>
   
 
@@ -1772,7 +1772,7 @@
         
   
   <span class="md-ellipsis">
-    Feature Request Template
+    Шаблон запроса новой функциональности
   </span>
   
 
@@ -1793,7 +1793,7 @@
         
   
   <span class="md-ellipsis">
-    Question Template
+    Шаблон вопроса
   </span>
   
 
@@ -1833,7 +1833,7 @@
                   
 
   
-    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/blob/main/docs/en/developer-guide/architecture.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/blob/main/docs/ru/developer-guide/architecture.md" title="Редактировать страницу" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1842,42 +1842,42 @@
     
       
     
-    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/raw/main/docs/en/developer-guide/architecture.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/raw/main/docs/ru/developer-guide/architecture.md" title="Посмотреть исходный код страницы" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="culicidaelab-architecture-overview">CulicidaeLab Architecture Overview<a class="headerlink" href="#culicidaelab-architecture-overview" title="Permanent link">&para;</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>CulicidaeLab is a Flutter mobile application designed for mosquito species identification and disease information dissemination. The application leverages AI-powered image classification using PyTorch Lite models to identify mosquito species from user-captured photos and provides comprehensive information about mosquito-borne diseases.</p>
-<h2 id="high-level-architecture">High-Level Architecture<a class="headerlink" href="#high-level-architecture" title="Permanent link">&para;</a></h2>
-<p>The application follows a layered architecture pattern with clear separation of concerns:</p>
+<h1 id="culicidaelab">Обзор архитектуры CulicidaeLab<a class="headerlink" href="#culicidaelab" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Введение<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>CulicidaeLab — это мобильное приложение Flutter, предназначенное для идентификации видов комаров и распространения информации о заболеваниях. Приложение использует классификацию изображений на основе ИИ с использованием моделей PyTorch Lite для идентификации видов комаров по фотографиям, сделанным пользователями, и предоставляет комплексную информацию о заболеваниях, переносимых комарами.</p>
+<h2 id="_2">Высокоуровневая архитектура<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Приложение следует паттерну слоистой архитектуры с четким разделением ответственности:</p>
 <pre class="mermaid"><code>graph TB
-    subgraph "Presentation Layer"
-        UI[Screens &amp; Widgets]
-        VM[View Models]
-        P[Providers]
+    subgraph "Слой представления"
+        UI[Экраны и виджеты]
+        VM[Модели представления]
+        P[Провайдеры]
     end
 
-    subgraph "Business Logic Layer"
-        S[Services]
-        R[Repositories]
+    subgraph "Слой бизнес-логики"
+        S[Сервисы]
+        R[Репозитории]
     end
 
-    subgraph "Data Layer"
-        DB[(SQLite Database)]
-        API[External APIs]
-        ML[PyTorch Models]
-        SP[Shared Preferences]
+    subgraph "Слой данных"
+        DB[(База данных SQLite)]
+        API[Внешние API]
+        ML[Модели PyTorch]
+        SP[Общие настройки]
     end
 
-    subgraph "External Dependencies"
-        CAM[Camera]
-        GPS[Location Services]
-        NET[Network]
-        FS[File System]
+    subgraph "Внешние зависимости"
+        CAM[Камера]
+        GPS[Службы геолокации]
+        NET[Сеть]
+        FS[Файловая система]
     end
 
     UI --&gt; VM
@@ -1892,48 +1892,48 @@
     S --&gt; GPS
     S --&gt; NET
     S --&gt; FS</code></pre>
-<h2 id="mvvm-pattern-implementation">MVVM Pattern Implementation<a class="headerlink" href="#mvvm-pattern-implementation" title="Permanent link">&para;</a></h2>
-<p>CulicidaeLab implements the Model-View-ViewModel (MVVM) architectural pattern with Provider for state management:</p>
-<h3 id="view-layer">View Layer<a class="headerlink" href="#view-layer" title="Permanent link">&para;</a></h3>
+<h2 id="mvvm">Реализация паттерна MVVM<a class="headerlink" href="#mvvm" title="Permanent link">&para;</a></h2>
+<p>CulicidaeLab реализует архитектурный паттерн Model-View-ViewModel (MVVM) с Provider для управления состоянием:</p>
+<h3 id="_3">Слой представления<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Screens</strong>: Main UI components that represent different app pages</li>
-<li><strong>Widgets</strong>: Reusable UI components and custom widgets</li>
-<li><strong>Navigation</strong>: Route management and screen transitions</li>
+<li><strong>Экраны</strong>: Основные компоненты UI, представляющие различные страницы приложения</li>
+<li><strong>Виджеты</strong>: Переиспользуемые компоненты UI и пользовательские виджеты</li>
+<li><strong>Навигация</strong>: Управление маршрутами и переходами между экранами</li>
 </ul>
-<h3 id="viewmodel-layer">ViewModel Layer<a class="headerlink" href="#viewmodel-layer" title="Permanent link">&para;</a></h3>
+<h3 id="_4">Слой модели представления<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>ClassificationViewModel</strong>: Manages mosquito classification workflow</li>
-<li><strong>DiseaseInfoViewModel</strong>: Handles disease information display</li>
-<li><strong>MosquitoGalleryViewModel</strong>: Controls gallery browsing functionality</li>
+<li><strong>ClassificationViewModel</strong>: Управляет рабочим процессом классификации комаров</li>
+<li><strong>DiseaseInfoViewModel</strong>: Обрабатывает отображение информации о заболеваниях</li>
+<li><strong>MosquitoGalleryViewModel</strong>: Контролирует функциональность просмотра галереи</li>
 </ul>
-<h3 id="model-layer">Model Layer<a class="headerlink" href="#model-layer" title="Permanent link">&para;</a></h3>
+<h3 id="_5">Слой модели<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Data Models</strong>: Represent core entities (Mosquito, Disease, Observation)</li>
-<li><strong>Repositories</strong>: Abstract data access and business logic</li>
-<li><strong>Services</strong>: Handle specific functionality (AI, Database, Network)</li>
+<li><strong>Модели данных</strong>: Представляют основные сущности (Mosquito, Disease, Observation)</li>
+<li><strong>Репозитории</strong>: Абстрагируют доступ к данным и бизнес-логику</li>
+<li><strong>Сервисы</strong>: Обрабатывают специфическую функциональность (ИИ, База данных, Сеть)</li>
 </ul>
-<h2 id="component-relationships">Component Relationships<a class="headerlink" href="#component-relationships" title="Permanent link">&para;</a></h2>
-<h3 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h3>
+<h2 id="_6">Отношения компонентов<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">Основные компоненты<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>graph LR
-    subgraph "UI Components"
+    subgraph "Компоненты UI"
         HS[HomeScreen]
         CS[ClassificationScreen]
         GS[GalleryScreen]
         DS[DiseaseScreen]
     end
 
-    subgraph "ViewModels"
+    subgraph "Модели представления"
         CVM[ClassificationViewModel]
         DVM[DiseaseInfoViewModel]
         GVM[GalleryViewModel]
     end
 
-    subgraph "Repositories"
+    subgraph "Репозитории"
         CR[ClassificationRepository]
         MR[MosquitoRepository]
     end
 
-    subgraph "Services"
+    subgraph "Сервисы"
         CLS[ClassificationService]
         DBS[DatabaseService]
         US[UserService]
@@ -1952,10 +1952,10 @@
     CR --&gt; MR
     MR --&gt; DBS
     CVM --&gt; US</code></pre>
-<h2 id="data-flow-architecture">Data Flow Architecture<a class="headerlink" href="#data-flow-architecture" title="Permanent link">&para;</a></h2>
-<h3 id="classification-workflow">Classification Workflow<a class="headerlink" href="#classification-workflow" title="Permanent link">&para;</a></h3>
+<h2 id="_8">Архитектура потока данных<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">Рабочий процесс классификации<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>sequenceDiagram
-    participant User
+    participant User as Пользователь
     participant UI as ClassificationScreen
     participant VM as ClassificationViewModel
     participant Repo as ClassificationRepository
@@ -1963,7 +1963,7 @@
     participant ML as PyTorchWrapper
     participant DB as DatabaseService
 
-    User-&gt;&gt;UI: Capture/Select Image
+    User-&gt;&gt;UI: Сделать/Выбрать изображение
     UI-&gt;&gt;VM: processImage(image)
     VM-&gt;&gt;Repo: classifyImage(image)
     Repo-&gt;&gt;CS: classifyMosquito(image)
@@ -1972,30 +1972,30 @@
     CS--&gt;&gt;Repo: ClassificationResult
     Repo-&gt;&gt;DB: saveObservation(result)
     Repo--&gt;&gt;VM: ClassificationResult
-    VM--&gt;&gt;UI: Update UI State
-    UI--&gt;&gt;User: Display Results</code></pre>
-<h3 id="data-persistence-flow">Data Persistence Flow<a class="headerlink" href="#data-persistence-flow" title="Permanent link">&para;</a></h3>
+    VM--&gt;&gt;UI: Обновить состояние UI
+    UI--&gt;&gt;User: Показать результаты</code></pre>
+<h3 id="_10">Поток сохранения данных<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>graph TD
-    A[User Action] --&gt; B[ViewModel]
+    A[Действие пользователя] --&gt; B[ViewModel]
     B --&gt; C[Repository]
-    C --&gt; D{Data Source}
-    D --&gt;|Local Data| E[DatabaseService]
-    D --&gt;|Remote Data| F[HTTP Client]
-    D --&gt;|User Preferences| G[SharedPreferences]
+    C --&gt; D{Источник данных}
+    D --&gt;|Локальные данные| E[DatabaseService]
+    D --&gt;|Удаленные данные| F[HTTP Client]
+    D --&gt;|Настройки пользователя| G[SharedPreferences]
     E --&gt; H[(SQLite)]
-    F --&gt; I[External API]
-    G --&gt; J[Local Storage]</code></pre>
-<h2 id="dependency-injection">Dependency Injection<a class="headerlink" href="#dependency-injection" title="Permanent link">&para;</a></h2>
-<p>The application uses GetIt for dependency injection, configured in <code>lib/locator.dart</code>:</p>
-<h3 id="service-registration-order">Service Registration Order<a class="headerlink" href="#service-registration-order" title="Permanent link">&para;</a></h3>
+    F --&gt; I[Внешний API]
+    G --&gt; J[Локальное хранилище]</code></pre>
+<h2 id="_11">Внедрение зависимостей<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>Приложение использует GetIt для внедрения зависимостей, настроенного в <code>lib/locator.dart</code>:</p>
+<h3 id="_12">Порядок регистрации сервисов<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>External Packages</strong>: SharedPreferences, HTTP Client, UUID</li>
-<li><strong>Core Services</strong>: Database, PyTorch, User, Classification</li>
-<li><strong>Repositories</strong>: Data access layer</li>
-<li><strong>ViewModels</strong>: Business logic layer</li>
-<li><strong>Providers</strong>: State management</li>
+<li><strong>Внешние пакеты</strong>: SharedPreferences, HTTP Client, UUID</li>
+<li><strong>Основные сервисы</strong>: Database, PyTorch, User, Classification</li>
+<li><strong>Репозитории</strong>: Слой доступа к данным</li>
+<li><strong>Модели представления</strong>: Слой бизнес-логики</li>
+<li><strong>Провайдеры</strong>: Управление состоянием</li>
 </ol>
-<h3 id="dependency-graph">Dependency Graph<a class="headerlink" href="#dependency-graph" title="Permanent link">&para;</a></h3>
+<h3 id="_13">Граф зависимостей<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>graph TD
     SP[SharedPreferences] --&gt; US[UserService]
     SP --&gt; LP[LocaleProvider]
@@ -2012,17 +2012,17 @@
 
     CR --&gt; CVM[ClassificationViewModel]
     US --&gt; CVM</code></pre>
-<h2 id="state-management-with-provider">State Management with Provider<a class="headerlink" href="#state-management-with-provider" title="Permanent link">&para;</a></h2>
-<h3 id="provider-architecture">Provider Architecture<a class="headerlink" href="#provider-architecture" title="Permanent link">&para;</a></h3>
+<h2 id="provider">Управление состоянием с Provider<a class="headerlink" href="#provider" title="Permanent link">&para;</a></h2>
+<h3 id="provider_1">Архитектура Provider<a class="headerlink" href="#provider_1" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>graph TB
-    subgraph "Provider Tree"
+    subgraph "Дерево Provider"
         LP[LocaleProvider]
         CVM[ClassificationViewModel]
         DVM[DiseaseInfoViewModel]
         GVM[GalleryViewModel]
     end
 
-    subgraph "Widget Tree"
+    subgraph "Дерево виджетов"
         MA[MaterialApp]
         HP[HomePage]
         CS[ClassificationScreen]
@@ -2034,38 +2034,38 @@
     CVM --&gt; CS
     GVM --&gt; GS
     DVM --&gt; DS</code></pre>
-<h3 id="state-flow-pattern">State Flow Pattern<a class="headerlink" href="#state-flow-pattern" title="Permanent link">&para;</a></h3>
+<h3 id="_14">Паттерн потока состояния<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>User Interaction</strong>: User performs action in UI</li>
-<li><strong>ViewModel Update</strong>: ViewModel processes action and updates state</li>
-<li><strong>Provider Notification</strong>: ViewModel notifies listeners via ChangeNotifier</li>
-<li><strong>UI Rebuild</strong>: Consumer widgets rebuild with new state</li>
-<li><strong>Repository Interaction</strong>: ViewModel calls repository methods for data operations</li>
+<li><strong>Взаимодействие пользователя</strong>: Пользователь выполняет действие в UI</li>
+<li><strong>Обновление ViewModel</strong>: ViewModel обрабатывает действие и обновляет состояние</li>
+<li><strong>Уведомление Provider</strong>: ViewModel уведомляет слушателей через ChangeNotifier</li>
+<li><strong>Перестроение UI</strong>: Consumer виджеты перестраиваются с новым состоянием</li>
+<li><strong>Взаимодействие с Repository</strong>: ViewModel вызывает методы репозитория для операций с данными</li>
 </ol>
-<h2 id="ai-model-integration">AI Model Integration<a class="headerlink" href="#ai-model-integration" title="Permanent link">&para;</a></h2>
-<h3 id="pytorch-lite-integration">PyTorch Lite Integration<a class="headerlink" href="#pytorch-lite-integration" title="Permanent link">&para;</a></h3>
+<h2 id="_15">Интеграция модели ИИ<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="pytorch-lite">Интеграция PyTorch Lite<a class="headerlink" href="#pytorch-lite" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>graph LR
-    subgraph "AI Pipeline"
-        IMG[Image Input] --&gt; PREP[Image Preprocessing]
-        PREP --&gt; MODEL[PyTorch Lite Model]
-        MODEL --&gt; POST[Post-processing]
-        POST --&gt; RESULT[Classification Result]
+    subgraph "Конвейер ИИ"
+        IMG[Входное изображение] --&gt; PREP[Предобработка изображения]
+        PREP --&gt; MODEL[Модель PyTorch Lite]
+        MODEL --&gt; POST[Постобработка]
+        POST --&gt; RESULT[Результат классификации]
     end
 
-    subgraph "Model Management"
-        ASSETS[Model Assets] --&gt; LOADER[Model Loader]
-        LOADER --&gt; CACHE[Model Cache]
+    subgraph "Управление моделью"
+        ASSETS[Ресурсы модели] --&gt; LOADER[Загрузчик модели]
+        LOADER --&gt; CACHE[Кэш модели]
         CACHE --&gt; MODEL
     end</code></pre>
-<h3 id="classification-service-architecture">Classification Service Architecture<a class="headerlink" href="#classification-service-architecture" title="Permanent link">&para;</a></h3>
+<h3 id="_16">Архитектура сервиса классификации<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Image Preprocessing</strong>: Resize, normalize, and format images for model input</li>
-<li><strong>Model Inference</strong>: Execute PyTorch Lite model prediction</li>
-<li><strong>Result Processing</strong>: Parse model output and map to mosquito species</li>
-<li><strong>Confidence Scoring</strong>: Evaluate prediction confidence and handle low-confidence results</li>
+<li><strong>Предобработка изображений</strong>: Изменение размера, нормализация и форматирование изображений для входа модели</li>
+<li><strong>Вывод модели</strong>: Выполнение предсказания модели PyTorch Lite</li>
+<li><strong>Обработка результатов</strong>: Парсинг выхода модели и сопоставление с видами комаров</li>
+<li><strong>Оценка достоверности</strong>: Оценка достоверности предсказания и обработка результатов с низкой достоверностью</li>
 </ul>
-<h2 id="database-architecture">Database Architecture<a class="headerlink" href="#database-architecture" title="Permanent link">&para;</a></h2>
-<h3 id="sqlite-schema">SQLite Schema<a class="headerlink" href="#sqlite-schema" title="Permanent link">&para;</a></h3>
+<h2 id="_17">Архитектура базы данных<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="sqlite">Схема SQLite<a class="headerlink" href="#sqlite" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>erDiagram
     MOSQUITO {
         int id PK
@@ -2111,60 +2111,60 @@
     MOSQUITO ||--o{ OBSERVATION : "identified_as"
     MOSQUITO ||--o{ MOSQUITO_DISEASE : "carries"
     DISEASE ||--o{ MOSQUITO_DISEASE : "carried_by"</code></pre>
-<h3 id="data-access-pattern">Data Access Pattern<a class="headerlink" href="#data-access-pattern" title="Permanent link">&para;</a></h3>
+<h3 id="_18">Паттерн доступа к данным<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Repository Pattern</strong>: Abstract data access through repository interfaces</li>
-<li><strong>Service Layer</strong>: Business logic separated from data access</li>
-<li><strong>Model Classes</strong>: Strongly-typed data models with validation</li>
-<li><strong>Migration Support</strong>: Database schema versioning and migration handling</li>
+<li><strong>Паттерн Repository</strong>: Абстрагирование доступа к данным через интерфейсы репозиториев</li>
+<li><strong>Сервисный слой</strong>: Бизнес-логика отделена от доступа к данным</li>
+<li><strong>Классы моделей</strong>: Строго типизированные модели данных с валидацией</li>
+<li><strong>Поддержка миграций</strong>: Версионирование схемы базы данных и обработка миграций</li>
 </ul>
-<h2 id="security-architecture">Security Architecture<a class="headerlink" href="#security-architecture" title="Permanent link">&para;</a></h2>
-<h3 id="data-protection">Data Protection<a class="headerlink" href="#data-protection" title="Permanent link">&para;</a></h3>
+<h2 id="_19">Архитектура безопасности<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<h3 id="_20">Защита данных<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Local Storage</strong>: SQLite database with encrypted sensitive data</li>
-<li><strong>User Privacy</strong>: Anonymous user identification with UUID</li>
-<li><strong>Image Security</strong>: Local image storage with secure file paths</li>
-<li><strong>Network Security</strong>: HTTPS for all external API communications</li>
+<li><strong>Локальное хранилище</strong>: База данных SQLite с шифрованием чувствительных данных</li>
+<li><strong>Конфиденциальность пользователя</strong>: Анонимная идентификация пользователя с UUID</li>
+<li><strong>Безопасность изображений</strong>: Локальное хранение изображений с безопасными путями к файлам</li>
+<li><strong>Сетевая безопасность</strong>: HTTPS для всех внешних API коммуникаций</li>
 </ul>
-<h3 id="permission-management">Permission Management<a class="headerlink" href="#permission-management" title="Permanent link">&para;</a></h3>
+<h3 id="_21">Управление разрешениями<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Camera Access</strong>: Required for image capture functionality</li>
-<li><strong>Location Services</strong>: Optional for observation geo-tagging</li>
-<li><strong>Storage Access</strong>: Required for image processing and caching</li>
-<li><strong>Network Access</strong>: Required for external API integration</li>
+<li><strong>Доступ к камере</strong>: Требуется для функциональности захвата изображений</li>
+<li><strong>Службы геолокации</strong>: Опционально для геотегирования наблюдений</li>
+<li><strong>Доступ к хранилищу</strong>: Требуется для обработки и кэширования изображений</li>
+<li><strong>Доступ к сети</strong>: Требуется для интеграции внешних API</li>
 </ul>
-<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link">&para;</a></h2>
-<h3 id="memory-management">Memory Management<a class="headerlink" href="#memory-management" title="Permanent link">&para;</a></h3>
+<h2 id="_22">Соображения производительности<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<h3 id="_23">Управление памятью<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Image Processing</strong>: Efficient image loading and disposal</li>
-<li><strong>Model Caching</strong>: PyTorch model loaded once and cached</li>
-<li><strong>Database Connections</strong>: Connection pooling and proper disposal</li>
-<li><strong>Widget Lifecycle</strong>: Proper disposal of controllers and listeners</li>
+<li><strong>Обработка изображений</strong>: Эффективная загрузка и освобождение изображений</li>
+<li><strong>Кэширование модели</strong>: Модель PyTorch загружается один раз и кэшируется</li>
+<li><strong>Соединения с базой данных</strong>: Пулинг соединений и правильное освобождение</li>
+<li><strong>Жизненный цикл виджетов</strong>: Правильное освобождение контроллеров и слушателей</li>
 </ul>
-<h3 id="optimization-strategies">Optimization Strategies<a class="headerlink" href="#optimization-strategies" title="Permanent link">&para;</a></h3>
+<h3 id="_24">Стратегии оптимизации<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Lazy Loading</strong>: Services and models loaded on-demand</li>
-<li><strong>Image Caching</strong>: Cached network images for offline access</li>
-<li><strong>Database Indexing</strong>: Optimized queries with proper indexing</li>
-<li><strong>Background Processing</strong>: Heavy operations moved to background threads</li>
+<li><strong>Ленивая загрузка</strong>: Сервисы и модели загружаются по требованию</li>
+<li><strong>Кэширование изображений</strong>: Кэшированные сетевые изображения для офлайн доступа</li>
+<li><strong>Индексирование базы данных</strong>: Оптимизированные запросы с правильным индексированием</li>
+<li><strong>Фоновая обработка</strong>: Тяжелые операции перенесены в фоновые потоки</li>
 </ul>
-<h2 id="testing-architecture">Testing Architecture<a class="headerlink" href="#testing-architecture" title="Permanent link">&para;</a></h2>
-<h3 id="testing-layers">Testing Layers<a class="headerlink" href="#testing-layers" title="Permanent link">&para;</a></h3>
+<h2 id="_25">Архитектура тестирования<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<h3 id="_26">Слои тестирования<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>graph TB
-    subgraph "Testing Pyramid"
-        UT[Unit Tests]
-        IT[Integration Tests]
-        WT[Widget Tests]
-        E2E[End-to-End Tests]
+    subgraph "Пирамида тестирования"
+        UT[Модульные тесты]
+        IT[Интеграционные тесты]
+        WT[Тесты виджетов]
+        E2E[Сквозные тесты]
     end
 
-    subgraph "Test Targets"
-        M[Models]
-        S[Services]
-        R[Repositories]
-        VM[ViewModels]
-        W[Widgets]
-        F[Full App Flow]
+    subgraph "Цели тестирования"
+        M[Модели]
+        S[Сервисы]
+        R[Репозитории]
+        VM[Модели представления]
+        W[Виджеты]
+        F[Полный поток приложения]
     end
 
     UT --&gt; M
@@ -2173,43 +2173,43 @@
     IT --&gt; VM
     WT --&gt; W
     E2E --&gt; F</code></pre>
-<h3 id="testing-strategy">Testing Strategy<a class="headerlink" href="#testing-strategy" title="Permanent link">&para;</a></h3>
+<h3 id="_27">Стратегия тестирования<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Unit Tests</strong>: Test individual components in isolation</li>
-<li><strong>Integration Tests</strong>: Test component interactions and data flow</li>
-<li><strong>Widget Tests</strong>: Test UI components and user interactions</li>
-<li><strong>End-to-End Tests</strong>: Test complete user workflows</li>
+<li><strong>Модульные тесты</strong>: Тестирование отдельных компонентов в изоляции</li>
+<li><strong>Интеграционные тесты</strong>: Тестирование взаимодействий компонентов и потока данных</li>
+<li><strong>Тесты виджетов</strong>: Тестирование компонентов UI и взаимодействий пользователя</li>
+<li><strong>Сквозные тесты</strong>: Тестирование полных пользовательских рабочих процессов</li>
 </ul>
-<h2 id="deployment-architecture">Deployment Architecture<a class="headerlink" href="#deployment-architecture" title="Permanent link">&para;</a></h2>
-<h3 id="build-configuration">Build Configuration<a class="headerlink" href="#build-configuration" title="Permanent link">&para;</a></h3>
+<h2 id="_28">Архитектура развертывания<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<h3 id="_29">Конфигурация сборки<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Development</strong>: Debug builds with development tools</li>
-<li><strong>Staging</strong>: Release builds with staging API endpoints</li>
-<li><strong>Production</strong>: Optimized release builds with production configuration</li>
+<li><strong>Разработка</strong>: Отладочные сборки с инструментами разработки</li>
+<li><strong>Промежуточная</strong>: Релизные сборки с промежуточными API эндпоинтами</li>
+<li><strong>Продакшн</strong>: Оптимизированные релизные сборки с продакшн конфигурацией</li>
 </ul>
-<h3 id="platform-specific-considerations">Platform-Specific Considerations<a class="headerlink" href="#platform-specific-considerations" title="Permanent link">&para;</a></h3>
+<h3 id="-">Платформо-специфические соображения<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Android</strong>: Gradle build configuration and permissions</li>
-<li><strong>iOS</strong>: Xcode project settings and Info.plist configuration</li>
-<li><strong>Asset Management</strong>: Platform-specific asset optimization</li>
+<li><strong>Android</strong>: Конфигурация сборки Gradle и разрешения</li>
+<li><strong>iOS</strong>: Настройки проекта Xcode и конфигурация Info.plist</li>
+<li><strong>Управление ресурсами</strong>: Платформо-специфическая оптимизация ресурсов</li>
 </ul>
-<h2 id="extension-points">Extension Points<a class="headerlink" href="#extension-points" title="Permanent link">&para;</a></h2>
-<h3 id="customization-areas">Customization Areas<a class="headerlink" href="#customization-areas" title="Permanent link">&para;</a></h3>
+<h2 id="_30">Точки расширения<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<h3 id="_31">Области кастомизации<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>New Classification Models</strong>: Plugin architecture for additional AI models</li>
-<li><strong>Data Sources</strong>: Extensible repository pattern for new data sources</li>
-<li><strong>UI Themes</strong>: Configurable theming system</li>
-<li><strong>Localization</strong>: Support for additional languages and regions</li>
+<li><strong>Новые модели классификации</strong>: Архитектура плагинов для дополнительных моделей ИИ</li>
+<li><strong>Источники данных</strong>: Расширяемый паттерн репозитория для новых источников данных</li>
+<li><strong>Темы UI</strong>: Настраиваемая система тем</li>
+<li><strong>Локализация</strong>: Поддержка дополнительных языков и регионов</li>
 </ul>
-<h3 id="integration-capabilities">Integration Capabilities<a class="headerlink" href="#integration-capabilities" title="Permanent link">&para;</a></h3>
+<h3 id="_32">Возможности интеграции<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>External APIs</strong>: RESTful API integration framework</li>
-<li><strong>Third-party Services</strong>: Plugin system for external service integration</li>
-<li><strong>Data Export</strong>: Configurable data export formats and destinations</li>
-<li><strong>Analytics</strong>: Pluggable analytics and monitoring systems</li>
+<li><strong>Внешние API</strong>: Фреймворк интеграции RESTful API</li>
+<li><strong>Сторонние сервисы</strong>: Система плагинов для интеграции внешних сервисов</li>
+<li><strong>Экспорт данных</strong>: Настраиваемые форматы экспорта данных и назначения</li>
+<li><strong>Аналитика</strong>: Подключаемые системы аналитики и мониторинга</li>
 </ul>
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>The CulicidaeLab architecture provides a solid foundation for a scalable, maintainable, and extensible mobile application. The clear separation of concerns, dependency injection, and MVVM pattern ensure that the codebase remains organized and testable as the application grows in complexity and features.</p>
+<h2 id="_33">Заключение<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<p>Архитектура CulicidaeLab обеспечивает прочную основу для масштабируемого, поддерживаемого и расширяемого мобильного приложения. Четкое разделение ответственности, внедрение зависимостей и паттерн MVVM обеспечивают организованность и тестируемость кодовой базы по мере роста сложности и функций приложения.</p>
 
 
 
@@ -2235,7 +2235,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Back to top
+  К началу
 </button>
         
       </main>
@@ -2267,7 +2267,7 @@
       
       
     
-    <a href="https://github.com/culicidaelab/culicidaelab-mobile" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile" target="_blank" rel="noopener" title="github.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
@@ -2291,7 +2291,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.integrate", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.integrate", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
