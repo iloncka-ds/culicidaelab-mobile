@@ -1,18 +1,18 @@
 
 <!doctype html>
-<html lang="ru" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Полная документация для мобильного приложения CulicidaeLab на Flutter.">
+        <meta name="description" content="Comprehensive documentation for the CulicidaeLab Flutter mobile application">
       
       
         <meta name="author" content="Ilona Kovaleva">
       
       
-        <link rel="canonical" href="https://iloncka-ds.github.io/culicidaelab-mobile/ru/contribution/pull-request-process/">
+        <link rel="canonical" href="https://iloncka-ds.github.io/culicidaelab-mobile/en/contribution/pull-request-process/">
       
       
         <link rel="prev" href="../code-style/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Процесс создания Pull Request - CulicidaeLab Documentation</title>
+        <title>Pull Request Process - CulicidaeLab Documentation</title>
       
     
     
@@ -82,8 +82,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#pull-request" class="md-skip">
-          Перейти к содержанию
+        <a href="#pull-request-process" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -97,7 +97,7 @@
   
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+  <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="CulicidaeLab Documentation" class="md-header__button md-logo" aria-label="CulicidaeLab Documentation" data-md-component="logo">
       
   <img src="../../assets/images/logo.png" alt="logo">
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Процесс создания Pull Request
+              Pull Request Process
             
           </span>
         </div>
@@ -157,7 +157,7 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Выберите язык">
+    <button class="md-header__button md-icon" aria-label="Select language">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
@@ -189,21 +189,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Поиск">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Поделиться" aria-label="Поделиться" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -216,7 +216,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Инициализация поиска
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -227,7 +227,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+        <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -242,7 +242,7 @@
   
     
       
-<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -256,7 +256,7 @@
   
     
   
-  Главная
+  Home
 
       </a>
     </li>
@@ -275,7 +275,7 @@
   
     
   
-  Руководство пользователя
+  User Guide
 
         </a>
       </li>
@@ -295,7 +295,7 @@
   
     
   
-  Руководство разработчика
+  Developer Guide
 
         </a>
       </li>
@@ -315,7 +315,7 @@
   
     
   
-  Справочник по API
+  API Reference
 
         </a>
       </li>
@@ -337,7 +337,7 @@
   
     
   
-  Участие в проекте
+  Contribution
 
         </a>
       </li>
@@ -373,7 +373,7 @@
 
   
 
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Навигация" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="CulicidaeLab Documentation" class="md-nav__button md-logo" aria-label="CulicidaeLab Documentation" data-md-component="logo">
       
@@ -384,7 +384,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+      <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -408,7 +408,7 @@
         
   
   <span class="md-ellipsis">
-    Главная
+    Home
   </span>
   
 
@@ -459,7 +459,7 @@
             
   
   <span class="md-ellipsis">
-    Руководство пользователя
+    User Guide
   </span>
   
 
@@ -469,7 +469,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Руководство пользователя
+            User Guide
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -484,7 +484,7 @@
         
   
   <span class="md-ellipsis">
-    Начало работы
+    Getting Started
   </span>
   
 
@@ -505,7 +505,7 @@
         
   
   <span class="md-ellipsis">
-    Идентификация комаров
+    Mosquito Identification
   </span>
   
 
@@ -526,7 +526,7 @@
         
   
   <span class="md-ellipsis">
-    Использование галереи
+    Using Gallery
   </span>
   
 
@@ -547,7 +547,7 @@
         
   
   <span class="md-ellipsis">
-    Информация о заболеваниях
+    Disease Information
   </span>
   
 
@@ -568,7 +568,7 @@
         
   
   <span class="md-ellipsis">
-    Устранение неполадок
+    Troubleshooting
   </span>
   
 
@@ -589,7 +589,7 @@
         
   
   <span class="md-ellipsis">
-    Часто задаваемые вопросы
+    FAQ
   </span>
   
 
@@ -658,7 +658,7 @@
             
   
   <span class="md-ellipsis">
-    Руководство разработчика
+    Developer Guide
   </span>
   
 
@@ -668,7 +668,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Руководство разработчика
+            Developer Guide
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -683,7 +683,7 @@
         
   
   <span class="md-ellipsis">
-    Архитектура
+    Architecture
   </span>
   
 
@@ -704,7 +704,7 @@
         
   
   <span class="md-ellipsis">
-    Настройка для разработки
+    Development Setup
   </span>
   
 
@@ -725,7 +725,7 @@
         
   
   <span class="md-ellipsis">
-    Структура проекта
+    Project Structure
   </span>
   
 
@@ -746,7 +746,7 @@
         
   
   <span class="md-ellipsis">
-    Интеграция ИИ-моделей
+    AI Model Integration
   </span>
   
 
@@ -767,7 +767,7 @@
         
   
   <span class="md-ellipsis">
-    Руководство по тестированию
+    Testing Guide
   </span>
   
 
@@ -788,7 +788,7 @@
         
   
   <span class="md-ellipsis">
-    Оптимизация производительности
+    Performance Optimization
   </span>
   
 
@@ -809,7 +809,7 @@
         
   
   <span class="md-ellipsis">
-    Интеграция с экосистемой
+    Ecosystem Integration
   </span>
   
 
@@ -830,7 +830,7 @@
         
   
   <span class="md-ellipsis">
-    Модели данных
+    Data Models
   </span>
   
 
@@ -851,7 +851,7 @@
         
   
   <span class="md-ellipsis">
-    Интеграция API
+    API Integration
   </span>
   
 
@@ -872,7 +872,7 @@
         
   
   <span class="md-ellipsis">
-    Расширение функциональности
+    Extending Functionality
   </span>
   
 
@@ -893,7 +893,7 @@
         
   
   <span class="md-ellipsis">
-    Паттерны Flutter
+    Flutter Patterns
   </span>
   
 
@@ -942,7 +942,7 @@
             
   
   <span class="md-ellipsis">
-    Справочник по API
+    API Reference
   </span>
   
 
@@ -952,7 +952,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Справочник по API
+            API Reference
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1027,7 +1027,7 @@
             
   
   <span class="md-ellipsis">
-    Участие в проекте
+    Contribution
   </span>
   
 
@@ -1037,7 +1037,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Участие в проекте
+            Contribution
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1052,7 +1052,7 @@
         
   
   <span class="md-ellipsis">
-    Как внести вклад
+    Contributing
   </span>
   
 
@@ -1073,7 +1073,7 @@
         
   
   <span class="md-ellipsis">
-    Стиль кода
+    Code Style
   </span>
   
 
@@ -1154,7 +1154,7 @@
           
   
   <span class="md-ellipsis">
-    Процесс создания Pull Request
+    Pull Request Process
   </span>
   
 
@@ -1165,7 +1165,7 @@
         
   
   <span class="md-ellipsis">
-    Процесс создания Pull Request
+    Pull Request Process
   </span>
   
 
@@ -1189,156 +1189,48 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Обзор
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
-      Содержание
+      Table of Contents
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pull-request_1" class="md-nav__link">
+  <a href="#pull-request-lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
-      Жизненный цикл Pull Request
+      Pull Request Lifecycle
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Жизненный цикл Pull Request">
+    <nav class="md-nav" aria-label="Pull Request Lifecycle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#lifecycle-stages" class="md-nav__link">
     <span class="md-ellipsis">
-      Этапы жизненного цикла
+      Lifecycle Stages
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#stage-descriptions" class="md-nav__link">
     <span class="md-ellipsis">
-      Описания этапов
+      Stage Descriptions
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pull-requests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Создание Pull Requests
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Создание Pull Requests">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    <span class="md-ellipsis">
-      Чек-лист перед созданием
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pr" class="md-nav__link">
-    <span class="md-ellipsis">
-      Шаги создания PR
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Шаги создания PR">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Подготовьте вашу ветку
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-pull-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Создайте Pull Request
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-pr" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Заполнение шаблона PR
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pr_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Руководящие принципы заголовка PR
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pr_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Лучшие практики описания PR
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Лучшие практики описания PR">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Структура
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Пример описания
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1348,38 +1240,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#creating-pull-requests" class="md-nav__link">
     <span class="md-ellipsis">
-      Процесс рецензирования
+      Creating Pull Requests
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Процесс рецензирования">
+    <nav class="md-nav" aria-label="Creating Pull Requests">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#pre-creation-checklist" class="md-nav__link">
     <span class="md-ellipsis">
-      Назначение рецензирования
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Назначение рецензирования">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      Автоматическое назначение
+      Pre-Creation Checklist
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#pr-creation-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Ручное назначение
+      PR Creation Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PR Creation Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prepare-your-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Prepare Your Branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-the-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Create the Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pr-template-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. PR Template Completion
     </span>
   </a>
   
@@ -1391,103 +1301,37 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#pr-title-guidelines" class="md-nav__link">
     <span class="md-ellipsis">
-      Типы рецензирования
+      PR Title Guidelines
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Типы рецензирования">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr-description-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      PR Description Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PR Description Best Practices">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
+  <a href="#structure" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Рецензирование кода
+      Structure
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#example-description" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Рецензирование дизайна
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Рецензирование тестирования
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      Руководящие принципы рецензирования
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Руководящие принципы рецензирования">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      Для рецензентов
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      Для авторов
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      Критерии рецензирования
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Критерии рецензирования">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      Критерии одобрения
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      Критерии запроса изменений
+      Example Description
     </span>
   </a>
   
@@ -1504,47 +1348,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#review-process" class="md-nav__link">
     <span class="md-ellipsis">
-      Рабочий процесс одобрения
+      Review Process
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Рабочий процесс одобрения">
+    <nav class="md-nav" aria-label="Review Process">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#review-assignment" class="md-nav__link">
     <span class="md-ellipsis">
-      Требования к одобрению
+      Review Assignment
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Требования к одобрению">
+    <nav class="md-nav" aria-label="Review Assignment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pr_3" class="md-nav__link">
+  <a href="#automatic-assignment" class="md-nav__link">
     <span class="md-ellipsis">
-      Стандартные PR
+      Automatic Assignment
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pr_4" class="md-nav__link">
+  <a href="#manual-assignment" class="md-nav__link">
     <span class="md-ellipsis">
-      Критические PR
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hotfix-pr" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hotfix PR
+      Manual Assignment
     </span>
   </a>
   
@@ -1556,37 +1391,37 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#review-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Процесс одобрения
+      Review Types
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Процесс одобрения">
+    <nav class="md-nav" aria-label="Review Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_2" class="md-nav__link">
+  <a href="#1-code-review" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Первоначальное рецензирование
+      1. Code Review
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
+  <a href="#2-design-review" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Финальное одобрение
+      2. Design Review
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
+  <a href="#3-testing-review" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Готовность к слиянию
+      3. Testing Review
     </span>
   </a>
   
@@ -1598,28 +1433,61 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#review-guidelines" class="md-nav__link">
     <span class="md-ellipsis">
-      Управление статусом рецензирования
+      Review Guidelines
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Управление статусом рецензирования">
+    <nav class="md-nav" aria-label="Review Guidelines">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#for-reviewers" class="md-nav__link">
     <span class="md-ellipsis">
-      Индикаторы статуса
+      For Reviewers
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#for-authors" class="md-nav__link">
     <span class="md-ellipsis">
-      Переходы статуса
+      For Authors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review Criteria
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Review Criteria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approval Criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-request-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change Request Criteria
     </span>
   </a>
   
@@ -1636,23 +1504,155 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#approval-workflow" class="md-nav__link">
     <span class="md-ellipsis">
-      Стратегии слияния
+      Approval Workflow
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Стратегии слияния">
+    <nav class="md-nav" aria-label="Approval Workflow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#approval-requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Опции слияния
+      Approval Requirements
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Опции слияния">
+    <nav class="md-nav" aria-label="Approval Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard PRs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#critical-prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critical PRs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hotfix-prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hotfix PRs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approval-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approval Process
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Approval Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-initial-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Initial Review
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-final-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Final Approval
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-merge-readiness" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Merge Readiness
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-status-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review Status Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Review Status Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status Indicators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-transitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status Transitions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Merge Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merge-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Merge Options">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1688,18 +1688,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#merge-decision-matrix" class="md-nav__link">
     <span class="md-ellipsis">
-      Матрица решений слияния
+      Merge Decision Matrix
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#-_1" class="md-nav__link">
+  <a href="#pre-merge-checklist" class="md-nav__link">
     <span class="md-ellipsis">
-      Чек-лист перед слиянием
+      Pre-Merge Checklist
     </span>
   </a>
   
@@ -1711,47 +1711,47 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
+  <a href="#post-merge-process" class="md-nav__link">
     <span class="md-ellipsis">
-      Процесс после слияния
+      Post-Merge Process
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Процесс после слияния">
+    <nav class="md-nav" aria-label="Post-Merge Process">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#immediate-actions" class="md-nav__link">
     <span class="md-ellipsis">
-      Немедленные действия
+      Immediate Actions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Немедленные действия">
+    <nav class="md-nav" aria-label="Immediate Actions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_3" class="md-nav__link">
+  <a href="#1-branch-cleanup" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Очистка ветки
+      1. Branch Cleanup
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_2" class="md-nav__link">
+  <a href="#2-issue-management" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Управление задачами
+      2. Issue Management
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_2" class="md-nav__link">
+  <a href="#3-documentation-updates" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Обновления документации
+      3. Documentation Updates
     </span>
   </a>
   
@@ -1763,151 +1763,37 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_29" class="md-nav__link">
+  <a href="#follow-up-tasks" class="md-nav__link">
     <span class="md-ellipsis">
-      Последующие задачи
+      Follow-up Tasks
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Последующие задачи">
+    <nav class="md-nav" aria-label="Follow-up Tasks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_4" class="md-nav__link">
+  <a href="#1-monitoring" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Мониторинг
+      1. Monitoring
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_3" class="md-nav__link">
+  <a href="#2-communication" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Коммуникация
+      2. Communication
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_3" class="md-nav__link">
+  <a href="#3-cleanup" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Очистка
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_30" class="md-nav__link">
-    <span class="md-ellipsis">
-      Лучшие практики
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Лучшие практики">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
-    <span class="md-ellipsis">
-      Для авторов
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Для авторов">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pr_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Создание PR
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_32" class="md-nav__link">
-    <span class="md-ellipsis">
-      Во время рецензирования
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_33" class="md-nav__link">
-    <span class="md-ellipsis">
-      Для рецензентов
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Для рецензентов">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_34" class="md-nav__link">
-    <span class="md-ellipsis">
-      Качество рецензирования
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_35" class="md-nav__link">
-    <span class="md-ellipsis">
-      Процесс рецензирования
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_36" class="md-nav__link">
-    <span class="md-ellipsis">
-      Общие руководящие принципы
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Общие руководящие принципы">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_37" class="md-nav__link">
-    <span class="md-ellipsis">
-      Коммуникация
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_38" class="md-nav__link">
-    <span class="md-ellipsis">
-      Стандарты качества
+      3. Cleanup
     </span>
   </a>
   
@@ -1924,56 +1810,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_39" class="md-nav__link">
+  <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
-      Устранение неполадок
+      Best Practices
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Устранение неполадок">
+    <nav class="md-nav" aria-label="Best Practices">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_40" class="md-nav__link">
+  <a href="#for-authors_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Распространенные проблемы
+      For Authors
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Распространенные проблемы">
+    <nav class="md-nav" aria-label="For Authors">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_5" class="md-nav__link">
+  <a href="#pr-creation" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Конфликты слияния
+      PR Creation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-ci" class="md-nav__link">
+  <a href="#during-review" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Неудачные проверки CI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Задержки рецензирования
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Проблемы одобрения
+      During Review
     </span>
   </a>
   
@@ -1985,28 +1853,61 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_41" class="md-nav__link">
+  <a href="#for-reviewers_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Процедуры экстренных случаев
+      For Reviewers
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Процедуры экстренных случаев">
+    <nav class="md-nav" aria-label="For Reviewers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hotfix" class="md-nav__link">
+  <a href="#review-quality" class="md-nav__link">
     <span class="md-ellipsis">
-      Процесс Hotfix
+      Review Quality
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_42" class="md-nav__link">
+  <a href="#review-process_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Процесс отката
+      Review Process
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Guidelines
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Standards
     </span>
   </a>
   
@@ -2023,9 +1924,108 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      Заключение
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Merge Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-failed-ci-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Failed CI Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-review-delays" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Review Delays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-approval-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Approval Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emergency-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emergency Procedures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Emergency Procedures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hotfix-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hotfix Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rollback Process
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
     </span>
   </a>
   
@@ -2051,7 +2051,7 @@
         
   
   <span class="md-ellipsis">
-    Шаблон Pull Request
+    Pull Request Template
   </span>
   
 
@@ -2080,7 +2080,7 @@
         
   
   <span class="md-ellipsis">
-    Процесс разработки
+    Development Workflow
   </span>
   
 
@@ -2131,7 +2131,7 @@
             
   
   <span class="md-ellipsis">
-    Шаблоны задач
+    Issue Templates
   </span>
   
 
@@ -2141,7 +2141,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
-            Шаблоны задач
+            Issue Templates
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2156,7 +2156,7 @@
         
   
   <span class="md-ellipsis">
-    Шаблон отчета об ошибке
+    Bug Report Template
   </span>
   
 
@@ -2177,7 +2177,7 @@
         
   
   <span class="md-ellipsis">
-    Шаблон улучшения документации
+    Documentation Improvement Template
   </span>
   
 
@@ -2198,7 +2198,7 @@
         
   
   <span class="md-ellipsis">
-    Шаблон запроса новой функциональности
+    Feature Request Template
   </span>
   
 
@@ -2219,7 +2219,7 @@
         
   
   <span class="md-ellipsis">
-    Шаблон вопроса
+    Question Template
   </span>
   
 
@@ -2259,7 +2259,7 @@
                   
 
   
-    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/blob/main/docs/ru/contribution/pull-request-process.md" title="Редактировать страницу" class="md-content__button md-icon">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/blob/main/docs/en/contribution/pull-request-process.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2268,550 +2268,550 @@
     
       
     
-    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/raw/main/docs/ru/contribution/pull-request-process.md" title="Посмотреть исходный код страницы" class="md-content__button md-icon">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/raw/main/docs/en/contribution/pull-request-process.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="pull-request">Процесс Pull Request<a class="headerlink" href="#pull-request" title="Permanent link">&para;</a></h1>
-<h2 id="_1">Обзор<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Этот документ предоставляет подробные руководящие принципы для создания, рецензирования и управления pull requests в проекте CulicidaeLab. Следование этому процессу обеспечивает качество кода, поддерживает стандарты проекта и способствует эффективному сотрудничеству.</p>
-<h2 id="_2">Содержание<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="pull-request-process">Pull Request Process<a class="headerlink" href="#pull-request-process" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This document provides detailed guidelines for creating, reviewing, and managing pull requests in the CulicidaeLab project. Following this process ensures code quality, maintains project standards, and facilitates effective collaboration.</p>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="#жизненный-цикл-pull-request">Жизненный цикл Pull Request</a></li>
-<li><a href="#создание-pull-requests">Создание Pull Requests</a></li>
-<li><a href="#процесс-рецензирования">Процесс рецензирования</a></li>
-<li><a href="#рабочий-процесс-одобрения">Рабочий процесс одобрения</a></li>
-<li><a href="#стратегии-слияния">Стратегии слияния</a></li>
-<li><a href="#процесс-после-слияния">Процесс после слияния</a></li>
-<li><a href="#лучшие-практики">Лучшие практики</a></li>
-<li><a href="#устранение-неполадок">Устранение неполадок</a></li>
+<li><a href="#pull-request-lifecycle">Pull Request Lifecycle</a></li>
+<li><a href="#creating-pull-requests">Creating Pull Requests</a></li>
+<li><a href="#review-process">Review Process</a></li>
+<li><a href="#approval-workflow">Approval Workflow</a></li>
+<li><a href="#merge-strategies">Merge Strategies</a></li>
+<li><a href="#post-merge-process">Post-Merge Process</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
 </ul>
-<h2 id="pull-request_1">Жизненный цикл Pull Request<a class="headerlink" href="#pull-request_1" title="Permanent link">&para;</a></h2>
-<h3 id="_3">Этапы жизненного цикла<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h2 id="pull-request-lifecycle">Pull Request Lifecycle<a class="headerlink" href="#pull-request-lifecycle" title="Permanent link">&para;</a></h2>
+<h3 id="lifecycle-stages">Lifecycle Stages<a class="headerlink" href="#lifecycle-stages" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TD
-    A[Создать PR] --&gt; B[Автоматические проверки]
-    B --&gt; C{Проверки проходят?}
-    C --&gt;|Нет| D[Исправить проблемы]
+    A[Create PR] --&gt; B[Automated Checks]
+    B --&gt; C{Checks Pass?}
+    C --&gt;|No| D[Fix Issues]
     D --&gt; B
-    C --&gt;|Да| E[Запросить рецензирование]
-    E --&gt; F[Рецензирование кода]
-    F --&gt; G{Запрошены изменения?}
-    G --&gt;|Да| H[Обратиться к обратной связи]
-    H --&gt; I[Обновить PR]
+    C --&gt;|Yes| E[Request Review]
+    E --&gt; F[Code Review]
+    F --&gt; G{Changes Requested?}
+    G --&gt;|Yes| H[Address Feedback]
+    H --&gt; I[Update PR]
     I --&gt; F
-    G --&gt;|Нет| J[Одобрить PR]
-    J --&gt; K{Готов к слиянию?}
-    K --&gt;|Нет| L[Ждать условий]
+    G --&gt;|No| J[Approve PR]
+    J --&gt; K{Ready to Merge?}
+    K --&gt;|No| L[Wait for Conditions]
     L --&gt; K
-    K --&gt;|Да| M[Слить PR]
-    M --&gt; N[Задачи после слияния]
-    N --&gt; O[Закрыть PR]</code></pre>
-<h3 id="_4">Описания этапов<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+    K --&gt;|Yes| M[Merge PR]
+    M --&gt; N[Post-Merge Tasks]
+    N --&gt; O[Close PR]</code></pre>
+<h3 id="stage-descriptions">Stage Descriptions<a class="headerlink" href="#stage-descriptions" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Черновик</strong>: Работа в процессе, не готова к рецензированию</li>
-<li><strong>Готов к рецензированию</strong>: Завершен и готов к рецензированию командой</li>
-<li><strong>В рецензировании</strong>: Активно рецензируется членами команды</li>
-<li><strong>Запрошены изменения</strong>: Предоставлена обратная связь, ожидаются обновления</li>
-<li><strong>Одобрен</strong>: Одобрен необходимыми рецензентами</li>
-<li><strong>Готов к слиянию</strong>: Все условия для слияния выполнены</li>
-<li><strong>Слит</strong>: Успешно слит в целевую ветку</li>
-<li><strong>Закрыт</strong>: Жизненный цикл PR завершен</li>
+<li><strong>Draft</strong>: Work in progress, not ready for review</li>
+<li><strong>Ready for Review</strong>: Complete and ready for team review</li>
+<li><strong>In Review</strong>: Actively being reviewed by team members</li>
+<li><strong>Changes Requested</strong>: Feedback provided, awaiting updates</li>
+<li><strong>Approved</strong>: Approved by required reviewers</li>
+<li><strong>Ready to Merge</strong>: All conditions met for merging</li>
+<li><strong>Merged</strong>: Successfully merged into target branch</li>
+<li><strong>Closed</strong>: PR lifecycle complete</li>
 </ol>
-<h2 id="pull-requests">Создание Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link">&para;</a></h2>
-<h3 id="-">Чек-лист перед созданием<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
-<p>Перед созданием pull request убедитесь:</p>
+<h2 id="creating-pull-requests">Creating Pull Requests<a class="headerlink" href="#creating-pull-requests" title="Permanent link">&para;</a></h2>
+<h3 id="pre-creation-checklist">Pre-Creation Checklist<a class="headerlink" href="#pre-creation-checklist" title="Permanent link">&para;</a></h3>
+<p>Before creating a pull request, ensure:</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Функция/исправление завершены и протестированы</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Код следует руководящим принципам стиля проекта</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Все тесты проходят локально</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Документация обновлена</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Сообщения коммитов следуют соглашениям</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ветка актуальна с целевой веткой</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Feature/fix is complete and tested</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Code follows project style guidelines</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All tests pass locally</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Documentation is updated</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Commit messages follow conventions</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Branch is up to date with target branch</li>
 </ul>
-<h3 id="pr">Шаги создания PR<a class="headerlink" href="#pr" title="Permanent link">&para;</a></h3>
-<h4 id="1">1. Подготовьте вашу ветку<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Убедитесь, что ветка актуальна</span>
+<h3 id="pr-creation-steps">PR Creation Steps<a class="headerlink" href="#pr-creation-steps" title="Permanent link">&para;</a></h3>
+<h4 id="1-prepare-your-branch">1. Prepare Your Branch<a class="headerlink" href="#1-prepare-your-branch" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Ensure branch is up to date</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>main
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>git<span class="w"> </span>checkout<span class="w"> </span>feature/your-feature
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>git<span class="w"> </span>rebase<span class="w"> </span>main<span class="w">  </span><span class="c1"># или git merge main</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>git<span class="w"> </span>rebase<span class="w"> </span>main<span class="w">  </span><span class="c1"># or git merge main</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Запустите финальные проверки</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Run final checks</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>flutter<span class="w"> </span>analyze
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>flutter<span class="w"> </span><span class="nb">test</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>flutter<span class="w"> </span>format<span class="w"> </span>.
 </span></code></pre></div>
-<h4 id="2-pull-request">2. Создайте Pull Request<a class="headerlink" href="#2-pull-request" title="Permanent link">&para;</a></h4>
+<h4 id="2-create-the-pull-request">2. Create the Pull Request<a class="headerlink" href="#2-create-the-pull-request" title="Permanent link">&para;</a></h4>
 <ol>
-<li><strong>Перейдите в репозиторий</strong>: Идите в репозиторий GitHub</li>
-<li><strong>Compare &amp; Pull Request</strong>: Нажмите кнопку для вашей ветки</li>
-<li><strong>Заполните шаблон PR</strong>: Заполните все разделы тщательно</li>
-<li><strong>Добавьте метки</strong>: Примените соответствующие метки</li>
-<li><strong>Назначьте рецензентов</strong>: Добавьте соответствующих членов команды</li>
-<li><strong>Свяжите задачи</strong>: Ссылайтесь на связанные задачи</li>
+<li><strong>Navigate to Repository</strong>: Go to GitHub repository</li>
+<li><strong>Compare &amp; Pull Request</strong>: Click the button for your branch</li>
+<li><strong>Fill PR Template</strong>: Complete all sections thoroughly</li>
+<li><strong>Add Labels</strong>: Apply appropriate labels</li>
+<li><strong>Assign Reviewers</strong>: Add relevant team members</li>
+<li><strong>Link Issues</strong>: Reference related issues</li>
 </ol>
-<h4 id="3-pr">3. Заполнение шаблона PR<a class="headerlink" href="#3-pr" title="Permanent link">&para;</a></h4>
-<p><strong>Обязательные разделы:</strong>
-- <strong>Описание</strong>: Четкое изложение изменений
-- <strong>Тип изменения</strong>: Выберите соответствующую категорию
-- <strong>Тестирование</strong>: Опишите выполненное тестирование
-- <strong>Документация</strong>: Перечислите обновления документации
-- <strong>Критические изменения</strong>: Отметьте любые критические изменения
-- <strong>Скриншоты</strong>: Включите для изменений UI</p>
-<h3 id="pr_1">Руководящие принципы заголовка PR<a class="headerlink" href="#pr_1" title="Permanent link">&para;</a></h3>
-<p>Следуйте формату conventional commit:</p>
+<h4 id="3-pr-template-completion">3. PR Template Completion<a class="headerlink" href="#3-pr-template-completion" title="Permanent link">&para;</a></h4>
+<p><strong>Required Sections:</strong>
+- <strong>Description</strong>: Clear summary of changes
+- <strong>Type of Change</strong>: Select appropriate category
+- <strong>Testing</strong>: Describe testing performed
+- <strong>Documentation</strong>: List documentation updates
+- <strong>Breaking Changes</strong>: Note any breaking changes
+- <strong>Screenshots</strong>: Include for UI changes</p>
+<h3 id="pr-title-guidelines">PR Title Guidelines<a class="headerlink" href="#pr-title-guidelines" title="Permanent link">&para;</a></h3>
+<p>Follow conventional commit format:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>type(scope): description
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Примеры:
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Examples:
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>feat(gallery): add species filtering functionality
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>fix(classification): resolve model loading timeout
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>docs(api): update classification service documentation
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>refactor(services): improve error handling consistency
 </span></code></pre></div>
-<h3 id="pr_2">Лучшие практики описания PR<a class="headerlink" href="#pr_2" title="Permanent link">&para;</a></h3>
-<h4 id="_5">Структура<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<h3 id="pr-description-best-practices">PR Description Best Practices<a class="headerlink" href="#pr-description-best-practices" title="Permanent link">&para;</a></h3>
+<h4 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h4>
 <ol>
-<li><strong>Краткое изложение</strong>: Краткий обзор изменений</li>
-<li><strong>Мотивация</strong>: Почему изменение необходимо</li>
-<li><strong>Реализация</strong>: Как это было реализовано</li>
-<li><strong>Тестирование</strong>: Как это было протестировано</li>
-<li><strong>Влияние</strong>: Какие области затронуты</li>
+<li><strong>Summary</strong>: Brief overview of changes</li>
+<li><strong>Motivation</strong>: Why the change is needed</li>
+<li><strong>Implementation</strong>: How it was implemented</li>
+<li><strong>Testing</strong>: How it was tested</li>
+<li><strong>Impact</strong>: What areas are affected</li>
 </ol>
-<h4 id="_6">Пример описания<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gu">## Краткое изложение</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Добавляет функциональность фильтрации видов в галерею комаров, позволяя пользователям фильтровать по семейству, роду и уровню опасности.
+<h4 id="example-description">Example Description<a class="headerlink" href="#example-description" title="Permanent link">&para;</a></h4>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gu">## Summary</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Adds species filtering functionality to the mosquito gallery, allowing users to filter by family, genus, and danger level.
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="gu">## Мотивация</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Пользователи запросили возможность быстро находить конкретные типы комаров без прокрутки всей галереи. Это улучшает пользовательский опыт и делает приложение более полезным для образовательных целей.
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="gu">## Motivation</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Users requested the ability to quickly find specific types of mosquitoes without scrolling through the entire gallery. This improves user experience and makes the app more useful for educational purposes.
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="gu">## Реализация</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">-</span><span class="w"> </span>Добавлен FilterWidget с выпадающими селекторами
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">-</span><span class="w"> </span>Реализована логика фильтрации в MosquitoGalleryViewModel
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">-</span><span class="w"> </span>Добавлено управление состоянием фильтра с Provider
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">-</span><span class="w"> </span>Обновлен UI галереи для показа активных фильтров
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="gu">## Implementation</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">-</span><span class="w"> </span>Added FilterWidget with dropdown selectors
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">-</span><span class="w"> </span>Implemented filtering logic in MosquitoGalleryViewModel
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">-</span><span class="w"> </span>Added filter state management with Provider
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">-</span><span class="w"> </span>Updated gallery UI to show active filters
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="gu">## Тестирование</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="k">-</span><span class="w"> </span>Модульные тесты для логики фильтрации
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="k">-</span><span class="w"> </span>Тесты виджетов для FilterWidget
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="k">-</span><span class="w"> </span>Ручное тестирование на Android и iOS
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="k">-</span><span class="w"> </span>Протестировано с различными комбинациями фильтров
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="gu">## Testing</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="k">-</span><span class="w"> </span>Unit tests for filtering logic
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="k">-</span><span class="w"> </span>Widget tests for FilterWidget
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="k">-</span><span class="w"> </span>Manual testing on Android and iOS
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="k">-</span><span class="w"> </span>Tested with various filter combinations
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="gu">## Влияние</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="k">-</span><span class="w"> </span>Затрагивает экран галереи комаров
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="k">-</span><span class="w"> </span>Нет критических изменений
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="k">-</span><span class="w"> </span>Улучшает производительность за счет уменьшения отрендеренных элементов
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="gu">## Impact</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="k">-</span><span class="w"> </span>Affects mosquito gallery screen
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="k">-</span><span class="w"> </span>No breaking changes
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="k">-</span><span class="w"> </span>Improves performance by reducing rendered items
 </span></code></pre></div>
-<h2 id="_7">Процесс рецензирования<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<h3 id="_8">Назначение рецензирования<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<h4 id="_9">Автоматическое назначение<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<h2 id="review-process">Review Process<a class="headerlink" href="#review-process" title="Permanent link">&para;</a></h2>
+<h3 id="review-assignment">Review Assignment<a class="headerlink" href="#review-assignment" title="Permanent link">&para;</a></h3>
+<h4 id="automatic-assignment">Automatic Assignment<a class="headerlink" href="#automatic-assignment" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>CODEOWNERS</strong>: Автоматически назначает владельцев кода</li>
-<li><strong>Назначение команды</strong>: По кругу для членов команды</li>
-<li><strong>Эксперты области</strong>: На основе измененных файлов</li>
+<li><strong>CODEOWNERS</strong>: Automatically assigns code owners</li>
+<li><strong>Team Assignment</strong>: Round-robin for team members</li>
+<li><strong>Area Experts</strong>: Based on changed files</li>
 </ul>
-<h4 id="_10">Ручное назначение<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<h4 id="manual-assignment">Manual Assignment<a class="headerlink" href="#manual-assignment" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>Сложные изменения</strong>: Старшие разработчики</li>
-<li><strong>Изменения архитектуры</strong>: Технические лидеры</li>
-<li><strong>Изменения безопасности</strong>: Рецензенты, сфокусированные на безопасности</li>
-<li><strong>Изменения UI</strong>: Специалисты UX/UI</li>
+<li><strong>Complex Changes</strong>: Senior developers</li>
+<li><strong>Architecture Changes</strong>: Technical leads</li>
+<li><strong>Security Changes</strong>: Security-focused reviewers</li>
+<li><strong>UI Changes</strong>: UX/UI specialists</li>
 </ul>
-<h3 id="_11">Типы рецензирования<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<h4 id="1_1">1. Рецензирование кода<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
-<p><strong>Области фокуса:</strong>
-- Качество и стиль кода
-- Корректность логики
-- Последствия для производительности
-- Соображения безопасности
-- Поддерживаемость</p>
-<p><strong>Чек-лист рецензирования:</strong>
-- [ ] Код читаемый и хорошо структурированный
-- [ ] Следует соглашениям проекта
-- [ ] Нет очевидных ошибок или проблем
-- [ ] Соответствующая обработка ошибок
-- [ ] Нет уязвимостей безопасности</p>
-<h4 id="2">2. Рецензирование дизайна<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
-<p><strong>Области фокуса:</strong>
-- Соответствие архитектуре
-- Использование паттернов дизайна
-- Дизайн API
-- Изменения схемы базы данных
-- Точки интеграции</p>
-<p><strong>Чек-лист рецензирования:</strong>
-- [ ] Следует паттерну MVVM
-- [ ] Правильное разделение ответственности
-- [ ] Согласуется с существующей архитектурой
-- [ ] Масштабируемый и поддерживаемый дизайн</p>
-<h4 id="3">3. Рецензирование тестирования<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
-<p><strong>Области фокуса:</strong>
-- Покрытие тестами
-- Качество тестов
-- Поддерживаемость тестов
-- Покрытие граничных случаев
-- Тестирование производительности</p>
-<p><strong>Чек-лист рецензирования:</strong>
-- [ ] Адекватное покрытие тестами
-- [ ] Тесты осмысленные
-- [ ] Граничные случаи покрыты
-- [ ] Тесты поддерживаемые
-- [ ] Включены тесты производительности (при необходимости)</p>
-<h3 id="_12">Руководящие принципы рецензирования<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<h4 id="_13">Для рецензентов<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
-<p><strong>Принципы рецензирования:</strong>
-1. <strong>Будьте конструктивными</strong>: Предоставляйте полезную, действенную обратную связь
-2. <strong>Будьте конкретными</strong>: Указывайте на точные строки и объясняйте проблемы
-3. <strong>Будьте своевременными</strong>: Завершайте рецензии в течение 24-48 часов
-4. <strong>Будьте тщательными</strong>: Проверяйте функциональность, а не только стиль кода
-5. <strong>Будьте уважительными</strong>: Поддерживайте профессиональный тон</p>
-<p><strong>Процесс рецензирования:</strong>
-1. <strong>Понимайте контекст</strong>: Читайте описание PR и связанные задачи
-2. <strong>Проверяйте статус CI</strong>: Убедитесь, что автоматические проверки проходят
-3. <strong>Рецензируйте код</strong>: Изучайте изменения систематически
-4. <strong>Тестируйте функциональность</strong>: Проверяйте, что изменения работают как ожидается
-5. <strong>Предоставляйте обратную связь</strong>: Используйте функции рецензирования GitHub</p>
-<p><strong>Типы обратной связи:</strong>
-- <strong>Комментарий</strong>: Общие наблюдения или вопросы
-- <strong>Предложение</strong>: Конкретные улучшения кода
-- <strong>Запрос изменений</strong>: Проблемы, которые должны быть решены
-- <strong>Одобрение</strong>: Код соответствует стандартам и требованиям</p>
-<h4 id="_14">Для авторов<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
-<p><strong>Ответ на рецензии:</strong>
-1. <strong>Читайте внимательно</strong>: Понимайте всю обратную связь
-2. <strong>Задавайте вопросы</strong>: Уточняйте неясную обратную связь
-3. <strong>Обращайтесь ко всем пунктам</strong>: Отвечайте на каждый комментарий
-4. <strong>Вносите изменения</strong>: Реализуйте запрошенные улучшения
-5. <strong>Обновляйте тесты</strong>: Убедитесь, что тесты отражают изменения
-6. <strong>Повторно запрашивайте рецензирование</strong>: После обращения к обратной связи</p>
-<p><strong>Руководящие принципы ответа:</strong>
-- <strong>Будьте восприимчивыми</strong>: Принимайте обратную связь позитивно
-- <strong>Будьте отзывчивыми</strong>: Обращайтесь к обратной связи оперативно
-- <strong>Будьте тщательными</strong>: Не оставляйте комментарии неразрешенными
-- <strong>Будьте коммуникативными</strong>: Объясняйте ваше обоснование</p>
-<h3 id="_15">Критерии рецензирования<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
-<h4 id="_16">Критерии одобрения<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<h3 id="review-types">Review Types<a class="headerlink" href="#review-types" title="Permanent link">&para;</a></h3>
+<h4 id="1-code-review">1. Code Review<a class="headerlink" href="#1-code-review" title="Permanent link">&para;</a></h4>
+<p><strong>Focus Areas:</strong>
+- Code quality and style
+- Logic correctness
+- Performance implications
+- Security considerations
+- Maintainability</p>
+<p><strong>Review Checklist:</strong>
+- [ ] Code is readable and well-structured
+- [ ] Follows project conventions
+- [ ] No obvious bugs or issues
+- [ ] Appropriate error handling
+- [ ] No security vulnerabilities</p>
+<h4 id="2-design-review">2. Design Review<a class="headerlink" href="#2-design-review" title="Permanent link">&para;</a></h4>
+<p><strong>Focus Areas:</strong>
+- Architecture compliance
+- Design patterns usage
+- API design
+- Database schema changes
+- Integration points</p>
+<p><strong>Review Checklist:</strong>
+- [ ] Follows MVVM pattern
+- [ ] Proper separation of concerns
+- [ ] Consistent with existing architecture
+- [ ] Scalable and maintainable design</p>
+<h4 id="3-testing-review">3. Testing Review<a class="headerlink" href="#3-testing-review" title="Permanent link">&para;</a></h4>
+<p><strong>Focus Areas:</strong>
+- Test coverage
+- Test quality
+- Test maintainability
+- Edge case coverage
+- Performance testing</p>
+<p><strong>Review Checklist:</strong>
+- [ ] Adequate test coverage
+- [ ] Tests are meaningful
+- [ ] Edge cases covered
+- [ ] Tests are maintainable
+- [ ] Performance tests included (if needed)</p>
+<h3 id="review-guidelines">Review Guidelines<a class="headerlink" href="#review-guidelines" title="Permanent link">&para;</a></h3>
+<h4 id="for-reviewers">For Reviewers<a class="headerlink" href="#for-reviewers" title="Permanent link">&para;</a></h4>
+<p><strong>Review Principles:</strong>
+1. <strong>Be Constructive</strong>: Provide helpful, actionable feedback
+2. <strong>Be Specific</strong>: Point to exact lines and explain issues
+3. <strong>Be Timely</strong>: Complete reviews within 24-48 hours
+4. <strong>Be Thorough</strong>: Check functionality, not just code style
+5. <strong>Be Respectful</strong>: Maintain professional tone</p>
+<p><strong>Review Process:</strong>
+1. <strong>Understand Context</strong>: Read PR description and linked issues
+2. <strong>Check CI Status</strong>: Ensure automated checks pass
+3. <strong>Review Code</strong>: Examine changes systematically
+4. <strong>Test Functionality</strong>: Verify changes work as expected
+5. <strong>Provide Feedback</strong>: Use GitHub review features</p>
+<p><strong>Feedback Types:</strong>
+- <strong>Comment</strong>: General observations or questions
+- <strong>Suggestion</strong>: Specific code improvements
+- <strong>Request Changes</strong>: Issues that must be addressed
+- <strong>Approve</strong>: Code meets standards and requirements</p>
+<h4 id="for-authors">For Authors<a class="headerlink" href="#for-authors" title="Permanent link">&para;</a></h4>
+<p><strong>Responding to Reviews:</strong>
+1. <strong>Read Carefully</strong>: Understand all feedback
+2. <strong>Ask Questions</strong>: Clarify unclear feedback
+3. <strong>Address All Points</strong>: Respond to every comment
+4. <strong>Make Changes</strong>: Implement requested improvements
+5. <strong>Update Tests</strong>: Ensure tests reflect changes
+6. <strong>Re-request Review</strong>: After addressing feedback</p>
+<p><strong>Response Guidelines:</strong>
+- <strong>Be Receptive</strong>: Accept feedback positively
+- <strong>Be Responsive</strong>: Address feedback promptly
+- <strong>Be Thorough</strong>: Don't leave comments unresolved
+- <strong>Be Communicative</strong>: Explain your reasoning</p>
+<h3 id="review-criteria">Review Criteria<a class="headerlink" href="#review-criteria" title="Permanent link">&para;</a></h3>
+<h4 id="approval-criteria">Approval Criteria<a class="headerlink" href="#approval-criteria" title="Permanent link">&para;</a></h4>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Качество кода соответствует стандартам</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Функциональность работает как ожидается</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Тесты адекватные и проходящие</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Документация обновлена</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Нет проблем безопасности</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Производительность приемлемая</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Следует соглашениям проекта</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Code quality meets standards</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Functionality works as expected</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tests are adequate and passing</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Documentation is updated</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> No security issues</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Performance is acceptable</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Follows project conventions</li>
 </ul>
-<h4 id="_17">Критерии запроса изменений<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<h4 id="change-request-criteria">Change Request Criteria<a class="headerlink" href="#change-request-criteria" title="Permanent link">&para;</a></h4>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Проблемы качества кода</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Проблемы функциональности</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Недостаточное тестирование</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Уязвимости безопасности</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Проблемы производительности</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Отсутствующая документация</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Нарушения стиля</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Code quality issues</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Functionality problems</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Insufficient testing</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Security vulnerabilities</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Performance problems</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Missing documentation</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Style violations</li>
 </ul>
-<h2 id="_18">Рабочий процесс одобрения<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
-<h3 id="_19">Требования к одобрению<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
-<h4 id="pr_3">Стандартные PR<a class="headerlink" href="#pr_3" title="Permanent link">&para;</a></h4>
+<h2 id="approval-workflow">Approval Workflow<a class="headerlink" href="#approval-workflow" title="Permanent link">&para;</a></h2>
+<h3 id="approval-requirements">Approval Requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<h4 id="standard-prs">Standard PRs<a class="headerlink" href="#standard-prs" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>Минимум рецензентов</strong>: 1 одобренное рецензирование</li>
-<li><strong>Одобрение владельца кода</strong>: Требуется для защищенных областей</li>
-<li><strong>Проверки CI</strong>: Все автоматические проверки должны пройти</li>
-<li><strong>Конфликты</strong>: Конфликты слияния не разрешены</li>
+<li><strong>Minimum Reviewers</strong>: 1 approved review</li>
+<li><strong>Code Owner Approval</strong>: Required for protected areas</li>
+<li><strong>CI Checks</strong>: All automated checks must pass</li>
+<li><strong>Conflicts</strong>: No merge conflicts allowed</li>
 </ul>
-<h4 id="pr_4">Критические PR<a class="headerlink" href="#pr_4" title="Permanent link">&para;</a></h4>
+<h4 id="critical-prs">Critical PRs<a class="headerlink" href="#critical-prs" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>Минимум рецензентов</strong>: 2 одобренных рецензирования</li>
-<li><strong>Одобрение старшего</strong>: Как минимум один старший разработчик</li>
-<li><strong>Расширенное тестирование</strong>: Требуется дополнительное тестирование</li>
-<li><strong>Документация</strong>: Комплексные обновления документации</li>
+<li><strong>Minimum Reviewers</strong>: 2 approved reviews</li>
+<li><strong>Senior Approval</strong>: At least one senior developer</li>
+<li><strong>Extended Testing</strong>: Additional testing required</li>
+<li><strong>Documentation</strong>: Comprehensive documentation updates</li>
 </ul>
-<h4 id="hotfix-pr">Hotfix PR<a class="headerlink" href="#hotfix-pr" title="Permanent link">&para;</a></h4>
+<h4 id="hotfix-prs">Hotfix PRs<a class="headerlink" href="#hotfix-prs" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>Быстрый трек</strong>: Ускоренный процесс рецензирования</li>
-<li><strong>Минимум рецензентов</strong>: 1 одобренное рецензирование (может быть после слияния)</li>
-<li><strong>Немедленное слияние</strong>: Может сливаться с одним одобрением</li>
-<li><strong>Последующее</strong>: Дополнительное рецензирование после слияния</li>
+<li><strong>Fast Track</strong>: Expedited review process</li>
+<li><strong>Minimum Reviewers</strong>: 1 approved review (can be post-merge)</li>
+<li><strong>Immediate Merge</strong>: Can merge with single approval</li>
+<li><strong>Follow-up</strong>: Additional review after merge</li>
 </ul>
-<h3 id="_20">Процесс одобрения<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
-<h4 id="1_2">1. Первоначальное рецензирование<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h4>
+<h3 id="approval-process">Approval Process<a class="headerlink" href="#approval-process" title="Permanent link">&para;</a></h3>
+<h4 id="1-initial-review">1. Initial Review<a class="headerlink" href="#1-initial-review" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Рецензент изучает код и предоставляет обратную связь</li>
-<li>Автор обращается к обратной связи и обновляет PR</li>
-<li>Процесс повторяется до удовлетворения рецензента</li>
+<li>Reviewer examines code and provides feedback</li>
+<li>Author addresses feedback and updates PR</li>
+<li>Process repeats until reviewer is satisfied</li>
 </ul>
-<h4 id="2_1">2. Финальное одобрение<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h4>
+<h4 id="2-final-approval">2. Final Approval<a class="headerlink" href="#2-final-approval" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Рецензент одобряет PR когда все критерии выполнены</li>
-<li>Статус PR изменяется на "Одобрен"</li>
-<li>PR становится подходящим для слияния</li>
+<li>Reviewer approves PR when all criteria are met</li>
+<li>PR status changes to "Approved"</li>
+<li>PR becomes eligible for merge</li>
 </ul>
-<h4 id="3_1">3. Готовность к слиянию<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h4>
+<h4 id="3-merge-readiness">3. Merge Readiness<a class="headerlink" href="#3-merge-readiness" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Получены все необходимые одобрения</li>
-<li>Все проверки CI проходят</li>
-<li>Нет конфликтов слияния</li>
-<li>Ветка актуальна</li>
+<li>All required approvals received</li>
+<li>All CI checks passing</li>
+<li>No merge conflicts</li>
+<li>Branch is up to date</li>
 </ul>
-<h3 id="_21">Управление статусом рецензирования<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
-<h4 id="_22">Индикаторы статуса<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<h3 id="review-status-management">Review Status Management<a class="headerlink" href="#review-status-management" title="Permanent link">&para;</a></h3>
+<h4 id="status-indicators">Status Indicators<a class="headerlink" href="#status-indicators" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>🔴 Запрошены изменения</strong>: Проблемы должны быть решены</li>
-<li><strong>🟡 Ожидает рецензирования</strong>: Ожидает действия рецензента</li>
-<li><strong>🟢 Одобрен</strong>: Готов к слиянию</li>
-<li><strong>⚪ Черновик</strong>: Работа в процессе</li>
+<li><strong>🔴 Changes Requested</strong>: Issues must be addressed</li>
+<li><strong>🟡 Pending Review</strong>: Waiting for reviewer action</li>
+<li><strong>🟢 Approved</strong>: Ready for merge</li>
+<li><strong>⚪ Draft</strong>: Work in progress</li>
 </ul>
-<h4 id="_23">Переходы статуса<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<h4 id="status-transitions">Status Transitions<a class="headerlink" href="#status-transitions" title="Permanent link">&para;</a></h4>
 <pre class="mermaid"><code>stateDiagram-v2
-    [*] --&gt; Черновик
-    Черновик --&gt; ОжидаетРецензирования : Готов к рецензированию
-    ОжидаетРецензирования --&gt; ЗапрошеныИзменения : Найдены проблемы
-    ОжидаетРецензирования --&gt; Одобрен : Рецензирование пройдено
-    ЗапрошеныИзменения --&gt; ОжидаетРецензирования : Внесены обновления
-    Одобрен --&gt; Слит : Выполнено слияние
-    Слит --&gt; [*]</code></pre>
-<h2 id="_24">Стратегии слияния<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
-<h3 id="_25">Опции слияния<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+    [*] --&gt; Draft
+    Draft --&gt; PendingReview : Ready for review
+    PendingReview --&gt; ChangesRequested : Issues found
+    PendingReview --&gt; Approved : Review passed
+    ChangesRequested --&gt; PendingReview : Updates made
+    Approved --&gt; Merged : Merge executed
+    Merged --&gt; [*]</code></pre>
+<h2 id="merge-strategies">Merge Strategies<a class="headerlink" href="#merge-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="merge-options">Merge Options<a class="headerlink" href="#merge-options" title="Permanent link">&para;</a></h3>
 <h4 id="1-merge-commit">1. Merge Commit<a class="headerlink" href="#1-merge-commit" title="Permanent link">&para;</a></h4>
-<p><strong>Когда использовать:</strong>
-- Feature ветки с несколькими коммитами
-- Хотите сохранить историю ветки
-- Сложные изменения, требующие контекста</p>
-<p><strong>Преимущества:</strong>
-- Сохраняет полную историю
-- Четкие границы функций
-- Легко откатить всю функцию</p>
-<p><strong>Недостатки:</strong>
-- Создает merge коммиты
-- Более сложный граф истории</p>
+<p><strong>When to Use:</strong>
+- Feature branches with multiple commits
+- Want to preserve branch history
+- Complex changes requiring context</p>
+<p><strong>Advantages:</strong>
+- Preserves complete history
+- Clear feature boundaries
+- Easy to revert entire feature</p>
+<p><strong>Disadvantages:</strong>
+- Creates merge commits
+- More complex history graph</p>
 <h4 id="2-squash-and-merge">2. Squash and Merge<a class="headerlink" href="#2-squash-and-merge" title="Permanent link">&para;</a></h4>
-<p><strong>Когда использовать:</strong>
-- Несколько маленьких коммитов
-- Хотите чистую линейную историю
-- Одно логическое изменение</p>
-<p><strong>Преимущества:</strong>
-- Чистая, линейная история
-- Один коммит на функцию
-- Легче читать историю</p>
-<p><strong>Недостатки:</strong>
-- Теряет историю отдельных коммитов
-- Сложнее отслеживать инкрементальные изменения</p>
+<p><strong>When to Use:</strong>
+- Multiple small commits
+- Want clean linear history
+- Single logical change</p>
+<p><strong>Advantages:</strong>
+- Clean, linear history
+- Single commit per feature
+- Easier to read history</p>
+<p><strong>Disadvantages:</strong>
+- Loses individual commit history
+- Harder to track incremental changes</p>
 <h4 id="3-rebase-and-merge">3. Rebase and Merge<a class="headerlink" href="#3-rebase-and-merge" title="Permanent link">&para;</a></h4>
-<p><strong>Когда использовать:</strong>
-- Хорошо структурированная история коммитов
-- Хотите сохранить отдельные коммиты
-- Предпочитается линейная история</p>
-<p><strong>Преимущества:</strong>
-- Линейная история
-- Сохраняет отдельные коммиты
-- Нет merge коммитов</p>
-<p><strong>Недостатки:</strong>
-- Требует чистой истории коммитов
-- Может сбивать с толку новичков</p>
-<h3 id="_26">Матрица решений слияния<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p><strong>When to Use:</strong>
+- Well-structured commit history
+- Want to preserve individual commits
+- Linear history preferred</p>
+<p><strong>Advantages:</strong>
+- Linear history
+- Preserves individual commits
+- No merge commits</p>
+<p><strong>Disadvantages:</strong>
+- Requires clean commit history
+- Can be confusing for beginners</p>
+<h3 id="merge-decision-matrix">Merge Decision Matrix<a class="headerlink" href="#merge-decision-matrix" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Сценарий</th>
-<th>Рекомендуемая стратегия</th>
-<th>Причина</th>
+<th>Scenario</th>
+<th>Recommended Strategy</th>
+<th>Reason</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Один коммит</td>
+<td>Single commit</td>
 <td>Rebase and Merge</td>
-<td>Поддерживает чистую историю</td>
+<td>Maintains clean history</td>
 </tr>
 <tr>
-<td>Несколько чистых коммитов</td>
+<td>Multiple clean commits</td>
 <td>Rebase and Merge</td>
-<td>Сохраняет логическую прогрессию</td>
+<td>Preserves logical progression</td>
 </tr>
 <tr>
-<td>Несколько грязных коммитов</td>
+<td>Multiple messy commits</td>
 <td>Squash and Merge</td>
-<td>Создает чистый единый коммит</td>
+<td>Creates clean single commit</td>
 </tr>
 <tr>
-<td>Сложная функция</td>
+<td>Complex feature</td>
 <td>Merge Commit</td>
-<td>Сохраняет контекст функции</td>
+<td>Preserves feature context</td>
 </tr>
 <tr>
 <td>Hotfix</td>
 <td>Squash and Merge</td>
-<td>Простое, чистое исправление</td>
+<td>Simple, clean fix</td>
 </tr>
 <tr>
-<td>Документация</td>
+<td>Documentation</td>
 <td>Squash and Merge</td>
-<td>Обычно одно логическое изменение</td>
+<td>Usually single logical change</td>
 </tr>
 </tbody>
 </table>
-<h3 id="-_1">Чек-лист перед слиянием<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h3>
+<h3 id="pre-merge-checklist">Pre-Merge Checklist<a class="headerlink" href="#pre-merge-checklist" title="Permanent link">&para;</a></h3>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Получены все необходимые одобрения</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Все проверки CI проходят</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Нет конфликтов слияния</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ветка актуальна с целевой</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Описание PR полное</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Связанные задачи привязаны</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Критические изменения документированы</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Предоставлено руководство по миграции (при необходимости)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All required approvals received</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All CI checks passing</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> No merge conflicts</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Branch is up to date with target</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> PR description is complete</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Related issues are linked</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Breaking changes documented</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Migration guide provided (if needed)</li>
 </ul>
-<h2 id="_27">Процесс после слияния<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
-<h3 id="_28">Немедленные действия<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
-<h4 id="1_3">1. Очистка ветки<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Удалить feature ветку (обычно автоматически)</span>
+<h2 id="post-merge-process">Post-Merge Process<a class="headerlink" href="#post-merge-process" title="Permanent link">&para;</a></h2>
+<h3 id="immediate-actions">Immediate Actions<a class="headerlink" href="#immediate-actions" title="Permanent link">&para;</a></h3>
+<h4 id="1-branch-cleanup">1. Branch Cleanup<a class="headerlink" href="#1-branch-cleanup" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Delete feature branch (usually automatic)</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/your-feature
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>feature/your-feature
 </span></code></pre></div>
-<h4 id="2_2">2. Управление задачами<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
+<h4 id="2-issue-management">2. Issue Management<a class="headerlink" href="#2-issue-management" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Закрыть связанные задачи</li>
-<li>Обновить статус задачи</li>
-<li>Привязать к слитому PR</li>
-<li>Обновить доски проекта</li>
+<li>Close related issues</li>
+<li>Update issue status</li>
+<li>Link to merged PR</li>
+<li>Update project boards</li>
 </ul>
-<h4 id="3_2">3. Обновления документации<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h4>
+<h4 id="3-documentation-updates">3. Documentation Updates<a class="headerlink" href="#3-documentation-updates" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Обновить changelog</li>
-<li>Обновить номера версий (при необходимости)</li>
-<li>Опубликовать изменения документации</li>
-<li>Уведомить заинтересованные стороны</li>
+<li>Update changelog</li>
+<li>Update version numbers (if needed)</li>
+<li>Publish documentation changes</li>
+<li>Notify stakeholders</li>
 </ul>
-<h3 id="_29">Последующие задачи<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
-<h4 id="1_4">1. Мониторинг<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h4>
+<h3 id="follow-up-tasks">Follow-up Tasks<a class="headerlink" href="#follow-up-tasks" title="Permanent link">&para;</a></h3>
+<h4 id="1-monitoring">1. Monitoring<a class="headerlink" href="#1-monitoring" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Следить за сбоями CI на main ветке</li>
-<li>Мониторить метрики приложения</li>
-<li>Проверять проблемы, сообщенные пользователями</li>
-<li>Проверять успех развертывания</li>
+<li>Watch for CI failures on main branch</li>
+<li>Monitor application metrics</li>
+<li>Check for user-reported issues</li>
+<li>Verify deployment success</li>
 </ul>
-<h4 id="2_3">2. Коммуникация<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h4>
+<h4 id="2-communication">2. Communication<a class="headerlink" href="#2-communication" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Уведомить команду о значительных изменениях</li>
-<li>Обновить статус проекта</li>
-<li>Сообщить заинтересованным сторонам</li>
-<li>Обновить заметки о релизе</li>
+<li>Notify team of significant changes</li>
+<li>Update project status</li>
+<li>Communicate to stakeholders</li>
+<li>Update release notes</li>
 </ul>
-<h4 id="3_3">3. Очистка<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h4>
+<h4 id="3-cleanup">3. Cleanup<a class="headerlink" href="#3-cleanup" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Архивировать связанные ветки</li>
-<li>Обновить локальные репозитории</li>
-<li>Очистить временные ресурсы</li>
-<li>Обновить среду разработки</li>
+<li>Archive related branches</li>
+<li>Update local repositories</li>
+<li>Clean up temporary resources</li>
+<li>Update development environment</li>
 </ul>
-<h2 id="_30">Лучшие практики<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
-<h3 id="_31">Для авторов<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
-<h4 id="pr_5">Создание PR<a class="headerlink" href="#pr_5" title="Permanent link">&para;</a></h4>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="for-authors_1">For Authors<a class="headerlink" href="#for-authors_1" title="Permanent link">&para;</a></h3>
+<h4 id="pr-creation">PR Creation<a class="headerlink" href="#pr-creation" title="Permanent link">&para;</a></h4>
 <ol>
-<li><strong>Держите PR маленькими</strong>: Легче рецензировать и сливать</li>
-<li><strong>Единая ответственность</strong>: Одна функция/исправление на PR</li>
-<li><strong>Четкое описание</strong>: Объясните что, почему и как</li>
-<li><strong>Включите тесты</strong>: Обеспечьте адекватное покрытие тестами</li>
-<li><strong>Обновите документацию</strong>: Держите документы актуальными</li>
+<li><strong>Keep PRs Small</strong>: Easier to review and merge</li>
+<li><strong>Single Responsibility</strong>: One feature/fix per PR</li>
+<li><strong>Clear Description</strong>: Explain what, why, and how</li>
+<li><strong>Include Tests</strong>: Ensure adequate test coverage</li>
+<li><strong>Update Documentation</strong>: Keep docs current</li>
 </ol>
-<h4 id="_32">Во время рецензирования<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h4>
+<h4 id="during-review">During Review<a class="headerlink" href="#during-review" title="Permanent link">&para;</a></h4>
 <ol>
-<li><strong>Отвечайте оперативно</strong>: Обращайтесь к обратной связи быстро</li>
-<li><strong>Будьте открытыми</strong>: Принимайте конструктивную критику</li>
-<li><strong>Задавайте вопросы</strong>: Уточняйте неясную обратную связь</li>
-<li><strong>Тестируйте изменения</strong>: Проверяйте, что исправления работают правильно</li>
-<li><strong>Обновляйте тщательно</strong>: Обращайтесь ко всем пунктам обратной связи</li>
+<li><strong>Respond Promptly</strong>: Address feedback quickly</li>
+<li><strong>Be Open</strong>: Accept constructive criticism</li>
+<li><strong>Ask Questions</strong>: Clarify unclear feedback</li>
+<li><strong>Test Changes</strong>: Verify fixes work correctly</li>
+<li><strong>Update Thoroughly</strong>: Address all feedback points</li>
 </ol>
-<h3 id="_33">Для рецензентов<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
-<h4 id="_34">Качество рецензирования<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
+<h3 id="for-reviewers_1">For Reviewers<a class="headerlink" href="#for-reviewers_1" title="Permanent link">&para;</a></h3>
+<h4 id="review-quality">Review Quality<a class="headerlink" href="#review-quality" title="Permanent link">&para;</a></h4>
 <ol>
-<li><strong>Будьте тщательными</strong>: Проверяйте функциональность, а не только стиль</li>
-<li><strong>Будьте конструктивными</strong>: Предоставляйте полезные предложения</li>
-<li><strong>Будьте своевременными</strong>: Завершайте рецензии оперативно</li>
-<li><strong>Будьте конкретными</strong>: Указывайте на точные проблемы</li>
-<li><strong>Будьте уважительными</strong>: Поддерживайте профессиональный тон</li>
+<li><strong>Be Thorough</strong>: Check functionality, not just style</li>
+<li><strong>Be Constructive</strong>: Provide helpful suggestions</li>
+<li><strong>Be Timely</strong>: Complete reviews promptly</li>
+<li><strong>Be Specific</strong>: Point to exact issues</li>
+<li><strong>Be Respectful</strong>: Maintain professional tone</li>
 </ol>
-<h4 id="_35">Процесс рецензирования<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
+<h4 id="review-process_1">Review Process<a class="headerlink" href="#review-process_1" title="Permanent link">&para;</a></h4>
 <ol>
-<li><strong>Понимайте контекст</strong>: Полностью читайте описание PR</li>
-<li><strong>Проверяйте CI</strong>: Убедитесь, что автоматические проверки проходят</li>
-<li><strong>Тестируйте локально</strong>: Проверяйте, что изменения работают</li>
-<li><strong>Рассматривайте влияние</strong>: Думайте о более широких последствиях</li>
-<li><strong>Предоставляйте примеры</strong>: Показывайте лучшие альтернативы</li>
+<li><strong>Understand Context</strong>: Read PR description fully</li>
+<li><strong>Check CI</strong>: Ensure automated checks pass</li>
+<li><strong>Test Locally</strong>: Verify changes work</li>
+<li><strong>Consider Impact</strong>: Think about broader implications</li>
+<li><strong>Provide Examples</strong>: Show better alternatives</li>
 </ol>
-<h3 id="_36">Общие руководящие принципы<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
-<h4 id="_37">Коммуникация<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h4>
+<h3 id="general-guidelines">General Guidelines<a class="headerlink" href="#general-guidelines" title="Permanent link">&para;</a></h3>
+<h4 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Используйте четкий, профессиональный язык</li>
-<li>Объясняйте обоснование предложений</li>
-<li>Задавайте вопросы при неуверенности</li>
-<li>Признавайте хорошую работу</li>
-<li>Будьте терпеливыми с процессом обучения</li>
+<li>Use clear, professional language</li>
+<li>Explain reasoning behind suggestions</li>
+<li>Ask questions when unsure</li>
+<li>Acknowledge good work</li>
+<li>Be patient with learning process</li>
 </ul>
-<h4 id="_38">Стандарты качества<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h4>
+<h4 id="quality-standards">Quality Standards<a class="headerlink" href="#quality-standards" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Поддерживайте постоянный стиль кода</li>
-<li>Обеспечивайте адекватное покрытие тестами</li>
-<li>Проверяйте точность документации</li>
-<li>Проверяйте проблемы безопасности</li>
-<li>Рассматривайте влияние на производительность</li>
+<li>Maintain consistent code style</li>
+<li>Ensure adequate test coverage</li>
+<li>Verify documentation accuracy</li>
+<li>Check for security issues</li>
+<li>Consider performance impact</li>
 </ul>
-<h2 id="_39">Устранение неполадок<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
-<h3 id="_40">Распространенные проблемы<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
-<h4 id="1_5">1. Конфликты слияния<a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h4>
-<p><strong>Проблема</strong>: Ветка конфликтует с целевой веткой
-<strong>Решение:</strong>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<h4 id="1-merge-conflicts">1. Merge Conflicts<a class="headerlink" href="#1-merge-conflicts" title="Permanent link">&para;</a></h4>
+<p><strong>Problem</strong>: Branch conflicts with target branch
+<strong>Solution:</strong>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>feature/your-feature
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>rebase<span class="w"> </span>main
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Разрешить конфликты</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Resolve conflicts</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>git<span class="w"> </span>add<span class="w"> </span>.
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>git<span class="w"> </span>rebase<span class="w"> </span>--continue
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>git<span class="w"> </span>push<span class="w"> </span>--force-with-lease
 </span></code></pre></div></p>
-<h4 id="2-ci">2. Неудачные проверки CI<a class="headerlink" href="#2-ci" title="Permanent link">&para;</a></h4>
-<p><strong>Проблема</strong>: Автоматические проверки не проходят
-<strong>Решение:</strong>
-- Проверьте логи CI на конкретные ошибки
-- Исправьте проблемы локально
-- Запустите тесты перед push
-- Убедитесь, что код следует руководящим принципам стиля</p>
-<h4 id="3_4">3. Задержки рецензирования<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h4>
-<p><strong>Проблема</strong>: PR не рецензируются оперативно
-<strong>Решение:</strong>
-- Пингуйте рецензентов через 48 часов
-- Запрашивайте конкретных рецензентов
-- Разбивайте большие PR на меньшие
-- Предоставляйте четкий контекст в описании</p>
-<h4 id="4">4. Проблемы одобрения<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
-<p><strong>Проблема</strong>: Не можете получить необходимые одобрения
-<strong>Решение:</strong>
-- Тщательно обращайтесь ко всей обратной связи
-- Объясняйте обоснование решений
-- Запрашивайте уточнение требований
-- Эскалируйте к лидеру команды при необходимости</p>
-<h3 id="_41">Процедуры экстренных случаев<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
-<h4 id="hotfix">Процесс Hotfix<a class="headerlink" href="#hotfix" title="Permanent link">&para;</a></h4>
+<h4 id="2-failed-ci-checks">2. Failed CI Checks<a class="headerlink" href="#2-failed-ci-checks" title="Permanent link">&para;</a></h4>
+<p><strong>Problem</strong>: Automated checks failing
+<strong>Solution:</strong>
+- Check CI logs for specific errors
+- Fix issues locally
+- Run tests before pushing
+- Ensure code follows style guidelines</p>
+<h4 id="3-review-delays">3. Review Delays<a class="headerlink" href="#3-review-delays" title="Permanent link">&para;</a></h4>
+<p><strong>Problem</strong>: PRs not being reviewed promptly
+<strong>Solution:</strong>
+- Ping reviewers after 48 hours
+- Request specific reviewers
+- Break large PRs into smaller ones
+- Provide clear context in description</p>
+<h4 id="4-approval-issues">4. Approval Issues<a class="headerlink" href="#4-approval-issues" title="Permanent link">&para;</a></h4>
+<p><strong>Problem</strong>: Can't get required approvals
+<strong>Solution:</strong>
+- Address all feedback thoroughly
+- Explain reasoning for decisions
+- Request clarification on requirements
+- Escalate to team lead if needed</p>
+<h3 id="emergency-procedures">Emergency Procedures<a class="headerlink" href="#emergency-procedures" title="Permanent link">&para;</a></h3>
+<h4 id="hotfix-process">Hotfix Process<a class="headerlink" href="#hotfix-process" title="Permanent link">&para;</a></h4>
 <ol>
-<li><strong>Создать ветку Hotfix</strong>: Из main ветки</li>
-<li><strong>Внести минимальные изменения</strong>: Только исправить критическую проблему</li>
-<li><strong>Быстрое рецензирование</strong>: Одобрение одного рецензента</li>
-<li><strong>Немедленное слияние</strong>: Слить как только одобрено</li>
-<li><strong>Последующее рецензирование</strong>: Дополнительное рецензирование после слияния</li>
+<li><strong>Create Hotfix Branch</strong>: From main branch</li>
+<li><strong>Make Minimal Changes</strong>: Only fix critical issue</li>
+<li><strong>Fast-Track Review</strong>: Single reviewer approval</li>
+<li><strong>Immediate Merge</strong>: Merge as soon as approved</li>
+<li><strong>Follow-up Review</strong>: Additional review post-merge</li>
 </ol>
-<h4 id="_42">Процесс отката<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h4>
+<h4 id="rollback-process">Rollback Process<a class="headerlink" href="#rollback-process" title="Permanent link">&para;</a></h4>
 <ol>
-<li><strong>Определить проблему</strong>: Подтвердить проблему с недавним слиянием</li>
-<li><strong>Создать Revert PR</strong>: Использовать функцию revert GitHub</li>
-<li><strong>Быстрое рецензирование</strong>: Ускоренный процесс одобрения</li>
-<li><strong>Немедленное слияние</strong>: Восстановить предыдущее состояние</li>
-<li><strong>Анализ первопричины</strong>: Исследовать и предотвратить повторение</li>
+<li><strong>Identify Issue</strong>: Confirm problem with recent merge</li>
+<li><strong>Create Revert PR</strong>: Use GitHub revert feature</li>
+<li><strong>Fast-Track Review</strong>: Expedited approval process</li>
+<li><strong>Immediate Merge</strong>: Restore previous state</li>
+<li><strong>Root Cause Analysis</strong>: Investigate and prevent recurrence</li>
 </ol>
-<h2 id="_43">Заключение<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
-<p>Следование этому процессу pull request обеспечивает высокое качество кода, эффективное сотрудничество и плавную разработку проекта. Все члены команды должны ознакомиться с этими руководящими принципами и применять их последовательно.</p>
-<p>По вопросам о процессе PR или предложениям по улучшениям, пожалуйста, создайте задачу или начните обсуждение в репозитории проекта.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Following this pull request process ensures high code quality, effective collaboration, and smooth project development. All team members should familiarize themselves with these guidelines and apply them consistently.</p>
+<p>For questions about the PR process or suggestions for improvements, please create an issue or start a discussion in the project repository.</p>
 <hr />
-<p><strong>Помните</strong>: Цель — поддерживать качество кода, обеспечивая эффективную разработку. Процесс должен способствовать сотрудничеству, а не препятствовать ему.</p>
+<p><strong>Remember</strong>: The goal is to maintain code quality while enabling efficient development. The process should facilitate collaboration, not hinder it.</p>
 
 
 
@@ -2837,7 +2837,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  К началу
+  Back to top
 </button>
         
       </main>
@@ -2869,7 +2869,7 @@
       
       
     
-    <a href="https://github.com/iloncka-ds/culicidaelab-mobile" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+    <a href="https://github.com/culicidaelab/culicidaelab-mobile" target="_blank" rel="noopener" title="github.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
@@ -2893,7 +2893,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.integrate", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.integrate", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
