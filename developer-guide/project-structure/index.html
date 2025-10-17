@@ -1,18 +1,18 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="ru" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Comprehensive documentation for the CulicidaeLab Flutter mobile application">
+        <meta name="description" content="Полная документация для мобильного приложения CulicidaeLab на Flutter.">
       
       
         <meta name="author" content="Ilona Kovaleva">
       
       
-        <link rel="canonical" href="https://iloncka-ds.github.io/culicidaelab-mobile/en/developer-guide/project-structure/">
+        <link rel="canonical" href="https://iloncka-ds.github.io/culicidaelab-mobile/ru/developer-guide/project-structure/">
       
       
         <link rel="prev" href="../setup-development/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Project Structure - CulicidaeLab Documentation</title>
+        <title>Структура проекта - CulicidaeLab Documentation</title>
       
     
     
@@ -82,8 +82,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-structure-and-conventions" class="md-skip">
-          Skip to content
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
         </a>
       
     </div>
@@ -97,7 +97,7 @@
   
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../.." title="CulicidaeLab Documentation" class="md-header__button md-logo" aria-label="CulicidaeLab Documentation" data-md-component="logo">
       
   <img src="../../assets/images/logo.png" alt="logo">
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Structure
+              Структура проекта
             
           </span>
         </div>
@@ -157,7 +157,7 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Select language">
+    <button class="md-header__button md-icon" aria-label="Выберите язык">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
@@ -189,21 +189,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Поиск">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Поделиться" aria-label="Поделиться" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -216,7 +216,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            Инициализация поиска
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -227,7 +227,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Перейти к репозиторию" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -242,7 +242,7 @@
   
     
       
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -256,7 +256,7 @@
   
     
   
-  Home
+  Главная
 
       </a>
     </li>
@@ -275,7 +275,7 @@
   
     
   
-  User Guide
+  Руководство пользователя
 
         </a>
       </li>
@@ -297,7 +297,7 @@
   
     
   
-  Developer Guide
+  Руководство разработчика
 
         </a>
       </li>
@@ -317,7 +317,7 @@
   
     
   
-  API Reference
+  Справочник по API
 
         </a>
       </li>
@@ -337,7 +337,7 @@
   
     
   
-  Contribution
+  Участие в проекте
 
         </a>
       </li>
@@ -373,7 +373,7 @@
 
   
 
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="CulicidaeLab Documentation" class="md-nav__button md-logo" aria-label="CulicidaeLab Documentation" data-md-component="logo">
       
@@ -384,7 +384,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Перейти к репозиторию" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -408,7 +408,7 @@
         
   
   <span class="md-ellipsis">
-    Home
+    Главная
   </span>
   
 
@@ -459,7 +459,7 @@
             
   
   <span class="md-ellipsis">
-    User Guide
+    Руководство пользователя
   </span>
   
 
@@ -469,7 +469,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            User Guide
+            Руководство пользователя
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -484,7 +484,7 @@
         
   
   <span class="md-ellipsis">
-    Getting Started
+    Начало работы
   </span>
   
 
@@ -505,7 +505,7 @@
         
   
   <span class="md-ellipsis">
-    Mosquito Identification
+    Идентификация комаров
   </span>
   
 
@@ -526,7 +526,7 @@
         
   
   <span class="md-ellipsis">
-    Using Gallery
+    Использование галереи
   </span>
   
 
@@ -547,7 +547,7 @@
         
   
   <span class="md-ellipsis">
-    Disease Information
+    Информация о заболеваниях
   </span>
   
 
@@ -568,7 +568,7 @@
         
   
   <span class="md-ellipsis">
-    Troubleshooting
+    Устранение неполадок
   </span>
   
 
@@ -589,7 +589,7 @@
         
   
   <span class="md-ellipsis">
-    FAQ
+    Часто задаваемые вопросы
   </span>
   
 
@@ -661,7 +661,7 @@
             
   
   <span class="md-ellipsis">
-    Developer Guide
+    Руководство разработчика
   </span>
   
 
@@ -671,7 +671,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Developer Guide
+            Руководство разработчика
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -686,7 +686,7 @@
         
   
   <span class="md-ellipsis">
-    Architecture
+    Архитектура
   </span>
   
 
@@ -707,7 +707,7 @@
         
   
   <span class="md-ellipsis">
-    Development Setup
+    Настройка для разработки
   </span>
   
 
@@ -737,7 +737,7 @@
           
   
   <span class="md-ellipsis">
-    Project Structure
+    Структура проекта
   </span>
   
 
@@ -748,7 +748,7 @@
         
   
   <span class="md-ellipsis">
-    Project Structure
+    Структура проекта
   </span>
   
 
@@ -772,82 +772,82 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Обзор
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-root-structure" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Project Root Structure
+      Структура корня проекта
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#source-code-structure-lib" class="md-nav__link">
+  <a href="#lib" class="md-nav__link">
     <span class="md-ellipsis">
-      Source Code Structure (lib/)
+      Структура исходного кода (lib/)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture-layers" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture Layers
+      Архитектурные слои
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Architecture Layers">
+    <nav class="md-nav" aria-label="Архитектурные слои">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-presentation-layer" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Presentation Layer
+      1. Слой представления
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-business-logic-layer" class="md-nav__link">
+  <a href="#2-" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Business Logic Layer
+      2. Слой бизнес-логики
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-data-access-layer" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Data Access Layer
+      3. Слой доступа к данным
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-service-layer" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Service Layer
+      4. Сервисный слой
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-data-layer" class="md-nav__link">
+  <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Data Layer
+      5. Слой данных
     </span>
   </a>
   
@@ -859,73 +859,73 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#assets-organization" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Assets Organization
+      Организация ресурсов
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-structure" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing Structure
+      Структура тестирования
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation-structure" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      Documentation Structure
+      Структура документации
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#naming-conventions" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      Naming Conventions
+      Соглашения именования
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Naming Conventions">
+    <nav class="md-nav" aria-label="Соглашения именования">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#file-naming" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      File Naming
+      Именование файлов
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#class-naming" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      Class Naming
+      Именование классов
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-and-method-naming" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
-      Variable and Method Naming
+      Именование переменных и методов
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#widget-naming" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
-      Widget Naming
+      Именование виджетов
     </span>
   </a>
   
@@ -937,37 +937,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-organization-patterns" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
-      Code Organization Patterns
+      Паттерны организации кода
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Code Organization Patterns">
+    <nav class="md-nav" aria-label="Паттерны организации кода">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#import-organization" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
-      Import Organization
+      Организация импортов
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#class-structure" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
-      Class Structure
+      Структура класса
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#method-organization" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
-      Method Organization
+      Организация методов
     </span>
   </a>
   
@@ -979,47 +979,47 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#coding-standards" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
-      Coding Standards
+      Стандарты кодирования
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Coding Standards">
+    <nav class="md-nav" aria-label="Стандарты кодирования">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dart-style-guidelines" class="md-nav__link">
+  <a href="#dart" class="md-nav__link">
     <span class="md-ellipsis">
-      Dart Style Guidelines
+      Руководящие принципы стиля Dart
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Dart Style Guidelines">
+    <nav class="md-nav" aria-label="Руководящие принципы стиля Dart">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#line-length" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
-      Line Length
+      Длина строки
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#formatting" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
-      Formatting
+      Форматирование
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#documentation-comments" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
-      Documentation Comments
+      Комментарии документации
     </span>
   </a>
   
@@ -1031,19 +1031,19 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
-      Error Handling
+      Обработка ошибок
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Error Handling">
+    <nav class="md-nav" aria-label="Обработка ошибок">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exception-handling" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
-      Exception Handling
+      Обработка исключений
     </span>
   </a>
   
@@ -1064,19 +1064,19 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#state-management-patterns" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
-      State Management Patterns
+      Паттерны управления состоянием
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="State Management Patterns">
+    <nav class="md-nav" aria-label="Паттерны управления состоянием">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#provider-pattern" class="md-nav__link">
+  <a href="#provider" class="md-nav__link">
     <span class="md-ellipsis">
-      Provider Pattern
+      Паттерн Provider
     </span>
   </a>
   
@@ -1088,28 +1088,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#testing-conventions" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing Conventions
+      Соглашения тестирования
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Testing Conventions">
+    <nav class="md-nav" aria-label="Соглашения тестирования">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#test-file-organization" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
-      Test File Organization
+      Организация тестовых файлов
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#test-naming" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
-      Test Naming
+      Именование тестов
     </span>
   </a>
   
@@ -1126,37 +1126,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-guidelines" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance Guidelines
+      Руководящие принципы производительности
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Performance Guidelines">
+    <nav class="md-nav" aria-label="Руководящие принципы производительности">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#memory-management" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     <span class="md-ellipsis">
-      Memory Management
+      Управление памятью
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#image-handling" class="md-nav__link">
+  <a href="#_29" class="md-nav__link">
     <span class="md-ellipsis">
-      Image Handling
+      Обработка изображений
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#database-operations" class="md-nav__link">
+  <a href="#_30" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Operations
+      Операции с базой данных
     </span>
   </a>
   
@@ -1168,28 +1168,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
+  <a href="#_31" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Considerations
+      Соображения безопасности
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Security Considerations">
+    <nav class="md-nav" aria-label="Соображения безопасности">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#data-protection" class="md-nav__link">
+  <a href="#_32" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Protection
+      Защита данных
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#api-security" class="md-nav__link">
+  <a href="#api" class="md-nav__link">
     <span class="md-ellipsis">
-      API Security
+      Безопасность API
     </span>
   </a>
   
@@ -1201,28 +1201,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#localization-guidelines" class="md-nav__link">
+  <a href="#_33" class="md-nav__link">
     <span class="md-ellipsis">
-      Localization Guidelines
+      Руководящие принципы локализации
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Localization Guidelines">
+    <nav class="md-nav" aria-label="Руководящие принципы локализации">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#adding-new-languages" class="md-nav__link">
+  <a href="#_34" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding New Languages
+      Добавление новых языков
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#translation-keys" class="md-nav__link">
+  <a href="#_35" class="md-nav__link">
     <span class="md-ellipsis">
-      Translation Keys
+      Ключи переводов
     </span>
   </a>
   
@@ -1234,28 +1234,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#git-workflow" class="md-nav__link">
+  <a href="#git" class="md-nav__link">
     <span class="md-ellipsis">
-      Git Workflow
+      Рабочий процесс Git
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Git Workflow">
+    <nav class="md-nav" aria-label="Рабочий процесс Git">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#branch-naming" class="md-nav__link">
+  <a href="#_36" class="md-nav__link">
     <span class="md-ellipsis">
-      Branch Naming
+      Именование веток
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#commit-messages" class="md-nav__link">
+  <a href="#_37" class="md-nav__link">
     <span class="md-ellipsis">
-      Commit Messages
+      Сообщения коммитов
     </span>
   </a>
   
@@ -1267,9 +1267,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#_38" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      Заключение
     </span>
   </a>
   
@@ -1295,7 +1295,7 @@
         
   
   <span class="md-ellipsis">
-    AI Model Integration
+    Интеграция ИИ-моделей
   </span>
   
 
@@ -1316,7 +1316,7 @@
         
   
   <span class="md-ellipsis">
-    Testing Guide
+    Руководство по тестированию
   </span>
   
 
@@ -1337,7 +1337,7 @@
         
   
   <span class="md-ellipsis">
-    Performance Optimization
+    Оптимизация производительности
   </span>
   
 
@@ -1358,7 +1358,7 @@
         
   
   <span class="md-ellipsis">
-    Ecosystem Integration
+    Интеграция с экосистемой
   </span>
   
 
@@ -1379,7 +1379,7 @@
         
   
   <span class="md-ellipsis">
-    Data Models
+    Модели данных
   </span>
   
 
@@ -1400,7 +1400,7 @@
         
   
   <span class="md-ellipsis">
-    API Integration
+    Интеграция API
   </span>
   
 
@@ -1421,7 +1421,7 @@
         
   
   <span class="md-ellipsis">
-    Extending Functionality
+    Расширение функциональности
   </span>
   
 
@@ -1442,7 +1442,7 @@
         
   
   <span class="md-ellipsis">
-    Flutter Patterns
+    Паттерны Flutter
   </span>
   
 
@@ -1491,7 +1491,7 @@
             
   
   <span class="md-ellipsis">
-    API Reference
+    Справочник по API
   </span>
   
 
@@ -1501,7 +1501,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            API Reference
+            Справочник по API
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1573,7 +1573,7 @@
             
   
   <span class="md-ellipsis">
-    Contribution
+    Участие в проекте
   </span>
   
 
@@ -1583,7 +1583,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Contribution
+            Участие в проекте
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1598,7 +1598,7 @@
         
   
   <span class="md-ellipsis">
-    Contributing
+    Как внести вклад
   </span>
   
 
@@ -1619,7 +1619,7 @@
         
   
   <span class="md-ellipsis">
-    Code Style
+    Стиль кода
   </span>
   
 
@@ -1688,7 +1688,7 @@
         
   
   <span class="md-ellipsis">
-    Pull Request Process
+    Процесс создания Pull Request
   </span>
   
 
@@ -1709,7 +1709,7 @@
         
   
   <span class="md-ellipsis">
-    Pull Request Template
+    Шаблон Pull Request
   </span>
   
 
@@ -1738,7 +1738,7 @@
         
   
   <span class="md-ellipsis">
-    Development Workflow
+    Процесс разработки
   </span>
   
 
@@ -1786,7 +1786,7 @@
             
   
   <span class="md-ellipsis">
-    Issue Templates
+    Шаблоны задач
   </span>
   
 
@@ -1796,7 +1796,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
-            Issue Templates
+            Шаблоны задач
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1811,7 +1811,7 @@
         
   
   <span class="md-ellipsis">
-    Bug Report Template
+    Шаблон отчета об ошибке
   </span>
   
 
@@ -1832,7 +1832,7 @@
         
   
   <span class="md-ellipsis">
-    Documentation Improvement Template
+    Шаблон улучшения документации
   </span>
   
 
@@ -1853,7 +1853,7 @@
         
   
   <span class="md-ellipsis">
-    Feature Request Template
+    Шаблон запроса новой функциональности
   </span>
   
 
@@ -1874,7 +1874,7 @@
         
   
   <span class="md-ellipsis">
-    Question Template
+    Шаблон вопроса
   </span>
   
 
@@ -1914,7 +1914,7 @@
                   
 
   
-    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/blob/main/docs/en/developer-guide/project-structure.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/blob/main/docs/ru/developer-guide/project-structure.md" title="Редактировать страницу" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1923,319 +1923,319 @@
     
       
     
-    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/raw/main/docs/en/developer-guide/project-structure.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/raw/main/docs/ru/developer-guide/project-structure.md" title="Посмотреть исходный код страницы" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="project-structure-and-conventions">Project Structure and Conventions<a class="headerlink" href="#project-structure-and-conventions" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>This document outlines the organizational structure of the CulicidaeLab Flutter project and the coding conventions used throughout the codebase. Understanding this structure is essential for effective development and maintaining consistency across the project.</p>
-<h2 id="project-root-structure">Project Root Structure<a class="headerlink" href="#project-root-structure" title="Permanent link">&para;</a></h2>
+<h1 id="_1">Структура проекта и соглашения<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">Обзор<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Этот документ описывает организационную структуру проекта CulicidaeLab Flutter и соглашения по кодированию, используемые во всей кодовой базе. Понимание этой структуры необходимо для эффективной разработки и поддержания согласованности в проекте.</p>
+<h2 id="_3">Структура корня проекта<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>culicidaelab/
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── .devcontainer/              # Development container configuration
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── android/                    # Android-specific configuration and build files
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── assets/                     # Application assets (images, models, fonts, etc.)
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── docs/                       # Project documentation
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── integration_test/           # Integration test files
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── ios/                        # iOS-specific configuration and build files
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├── lib/                        # Main Dart source code
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>├── scripts/                    # Build and utility scripts
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>├── test/                       # Unit and widget tests
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>├── analysis_options.yaml       # Dart analyzer configuration
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── dartdoc_options.yaml        # Documentation generation options
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├── devtools_options.yaml       # Flutter DevTools configuration
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>├── l10n.yaml                   # Localization configuration
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├── pubspec.yaml                # Project dependencies and metadata
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>└── README.md                   # Project overview and quick start
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── .devcontainer/              # Конфигурация контейнера разработки
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── android/                    # Конфигурация и файлы сборки для Android
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── assets/                     # Ресурсы приложения (изображения, модели, шрифты и т.д.)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── docs/                       # Документация проекта
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── integration_test/           # Файлы интеграционных тестов
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── ios/                        # Конфигурация и файлы сборки для iOS
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├── lib/                        # Основной исходный код Dart
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>├── scripts/                    # Скрипты сборки и утилиты
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>├── test/                       # Модульные тесты и тесты виджетов
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>├── analysis_options.yaml       # Конфигурация анализатора Dart
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── dartdoc_options.yaml        # Опции генерации документации
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├── devtools_options.yaml       # Конфигурация Flutter DevTools
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>├── l10n.yaml                   # Конфигурация локализации
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├── pubspec.yaml                # Зависимости и метаданные проекта
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>└── README.md                   # Обзор проекта и быстрый старт
 </span></code></pre></div>
-<h2 id="source-code-structure-lib">Source Code Structure (<code>lib/</code>)<a class="headerlink" href="#source-code-structure-lib" title="Permanent link">&para;</a></h2>
-<p>The <code>lib/</code> directory follows a feature-based organization with clear separation of concerns:</p>
+<h2 id="lib">Структура исходного кода (<code>lib/</code>)<a class="headerlink" href="#lib" title="Permanent link">&para;</a></h2>
+<p>Директория <code>lib/</code> следует организации на основе функций с четким разделением ответственности:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>lib/
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── l10n/                       # Internationalization and localization
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   ├── app_en.arb             # English translations
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│   ├── app_es.arb             # Spanish translations
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│   ├── app_ru.arb             # Russian translations
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│   ├── app_localizations.dart  # Generated localization class
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│   └── app_localizations_*.dart # Generated language-specific classes
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>├── models/                     # Data models and entities
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│   ├── disease_model.dart      # Disease information model
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│   ├── mosquito_model.dart     # Mosquito species model
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│   ├── observation_model.dart  # User observation data model
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│   └── web_prediction_result.dart # AI prediction result model
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>├── providers/                  # State management providers
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│   └── locale_provider.dart   # Language/locale state management
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>├── repositories/               # Data access layer
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│   ├── classification_repository.dart # AI classification data access
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│   └── mosquito_repository.dart # Mosquito and disease data access
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>├── screens/                    # UI screens and pages
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│   ├── classification_screen.dart # Photo capture and classification
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│   ├── disease_detail_screen.dart # Individual disease information
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>│   ├── disease_info_screen.dart # Disease information listing
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│   ├── home_screen.dart        # Main navigation screen
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│   ├── mosquito_detail_screen.dart # Individual mosquito details
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>│   ├── mosquito_gallery_screen.dart # Mosquito species gallery
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>│   ├── observation_details_screen.dart # User observation details
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>│   └── webview_screen.dart     # Web content display
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>├── services/                   # Business logic and external integrations
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>│   ├── classification_service.dart # AI model inference service
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>│   ├── database_service.dart   # Local database operations
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>│   ├── pytorch_lite_model.dart # PyTorch model wrapper (legacy)
-</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>│   ├── pytorch_wrapper.dart   # PyTorch model integration
-</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>│   └── user_service.dart       # User data and preferences
-</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>├── view_models/                # MVVM business logic layer
-</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>│   ├── classification_view_model.dart # Classification workflow logic
-</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>│   ├── disease_info_view_model.dart # Disease information logic
-</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>│   └── mosquito_gallery_view_model.dart # Gallery browsing logic
-</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>├── widgets/                    # Reusable UI components
-</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>│   ├── custom_empty_widget.dart # Empty state widget
-</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>│   └── icomoon_icons.dart      # Custom icon definitions
-</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>├── locator.dart                # Dependency injection configuration
-</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>└── main.dart                   # Application entry point
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── l10n/                       # Интернационализация и локализация
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   ├── app_en.arb             # Переводы на английский
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│   ├── app_es.arb             # Переводы на испанский
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│   ├── app_ru.arb             # Переводы на русский
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│   ├── app_localizations.dart  # Сгенерированный класс локализации
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│   └── app_localizations_*.dart # Сгенерированные языко-специфические классы
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>├── models/                     # Модели данных и сущности
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│   ├── disease_model.dart      # Модель информации о заболеваниях
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│   ├── mosquito_model.dart     # Модель видов комаров
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│   ├── observation_model.dart  # Модель данных наблюдений пользователя
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│   └── web_prediction_result.dart # Модель результата предсказания ИИ
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>├── providers/                  # Провайдеры управления состоянием
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│   └── locale_provider.dart   # Управление состоянием языка/локали
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>├── repositories/               # Слой доступа к данным
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│   ├── classification_repository.dart # Доступ к данным классификации ИИ
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│   └── mosquito_repository.dart # Доступ к данным комаров и заболеваний
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>├── screens/                    # Экраны и страницы UI
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│   ├── classification_screen.dart # Захват фото и классификация
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│   ├── disease_detail_screen.dart # Информация об отдельном заболевании
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>│   ├── disease_info_screen.dart # Список информации о заболеваниях
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│   ├── home_screen.dart        # Основной экран навигации
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│   ├── mosquito_detail_screen.dart # Детали отдельного комара
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>│   ├── mosquito_gallery_screen.dart # Галерея видов комаров
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>│   ├── observation_details_screen.dart # Детали наблюдения пользователя
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>│   └── webview_screen.dart     # Отображение веб-контента
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>├── services/                   # Бизнес-логика и внешние интеграции
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>│   ├── classification_service.dart # Сервис вывода модели ИИ
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>│   ├── database_service.dart   # Операции локальной базы данных
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>│   ├── pytorch_lite_model.dart # Обертка модели PyTorch (устаревшая)
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>│   ├── pytorch_wrapper.dart   # Интеграция модели PyTorch
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>│   └── user_service.dart       # Данные пользователя и настройки
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>├── view_models/                # Слой бизнес-логики MVVM
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>│   ├── classification_view_model.dart # Логика рабочего процесса классификации
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>│   ├── disease_info_view_model.dart # Логика информации о заболеваниях
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>│   └── mosquito_gallery_view_model.dart # Логика просмотра галереи
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>├── widgets/                    # Переиспользуемые компоненты UI
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>│   ├── custom_empty_widget.dart # Виджет пустого состояния
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>│   └── icomoon_icons.dart      # Определения пользовательских иконок
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>├── locator.dart                # Конфигурация внедрения зависимостей
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>└── main.dart                   # Точка входа приложения
 </span></code></pre></div>
-<h2 id="architecture-layers">Architecture Layers<a class="headerlink" href="#architecture-layers" title="Permanent link">&para;</a></h2>
-<h3 id="1-presentation-layer">1. Presentation Layer<a class="headerlink" href="#1-presentation-layer" title="Permanent link">&para;</a></h3>
+<h2 id="_4">Архитектурные слои<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. Слой представления<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Location</strong>: <code>lib/screens/</code>, <code>lib/widgets/</code></li>
-<li><strong>Purpose</strong>: User interface components and user interaction handling</li>
-<li><strong>Naming Convention</strong>: <code>*_screen.dart</code> for full screens, <code>*_widget.dart</code> for reusable components</li>
+<li><strong>Расположение</strong>: <code>lib/screens/</code>, <code>lib/widgets/</code></li>
+<li><strong>Назначение</strong>: Компоненты пользовательского интерфейса и обработка взаимодействия пользователя</li>
+<li><strong>Соглашение именования</strong>: <code>*_screen.dart</code> для полных экранов, <code>*_widget.dart</code> для переиспользуемых компонентов</li>
 </ul>
-<h3 id="2-business-logic-layer">2. Business Logic Layer<a class="headerlink" href="#2-business-logic-layer" title="Permanent link">&para;</a></h3>
+<h3 id="2-">2. Слой бизнес-логики<a class="headerlink" href="#2-" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Location</strong>: <code>lib/view_models/</code>, <code>lib/providers/</code></li>
-<li><strong>Purpose</strong>: Application state management and business rules</li>
-<li><strong>Naming Convention</strong>: <code>*_view_model.dart</code> for MVVM logic, <code>*_provider.dart</code> for state providers</li>
+<li><strong>Расположение</strong>: <code>lib/view_models/</code>, <code>lib/providers/</code></li>
+<li><strong>Назначение</strong>: Управление состоянием приложения и бизнес-правила</li>
+<li><strong>Соглашение именования</strong>: <code>*_view_model.dart</code> для логики MVVM, <code>*_provider.dart</code> для провайдеров состояния</li>
 </ul>
-<h3 id="3-data-access-layer">3. Data Access Layer<a class="headerlink" href="#3-data-access-layer" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. Слой доступа к данным<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Location</strong>: <code>lib/repositories/</code></li>
-<li><strong>Purpose</strong>: Abstract data access and coordination between services</li>
-<li><strong>Naming Convention</strong>: <code>*_repository.dart</code></li>
+<li><strong>Расположение</strong>: <code>lib/repositories/</code></li>
+<li><strong>Назначение</strong>: Абстрактный доступ к данным и координация между сервисами</li>
+<li><strong>Соглашение именования</strong>: <code>*_repository.dart</code></li>
 </ul>
-<h3 id="4-service-layer">4. Service Layer<a class="headerlink" href="#4-service-layer" title="Permanent link">&para;</a></h3>
+<h3 id="4">4. Сервисный слой<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Location</strong>: <code>lib/services/</code></li>
-<li><strong>Purpose</strong>: External integrations, database operations, and specialized functionality</li>
-<li><strong>Naming Convention</strong>: <code>*_service.dart</code></li>
+<li><strong>Расположение</strong>: <code>lib/services/</code></li>
+<li><strong>Назначение</strong>: Внешние интеграции, операции с базой данных и специализированная функциональность</li>
+<li><strong>Соглашение именования</strong>: <code>*_service.dart</code></li>
 </ul>
-<h3 id="5-data-layer">5. Data Layer<a class="headerlink" href="#5-data-layer" title="Permanent link">&para;</a></h3>
+<h3 id="5">5. Слой данных<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Location</strong>: <code>lib/models/</code></li>
-<li><strong>Purpose</strong>: Data structures and entity definitions</li>
-<li><strong>Naming Convention</strong>: <code>*_model.dart</code></li>
+<li><strong>Расположение</strong>: <code>lib/models/</code></li>
+<li><strong>Назначение</strong>: Структуры данных и определения сущностей</li>
+<li><strong>Соглашение именования</strong>: <code>*_model.dart</code></li>
 </ul>
-<h2 id="assets-organization">Assets Organization<a class="headerlink" href="#assets-organization" title="Permanent link">&para;</a></h2>
+<h2 id="_5">Организация ресурсов<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>assets/
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── database/                   # Database initialization files
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│   └── database_data.json     # Initial data for local database
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── fonts/                      # Custom fonts
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   └── icomoon.ttf           # Icon font file
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>├── icons/                      # Application icons
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>├── images/                     # Static images
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│   ├── diseases/              # Disease-related images
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│   └── species/               # Mosquito species images
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>├── labels/                     # AI model label files
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>├── launcher_icon/              # App launcher icons
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>└── models/                     # AI model files
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── database/                   # Файлы инициализации базы данных
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│   └── database_data.json     # Начальные данные для локальной базы данных
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── fonts/                      # Пользовательские шрифты
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   └── icomoon.ttf           # Файл шрифта иконок
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>├── icons/                      # Иконки приложения
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>├── images/                     # Статические изображения
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│   ├── diseases/              # Изображения, связанные с заболеваниями
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│   └── species/               # Изображения видов комаров
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>├── labels/                     # Файлы меток модели ИИ
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>├── launcher_icon/              # Иконки запуска приложения
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>└── models/                     # Файлы модели ИИ
 </span></code></pre></div>
-<h2 id="testing-structure">Testing Structure<a class="headerlink" href="#testing-structure" title="Permanent link">&para;</a></h2>
+<h2 id="_6">Структура тестирования<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>test/
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── fixtures/                   # Test data and mock files
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├── performance/                # Performance testing
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>├── unit/                       # Unit tests
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│   ├── models/                # Model tests
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│   ├── repositories/          # Repository tests
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│   ├── services/              # Service tests
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│   └── view_models/           # ViewModel tests
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>└── widget/                     # Widget tests
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    └── screens/               # Screen widget tests
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── fixtures/                   # Тестовые данные и mock файлы
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├── performance/                # Тестирование производительности
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>├── unit/                       # Модульные тесты
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│   ├── models/                # Тесты моделей
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│   ├── repositories/          # Тесты репозиториев
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│   ├── services/              # Тесты сервисов
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│   └── view_models/           # Тесты моделей представления
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>└── widget/                     # Тесты виджетов
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    └── screens/               # Тесты виджетов экранов
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>integration_test/
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>└── app_test.dart              # End-to-end integration tests
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>└── app_test.dart              # Сквозные интеграционные тесты
 </span></code></pre></div>
-<h2 id="documentation-structure">Documentation Structure<a class="headerlink" href="#documentation-structure" title="Permanent link">&para;</a></h2>
+<h2 id="_7">Структура документации<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docs/
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├── api-reference/              # Auto-generated API documentation
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>├── assets/                     # Documentation assets
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>│   ├── css/                   # Custom styling
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>│   ├── diagrams/              # Architecture diagrams
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>│   ├── images/                # Screenshots and illustrations
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>│   ├── js/                    # Custom JavaScript
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>│   └── videos/                # Tutorial videos
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>├── contribution/               # Contributor guidelines
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>│   └── issue-templates/       # GitHub issue templates
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>├── developer-guide/            # Technical documentation
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>├── developer-guide/            # Technical and research documentation
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>├── user-guide/                 # End-user documentation
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>├── _config/                    # Documentation build configuration
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>│   ├── mkdocs.yml             # MkDocs configuration
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>│   └── templates/             # Documentation templates
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>├── project_structure.md        # This document
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>└── README.md                   # Documentation overview
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├── api-reference/              # Автоматически сгенерированная документация API
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>├── assets/                     # Ресурсы документации
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>│   ├── css/                   # Пользовательские стили
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>│   ├── diagrams/              # Диаграммы архитектуры
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>│   ├── images/                # Скриншоты и иллюстрации
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>│   ├── js/                    # Пользовательский JavaScript
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>│   └── videos/                # Обучающие видео
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>├── contribution/               # Руководящие принципы для участников
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>│   └── issue-templates/       # Шаблоны задач GitHub
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>├── developer-guide/            # Техническая документация
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>├── developer-guide/            # Техническая и исследовательская документация
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>├── user-guide/                 # Документация для конечных пользователей
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>├── _config/                    # Конфигурация сборки документации
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>│   ├── mkdocs.yml             # Конфигурация MkDocs
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>│   └── templates/             # Шаблоны документации
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>├── project_structure.md        # Этот документ
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>└── README.md                   # Обзор документации
 </span></code></pre></div>
-<h2 id="naming-conventions">Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h2>
-<h3 id="file-naming">File Naming<a class="headerlink" href="#file-naming" title="Permanent link">&para;</a></h3>
+<h2 id="_8">Соглашения именования<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">Именование файлов<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Dart Files</strong>: Use <code>snake_case</code> for all Dart files</li>
+<li><strong>Файлы Dart</strong>: Используйте <code>snake_case</code> для всех файлов Dart</li>
 <li>✅ <code>classification_service.dart</code></li>
 <li>❌ <code>ClassificationService.dart</code></li>
 <li>
 <p>❌ <code>classification-service.dart</code></p>
 </li>
 <li>
-<p><strong>Asset Files</strong>: Use <code>snake_case</code> for consistency</p>
+<p><strong>Файлы ресурсов</strong>: Используйте <code>snake_case</code> для согласованности</p>
 </li>
 <li>✅ <code>mosquito_species.json</code></li>
 <li>
 <p>❌ <code>mosquitoSpecies.json</code></p>
 </li>
 <li>
-<p><strong>Directory Names</strong>: Use <code>snake_case</code> or <code>kebab-case</code> consistently</p>
+<p><strong>Имена директорий</strong>: Используйте <code>snake_case</code> или <code>kebab-case</code> согласованно</p>
 </li>
 <li>✅ <code>user_guide/</code></li>
 <li>✅ <code>api-reference/</code></li>
 <li>❌ <code>userGuide/</code></li>
 </ul>
-<h3 id="class-naming">Class Naming<a class="headerlink" href="#class-naming" title="Permanent link">&para;</a></h3>
+<h3 id="_10">Именование классов<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><strong>Classes</strong>: Use <code>PascalCase</code>
+<p><strong>Классы</strong>: Используйте <code>PascalCase</code>
   <div class="language-dart highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationService</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MosquitoModel</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">class</span><span class="w"> </span><span class="nc">DiseaseInfoViewModel</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Interfaces</strong>: Use <code>PascalCase</code> with descriptive names
+<p><strong>Интерфейсы</strong>: Используйте <code>PascalCase</code> с описательными именами
   <div class="language-dart highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">DatabaseRepository</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationProvider</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div></p>
 </li>
 </ul>
-<h3 id="variable-and-method-naming">Variable and Method Naming<a class="headerlink" href="#variable-and-method-naming" title="Permanent link">&para;</a></h3>
+<h3 id="_11">Именование переменных и методов<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><strong>Variables</strong>: Use <code>camelCase</code>
+<p><strong>Переменные</strong>: Используйте <code>camelCase</code>
   <div class="language-dart highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">String</span><span class="w"> </span><span class="n">mosquitoSpecies</span><span class="p">;</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">DiseaseModel</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diseaseList</span><span class="p">;</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">bool</span><span class="w"> </span><span class="n">isClassifying</span><span class="p">;</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Methods</strong>: Use <code>camelCase</code> with descriptive verbs
+<p><strong>Методы</strong>: Используйте <code>camelCase</code> с описательными глаголами
   <div class="language-dart highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">classifyImage</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">MosquitoModel</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getMosquitoSpecies</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kt">void</span><span class="w"> </span><span class="n">updateClassificationState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Constants</strong>: Use <code>lowerCamelCase</code> for local constants, <code>SCREAMING_SNAKE_CASE</code> for global constants
+<p><strong>Константы</strong>: Используйте <code>lowerCamelCase</code> для локальных констант, <code>SCREAMING_SNAKE_CASE</code> для глобальных констант
   <div class="language-dart highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">defaultLanguage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">;</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX_IMAGE_SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1024</span><span class="p">;</span>
 </span></code></pre></div></p>
 </li>
 </ul>
-<h3 id="widget-naming">Widget Naming<a class="headerlink" href="#widget-naming" title="Permanent link">&para;</a></h3>
+<h3 id="_12">Именование виджетов<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><strong>Stateless Widgets</strong>: Use <code>PascalCase</code> ending with descriptive suffix
+<p><strong>Stateless виджеты</strong>: Используйте <code>PascalCase</code> с описательным суффиксом
   <div class="language-dart highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MosquitoDetailCard</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatelessWidget</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationButton</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatelessWidget</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Stateful Widgets</strong>: Use <code>PascalCase</code> for the widget, <code>_PascalCaseState</code> for the state
+<p><strong>Stateful виджеты</strong>: Используйте <code>PascalCase</code> для виджета, <code>_PascalCaseState</code> для состояния
   <div class="language-dart highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationScreen</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatefulWidget</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">_ClassificationScreenState</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">State</span><span class="o">&lt;</span><span class="n">ClassificationScreen</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div></p>
 </li>
 </ul>
-<h2 id="code-organization-patterns">Code Organization Patterns<a class="headerlink" href="#code-organization-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="import-organization">Import Organization<a class="headerlink" href="#import-organization" title="Permanent link">&para;</a></h3>
-<p>Organize imports in the following order with blank lines between groups:</p>
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// 1. Dart core libraries</span>
+<h2 id="_13">Паттерны организации кода<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14">Организация импортов<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>Организуйте импорты в следующем порядке с пустыми строками между группами:</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// 1. Основные библиотеки Dart</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;dart:async&#39;</span><span class="p">;</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;dart:io&#39;</span><span class="p">;</span>
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">// 2. Flutter framework</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">// 2. Фреймворк Flutter</span>
 </span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:flutter/services.dart&#39;</span><span class="p">;</span>
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1">// 3. Third-party packages</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1">// 3. Сторонние пакеты</span>
 </span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:provider/provider.dart&#39;</span><span class="p">;</span>
 </span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:cached_network_image/cached_network_image.dart&#39;</span><span class="p">;</span>
 </span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
-</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1">// 4. Internal imports (relative paths)</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1">// 4. Внутренние импорты (относительные пути)</span>
 </span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;../models/mosquito_model.dart&#39;</span><span class="p">;</span>
 </span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;../services/classification_service.dart&#39;</span><span class="p">;</span>
 </span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;../widgets/custom_empty_widget.dart&#39;</span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="class-structure">Class Structure<a class="headerlink" href="#class-structure" title="Permanent link">&para;</a></h3>
-<p>Organize class members in the following order:</p>
+<h3 id="_15">Структура класса<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>Организуйте члены класса в следующем порядке:</p>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ExampleClass</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="c1">// 1. Static constants</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="c1">// 1. Статические константы</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">CONSTANT_VALUE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;value&#39;</span><span class="p">;</span>
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="c1">// 2. Instance variables (private first, then public)</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="c1">// 2. Переменные экземпляра (сначала приватные, затем публичные)</span>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">_privateField</span><span class="p">;</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">publicField</span><span class="p">;</span>
 </span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="c1">// 3. Constructor</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="c1">// 3. Конструктор</span>
 </span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">  </span><span class="n">ExampleClass</span><span class="p">({</span>
 </span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="kd">required</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">publicField</span><span class="p">,</span>
 </span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">    </span><span class="kt">String</span><span class="o">?</span><span class="w"> </span><span class="n">privateField</span><span class="p">,</span>
 </span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">  </span><span class="p">})</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">_privateField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">privateField</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;default&#39;</span><span class="p">;</span>
 </span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
-</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">  </span><span class="c1">// 4. Getters and setters</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">  </span><span class="c1">// 4. Геттеры и сеттеры</span>
 </span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">  </span><span class="kt">String</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">privateField</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_privateField</span><span class="p">;</span>
 </span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>
-</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">  </span><span class="c1">// 5. Public methods</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">  </span><span class="c1">// 5. Публичные методы</span>
 </span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">publicMethod</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
-</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="w">  </span><span class="c1">// 6. Private methods</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="w">  </span><span class="c1">// 6. Приватные методы</span>
 </span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">_privateMethod</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>
-</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">  </span><span class="c1">// 7. Override methods</span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">  </span><span class="c1">// 7. Переопределенные методы</span>
 </span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="w">  </span><span class="nd">@override</span>
 </span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="w">  </span><span class="kt">String</span><span class="w"> </span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;ExampleClass(</span><span class="si">$</span><span class="n">_privateField</span><span class="s1">)&#39;</span><span class="p">;</span>
 </span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="method-organization">Method Organization<a class="headerlink" href="#method-organization" title="Permanent link">&para;</a></h3>
+<h3 id="_16">Организация методов<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Keep methods focused and single-purpose</li>
-<li>Use descriptive names that explain what the method does</li>
-<li>Limit method length to ~50 lines when possible</li>
-<li>Extract complex logic into private helper methods</li>
+<li>Держите методы сфокусированными и однозначными</li>
+<li>Используйте описательные имена, объясняющие, что делает метод</li>
+<li>Ограничивайте длину метода ~50 строками когда возможно</li>
+<li>Извлекайте сложную логику в приватные вспомогательные методы</li>
 </ul>
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// Good: Descriptive and focused</span>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// Хорошо: Описательный и сфокусированный</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">ClassificationResult</span><span class="o">&gt;</span><span class="w"> </span><span class="n">classifyMosquitoImage</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">imageFile</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">processedImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">_preprocessImage</span><span class="p">(</span><span class="n">imageFile</span><span class="p">);</span>
 </span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">prediction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">_runModelInference</span><span class="p">(</span><span class="n">processedImage</span><span class="p">);</span>
 </span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">_parseClassificationResult</span><span class="p">(</span><span class="n">prediction</span><span class="p">);</span>
 </span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="p">}</span>
 </span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1">// Helper methods for complex operations</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1">// Вспомогательные методы для сложных операций</span>
 </span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">Uint8List</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_preprocessImage</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">imageFile</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">_runModelInference</span><span class="p">(</span><span class="n">Uint8List</span><span class="w"> </span><span class="n">imageData</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="n">ClassificationResult</span><span class="w"> </span><span class="n">_parseClassificationResult</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="coding-standards">Coding Standards<a class="headerlink" href="#coding-standards" title="Permanent link">&para;</a></h2>
-<h3 id="dart-style-guidelines">Dart Style Guidelines<a class="headerlink" href="#dart-style-guidelines" title="Permanent link">&para;</a></h3>
-<p>The project follows the official <a href="https://dart.dev/guides/language/effective-dart/style">Dart Style Guide</a> with these specific conventions:</p>
-<h4 id="line-length">Line Length<a class="headerlink" href="#line-length" title="Permanent link">&para;</a></h4>
+<h2 id="_17">Стандарты кодирования<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="dart">Руководящие принципы стиля Dart<a class="headerlink" href="#dart" title="Permanent link">&para;</a></h3>
+<p>Проект следует официальному <a href="https://dart.dev/guides/language/effective-dart/style">Руководству по стилю Dart</a> с этими специфическими соглашениями:</p>
+<h4 id="_18">Длина строки<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Maximum line length: <strong>120 characters</strong></li>
-<li>Configured in <code>analysis_options.yaml</code> and IDE settings</li>
+<li>Максимальная длина строки: <strong>120 символов</strong></li>
+<li>Настроено в <code>analysis_options.yaml</code> и настройках IDE</li>
 </ul>
-<h4 id="formatting">Formatting<a class="headerlink" href="#formatting" title="Permanent link">&para;</a></h4>
+<h4 id="_19">Форматирование<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Use <code>flutter format .</code> to automatically format code</li>
-<li>Enable "Format on Save" in your IDE</li>
-<li>Use trailing commas for better diffs and formatting</li>
+<li>Используйте <code>flutter format .</code> для автоматического форматирования кода</li>
+<li>Включите "Format on Save" в вашей IDE</li>
+<li>Используйте завершающие запятые для лучших diff и форматирования</li>
 </ul>
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// Good: Trailing commas and proper formatting</span>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// Хорошо: Завершающие запятые и правильное форматирование</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">Scaffold</span><span class="p">(</span>
 </span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="nl">appBar:</span><span class="w"> </span><span class="n">AppBar</span><span class="p">(</span>
@@ -2251,29 +2251,29 @@
 </span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">  </span><span class="p">);</span>
 </span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<h4 id="documentation-comments">Documentation Comments<a class="headerlink" href="#documentation-comments" title="Permanent link">&para;</a></h4>
-<p>Use dartdoc comments for public APIs:</p>
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">/// Classifies a mosquito image using the trained PyTorch model.</span>
+<h4 id="_20">Комментарии документации<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p>Используйте dartdoc комментарии для публичных API:</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">/// Классифицирует изображение комара, используя обученную модель PyTorch.</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="c1">///</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1">/// Takes an [imageFile] and returns a [ClassificationResult] containing</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1">/// the predicted species and confidence score. Throws [ClassificationException]</span>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1">/// if the image cannot be processed.</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1">/// Принимает [imageFile] и возвращает [ClassificationResult], содержащий</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1">/// предсказанный вид и оценку достоверности. Выбрасывает [ClassificationException]</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1">/// если изображение не может быть обработано.</span>
 </span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1">///</span>
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">/// Example:</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">/// Пример:</span>
 </span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="c1">/// ```dart</span>
 </span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="c1">/// final result = await classifyMosquitoImage(imageFile);</span>
 </span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="c1">/// print(&#39;Species: ${result.species}, Confidence: ${result.confidence}&#39;);</span>
 </span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">/// ```</span>
 </span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">ClassificationResult</span><span class="o">&gt;</span><span class="w"> </span><span class="n">classifyMosquitoImage</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">imageFile</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">  </span><span class="c1">// Implementation</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">  </span><span class="c1">// Реализация</span>
 </span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h3>
-<h4 id="exception-handling">Exception Handling<a class="headerlink" href="#exception-handling" title="Permanent link">&para;</a></h4>
+<h3 id="_21">Обработка ошибок<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<h4 id="_22">Обработка исключений<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Use specific exception types when possible</li>
-<li>Provide meaningful error messages</li>
-<li>Log errors appropriately for debugging</li>
+<li>Используйте специфические типы исключений когда возможно</li>
+<li>Предоставляйте осмысленные сообщения об ошибках</li>
+<li>Логируйте ошибки соответствующим образом для отладки</li>
 </ul>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">classificationService</span><span class="p">.</span><span class="n">classify</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
@@ -2288,24 +2288,24 @@
 </span></code></pre></div>
 <h4 id="null-safety">Null Safety<a class="headerlink" href="#null-safety" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Use null safety features effectively</li>
-<li>Prefer non-nullable types when possible</li>
-<li>Use null-aware operators appropriately</li>
+<li>Эффективно используйте функции null safety</li>
+<li>Предпочитайте non-nullable типы когда возможно</li>
+<li>Используйте null-aware операторы соответствующим образом</li>
 </ul>
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// Good: Clear null handling</span>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// Хорошо: Четкая обработка null</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kt">String</span><span class="o">?</span><span class="w"> </span><span class="n">getUserName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">user</span><span class="o">?</span><span class="p">.</span><span class="n">name</span><span class="o">?</span><span class="p">.</span><span class="n">trim</span><span class="p">().</span><span class="n">isEmpty</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">user</span><span class="o">?</span><span class="p">.</span><span class="n">name</span><span class="o">?</span><span class="p">.</span><span class="n">trim</span><span class="p">();</span>
 </span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">}</span>
 </span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1">// Better: Using null-aware operators</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1">// Лучше: Использование null-aware операторов</span>
 </span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="kt">String</span><span class="o">?</span><span class="w"> </span><span class="n">getUserName</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">user</span><span class="o">?</span><span class="p">.</span><span class="n">name</span><span class="o">?</span><span class="p">.</span><span class="n">trim</span><span class="p">().</span><span class="n">nullIfEmpty</span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="state-management-patterns">State Management Patterns<a class="headerlink" href="#state-management-patterns" title="Permanent link">&para;</a></h3>
-<h4 id="provider-pattern">Provider Pattern<a class="headerlink" href="#provider-pattern" title="Permanent link">&para;</a></h4>
+<h3 id="_23">Паттерны управления состоянием<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<h4 id="provider">Паттерн Provider<a class="headerlink" href="#provider" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Use <code>ChangeNotifier</code> for simple state management</li>
-<li>Implement proper disposal of resources</li>
-<li>Use <code>Consumer</code> widgets for targeted rebuilds</li>
+<li>Используйте <code>ChangeNotifier</code> для простого управления состоянием</li>
+<li>Реализуйте правильное освобождение ресурсов</li>
+<li>Используйте <code>Consumer</code> виджеты для целевых перестроений</li>
 </ul>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationViewModel</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChangeNotifier</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">_isClassifying</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
@@ -2328,17 +2328,17 @@
 </span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>
 </span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="w">  </span><span class="nd">@override</span>
 </span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">dispose</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="w">    </span><span class="c1">// Clean up resources</span>
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="w">    </span><span class="c1">// Очистка ресурсов</span>
 </span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="n">dispose</span><span class="p">();</span>
 </span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="testing-conventions">Testing Conventions<a class="headerlink" href="#testing-conventions" title="Permanent link">&para;</a></h3>
-<h4 id="test-file-organization">Test File Organization<a class="headerlink" href="#test-file-organization" title="Permanent link">&para;</a></h4>
+<h3 id="_24">Соглашения тестирования<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<h4 id="_25">Организация тестовых файлов<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Mirror the <code>lib/</code> structure in <code>test/</code></li>
-<li>Use <code>_test.dart</code> suffix for test files</li>
-<li>Group related tests using <code>group()</code> function</li>
+<li>Отражайте структуру <code>lib/</code> в <code>test/</code></li>
+<li>Используйте суффикс <code>_test.dart</code> для тестовых файлов</li>
+<li>Группируйте связанные тесты используя функцию <code>group()</code></li>
 </ul>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// test/unit/services/classification_service_test.dart</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -2351,106 +2351,106 @@
 </span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
 </span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;classifyImage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">      </span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;should return valid result for valid image&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">        </span><span class="c1">// Test implementation</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">        </span><span class="c1">// Реализация теста</span>
 </span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">      </span><span class="p">});</span>
 </span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
 </span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">      </span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;should throw exception for invalid image&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">        </span><span class="c1">// Test implementation</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">        </span><span class="c1">// Реализация теста</span>
 </span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">      </span><span class="p">});</span>
 </span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">    </span><span class="p">});</span>
 </span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="w">  </span><span class="p">});</span>
 </span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="p">}</span>
 </span></code></pre></div>
-<h4 id="test-naming">Test Naming<a class="headerlink" href="#test-naming" title="Permanent link">&para;</a></h4>
+<h4 id="_26">Именование тестов<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Use descriptive test names that explain the scenario</li>
-<li>Follow the pattern: "should [expected behavior] when [condition]"</li>
+<li>Используйте описательные имена тестов, объясняющие сценарий</li>
+<li>Следуйте паттерну: "should [ожидаемое поведение] when [условие]"</li>
 </ul>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">test</span><span class="p">(</span><span class="s1">&#39;should return Aedes aegypti when image contains yellow fever mosquito&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="c1">// Test implementation</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="c1">// Реализация теста</span>
 </span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="p">});</span>
 </span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
 </span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="n">test</span><span class="p">(</span><span class="s1">&#39;should throw ClassificationException when image is corrupted&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="c1">// Test implementation</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="c1">// Реализация теста</span>
 </span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">});</span>
 </span></code></pre></div>
-<h2 id="performance-guidelines">Performance Guidelines<a class="headerlink" href="#performance-guidelines" title="Permanent link">&para;</a></h2>
-<h3 id="memory-management">Memory Management<a class="headerlink" href="#memory-management" title="Permanent link">&para;</a></h3>
+<h2 id="_27">Руководящие принципы производительности<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<h3 id="_28">Управление памятью<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Dispose of controllers and streams properly</li>
-<li>Use <code>const</code> constructors when possible</li>
-<li>Avoid memory leaks in long-lived objects</li>
+<li>Правильно освобождайте контроллеры и потоки</li>
+<li>Используйте <code>const</code> конструкторы когда возможно</li>
+<li>Избегайте утечек памяти в долгоживущих объектах</li>
 </ul>
-<h3 id="image-handling">Image Handling<a class="headerlink" href="#image-handling" title="Permanent link">&para;</a></h3>
+<h3 id="_29">Обработка изображений<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Compress images before processing</li>
-<li>Cache processed images appropriately</li>
-<li>Dispose of image resources after use</li>
+<li>Сжимайте изображения перед обработкой</li>
+<li>Соответствующим образом кэшируйте обработанные изображения</li>
+<li>Освобождайте ресурсы изображений после использования</li>
 </ul>
-<h3 id="database-operations">Database Operations<a class="headerlink" href="#database-operations" title="Permanent link">&para;</a></h3>
+<h3 id="_30">Операции с базой данных<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Use batch operations for multiple inserts</li>
-<li>Implement proper indexing for queries</li>
-<li>Close database connections properly</li>
+<li>Используйте пакетные операции для множественных вставок</li>
+<li>Реализуйте правильное индексирование для запросов</li>
+<li>Правильно закрывайте соединения с базой данных</li>
 </ul>
-<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
-<h3 id="data-protection">Data Protection<a class="headerlink" href="#data-protection" title="Permanent link">&para;</a></h3>
+<h2 id="_31">Соображения безопасности<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<h3 id="_32">Защита данных<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Never commit sensitive data to version control</li>
-<li>Use secure storage for sensitive information</li>
-<li>Validate all user inputs</li>
+<li>Никогда не фиксируйте чувствительные данные в контроле версий</li>
+<li>Используйте безопасное хранилище для чувствительной информации</li>
+<li>Валидируйте все пользовательские входы</li>
 </ul>
-<h3 id="api-security">API Security<a class="headerlink" href="#api-security" title="Permanent link">&para;</a></h3>
+<h3 id="api">Безопасность API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Use HTTPS for all network communications</li>
-<li>Implement proper authentication</li>
-<li>Validate server responses</li>
+<li>Используйте HTTPS для всех сетевых коммуникаций</li>
+<li>Реализуйте правильную аутентификацию</li>
+<li>Валидируйте ответы сервера</li>
 </ul>
-<h2 id="localization-guidelines">Localization Guidelines<a class="headerlink" href="#localization-guidelines" title="Permanent link">&para;</a></h2>
-<h3 id="adding-new-languages">Adding New Languages<a class="headerlink" href="#adding-new-languages" title="Permanent link">&para;</a></h3>
+<h2 id="_33">Руководящие принципы локализации<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<h3 id="_34">Добавление новых языков<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Create new <code>.arb</code> file in <code>lib/l10n/</code></li>
-<li>Add translations for all existing keys</li>
-<li>Update <code>l10n.yaml</code> configuration</li>
-<li>Run <code>flutter gen-l10n</code> to generate classes</li>
+<li>Создайте новый <code>.arb</code> файл в <code>lib/l10n/</code></li>
+<li>Добавьте переводы для всех существующих ключей</li>
+<li>Обновите конфигурацию <code>l10n.yaml</code></li>
+<li>Запустите <code>flutter gen-l10n</code> для генерации классов</li>
 </ol>
-<h3 id="translation-keys">Translation Keys<a class="headerlink" href="#translation-keys" title="Permanent link">&para;</a></h3>
+<h3 id="_35">Ключи переводов<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Use descriptive, hierarchical keys</li>
-<li>Group related translations</li>
-<li>Provide context for translators</li>
+<li>Используйте описательные, иерархические ключи</li>
+<li>Группируйте связанные переводы</li>
+<li>Предоставляйте контекст для переводчиков</li>
 </ul>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nt">&quot;classification_screen_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mosquito Classification&quot;</span><span class="p">,</span>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="nt">&quot;classification_button_capture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Capture Photo&quot;</span><span class="p">,</span>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="nt">&quot;classification_button_gallery&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Choose from Gallery&quot;</span><span class="p">,</span>
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">  </span><span class="nt">&quot;classification_result_species&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Species: {species}&quot;</span><span class="p">,</span>
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">  </span><span class="nt">&quot;classification_result_confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Confidence: {confidence}%&quot;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nt">&quot;classification_screen_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Классификация комаров&quot;</span><span class="p">,</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="nt">&quot;classification_button_capture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Сделать фото&quot;</span><span class="p">,</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="nt">&quot;classification_button_gallery&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Выбрать из галереи&quot;</span><span class="p">,</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">  </span><span class="nt">&quot;classification_result_species&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Вид: {species}&quot;</span><span class="p">,</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">  </span><span class="nt">&quot;classification_result_confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Достоверность: {confidence}%&quot;</span>
 </span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="git-workflow">Git Workflow<a class="headerlink" href="#git-workflow" title="Permanent link">&para;</a></h2>
-<h3 id="branch-naming">Branch Naming<a class="headerlink" href="#branch-naming" title="Permanent link">&para;</a></h3>
+<h2 id="git">Рабочий процесс Git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h2>
+<h3 id="_36">Именование веток<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>feature/description</code> for new features</li>
-<li><code>bugfix/description</code> for bug fixes</li>
-<li><code>hotfix/description</code> for urgent fixes</li>
-<li><code>docs/description</code> for documentation updates</li>
+<li><code>feature/description</code> для новых функций</li>
+<li><code>bugfix/description</code> для исправления ошибок</li>
+<li><code>hotfix/description</code> для срочных исправлений</li>
+<li><code>docs/description</code> для обновлений документации</li>
 </ul>
-<h3 id="commit-messages">Commit Messages<a class="headerlink" href="#commit-messages" title="Permanent link">&para;</a></h3>
-<p>Follow conventional commit format:
+<h3 id="_37">Сообщения коммитов<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<p>Следуйте формату conventional commit:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>type(scope): description
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
 </span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>[optional body]
 </span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
 </span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>[optional footer]
 </span></code></pre></div></p>
-<p>Examples:
+<p>Примеры:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>feat(classification): add confidence threshold setting
 </span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>fix(database): resolve migration issue for disease table
 </span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>docs(api): update classification service documentation
 </span></code></pre></div></p>
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>Following these conventions ensures consistency, maintainability, and collaboration effectiveness across the CulicidaeLab project. When in doubt, refer to the official Dart and Flutter style guides, and maintain consistency with existing code patterns in the project.</p>
+<h2 id="_38">Заключение<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h2>
+<p>Следование этим соглашениям обеспечивает согласованность, поддерживаемость и эффективность сотрудничества в проекте CulicidaeLab. В случае сомнений обращайтесь к официальным руководствам по стилю Dart и Flutter и поддерживайте согласованность с существующими паттернами кода в проекте.</p>
 
 
 
@@ -2476,7 +2476,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Back to top
+  К началу
 </button>
         
       </main>
@@ -2508,7 +2508,7 @@
       
       
     
-    <a href="https://github.com/culicidaelab/culicidaelab-mobile" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile" target="_blank" rel="noopener" title="github.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
@@ -2532,7 +2532,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.integrate", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.integrate", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>

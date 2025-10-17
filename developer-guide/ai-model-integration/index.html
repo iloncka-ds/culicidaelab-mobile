@@ -1,18 +1,18 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="ru" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Comprehensive documentation for the CulicidaeLab Flutter mobile application">
+        <meta name="description" content="Полная документация для мобильного приложения CulicidaeLab на Flutter.">
       
       
         <meta name="author" content="Ilona Kovaleva">
       
       
-        <link rel="canonical" href="https://iloncka-ds.github.io/culicidaelab-mobile/en/developer-guide/ai-model-integration/">
+        <link rel="canonical" href="https://iloncka-ds.github.io/culicidaelab-mobile/ru/developer-guide/ai-model-integration/">
       
       
         <link rel="prev" href="../project-structure/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>AI Model Integration - CulicidaeLab Documentation</title>
+        <title>Интеграция ИИ-моделей - CulicidaeLab Documentation</title>
       
     
     
@@ -82,8 +82,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#ai-model-integration-guide" class="md-skip">
-          Skip to content
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
         </a>
       
     </div>
@@ -97,7 +97,7 @@
   
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../.." title="CulicidaeLab Documentation" class="md-header__button md-logo" aria-label="CulicidaeLab Documentation" data-md-component="logo">
       
   <img src="../../assets/images/logo.png" alt="logo">
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AI Model Integration
+              Интеграция ИИ-моделей
             
           </span>
         </div>
@@ -157,7 +157,7 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Select language">
+    <button class="md-header__button md-icon" aria-label="Выберите язык">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
@@ -189,21 +189,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Поиск">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Поделиться" aria-label="Поделиться" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -216,7 +216,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            Инициализация поиска
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -227,7 +227,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Перейти к репозиторию" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -242,7 +242,7 @@
   
     
       
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -256,7 +256,7 @@
   
     
   
-  Home
+  Главная
 
       </a>
     </li>
@@ -275,7 +275,7 @@
   
     
   
-  User Guide
+  Руководство пользователя
 
         </a>
       </li>
@@ -297,7 +297,7 @@
   
     
   
-  Developer Guide
+  Руководство разработчика
 
         </a>
       </li>
@@ -317,7 +317,7 @@
   
     
   
-  API Reference
+  Справочник по API
 
         </a>
       </li>
@@ -337,7 +337,7 @@
   
     
   
-  Contribution
+  Участие в проекте
 
         </a>
       </li>
@@ -373,7 +373,7 @@
 
   
 
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="CulicidaeLab Documentation" class="md-nav__button md-logo" aria-label="CulicidaeLab Documentation" data-md-component="logo">
       
@@ -384,7 +384,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/iloncka-ds/culicidaelab-mobile" title="Перейти к репозиторию" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -408,7 +408,7 @@
         
   
   <span class="md-ellipsis">
-    Home
+    Главная
   </span>
   
 
@@ -459,7 +459,7 @@
             
   
   <span class="md-ellipsis">
-    User Guide
+    Руководство пользователя
   </span>
   
 
@@ -469,7 +469,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            User Guide
+            Руководство пользователя
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -484,7 +484,7 @@
         
   
   <span class="md-ellipsis">
-    Getting Started
+    Начало работы
   </span>
   
 
@@ -505,7 +505,7 @@
         
   
   <span class="md-ellipsis">
-    Mosquito Identification
+    Идентификация комаров
   </span>
   
 
@@ -526,7 +526,7 @@
         
   
   <span class="md-ellipsis">
-    Using Gallery
+    Использование галереи
   </span>
   
 
@@ -547,7 +547,7 @@
         
   
   <span class="md-ellipsis">
-    Disease Information
+    Информация о заболеваниях
   </span>
   
 
@@ -568,7 +568,7 @@
         
   
   <span class="md-ellipsis">
-    Troubleshooting
+    Устранение неполадок
   </span>
   
 
@@ -589,7 +589,7 @@
         
   
   <span class="md-ellipsis">
-    FAQ
+    Часто задаваемые вопросы
   </span>
   
 
@@ -661,7 +661,7 @@
             
   
   <span class="md-ellipsis">
-    Developer Guide
+    Руководство разработчика
   </span>
   
 
@@ -671,7 +671,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Developer Guide
+            Руководство разработчика
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -686,7 +686,7 @@
         
   
   <span class="md-ellipsis">
-    Architecture
+    Архитектура
   </span>
   
 
@@ -707,7 +707,7 @@
         
   
   <span class="md-ellipsis">
-    Development Setup
+    Настройка для разработки
   </span>
   
 
@@ -728,7 +728,7 @@
         
   
   <span class="md-ellipsis">
-    Project Structure
+    Структура проекта
   </span>
   
 
@@ -758,7 +758,7 @@
           
   
   <span class="md-ellipsis">
-    AI Model Integration
+    Интеграция ИИ-моделей
   </span>
   
 
@@ -769,7 +769,7 @@
         
   
   <span class="md-ellipsis">
-    AI Model Integration
+    Интеграция ИИ-моделей
   </span>
   
 
@@ -793,37 +793,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Обзор
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture-overview" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture Overview
+      Обзор архитектуры
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Architecture Overview">
+    <nav class="md-nav" aria-label="Обзор архитектуры">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ai-pipeline-components" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      AI Pipeline Components
+      Компоненты конвейера ИИ
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-flow" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Flow
+      Поток данных
     </span>
   </a>
   
@@ -835,13 +835,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-integration-components" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      Model Integration Components
+      Компоненты интеграции модели
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Model Integration Components">
+    <nav class="md-nav" aria-label="Компоненты интеграции модели">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -877,38 +877,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-configuration" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      Model Configuration
+      Конфигурация модели
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Model Configuration">
+    <nav class="md-nav" aria-label="Конфигурация модели">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#model-specifications" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      Model Specifications
+      Спецификации модели
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Model Specifications">
+    <nav class="md-nav" aria-label="Спецификации модели">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#current-model-details" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      Current Model Details
+      Детали текущей модели
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#label-configuration" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      Label Configuration
+      Конфигурация меток
     </span>
   </a>
   
@@ -920,60 +920,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#asset-organization" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
-      Asset Organization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#image-processing-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image Processing Pipeline
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Image Processing Pipeline">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-image-input-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Image Input Handling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-preprocessing" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Preprocessing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-model-inference" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Model Inference
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-post-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Post-processing
+      Организация ресурсов
     </span>
   </a>
   
@@ -985,37 +934,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-optimization" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance Optimization
+      Конвейер обработки изображений
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Performance Optimization">
+    <nav class="md-nav" aria-label="Конвейер обработки изображений">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#model-loading-optimization" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      Model Loading Optimization
+      1. Обработка входных изображений
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memory-management" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      Memory Management
+      2. Предобработка
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#inference-optimization" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      Inference Optimization
+      3. Вывод модели
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Постобработка
     </span>
   </a>
   
@@ -1027,61 +985,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
-      Error Handling
+      Оптимизация производительности
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Error Handling">
+    <nav class="md-nav" aria-label="Оптимизация производительности">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#common-error-scenarios" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
-      Common Error Scenarios
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Error Scenarios">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-platform-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Platform Support
+      Оптимизация загрузки модели
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-model-loading-failures" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Model Loading Failures
+      Управление памятью
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-inference-errors" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Inference Errors
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#error-recovery-strategies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Error Recovery Strategies
+      Оптимизация вывода
     </span>
   </a>
   
@@ -1093,28 +1027,61 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-ai-integration" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing AI Integration
+      Обработка ошибок
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Testing AI Integration">
+    <nav class="md-nav" aria-label="Обработка ошибок">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#unit-testing-with-mocks" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
-      Unit Testing with Mocks
+      Распространенные сценарии ошибок
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Распространенные сценарии ошибок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Поддержка платформы
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#integration-testing" class="md-nav__link">
+  <a href="#2_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Integration Testing
+      2. Сбои загрузки модели
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ошибки вывода
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Стратегии восстановления после ошибок
     </span>
   </a>
   
@@ -1126,28 +1093,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-deployment-and-updates" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
-      Model Deployment and Updates
+      Тестирование интеграции ИИ
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Model Deployment and Updates">
+    <nav class="md-nav" aria-label="Тестирование интеграции ИИ">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#model-versioning" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
-      Model Versioning
+      Модульное тестирование с моками
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dynamic-model-loading" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
-      Dynamic Model Loading
+      Интеграционное тестирование
     </span>
   </a>
   
@@ -1159,28 +1126,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-monitoring" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance Monitoring
+      Развертывание и обновления модели
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Performance Monitoring">
+    <nav class="md-nav" aria-label="Развертывание и обновления модели">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#inference-metrics" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
-      Inference Metrics
+      Версионирование модели
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memory-usage-tracking" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
-      Memory Usage Tracking
+      Динамическая загрузка модели
     </span>
   </a>
   
@@ -1192,61 +1159,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting-guide" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshooting Guide
+      Мониторинг производительности
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Troubleshooting Guide">
+    <nav class="md-nav" aria-label="Мониторинг производительности">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
-      Common Issues
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-model-loading-fails" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Model Loading Fails
+      Метрики вывода
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-poor-classification-accuracy" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Poor Classification Accuracy
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-slow-inference-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Slow Inference Performance
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debug-mode-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debug Mode Features
+      Отслеживание использования памяти
     </span>
   </a>
   
@@ -1258,28 +1192,61 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#future-enhancements" class="md-nav__link">
+  <a href="#_29" class="md-nav__link">
     <span class="md-ellipsis">
-      Future Enhancements
+      Руководство по устранению неполадок
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Future Enhancements">
+    <nav class="md-nav" aria-label="Руководство по устранению неполадок">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#planned-improvements" class="md-nav__link">
+  <a href="#_30" class="md-nav__link">
     <span class="md-ellipsis">
-      Planned Improvements
+      Распространенные проблемы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Распространенные проблемы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Сбой загрузки модели
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#extension-points" class="md-nav__link">
+  <a href="#2_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Extension Points
+      2. Плохая точность классификации
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Медленная производительность вывода
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      Функции режима отладки
     </span>
   </a>
   
@@ -1291,9 +1258,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#_32" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      Будущие улучшения
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Будущие улучшения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запланированные улучшения
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      Точки расширения
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      Заключение
     </span>
   </a>
   
@@ -1319,7 +1319,7 @@
         
   
   <span class="md-ellipsis">
-    Testing Guide
+    Руководство по тестированию
   </span>
   
 
@@ -1340,7 +1340,7 @@
         
   
   <span class="md-ellipsis">
-    Performance Optimization
+    Оптимизация производительности
   </span>
   
 
@@ -1361,7 +1361,7 @@
         
   
   <span class="md-ellipsis">
-    Ecosystem Integration
+    Интеграция с экосистемой
   </span>
   
 
@@ -1382,7 +1382,7 @@
         
   
   <span class="md-ellipsis">
-    Data Models
+    Модели данных
   </span>
   
 
@@ -1403,7 +1403,7 @@
         
   
   <span class="md-ellipsis">
-    API Integration
+    Интеграция API
   </span>
   
 
@@ -1424,7 +1424,7 @@
         
   
   <span class="md-ellipsis">
-    Extending Functionality
+    Расширение функциональности
   </span>
   
 
@@ -1445,7 +1445,7 @@
         
   
   <span class="md-ellipsis">
-    Flutter Patterns
+    Паттерны Flutter
   </span>
   
 
@@ -1494,7 +1494,7 @@
             
   
   <span class="md-ellipsis">
-    API Reference
+    Справочник по API
   </span>
   
 
@@ -1504,7 +1504,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            API Reference
+            Справочник по API
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1576,7 +1576,7 @@
             
   
   <span class="md-ellipsis">
-    Contribution
+    Участие в проекте
   </span>
   
 
@@ -1586,7 +1586,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Contribution
+            Участие в проекте
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1601,7 +1601,7 @@
         
   
   <span class="md-ellipsis">
-    Contributing
+    Как внести вклад
   </span>
   
 
@@ -1622,7 +1622,7 @@
         
   
   <span class="md-ellipsis">
-    Code Style
+    Стиль кода
   </span>
   
 
@@ -1691,7 +1691,7 @@
         
   
   <span class="md-ellipsis">
-    Pull Request Process
+    Процесс создания Pull Request
   </span>
   
 
@@ -1712,7 +1712,7 @@
         
   
   <span class="md-ellipsis">
-    Pull Request Template
+    Шаблон Pull Request
   </span>
   
 
@@ -1741,7 +1741,7 @@
         
   
   <span class="md-ellipsis">
-    Development Workflow
+    Процесс разработки
   </span>
   
 
@@ -1789,7 +1789,7 @@
             
   
   <span class="md-ellipsis">
-    Issue Templates
+    Шаблоны задач
   </span>
   
 
@@ -1799,7 +1799,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
-            Issue Templates
+            Шаблоны задач
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1814,7 +1814,7 @@
         
   
   <span class="md-ellipsis">
-    Bug Report Template
+    Шаблон отчета об ошибке
   </span>
   
 
@@ -1835,7 +1835,7 @@
         
   
   <span class="md-ellipsis">
-    Documentation Improvement Template
+    Шаблон улучшения документации
   </span>
   
 
@@ -1856,7 +1856,7 @@
         
   
   <span class="md-ellipsis">
-    Feature Request Template
+    Шаблон запроса новой функциональности
   </span>
   
 
@@ -1877,7 +1877,7 @@
         
   
   <span class="md-ellipsis">
-    Question Template
+    Шаблон вопроса
   </span>
   
 
@@ -1917,7 +1917,7 @@
                   
 
   
-    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/blob/main/docs/en/developer-guide/ai-model-integration.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/blob/main/docs/ru/developer-guide/ai-model-integration.md" title="Редактировать страницу" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1926,41 +1926,41 @@
     
       
     
-    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/raw/main/docs/en/developer-guide/ai-model-integration.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile/raw/main/docs/ru/developer-guide/ai-model-integration.md" title="Посмотреть исходный код страницы" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="ai-model-integration-guide">AI Model Integration Guide<a class="headerlink" href="#ai-model-integration-guide" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>CulicidaeLab integrates PyTorch Lite models for on-device mosquito species classification. This guide covers the complete AI pipeline, from model loading to inference, including architecture details, performance considerations, and troubleshooting.</p>
-<h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
-<h3 id="ai-pipeline-components">AI Pipeline Components<a class="headerlink" href="#ai-pipeline-components" title="Permanent link">&para;</a></h3>
+<h1 id="_1">Руководство по интеграции модели ИИ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">Обзор<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>CulicidaeLab интегрирует модели PyTorch Lite для классификации видов комаров на устройстве. Это руководство охватывает полный конвейер ИИ, от загрузки модели до вывода, включая детали архитектуры, соображения производительности и устранение неполадок.</p>
+<h2 id="_3">Обзор архитектуры<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">Компоненты конвейера ИИ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>graph TB
-    subgraph "User Interface"
-        UI[Classification Screen]
-        CAM[Camera/Gallery]
+    subgraph "Пользовательский интерфейс"
+        UI[Экран классификации]
+        CAM[Камера/Галерея]
     end
 
-    subgraph "Business Logic"
+    subgraph "Бизнес-логика"
         VM[ClassificationViewModel]
         REPO[ClassificationRepository]
     end
 
-    subgraph "AI Services"
+    subgraph "Сервисы ИИ"
         CS[ClassificationService]
         PW[PytorchWrapper]
     end
 
-    subgraph "PyTorch Integration"
+    subgraph "Интеграция PyTorch"
         PLM[PytorchLite]
         CM[ClassificationModel]
         API[ModelApi - Native]
     end
 
-    subgraph "Model Assets"
+    subgraph "Ресурсы модели"
         MODEL[mosquito_classifier.pt]
         LABELS[mosquito_species.txt]
     end
@@ -1976,9 +1976,9 @@
 
     PLM -.-&gt; MODEL
     PLM -.-&gt; LABELS</code></pre>
-<h3 id="data-flow">Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h3>
+<h3 id="_5">Поток данных<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>sequenceDiagram
-    participant User
+    participant User as Пользователь
     participant UI as ClassificationScreen
     participant VM as ClassificationViewModel
     participant CS as ClassificationService
@@ -1986,33 +1986,33 @@
     participant Model as ClassificationModel
     participant Native as Native PyTorch
 
-    User-&gt;&gt;UI: Capture/Select Image
+    User-&gt;&gt;UI: Сделать/Выбрать изображение
     UI-&gt;&gt;VM: classifyImage(imageFile)
     VM-&gt;&gt;CS: classifyImage(imageFile)
 
-    Note over CS: Check if model loaded
-    alt Model not loaded
+    Note over CS: Проверить загружена ли модель
+    alt Модель не загружена
         CS-&gt;&gt;PW: loadClassificationModel()
-        PW-&gt;&gt;Model: Create model instance
-        Model-&gt;&gt;Native: Load .pt file
-        Native--&gt;&gt;Model: Model loaded
+        PW-&gt;&gt;Model: Создать экземпляр модели
+        Model-&gt;&gt;Native: Загрузить .pt файл
+        Native--&gt;&gt;Model: Модель загружена
         Model--&gt;&gt;PW: ClassificationModel
-        PW--&gt;&gt;CS: Model ready
+        PW--&gt;&gt;CS: Модель готова
     end
 
     CS-&gt;&gt;Model: getImagePredictionResult(imageBytes)
-    Model-&gt;&gt;Native: Process image + inference
-    Native--&gt;&gt;Model: Raw predictions
-    Model-&gt;&gt;Model: Apply softmax
+    Model-&gt;&gt;Native: Обработать изображение + вывод
+    Native--&gt;&gt;Model: Сырые предсказания
+    Model-&gt;&gt;Model: Применить softmax
     Model--&gt;&gt;CS: {label, probability}
-    CS--&gt;&gt;VM: Classification result
-    VM--&gt;&gt;UI: Update UI state
-    UI--&gt;&gt;User: Display results</code></pre>
-<h2 id="model-integration-components">Model Integration Components<a class="headerlink" href="#model-integration-components" title="Permanent link">&para;</a></h2>
+    CS--&gt;&gt;VM: Результат классификации
+    VM--&gt;&gt;UI: Обновить состояние UI
+    UI--&gt;&gt;User: Показать результаты</code></pre>
+<h2 id="_6">Компоненты интеграции модели<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="1-pytorchwrapper">1. PytorchWrapper<a class="headerlink" href="#1-pytorchwrapper" title="Permanent link">&para;</a></h3>
-<p>The <code>PytorchWrapper</code> class provides a testable interface around PyTorch Lite operations:</p>
+<p>Класс <code>PytorchWrapper</code> предоставляет тестируемый интерфейс для операций PyTorch Lite:</p>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">PytorchWrapper</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="c1">/// Loads a classification model from assets</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="c1">/// Загружает модель классификации из ресурсов</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">ClassificationModel</span><span class="o">&gt;</span><span class="w"> </span><span class="n">loadClassificationModel</span><span class="p">(</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kt">String</span><span class="w"> </span><span class="n">pathImageModel</span><span class="p">,</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">imageWidth</span><span class="p">,</span>
@@ -2028,17 +2028,17 @@
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><strong>Key Features:</strong>
-- <strong>Testability</strong>: Enables mocking for unit tests
-- <strong>Dependency Injection</strong>: Supports service locator pattern
-- <strong>Future Extensibility</strong>: Provides hooks for logging and caching</p>
+<p><strong>Ключевые особенности:</strong>
+- <strong>Тестируемость</strong>: Позволяет мокирование для модульных тестов
+- <strong>Внедрение зависимостей</strong>: Поддерживает паттерн service locator
+- <strong>Будущая расширяемость</strong>: Предоставляет хуки для логирования и кэширования</p>
 <h3 id="2-classificationservice">2. ClassificationService<a class="headerlink" href="#2-classificationservice" title="Permanent link">&para;</a></h3>
-<p>The main service orchestrating AI operations:</p>
+<p>Основной сервис, оркестрирующий операции ИИ:</p>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationService</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">PytorchWrapper</span><span class="w"> </span><span class="n">_pytorchWrapper</span><span class="p">;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="n">ClassificationModel</span><span class="o">?</span><span class="w"> </span><span class="n">_model</span><span class="p">;</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="c1">/// Load the mosquito classification model</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="c1">/// Загрузить модель классификации комаров</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">loadModel</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kt">String</span><span class="w"> </span><span class="n">pathImageModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;assets/models/mosquito_classifier.pt&quot;</span><span class="p">;</span>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
@@ -2047,14 +2047,14 @@
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="nl">labelPath:</span><span class="w"> </span><span class="s2">&quot;assets/labels/mosquito_species.txt&quot;</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="p">);</span>
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="kd">on</span><span class="w"> </span><span class="n">PlatformException</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s2">&quot;Model loading failed - only supported for Android/iOS&quot;</span><span class="p">);</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s2">&quot;Загрузка модели не удалась - поддерживается только для Android/iOS&quot;</span><span class="p">);</span>
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="c1">/// Classify a mosquito image</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="c1">/// Классифицировать изображение комара</span>
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">classifyImage</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">imageFile</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_model</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s2">&quot;Model not loaded - call loadModel() first&quot;</span><span class="p">);</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s2">&quot;Модель не загружена - сначала вызовите loadModel()&quot;</span><span class="p">);</span>
 </span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
 </span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">imageBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">imageFile</span><span class="p">.</span><span class="n">readAsBytes</span><span class="p">();</span>
@@ -2067,18 +2067,18 @@
 </span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><strong>Responsibilities:</strong>
-- Model lifecycle management
-- Image preprocessing coordination
-- Error handling and validation
-- Performance monitoring</p>
+<p><strong>Ответственности:</strong>
+- Управление жизненным циклом модели
+- Координация предобработки изображений
+- Обработка ошибок и валидация
+- Мониторинг производительности</p>
 <h3 id="3-classificationmodel">3. ClassificationModel<a class="headerlink" href="#3-classificationmodel" title="Permanent link">&para;</a></h3>
-<p>The PyTorch Lite model wrapper providing inference capabilities:</p>
+<p>Обертка модели PyTorch Lite, предоставляющая возможности вывода:</p>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationModel</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_index</span><span class="p">;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">labels</span><span class="p">;</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="c1">/// Get prediction with confidence score</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="c1">/// Получить предсказание с оценкой достоверности</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">getImagePredictionResult</span><span class="p">(</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">Uint8List</span><span class="w"> </span><span class="n">imageAsBytes</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TORCHVISION_NORM_MEAN_RGB</span><span class="p">,</span>
@@ -2087,7 +2087,7 @@
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">?&gt;</span><span class="w"> </span><span class="n">prediction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">ModelApi</span><span class="p">()</span>
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="p">.</span><span class="n">getImagePredictionList</span><span class="p">(</span><span class="n">_index</span><span class="p">,</span><span class="w"> </span><span class="n">imageAsBytes</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="p">);</span>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="c1">// Find max prediction</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="c1">// Найти максимальное предсказание</span>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxScoreIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">prediction</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">prediction</span><span class="p">[</span><span class="n">maxScoreIndex</span><span class="p">]</span><span class="o">!</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2095,7 +2095,7 @@
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">      </span><span class="p">}</span>
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="c1">// Apply softmax</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="c1">// Применить softmax</span>
 </span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">sumExp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.0</span><span class="p">;</span>
 </span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">prediction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">      </span><span class="n">sumExp</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="n">element</span><span class="o">!</span><span class="p">);</span>
@@ -2112,58 +2112,58 @@
 </span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="model-configuration">Model Configuration<a class="headerlink" href="#model-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="model-specifications">Model Specifications<a class="headerlink" href="#model-specifications" title="Permanent link">&para;</a></h3>
-<h4 id="current-model-details">Current Model Details<a class="headerlink" href="#current-model-details" title="Permanent link">&para;</a></h4>
+<h2 id="_7">Конфигурация модели<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">Спецификации модели<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="_9">Детали текущей модели<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>File</strong>: <code>assets/models/mosquito_classifier.pt</code></li>
-<li><strong>Input Size</strong>: 224x224 pixels</li>
-<li><strong>Color Space</strong>: RGB</li>
-<li><strong>Normalization</strong>: ImageNet standard (mean: [0.485, 0.456, 0.406], std: [0.229, 0.224, 0.225])</li>
-<li><strong>Output</strong>: Softmax probabilities for mosquito species classes</li>
+<li><strong>Файл</strong>: <code>assets/models/mosquito_classifier.pt</code></li>
+<li><strong>Размер входа</strong>: 224x224 пикселей</li>
+<li><strong>Цветовое пространство</strong>: RGB</li>
+<li><strong>Нормализация</strong>: Стандарт ImageNet (mean: [0.485, 0.456, 0.406], std: [0.229, 0.224, 0.225])</li>
+<li><strong>Выход</strong>: Вероятности softmax для классов видов комаров</li>
 </ul>
-<h4 id="label-configuration">Label Configuration<a class="headerlink" href="#label-configuration" title="Permanent link">&para;</a></h4>
+<h4 id="_10">Конфигурация меток<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>File</strong>: <code>assets/labels/mosquito_species.txt</code></li>
-<li><strong>Format</strong>: One species name per line</li>
-<li><strong>Example</strong>:
+<li><strong>Файл</strong>: <code>assets/labels/mosquito_species.txt</code></li>
+<li><strong>Формат</strong>: Одно название вида на строку</li>
+<li><strong>Пример</strong>:
   <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Aedes aegypti
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Aedes albopictus
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Anopheles gambiae
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Culex pipiens
 </span></code></pre></div></li>
 </ul>
-<h3 id="asset-organization">Asset Organization<a class="headerlink" href="#asset-organization" title="Permanent link">&para;</a></h3>
+<h3 id="_11">Организация ресурсов<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>assets/
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├── models/
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>│   └── mosquito_classifier.pt      # PyTorch Lite model file
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>│   └── mosquito_classifier.pt      # Файл модели PyTorch Lite
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>└── labels/
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    └── mosquito_species.txt        # Species label mappings
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    └── mosquito_species.txt        # Сопоставления меток видов
 </span></code></pre></div>
-<h2 id="image-processing-pipeline">Image Processing Pipeline<a class="headerlink" href="#image-processing-pipeline" title="Permanent link">&para;</a></h2>
-<h3 id="1-image-input-handling">1. Image Input Handling<a class="headerlink" href="#1-image-input-handling" title="Permanent link">&para;</a></h3>
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// From camera or gallery</span>
+<h2 id="_12">Конвейер обработки изображений<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. Обработка входных изображений<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Из камеры или галереи</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">final</span><span class="w"> </span><span class="n">imageFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;/path/to/image.jpg&#39;</span><span class="p">);</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">final</span><span class="w"> </span><span class="n">imageBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">imageFile</span><span class="p">.</span><span class="n">readAsBytes</span><span class="p">();</span>
 </span></code></pre></div>
-<p><strong>Supported Formats:</strong>
+<p><strong>Поддерживаемые форматы:</strong>
 - JPEG (.jpg, .jpeg)
 - PNG (.png)
 - BMP (.bmp)
 - WebP (.webp)</p>
-<h3 id="2-preprocessing">2. Preprocessing<a class="headerlink" href="#2-preprocessing" title="Permanent link">&para;</a></h3>
-<p>The PyTorch Lite plugin handles:
-- <strong>Resizing</strong>: Automatic resize to 224x224 pixels
-- <strong>Normalization</strong>: ImageNet mean/std normalization
-- <strong>Color Space</strong>: RGB conversion if needed
-- <strong>Tensor Conversion</strong>: Convert to model input format</p>
-<h3 id="3-model-inference">3. Model Inference<a class="headerlink" href="#3-model-inference" title="Permanent link">&para;</a></h3>
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Native inference through ModelApi</span>
+<h3 id="2">2. Предобработка<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>Плагин PyTorch Lite обрабатывает:
+- <strong>Изменение размера</strong>: Автоматическое изменение размера до 224x224 пикселей
+- <strong>Нормализация</strong>: Нормализация ImageNet mean/std
+- <strong>Цветовое пространство</strong>: Преобразование RGB при необходимости
+- <strong>Преобразование тензора</strong>: Преобразование в формат входа модели</p>
+<h3 id="3">3. Вывод модели<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Нативный вывод через ModelApi</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">?&gt;</span><span class="w"> </span><span class="n">rawPrediction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">ModelApi</span><span class="p">()</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="p">.</span><span class="n">getImagePredictionList</span><span class="p">(</span><span class="n">modelIndex</span><span class="p">,</span><span class="w"> </span><span class="n">imageBytes</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
 </span></code></pre></div>
-<h3 id="4-post-processing">4. Post-processing<a class="headerlink" href="#4-post-processing" title="Permanent link">&para;</a></h3>
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Apply softmax to get probabilities</span>
+<h3 id="4">4. Постобработка<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Применить softmax для получения вероятностей</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">sumExp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.0</span><span class="p">;</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">logit</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">rawPrediction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="n">sumExp</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="n">logit</span><span class="o">!</span><span class="p">);</span>
@@ -2173,24 +2173,24 @@
 </span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="p">.</span><span class="n">map</span><span class="p">((</span><span class="n">logit</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="n">logit</span><span class="o">!</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">sumExp</span><span class="p">)</span>
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">.</span><span class="n">toList</span><span class="p">();</span>
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1">// Get top prediction</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1">// Получить лучшее предсказание</span>
 </span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="kt">int</span><span class="w"> </span><span class="n">maxIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">probabilities</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="n">probabilities</span><span class="p">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">max</span><span class="p">));</span>
 </span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="kt">String</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">labels</span><span class="p">[</span><span class="n">maxIndex</span><span class="p">];</span>
 </span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="kt">double</span><span class="w"> </span><span class="n">confidence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">probabilities</span><span class="p">[</span><span class="n">maxIndex</span><span class="p">];</span>
 </span></code></pre></div>
-<h2 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h2>
-<h3 id="model-loading-optimization">Model Loading Optimization<a class="headerlink" href="#model-loading-optimization" title="Permanent link">&para;</a></h3>
+<h2 id="_13">Оптимизация производительности<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14">Оптимизация загрузки модели<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationService</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">ClassificationService</span><span class="o">?</span><span class="w"> </span><span class="n">_instance</span><span class="p">;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="n">ClassificationModel</span><span class="o">?</span><span class="w"> </span><span class="n">_model</span><span class="p">;</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="c1">// Singleton pattern for model reuse</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="c1">// Паттерн Singleton для переиспользования модели</span>
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">ClassificationService</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="n">_instance</span><span class="w"> </span><span class="o">??=</span><span class="w"> </span><span class="n">ClassificationService</span><span class="p">(</span><span class="nl">pytorchWrapper:</span><span class="w"> </span><span class="n">PytorchWrapper</span><span class="p">());</span>
 </span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">_instance</span><span class="o">!</span><span class="p">;</span>
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">  </span><span class="c1">// Load model once and cache</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">  </span><span class="c1">// Загрузить модель один раз и кэшировать</span>
 </span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ensureModelLoaded</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_model</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">      </span><span class="kd">await</span><span class="w"> </span><span class="n">loadModel</span><span class="p">();</span>
@@ -2198,8 +2198,8 @@
 </span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="memory-management">Memory Management<a class="headerlink" href="#memory-management" title="Permanent link">&para;</a></h3>
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Dispose of large image data promptly</span>
+<h3 id="_15">Управление памятью<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Быстро освобождать большие данные изображений</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">classifyImage</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">imageFile</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="n">Uint8List</span><span class="o">?</span><span class="w"> </span><span class="n">imageBytes</span><span class="p">;</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
@@ -2207,68 +2207,68 @@
 </span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">_model</span><span class="o">!</span><span class="p">.</span><span class="n">getImagePredictionResult</span><span class="p">(</span><span class="n">imageBytes</span><span class="p">);</span>
 </span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 </span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="n">imageBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// Help GC</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="n">imageBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// Помочь GC</span>
 </span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="inference-optimization">Inference Optimization<a class="headerlink" href="#inference-optimization" title="Permanent link">&para;</a></h3>
+<h3 id="_16">Оптимизация вывода<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Batch Processing</strong>: Use batch methods for multiple images</li>
-<li><strong>Image Size</strong>: Optimize input image size before processing</li>
-<li><strong>Model Caching</strong>: Keep model loaded in memory between predictions</li>
-<li><strong>Background Processing</strong>: Run inference on background isolates for heavy workloads</li>
+<li><strong>Пакетная обработка</strong>: Используйте пакетные методы для нескольких изображений</li>
+<li><strong>Размер изображения</strong>: Оптимизируйте размер входного изображения перед обработкой</li>
+<li><strong>Кэширование модели</strong>: Держите модель загруженной в памяти между предсказаниями</li>
+<li><strong>Фоновая обработка</strong>: Запускайте вывод на фоновых изолятах для тяжелых нагрузок</li>
 </ul>
-<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
-<h3 id="common-error-scenarios">Common Error Scenarios<a class="headerlink" href="#common-error-scenarios" title="Permanent link">&para;</a></h3>
-<h4 id="1-platform-support">1. Platform Support<a class="headerlink" href="#1-platform-support" title="Permanent link">&para;</a></h4>
+<h2 id="_17">Обработка ошибок<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="_18">Распространенные сценарии ошибок<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h4 id="1_1">1. Поддержка платформы<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="kd">await</span><span class="w"> </span><span class="n">classificationService</span><span class="p">.</span><span class="n">loadModel</span><span class="p">();</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">}</span><span class="w"> </span><span class="kd">on</span><span class="w"> </span><span class="n">PlatformException</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="c1">// Handle unsupported platform (Web, Desktop)</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="c1">// Обработать неподдерживаемую платформу (Web, Desktop)</span>
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="s1">&#39;AI classification not supported on this platform&#39;</span><span class="p">,</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="s1">&#39;Классификация ИИ не поддерживается на этой платформе&#39;</span><span class="p">,</span>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="nl">code:</span><span class="w"> </span><span class="s1">&#39;PLATFORM_UNSUPPORTED&#39;</span>
 </span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="p">);</span>
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<h4 id="2-model-loading-failures">2. Model Loading Failures<a class="headerlink" href="#2-model-loading-failures" title="Permanent link">&para;</a></h4>
+<h4 id="2_1">2. Сбои загрузки модели<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h4>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="n">_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">_pytorchWrapper</span><span class="p">.</span><span class="n">loadClassificationModel</span><span class="p">(...);</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">toString</span><span class="p">().</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;file not found&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">      </span><span class="s1">&#39;Model file not found in assets&#39;</span><span class="p">,</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">      </span><span class="s1">&#39;Файл модели не найден в ресурсах&#39;</span><span class="p">,</span>
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">      </span><span class="nl">code:</span><span class="w"> </span><span class="s1">&#39;MODEL_NOT_FOUND&#39;</span>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="p">);</span>
 </span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">toString</span><span class="p">().</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;memory&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span>
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">      </span><span class="s1">&#39;Insufficient memory to load model&#39;</span><span class="p">,</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">      </span><span class="s1">&#39;Недостаточно памяти для загрузки модели&#39;</span><span class="p">,</span>
 </span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">      </span><span class="nl">code:</span><span class="w"> </span><span class="s1">&#39;INSUFFICIENT_MEMORY&#39;</span>
 </span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="p">);</span>
 </span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">  </span><span class="k">rethrow</span><span class="p">;</span>
 </span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="p">}</span>
 </span></code></pre></div>
-<h4 id="3-inference-errors">3. Inference Errors<a class="headerlink" href="#3-inference-errors" title="Permanent link">&para;</a></h4>
+<h4 id="3_1">3. Ошибки вывода<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h4>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">classifyImage</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">imageFile</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">imageFile</span><span class="p">.</span><span class="n">existsSync</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span><span class="s1">&#39;Image file not found&#39;</span><span class="p">);</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span><span class="s1">&#39;Файл изображения не найден&#39;</span><span class="p">);</span>
 </span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">imageBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">imageFile</span><span class="p">.</span><span class="n">readAsBytes</span><span class="p">();</span>
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">imageBytes</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span><span class="s1">&#39;Empty image file&#39;</span><span class="p">);</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span><span class="s1">&#39;Пустой файл изображения&#39;</span><span class="p">);</span>
 </span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
 </span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">_model</span><span class="o">!</span><span class="p">.</span><span class="n">getImagePredictionResult</span><span class="p">(</span><span class="n">imageBytes</span><span class="p">);</span>
 </span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">)</span><span class="w"> </span><span class="k">rethrow</span><span class="p">;</span>
-</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span><span class="s1">&#39;Classification failed: </span><span class="si">$</span><span class="n">e</span><span class="s1">&#39;</span><span class="p">);</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span><span class="s1">&#39;Классификация не удалась: </span><span class="si">$</span><span class="n">e</span><span class="s1">&#39;</span><span class="p">);</span>
 </span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="error-recovery-strategies">Error Recovery Strategies<a class="headerlink" href="#error-recovery-strategies" title="Permanent link">&para;</a></h3>
+<h3 id="_19">Стратегии восстановления после ошибок<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationService</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">_retryCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxRetries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
@@ -2280,22 +2280,22 @@
 </span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">attempt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">maxRetries</span><span class="p">)</span><span class="w"> </span><span class="k">rethrow</span><span class="p">;</span>
 </span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">        </span><span class="c1">// Exponential backoff</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">        </span><span class="c1">// Экспоненциальная задержка</span>
 </span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">        </span><span class="kd">await</span><span class="w"> </span><span class="n">Future</span><span class="p">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">Duration</span><span class="p">(</span><span class="nl">milliseconds:</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">attempt</span><span class="p">)));</span>
 </span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
-</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">        </span><span class="c1">// Reload model if needed</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">        </span><span class="c1">// Перезагрузить модель при необходимости</span>
 </span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">toString</span><span class="p">().</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">          </span><span class="n">_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 </span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">          </span><span class="kd">await</span><span class="w"> </span><span class="n">loadModel</span><span class="p">();</span>
 </span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">        </span><span class="p">}</span>
 </span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="w">      </span><span class="p">}</span>
 </span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span><span class="s1">&#39;Max retries exceeded&#39;</span><span class="p">);</span>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">ClassificationException</span><span class="p">(</span><span class="s1">&#39;Превышено максимальное количество попыток&#39;</span><span class="p">);</span>
 </span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="testing-ai-integration">Testing AI Integration<a class="headerlink" href="#testing-ai-integration" title="Permanent link">&para;</a></h2>
-<h3 id="unit-testing-with-mocks">Unit Testing with Mocks<a class="headerlink" href="#unit-testing-with-mocks" title="Permanent link">&para;</a></h3>
+<h2 id="_20">Тестирование интеграции ИИ<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<h3 id="_21">Модульное тестирование с моками<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MockPytorchWrapper</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Mock</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PytorchWrapper</span><span class="w"> </span><span class="p">{}</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MockClassificationModel</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Mock</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ClassificationModel</span><span class="w"> </span><span class="p">{}</span>
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
@@ -2311,7 +2311,7 @@
 </span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">      </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ClassificationService</span><span class="p">(</span><span class="nl">pytorchWrapper:</span><span class="w"> </span><span class="n">mockWrapper</span><span class="p">);</span>
 </span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">    </span><span class="p">});</span>
 </span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>
-</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">    </span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;should load model successfully&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">    </span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;должен успешно загрузить модель&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">      </span><span class="c1">// Arrange</span>
 </span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">      </span><span class="n">when</span><span class="p">(</span><span class="n">mockWrapper</span><span class="p">.</span><span class="n">loadClassificationModel</span><span class="p">(</span><span class="n">any</span><span class="p">,</span><span class="w"> </span><span class="n">any</span><span class="p">,</span><span class="w"> </span><span class="n">any</span><span class="p">,</span><span class="w"> </span><span class="nl">labelPath:</span><span class="w"> </span><span class="n">any</span><span class="p">))</span>
 </span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">          </span><span class="p">.</span><span class="n">thenAnswer</span><span class="p">((</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">mockModel</span><span class="p">);</span>
@@ -2329,7 +2329,7 @@
 </span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="w">      </span><span class="p">)).</span><span class="n">called</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 </span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="w">    </span><span class="p">});</span>
 </span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>
-</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="w">    </span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;should classify image and return result&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="w">    </span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;должен классифицировать изображение и вернуть результат&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="w">      </span><span class="c1">// Arrange</span>
 </span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a><span class="w">      </span><span class="n">when</span><span class="p">(</span><span class="n">mockWrapper</span><span class="p">.</span><span class="n">loadClassificationModel</span><span class="p">(</span><span class="n">any</span><span class="p">,</span><span class="w"> </span><span class="n">any</span><span class="p">,</span><span class="w"> </span><span class="n">any</span><span class="p">,</span><span class="w"> </span><span class="nl">labelPath:</span><span class="w"> </span><span class="n">any</span><span class="p">))</span>
 </span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a><span class="w">          </span><span class="p">.</span><span class="n">thenAnswer</span><span class="p">((</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">mockModel</span><span class="p">);</span>
@@ -2352,9 +2352,9 @@
 </span><span id="__span-14-54"><a id="__codelineno-14-54" name="__codelineno-14-54" href="#__codelineno-14-54"></a><span class="w">  </span><span class="p">});</span>
 </span><span id="__span-14-55"><a id="__codelineno-14-55" name="__codelineno-14-55" href="#__codelineno-14-55"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="integration-testing">Integration Testing<a class="headerlink" href="#integration-testing" title="Permanent link">&para;</a></h3>
+<h3 id="_22">Интеграционное тестирование<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;AI Model Integration Tests&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Интеграционные тесты модели ИИ&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="kd">late</span><span class="w"> </span><span class="n">ClassificationService</span><span class="w"> </span><span class="n">service</span><span class="p">;</span>
 </span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
 </span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="n">setUpAll</span><span class="p">(()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
@@ -2362,35 +2362,35 @@
 </span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">      </span><span class="kd">await</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="n">loadModel</span><span class="p">();</span>
 </span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="p">});</span>
 </span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
-</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="n">testWidgets</span><span class="p">(</span><span class="s1">&#39;should classify real mosquito image&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">tester</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">      </span><span class="c1">// Load test image from assets</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="n">testWidgets</span><span class="p">(</span><span class="s1">&#39;должен классифицировать реальное изображение комара&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">tester</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">      </span><span class="c1">// Загрузить тестовое изображение из ресурсов</span>
 </span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">ByteData</span><span class="w"> </span><span class="n">imageData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">rootBundle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;test_assets/aedes_aegypti.jpg&#39;</span><span class="p">);</span>
 </span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">File</span><span class="w"> </span><span class="n">tempFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">${</span><span class="n">Directory</span><span class="p">.</span><span class="n">systemTemp</span><span class="p">.</span><span class="n">path</span><span class="si">}</span><span class="s1">/test_image.jpg&#39;</span><span class="p">);</span>
 </span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">      </span><span class="kd">await</span><span class="w"> </span><span class="n">tempFile</span><span class="p">.</span><span class="n">writeAsBytes</span><span class="p">(</span><span class="n">imageData</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">asUint8List</span><span class="p">());</span>
 </span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
-</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">      </span><span class="c1">// Classify image</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">      </span><span class="c1">// Классифицировать изображение</span>
 </span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="n">classifyImage</span><span class="p">(</span><span class="n">tempFile</span><span class="p">);</span>
 </span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>
-</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">      </span><span class="c1">// Verify results</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">      </span><span class="c1">// Проверить результаты</span>
 </span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">      </span><span class="n">expect</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;scientificName&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">isA</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">());</span>
 </span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">      </span><span class="n">expect</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;confidence&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">isA</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">());</span>
 </span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">      </span><span class="n">expect</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;confidence&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">greaterThan</span><span class="p">(</span><span class="m">0.0</span><span class="p">));</span>
 </span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">      </span><span class="n">expect</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;confidence&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">lessThanOrEqualTo</span><span class="p">(</span><span class="m">1.0</span><span class="p">));</span>
 </span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>
-</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">      </span><span class="c1">// Clean up</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">      </span><span class="c1">// Очистка</span>
 </span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">      </span><span class="kd">await</span><span class="w"> </span><span class="n">tempFile</span><span class="p">.</span><span class="n">delete</span><span class="p">();</span>
 </span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">    </span><span class="p">});</span>
 </span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w">  </span><span class="p">});</span>
 </span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="model-deployment-and-updates">Model Deployment and Updates<a class="headerlink" href="#model-deployment-and-updates" title="Permanent link">&para;</a></h2>
-<h3 id="model-versioning">Model Versioning<a class="headerlink" href="#model-versioning" title="Permanent link">&para;</a></h3>
+<h2 id="_23">Развертывание и обновления модели<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<h3 id="_24">Версионирование модели<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ModelConfig</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">currentVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;v1.2.0&#39;</span><span class="p">;</span>
 </span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">modelPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;assets/models/mosquito_classifier_v1_2_0.pt&#39;</span><span class="p">;</span>
 </span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">labelsPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;assets/labels/mosquito_species_v1_2_0.txt&#39;</span><span class="p">;</span>
 </span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span><span class="c1">// Model metadata</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span><span class="c1">// Метаданные модели</span>
 </span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;</span><span class="w"> </span><span class="n">modelInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="s1">&#39;version&#39;</span><span class="o">:</span><span class="w"> </span><span class="n">currentVersion</span><span class="p">,</span>
 </span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="s1">&#39;inputSize&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="m">224</span><span class="p">,</span><span class="w"> </span><span class="m">224</span><span class="p">],</span>
@@ -2400,10 +2400,10 @@
 </span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">  </span><span class="p">};</span>
 </span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="dynamic-model-loading">Dynamic Model Loading<a class="headerlink" href="#dynamic-model-loading" title="Permanent link">&para;</a></h3>
+<h3 id="_25">Динамическая загрузка модели<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ModelManager</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getModelPath</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="c1">// Check for updated model in documents directory</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="c1">// Проверить обновленную модель в директории документов</span>
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">documentsDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">getApplicationDocumentsDirectory</span><span class="p">();</span>
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">updatedModelPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;</span><span class="si">${</span><span class="n">documentsDir</span><span class="p">.</span><span class="n">path</span><span class="si">}</span><span class="s1">/models/latest_model.pt&#39;</span><span class="p">;</span>
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
@@ -2411,18 +2411,18 @@
 </span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">updatedModelPath</span><span class="p">;</span>
 </span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
-</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">    </span><span class="c1">// Fallback to bundled model</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">    </span><span class="c1">// Откат к встроенной модели</span>
 </span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ModelConfig</span><span class="p">.</span><span class="n">modelPath</span><span class="p">;</span>
 </span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>
 </span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">downloadModelUpdate</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">downloadUrl</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">    </span><span class="c1">// Implementation for downloading model updates</span>
-</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">    </span><span class="c1">// Include checksum verification and atomic replacement</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">    </span><span class="c1">// Реализация для загрузки обновлений модели</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">    </span><span class="c1">// Включить проверку контрольной суммы и атомарную замену</span>
 </span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="performance-monitoring">Performance Monitoring<a class="headerlink" href="#performance-monitoring" title="Permanent link">&para;</a></h2>
-<h3 id="inference-metrics">Inference Metrics<a class="headerlink" href="#inference-metrics" title="Permanent link">&para;</a></h3>
+<h2 id="_26">Мониторинг производительности<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<h3 id="_27">Метрики вывода<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationMetrics</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Stopwatch</span><span class="w"> </span><span class="n">_inferenceTimer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stopwatch</span><span class="p">();</span>
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_inferenceTimes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
@@ -2436,7 +2436,7 @@
 </span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">    </span><span class="n">_inferenceTimer</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
 </span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">    </span><span class="n">_inferenceTimes</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">_inferenceTimer</span><span class="p">.</span><span class="n">elapsed</span><span class="p">);</span>
 </span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>
-</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">    </span><span class="c1">// Keep only last 100 measurements</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">    </span><span class="c1">// Держать только последние 100 измерений</span>
 </span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_inferenceTimes</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">      </span><span class="n">_inferenceTimes</span><span class="p">.</span><span class="n">removeAt</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 </span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">    </span><span class="p">}</span>
@@ -2453,70 +2453,70 @@
 </span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="memory-usage-tracking">Memory Usage Tracking<a class="headerlink" href="#memory-usage-tracking" title="Permanent link">&para;</a></h3>
+<h3 id="_28">Отслеживание использования памяти<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MemoryMonitor</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">logMemoryUsage</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">operation</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">DeviceInfoPlugin</span><span class="p">().</span><span class="n">androidInfo</span><span class="p">;</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="c1">// Log memory usage for performance analysis</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Memory usage during </span><span class="si">$</span><span class="n">operation</span><span class="s1">: </span><span class="si">${</span><span class="n">info</span><span class="p">.</span><span class="n">totalMemory</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="c1">// Логировать использование памяти для анализа производительности</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Использование памяти во время </span><span class="si">$</span><span class="n">operation</span><span class="s1">: </span><span class="si">${</span><span class="n">info</span><span class="p">.</span><span class="n">totalMemory</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
 </span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="troubleshooting-guide">Troubleshooting Guide<a class="headerlink" href="#troubleshooting-guide" title="Permanent link">&para;</a></h2>
-<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
-<h4 id="1-model-loading-fails">1. Model Loading Fails<a class="headerlink" href="#1-model-loading-fails" title="Permanent link">&para;</a></h4>
-<p><strong>Symptoms</strong>: Exception during <code>loadModel()</code>
-<strong>Causes</strong>:
-- Missing model file in assets
-- Corrupted model file
-- Insufficient memory
-- Unsupported platform</p>
-<p><strong>Solutions</strong>:
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// Verify asset exists</span>
+<h2 id="_29">Руководство по устранению неполадок<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<h3 id="_30">Распространенные проблемы<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<h4 id="1_2">1. Сбой загрузки модели<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h4>
+<p><strong>Симптомы</strong>: Исключение во время <code>loadModel()</code>
+<strong>Причины</strong>:
+- Отсутствующий файл модели в ресурсах
+- Поврежденный файл модели
+- Недостаточно памяти
+- Неподдерживаемая платформа</p>
+<p><strong>Решения</strong>:
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// Проверить существование ресурса</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kd">final</span><span class="w"> </span><span class="n">ByteData</span><span class="w"> </span><span class="n">modelData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">rootBundle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;assets/models/mosquito_classifier.pt&#39;</span><span class="p">);</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Model size: </span><span class="si">${</span><span class="n">modelData</span><span class="p">.</span><span class="n">lengthInBytes</span><span class="si">}</span><span class="s1"> bytes&#39;</span><span class="p">);</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Размер модели: </span><span class="si">${</span><span class="n">modelData</span><span class="p">.</span><span class="n">lengthInBytes</span><span class="si">}</span><span class="s1"> байт&#39;</span><span class="p">);</span>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1">// Check available memory</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1">// Проверить доступную память</span>
 </span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="kd">final</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">DeviceInfoPlugin</span><span class="p">().</span><span class="n">androidInfo</span><span class="p">;</span>
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Available memory: </span><span class="si">${</span><span class="n">info</span><span class="p">.</span><span class="n">totalMemory</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Доступная память: </span><span class="si">${</span><span class="n">info</span><span class="p">.</span><span class="n">totalMemory</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
 </span></code></pre></div></p>
-<h4 id="2-poor-classification-accuracy">2. Poor Classification Accuracy<a class="headerlink" href="#2-poor-classification-accuracy" title="Permanent link">&para;</a></h4>
-<p><strong>Symptoms</strong>: Low confidence scores or incorrect predictions
-<strong>Causes</strong>:
-- Poor image quality
-- Incorrect preprocessing
-- Model-data mismatch</p>
-<p><strong>Solutions</strong>:
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">// Validate image quality</span>
+<h4 id="2_2">2. Плохая точность классификации<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
+<p><strong>Симптомы</strong>: Низкие оценки достоверности или неправильные предсказания
+<strong>Причины</strong>:
+- Плохое качество изображения
+- Неправильная предобработка
+- Несоответствие модели и данных</p>
+<p><strong>Решения</strong>:
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">// Валидировать качество изображения</span>
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">Future</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">validateImageQuality</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">imageFile</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">decodeImage</span><span class="p">(</span><span class="kd">await</span><span class="w"> </span><span class="n">imageFile</span><span class="p">.</span><span class="n">readAsBytes</span><span class="p">());</span>
 </span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">image</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 </span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="c1">// Check minimum resolution</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="c1">// Проверить минимальное разрешение</span>
 </span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">224</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="n">height</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">224</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 </span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
-</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">  </span><span class="c1">// Check for blur (simplified)</span>
-</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">  </span><span class="c1">// Implement blur detection algorithm</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">  </span><span class="c1">// Проверить размытость (упрощенно)</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">  </span><span class="c1">// Реализовать алгоритм обнаружения размытости</span>
 </span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
 </span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 </span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="p">}</span>
 </span></code></pre></div></p>
-<h4 id="3-slow-inference-performance">3. Slow Inference Performance<a class="headerlink" href="#3-slow-inference-performance" title="Permanent link">&para;</a></h4>
-<p><strong>Symptoms</strong>: Long classification times
-<strong>Causes</strong>:
-- Large input images
-- Memory pressure
-- CPU throttling</p>
-<p><strong>Solutions</strong>:
-<div class="language-dart highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">// Optimize image size</span>
+<h4 id="3_2">3. Медленная производительность вывода<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h4>
+<p><strong>Симптомы</strong>: Долгое время классификации
+<strong>Причины</strong>:
+- Большие входные изображения
+- Нехватка памяти
+- Троттлинг CPU</p>
+<p><strong>Решения</strong>:
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">// Оптимизировать размер изображения</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;</span><span class="w"> </span><span class="n">optimizeImageForInference</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">originalImage</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">decodeImage</span><span class="p">(</span><span class="kd">await</span><span class="w"> </span><span class="n">originalImage</span><span class="p">.</span><span class="n">readAsBytes</span><span class="p">());</span>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">image</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid image&#39;</span><span class="p">);</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">image</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s1">&#39;Неверное изображение&#39;</span><span class="p">);</span>
 </span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">  </span><span class="c1">// Resize if too large</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">  </span><span class="c1">// Изменить размер если слишком большое</span>
 </span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">resized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">copyResize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="w"> </span><span class="nl">width:</span><span class="w"> </span><span class="m">512</span><span class="p">,</span><span class="w"> </span><span class="nl">height:</span><span class="w"> </span><span class="m">512</span><span class="p">);</span>
 </span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
-</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">  </span><span class="c1">// Compress</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">  </span><span class="c1">// Сжать</span>
 </span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">compressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">encodeJpg</span><span class="p">(</span><span class="n">resized</span><span class="p">,</span><span class="w"> </span><span class="nl">quality:</span><span class="w"> </span><span class="m">85</span><span class="p">);</span>
 </span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
 </span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">optimizedFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">${</span><span class="n">originalImage</span><span class="p">.</span><span class="n">path</span><span class="si">}</span><span class="s1">_optimized.jpg&#39;</span><span class="p">);</span>
@@ -2525,14 +2525,14 @@
 </span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">optimizedFile</span><span class="p">;</span>
 </span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="p">}</span>
 </span></code></pre></div></p>
-<h3 id="debug-mode-features">Debug Mode Features<a class="headerlink" href="#debug-mode-features" title="Permanent link">&para;</a></h3>
+<h3 id="_31">Функции режима отладки<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationService</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">debugMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kDebugMode</span><span class="p">;</span>
 </span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
 </span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">classifyImage</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">imageFile</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">debugMode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Classifying image: </span><span class="si">${</span><span class="n">imageFile</span><span class="p">.</span><span class="n">path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
-</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Image size: </span><span class="si">${</span><span class="kd">await</span><span class="w"> </span><span class="n">imageFile</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="si">}</span><span class="s1"> bytes&#39;</span><span class="p">);</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Классификация изображения: </span><span class="si">${</span><span class="n">imageFile</span><span class="p">.</span><span class="n">path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Размер изображения: </span><span class="si">${</span><span class="kd">await</span><span class="w"> </span><span class="n">imageFile</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="si">}</span><span class="s1"> байт&#39;</span><span class="p">);</span>
 </span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
 </span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">stopwatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stopwatch</span><span class="p">()..</span><span class="n">start</span><span class="p">();</span>
@@ -2540,24 +2540,24 @@
 </span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">    </span><span class="n">stopwatch</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
 </span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>
 </span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">debugMode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Classification took: </span><span class="si">${</span><span class="n">stopwatch</span><span class="p">.</span><span class="n">elapsedMilliseconds</span><span class="si">}</span><span class="s1">ms&#39;</span><span class="p">);</span>
-</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Result: </span><span class="si">${</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;scientificName&#39;</span><span class="p">]</span><span class="si">}</span><span class="s1"> (</span><span class="si">${</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;confidence&#39;</span><span class="p">]</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">);</span>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Классификация заняла: </span><span class="si">${</span><span class="n">stopwatch</span><span class="p">.</span><span class="n">elapsedMilliseconds</span><span class="si">}</span><span class="s1">мс&#39;</span><span class="p">);</span>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Результат: </span><span class="si">${</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;scientificName&#39;</span><span class="p">]</span><span class="si">}</span><span class="s1"> (</span><span class="si">${</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;confidence&#39;</span><span class="p">]</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">);</span>
 </span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-23-18"><a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>
 </span><span id="__span-23-19"><a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 </span><span id="__span-23-20"><a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-23-21"><a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="future-enhancements">Future Enhancements<a class="headerlink" href="#future-enhancements" title="Permanent link">&para;</a></h2>
-<h3 id="planned-improvements">Planned Improvements<a class="headerlink" href="#planned-improvements" title="Permanent link">&para;</a></h3>
+<h2 id="_32">Будущие улучшения<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<h3 id="_33">Запланированные улучшения<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Model Quantization</strong>: Reduce model size and improve inference speed</li>
-<li><strong>Multi-Model Support</strong>: Support for different model architectures</li>
-<li><strong>Edge TPU Integration</strong>: Hardware acceleration on supported devices</li>
-<li><strong>Federated Learning</strong>: Contribute to model improvement while preserving privacy</li>
-<li><strong>Real-time Classification</strong>: Video stream classification capabilities</li>
+<li><strong>Квантизация модели</strong>: Уменьшить размер модели и улучшить скорость вывода</li>
+<li><strong>Поддержка нескольких моделей</strong>: Поддержка различных архитектур моделей</li>
+<li><strong>Интеграция Edge TPU</strong>: Аппаратное ускорение на поддерживаемых устройствах</li>
+<li><strong>Федеративное обучение</strong>: Вклад в улучшение модели с сохранением конфиденциальности</li>
+<li><strong>Классификация в реальном времени</strong>: Возможности классификации видеопотока</li>
 </ol>
-<h3 id="extension-points">Extension Points<a class="headerlink" href="#extension-points" title="Permanent link">&para;</a></h3>
+<h3 id="_34">Точки расширения<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
 <div class="language-dart highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">ClassificationProvider</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">ClassificationResult</span><span class="o">&gt;</span><span class="w"> </span><span class="n">classify</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">imageFile</span><span class="p">);</span>
 </span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">isAvailable</span><span class="p">;</span>
@@ -2565,26 +2565,26 @@
 </span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="p">}</span>
 </span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
 </span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="kd">class</span><span class="w"> </span><span class="nc">PyTorchClassificationProvider</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ClassificationProvider</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">  </span><span class="c1">// Current implementation</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">  </span><span class="c1">// Текущая реализация</span>
 </span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="p">}</span>
 </span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>
 </span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="kd">class</span><span class="w"> </span><span class="nc">TensorFlowLiteProvider</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ClassificationProvider</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="w">  </span><span class="c1">// Alternative implementation</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="w">  </span><span class="c1">// Альтернативная реализация</span>
 </span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="p">}</span>
 </span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>
 </span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="kd">class</span><span class="w"> </span><span class="nc">CloudMLProvider</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ClassificationProvider</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="w">  </span><span class="c1">// Cloud-based classification</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="w">  </span><span class="c1">// Облачная классификация</span>
 </span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>The AI model integration in CulicidaeLab provides robust, on-device mosquito species classification through PyTorch Lite. The architecture supports testing, performance monitoring, and future enhancements while maintaining reliability and user experience quality.</p>
-<p>Key benefits:
-- <strong>Privacy</strong>: On-device processing keeps user data local
-- <strong>Performance</strong>: Optimized for mobile inference
-- <strong>Reliability</strong>: Comprehensive error handling and recovery
-- <strong>Maintainability</strong>: Clean architecture with dependency injection
-- <strong>Testability</strong>: Mockable interfaces for comprehensive testing</p>
-<p>For additional support or questions about AI model integration, refer to the PyTorch Mobile documentation or create an issue in the project repository.</p>
+<h2 id="_35">Заключение<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<p>Интеграция модели ИИ в CulicidaeLab обеспечивает надежную классификацию видов комаров на устройстве через PyTorch Lite. Архитектура поддерживает тестирование, мониторинг производительности и будущие улучшения, сохраняя надежность и качество пользовательского опыта.</p>
+<p>Ключевые преимущества:
+- <strong>Конфиденциальность</strong>: Обработка на устройстве сохраняет пользовательские данные локально
+- <strong>Производительность</strong>: Оптимизировано для мобильного вывода
+- <strong>Надежность</strong>: Комплексная обработка ошибок и восстановление
+- <strong>Поддерживаемость</strong>: Чистая архитектура с внедрением зависимостей
+- <strong>Тестируемость</strong>: Мокируемые интерфейсы для комплексного тестирования</p>
+<p>Для дополнительной поддержки или вопросов об интеграции модели ИИ обращайтесь к документации PyTorch Mobile или создайте задачу в репозитории проекта.</p>
 
 
 
@@ -2610,7 +2610,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Back to top
+  К началу
 </button>
         
       </main>
@@ -2642,7 +2642,7 @@
       
       
     
-    <a href="https://github.com/culicidaelab/culicidaelab-mobile" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+    <a href="https://github.com/iloncka-ds/culicidaelab-mobile" target="_blank" rel="noopener" title="github.com" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
@@ -2666,7 +2666,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.integrate", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.integrate", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
