@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the WebPredictionResult class from the web_prediction_result library, for the Dart programming language.">
+  <title>WebPredictionResult class - web_prediction_result library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">culicidaelab</a></li>
+    <li><a href="../models_web_prediction_result">models\web_prediction_result.dart</a></li>
+    <li class="self-crumb">WebPredictionResult class</li>
+  </ol>
+  <div class="self-name">WebPredictionResult</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="models_web_prediction_result&#47;models_web_prediction_result-library-sidebar.html"
+    data-below-sidebar="models_web_prediction_result&#47;WebPredictionResult-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">WebPredictionResult</span> class 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Represents the result of a web-based mosquito species prediction.</p>
+<p>This model contains prediction results from remote classification services,
+including species identification, confidence scores, probability distributions
+across all possible species, and associated metadata. It's used when
+classification is performed on external servers rather than locally on the device.</p>
+<p>The prediction result includes comprehensive probability data for transparency
+and supports both single-prediction and multi-class classification scenarios.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre class="language-dart"><code class="language-dart">// Typically received from API response
+final result = WebPredictionResult(
+  id: 'pred_123456',
+  scientificName: 'Aedes aegypti',
+  probabilities: {
+    'Aedes aegypti': 0.87,
+    'Aedes albopictus': 0.08,
+    'Culex pipiens': 0.03,
+    'Anopheles gambiae': 0.02,
+  },
+  modelId: 'culico-net-cls-v1',
+  confidence: 0.87,
+  imageUrlSpecies: 'https://api.culicidaelab.org/species/aedes_aegypti.jpg',
+);
+
+print('Top prediction: ${result.scientificName}');
+print('Confidence: ${result.confidencePercentage}');
+print('Alternative species: ${result.alternativeSpecies}');
+</code></pre>
+<h2 id="server-integration">Server Integration</h2>
+<p>This model is designed to work with the CulicidaeLab server API:</p>
+<ul>
+<li>Receives predictions from <code>/predict</code> endpoint</li>
+<li>Includes full probability distribution for transparency</li>
+<li>Supports model versioning and tracking</li>
+<li>Provides species image URLs for display</li>
+</ul>
+<h2 id="comparison-with-local-classification">Comparison with Local Classification</h2>
+<p>Unlike <a href="../models_mosquito_model/ClassificationResult-class.html">ClassificationResult</a> which is used for local PyTorch Lite predictions,
+this model represents server-side classification results with additional
+features like probability distributions and remote image URLs.</p>
+<p>See also:</p>
+<ul>
+<li><a href="../models_mosquito_model/ClassificationResult-class.html">ClassificationResult</a> for local device-based predictions</li>
+<li><a href="../models_observation_model/Observation-class.html">Observation</a> for storing prediction results as observations</li>
+<li>CulicidaeLab server API documentation</li>
+</ul>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="WebPredictionResult" class="callable">
+          <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/WebPredictionResult.html">WebPredictionResult</a></span><span class="signature">({<span class="parameter" id="-param-id"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">id</span>, </span><span class="parameter" id="-param-scientificName"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">scientificName</span>, </span><span class="parameter" id="-param-probabilities"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">probabilities</span>, </span><span class="parameter" id="-param-modelId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">modelId</span>, </span><span class="parameter" id="-param-confidence"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">confidence</span>, </span><span class="parameter" id="-param-imageUrlSpecies"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">imageUrlSpecies</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a new <a href="../models_web_prediction_result/WebPredictionResult-class.html">WebPredictionResult</a> instance.
+        </dd>
+        <dt id="WebPredictionResult.fromJson" class="callable">
+          <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/WebPredictionResult.fromJson.html">WebPredictionResult.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
+        </dt>
+        <dd>
+          Creates a <a href="../models_web_prediction_result/WebPredictionResult-class.html">WebPredictionResult</a> from a JSON map.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="alternativeSpecies" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/alternativeSpecies.html">alternativeSpecies</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  Gets alternative species with their probabilities.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="confidence" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/confidence.html">confidence</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Confidence score of the top prediction (0.0 to 1.0).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="confidenceLevel" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/confidenceLevel.html">confidenceLevel</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Gets a human-readable confidence level description.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="confidencePercentage" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/confidencePercentage.html">confidencePercentage</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Gets the confidence as a percentage string.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="hasCloseAlternatives" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/hasCloseAlternatives.html">hasCloseAlternatives</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Checks if there are close alternative predictions.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  Returns the hash code for this prediction result.
+  <div class="features"><span class="feature">no setter</span><span class="feature">override</span></div>
+
+</dd>
+
+        <dt id="id" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/id.html">id</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Unique identifier for this prediction.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="imageUrlSpecies" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/imageUrlSpecies.html">imageUrlSpecies</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  Optional URL to the species reference image.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="isHighConfidence" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/isHighConfidence.html">isHighConfidence</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Checks if the prediction has high confidence.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="modelId" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/modelId.html">modelId</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Identifier of the AI model used for prediction.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="probabilities" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/probabilities.html">probabilities</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  Probability distribution across all possible species.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="scientificName" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/scientificName.html">scientificName</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Scientific name of the predicted mosquito species.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="topProbability" class="property">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/topProbability.html">topProbability</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>
+  
+
+</dt>
+<dd>
+  Gets the probability of the predicted species.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="getTopAlternatives" class="callable">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/getTopAlternatives.html">getTopAlternatives</a></span><span class="signature">(<wbr>[<span class="parameter" id="getTopAlternatives-param-count"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span> = <span class="default-value">3</span></span>])
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Gets the top N alternative species predictions.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toJson" class="callable">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/toJson.html">toJson</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Converts this <a href="../models_web_prediction_result/WebPredictionResult-class.html">WebPredictionResult</a> to a JSON map.
+  
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a string representation of this prediction result.
+  <div class="features"><span class="feature">override</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks if two <a href="../models_web_prediction_result/WebPredictionResult-class.html">WebPredictionResult</a> instances are equal.
+  <div class="features"><span class="feature">override</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="fromJsonString" class="callable">
+  <span class="name"><a href="../models_web_prediction_result/WebPredictionResult/fromJsonString.html">fromJsonString</a></span><span class="signature">(<wbr><span class="parameter" id="fromJsonString-param-str"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">str</span></span>)
+    <span class="returntype parameter">&#8594; <a href="../models_web_prediction_result/WebPredictionResult-class.html">WebPredictionResult</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates a <a href="../models_web_prediction_result/WebPredictionResult-class.html">WebPredictionResult</a> from a JSON string.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">culicidaelab</a></li>
+    <li><a href="../models_web_prediction_result">web_prediction_result</a></li>
+    <li class="self-crumb">WebPredictionResult class</li>
+</ol>
+
+    <h5>web_prediction_result library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    culicidaelab
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Dartdoc's markdown processor creates <pre><code class="language-mermaid">...</code></pre>.
+    // Mermaid.js by default looks for elements with `class="mermaid"`.
+    // This script finds the mermaid code blocks and prepares them for Mermaid.
+    const mermaidCodeBlocks = document.querySelectorAll('code.language-mermaid');
+
+    mermaidCodeBlocks.forEach(block => {
+      const parent = block.parentElement;
+      if (parent && parent.tagName === 'PRE') {
+        // Add the "mermaid" class to the parent <pre> tag.
+        parent.classList.add('mermaid');
+
+        // The mermaid library expects the diagram definition to be the direct
+        // text content of the element with the "mermaid" class.
+        // We need to move the text from the <code> tag to the <pre> tag.
+        parent.textContent = block.textContent;
+      }
+    });
+
+    // Now that the DOM is corrected, initialize Mermaid.
+    // It will automatically find and render the elements we just tagged.
+    mermaid.initialize({ startOnLoad: true });
+  });
+</script>
+</body>
+</html>
+

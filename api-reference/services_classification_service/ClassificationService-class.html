@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the ClassificationService class from the classification_service library, for the Dart programming language.">
+  <title>ClassificationService class - classification_service library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">culicidaelab</a></li>
+    <li><a href="../services_classification_service">services\classification_service.dart</a></li>
+    <li class="self-crumb">ClassificationService class</li>
+  </ol>
+  <div class="self-name">ClassificationService</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="services_classification_service&#47;services_classification_service-library-sidebar.html"
+    data-below-sidebar="services_classification_service&#47;ClassificationService-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">ClassificationService</span> class 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Service for handling mosquito species classification using PyTorch models.</p>
+<p>This service provides functionality to load a pre-trained mosquito classification
+model and classify images to identify mosquito species. It handles model loading,
+image preprocessing, and prediction results using on-device machine learning.</p>
+<h2 id="usage-example">Usage Example</h2>
+<pre class="language-dart"><code class="language-dart">final pytorchWrapper = PytorchWrapper();
+final classificationService = ClassificationService(
+  pytorchWrapper: pytorchWrapper,
+);
+
+// Load the model (required before classification)
+await classificationService.loadModel();
+
+// Classify an image
+final imageFile = File('/path/to/mosquito_image.jpg');
+final result = await classificationService.classifyImage(imageFile);
+print('Species: ${result['scientificName']}');
+print('Confidence: ${result['confidence']}');
+</code></pre>
+<h2 id="model-architecture">Model Architecture</h2>
+<p>The service uses a PyTorch Lite model optimized for mobile deployment:</p>
+<ul>
+<li><strong>Model</strong>: Pre-trained CNN for mosquito species classification</li>
+<li><strong>Input</strong>: 224x224 RGB images with ImageNet normalization</li>
+<li><strong>Output</strong>: Species probabilities across trained classes</li>
+<li><strong>Performance</strong>: Optimized for real-time inference on mobile devices</li>
+</ul>
+<h2 id="supported-platforms">Supported Platforms</h2>
+<ul>
+<li>✅ Android (API 21+)</li>
+<li>✅ iOS (iOS 12.0+)</li>
+<li>❌ Web (PyTorch Lite not supported)</li>
+<li>❌ Desktop (PyTorch Lite not supported)</li>
+</ul>
+<h2 id="error-handling">Error Handling</h2>
+<p>The service handles various error conditions:</p>
+<ul>
+<li>Platform not supported (throws <a href="https://api.flutter.dev/flutter/services/PlatformException-class.html">PlatformException</a>)</li>
+<li>Model loading failures (throws <a href="https://api.flutter.dev/flutter/dart-core/Exception-class.html">Exception</a>)</li>
+<li>Invalid image formats (handled by PyTorch Lite)</li>
+<li>Memory constraints (handled by PyTorch Lite)</li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="../repositories_classification_repository/ClassificationRepository-class.html">ClassificationRepository</a> for higher-level classification operations</li>
+<li><a href="../services_pytorch_wrapper/PytorchWrapper-class.html">PytorchWrapper</a> for the underlying PyTorch integration</li>
+<li><a href="../services_pytorch_lite_model/ClassificationModel-class.html">ClassificationModel</a> for the model interface</li>
+</ul>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="ClassificationService" class="callable">
+          <span class="name"><a href="../services_classification_service/ClassificationService/ClassificationService.html">ClassificationService</a></span><span class="signature">({<span class="parameter" id="-param-pytorchWrapper"><span>required</span> <span class="type-annotation"><a href="../services_pytorch_wrapper/PytorchWrapper-class.html">PytorchWrapper</a></span> <span class="parameter-name">pytorchWrapper</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a new classification service with the provided PyTorch wrapper.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="isModelLoaded" class="property">
+  <span class="name"><a href="../services_classification_service/ClassificationService/isModelLoaded.html">isModelLoaded</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Checks if the classification model is loaded and ready for use.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="model" class="property">
+  <span class="name"><a href="../services_classification_service/ClassificationService/model.html">model</a></span>
+  <span class="signature">&#8594; <a href="../services_pytorch_lite_model/ClassificationModel-class.html">ClassificationModel</a>?</span>
+  
+
+</dt>
+<dd>
+  Gets the current model instance.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="stopwatch" class="property">
+  <span class="name"><a href="../services_classification_service/ClassificationService/stopwatch.html">stopwatch</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Stopwatch-class.html">Stopwatch</a></span>
+  
+
+</dt>
+<dd>
+  Stopwatch for performance measurement.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="classifyImage" class="callable">
+  <span class="name"><a href="../services_classification_service/ClassificationService/classifyImage.html">classifyImage</a></span><span class="signature">(<wbr><span class="parameter" id="classifyImage-param-imageFile"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">imageFile</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Classifies a mosquito image and returns the predicted species and confidence.
+  
+
+</dd>
+
+        <dt id="loadModel" class="callable">
+  <span class="name"><a href="../services_classification_service/ClassificationService/loadModel.html">loadModel</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Loads the mosquito classification model from the specified path.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">culicidaelab</a></li>
+    <li><a href="../services_classification_service">classification_service</a></li>
+    <li class="self-crumb">ClassificationService class</li>
+</ol>
+
+    <h5>classification_service library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    culicidaelab
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Dartdoc's markdown processor creates <pre><code class="language-mermaid">...</code></pre>.
+    // Mermaid.js by default looks for elements with `class="mermaid"`.
+    // This script finds the mermaid code blocks and prepares them for Mermaid.
+    const mermaidCodeBlocks = document.querySelectorAll('code.language-mermaid');
+
+    mermaidCodeBlocks.forEach(block => {
+      const parent = block.parentElement;
+      if (parent && parent.tagName === 'PRE') {
+        // Add the "mermaid" class to the parent <pre> tag.
+        parent.classList.add('mermaid');
+
+        // The mermaid library expects the diagram definition to be the direct
+        // text content of the element with the "mermaid" class.
+        // We need to move the text from the <code> tag to the <pre> tag.
+        parent.textContent = block.textContent;
+      }
+    });
+
+    // Now that the DOM is corrected, initialize Mermaid.
+    // It will automatically find and render the elements we just tagged.
+    mermaid.initialize({ startOnLoad: true });
+  });
+</script>
+</body>
+</html>
+
