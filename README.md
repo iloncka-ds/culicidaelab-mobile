@@ -290,7 +290,7 @@ To create an optimized production build of the application both options (dev-con
 
 ## Documentation
 
-Full documentation is availabel [here](https://iloncka-ds.github.io/culicidaelab-mobile/).
+For complete guides, tutorials, and the full API reference, **[visit the documentation site](https://iloncka-ds.github.io/culicidaelab-mobile/).
 
 ## Localization
 
