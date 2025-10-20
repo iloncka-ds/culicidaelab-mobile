@@ -129,21 +129,23 @@ class ClassificationRepository {
     required ClassificationService classificationService,
     required MosquitoRepository mosquitoRepository,
     required http.Client httpClient,
-  })  : _classificationService = classificationService,
-        _mosquitoRepository = mosquitoRepository,
-        _httpClient = httpClient;
+  }) : _classificationService = classificationService,
+       _mosquitoRepository = mosquitoRepository,
+       _httpClient = httpClient;
 
   /// The base URL for mosquito prediction API endpoint.
   ///
   /// This endpoint accepts multipart form data with an image file
   /// and returns species predictions with probability distributions.
-  final String _mosquitoPredictionUrl = "https://culicidealab.ru/api/predict";
+  final String _mosquitoPredictionUrl = "https://culicidaelab.ru/api/predict";
 
   /// The base URL for mosquito observation submission API endpoint.
   ///
   /// This endpoint accepts JSON observation data and returns
   /// the created observation record with server-assigned ID.
-  final String _mosquitoObservationUrl = "https://culicidealab.ru/api/observations";
+  final String _mosquitoObservationUrl =
+      "https://culicidaelab.ru/api/observations";
+
   /// Loads the local mosquito classification model.
   ///
   /// This method initializes the PyTorch Lite model used for local
@@ -202,17 +204,26 @@ class ClassificationRepository {
   /// [languageCode] The language code (e.g., 'en', 'es') for localized content.
   /// Returns a [ClassificationResult] with species, confidence, and related diseases.
   /// Throws an exception if classification fails.
-Future<ClassificationResult> classifyImage(File imageFile, String languageCode) async {
+  Future<ClassificationResult> classifyImage(
+    File imageFile,
+    String languageCode,
+  ) async {
     final stopwatch = Stopwatch()..start();
 
     // 1. Get RAW prediction from the service
     final rawResult = await _classificationService.classifyImage(imageFile);
     final String scientificName = rawResult['scientificName'];
-    final double confidence = rawResult['confidence'] * 100; // Convert to percentage
-    print("[DEBUG] Repository: Searching for species with name: '$scientificName'");
+    final double confidence =
+        rawResult['confidence'] * 100; // Convert to percentage
+    print(
+      "[DEBUG] Repository: Searching for species with name: '$scientificName'",
+    );
     // 2. ENRICH the result using MosquitoRepository to fetch full data
-    MosquitoSpecies? speciesFromDb = await _mosquitoRepository.getMosquitoSpeciesByName(scientificName, languageCode);
-    print("[DEBUG] Repository: Result from DB is: ${speciesFromDb == null ? 'NULL' : speciesFromDb.name}");
+    MosquitoSpecies? speciesFromDb = await _mosquitoRepository
+        .getMosquitoSpeciesByName(scientificName, languageCode);
+    print(
+      "[DEBUG] Repository: Result from DB is: ${speciesFromDb == null ? 'NULL' : speciesFromDb.name}",
+    );
     final MosquitoSpecies finalSpecies;
     if (speciesFromDb == null) {
       // Logic for "unknown" species
@@ -220,7 +231,8 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
         id: '0', // Special ID for unknown
         name: scientificName, // Show what the model actually predicted
         commonName: "Species Not Identified", // Generic fallback
-        description: "The details for this species are not available in the local database.",
+        description:
+            "The details for this species are not available in the local database.",
         habitat: "N/A",
         distribution: "N/A",
         imageUrl: "assets/images/species/species_not_defined.jpg",
@@ -233,7 +245,10 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
     // 3. Fetch full Disease objects for the related diseases
     List<Disease> relatedDiseases = [];
     if (finalSpecies.id != '0') {
-      relatedDiseases = await _mosquitoRepository.getDiseasesByVector(finalSpecies.name, languageCode);
+      relatedDiseases = await _mosquitoRepository.getDiseasesByVector(
+        finalSpecies.name,
+        languageCode,
+      );
     }
 
     stopwatch.stop();
@@ -247,14 +262,15 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
       imageFile: imageFile,
     );
   }
-/// Gets a web-based prediction for a mosquito image.
-///
-/// Sends the image to a remote prediction service for classification.
-/// This provides an alternative to local model classification.
-///
-/// [imageFile] The image file to get prediction for.
-/// Returns a [WebPredictionResult] with prediction data.
-/// Throws an exception if the web request fails.
+
+  /// Gets a web-based prediction for a mosquito image.
+  ///
+  /// Sends the image to a remote prediction service for classification.
+  /// This provides an alternative to local model classification.
+  ///
+  /// [imageFile] The image file to get prediction for.
+  /// Returns a [WebPredictionResult] with prediction data.
+  /// Throws an exception if the web request fails.
   Future<WebPredictionResult> getWebPrediction(File imageFile) async {
     final url = Uri.parse(_mosquitoPredictionUrl);
     var request = http.MultipartRequest('POST', url);
@@ -280,8 +296,9 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
     if (response.statusCode == 200) {
       return WebPredictionResult.fromJson(json.decode(response.body));
     } else {
-            throw Exception(
-          'Failed to get web prediction. Status: ${response.statusCode}, Body: ${response.body}');
+      throw Exception(
+        'Failed to get web prediction. Status: ${response.statusCode}, Body: ${response.body}',
+      );
     }
   }
 
@@ -307,7 +324,9 @@ Future<ClassificationResult> classifyImage(File imageFile, String languageCode) 
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return Observation.fromJson(json.decode(response.body));
     } else {
-      throw Exception('Failed to submit observation: ${response.statusCode} - ${response.body}');
+      throw Exception(
+        'Failed to submit observation: ${response.statusCode} - ${response.body}',
+      );
     }
   }
 }

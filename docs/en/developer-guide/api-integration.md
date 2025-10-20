@@ -12,7 +12,7 @@ The CulicidaeLab server provides the following primary endpoints:
 
 ```dart
 // Base server URL
-const String baseUrl = "https://culicidealab.ru";
+const String baseUrl = "https://culicidaelab.ru";
 
 // API endpoints
 const String predictionEndpoint = "/api/predict";
@@ -67,7 +67,7 @@ Provides server-based mosquito species classification using advanced machine lea
 #### Request Format
 
 ```http
-POST https://culicidealab.ru/api/predict
+POST https://culicidaelab.ru/api/predict
 Content-Type: multipart/form-data
 
 --boundary
@@ -82,7 +82,7 @@ Content-Type: image/jpeg
 
 ```dart
 Future<WebPredictionResult> getWebPrediction(File imageFile) async {
-  final url = Uri.parse("https://culicidealab.ru/api/predict");
+  final url = Uri.parse("https://culicidaelab.ru/api/predict");
   var request = http.MultipartRequest('POST', url);
 
   // Detect MIME type from file extension
@@ -99,7 +99,7 @@ Future<WebPredictionResult> getWebPrediction(File imageFile) async {
     imageFile.path,
     contentType: MediaType.parse(mimeType),
   );
-  
+
   request.files.add(multipartFile);
 
   // Send request
@@ -184,7 +184,7 @@ Allows submission of mosquito observation data for research and surveillance pur
 #### Request Format
 
 ```http
-POST https://culicidealab.ru/api/observations
+POST https://culicidaelab.ru/api/observations
 Content-Type: application/json; charset=UTF-8
 
 {
@@ -213,7 +213,7 @@ Content-Type: application/json; charset=UTF-8
 Future<Observation> submitObservation({
   required Map<String, dynamic> finalPayload,
 }) async {
-  final url = Uri.parse("https://culicidealab.ru/api/observations");
+  final url = Uri.parse("https://culicidaelab.ru/api/observations");
 
   final response = await _httpClient.post(
     url,
@@ -306,7 +306,7 @@ Provides access to the interactive mosquito activity map showing observation dat
 
 ```dart
 class MosquitoActivityMap extends StatelessWidget {
-  final String _mosquitoActivityMapUrl = "https://culicidealab.ru/map";
+  final String _mosquitoActivityMapUrl = "https://culicidaelab.ru/map";
 
   @override
   Widget build(BuildContext context) {
@@ -360,7 +360,7 @@ Future<WebPredictionResult> getWebPrediction(File imageFile) async {
   try {
     // API call implementation
     final response = await _httpClient.send(request);
-    
+
     if (response.statusCode == 200) {
       return WebPredictionResult.fromJson(json.decode(response.body));
     } else {
@@ -422,22 +422,22 @@ class NetworkException implements Exception {
 Future<File> optimizeImageForUpload(File originalImage) async {
   final bytes = await originalImage.readAsBytes();
   final image = img.decodeImage(bytes);
-  
+
   if (image == null) throw Exception('Invalid image format');
-  
+
   // Resize if too large (max 1024x1024)
   final resized = image.width > 1024 || image.height > 1024
       ? img.copyResize(image, width: 1024, height: 1024)
       : image;
-  
+
   // Compress to JPEG with 85% quality
   final compressed = img.encodeJpg(resized, quality: 85);
-  
+
   // Save optimized image
   final tempDir = await getTemporaryDirectory();
   final optimizedFile = File('${tempDir.path}/optimized_${DateTime.now().millisecondsSinceEpoch}.jpg');
   await optimizedFile.writeAsBytes(compressed);
-  
+
   return optimizedFile;
 }
 
@@ -463,7 +463,7 @@ class MockApiClient implements ApiClient {
   Future<WebPredictionResult> getWebPrediction(File imageFile) async {
     // Simulate network delay
     await Future.delayed(const Duration(seconds: 2));
-    
+
     return WebPredictionResult(
       id: 'mock_pred_${DateTime.now().millisecondsSinceEpoch}',
       scientificName: 'Aedes aegypti',
@@ -506,9 +506,9 @@ void main() {
 
     test('should successfully get web prediction', () async {
       final testImage = File('test/fixtures/test_mosquito.jpg');
-      
+
       final result = await repository.getWebPrediction(testImage);
-      
+
       expect(result.scientificName, isNotEmpty);
       expect(result.confidence, greaterThan(0.0));
       expect(result.probabilities, isNotEmpty);
@@ -524,7 +524,7 @@ void main() {
       };
 
       final result = await repository.submitObservation(finalPayload: payload);
-      
+
       expect(result.id, isNotEmpty);
       expect(result.speciesScientificName, equals('Aedes aegypti'));
     });
@@ -553,15 +553,15 @@ void main() {
 bool isValidImageFile(File imageFile) {
   final extension = path.extension(imageFile.path).toLowerCase();
   final validExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
-  
+
   if (!validExtensions.contains(extension)) {
     return false;
   }
-  
+
   // Check file size (max 10MB)
   final fileSizeBytes = imageFile.lengthSync();
   const maxSizeBytes = 10 * 1024 * 1024; // 10MB
-  
+
   return fileSizeBytes <= maxSizeBytes;
 }
 ```
@@ -581,8 +581,8 @@ bool isValidImageFile(File imageFile) {
 Future API versions will be supported through URL versioning:
 
 ```dart
-const String apiV2BaseUrl = "https://culicidealab.ru/api/v2";
-const String apiV3BaseUrl = "https://culicidealab.ru/api/v3";
+const String apiV2BaseUrl = "https://culicidaelab.ru/api/v2";
+const String apiV3BaseUrl = "https://culicidaelab.ru/api/v3";
 ```
 
 ## Troubleshooting
@@ -594,7 +594,7 @@ const String apiV3BaseUrl = "https://culicidealab.ru/api/v3";
 // Check network connectivity before API calls
 Future<bool> hasNetworkConnection() async {
   try {
-    final result = await InternetAddress.lookup('culicidealab.ru');
+    final result = await InternetAddress.lookup('culicidaelab.ru');
     return result.isNotEmpty && result[0].rawAddress.isNotEmpty;
   } on SocketException catch (_) {
     return false;
@@ -633,8 +633,8 @@ class LoggingHttpOverrides extends HttpOverrides {
 
 ## Support and Resources
 
-- **API Documentation**: https://culicidealab.ru/docs/api
-- **Server Status**: https://culicidealab.ru/health
+- **API Documentation**: https://culicidaelab.ru/docs/api
+- **Server Status**: https://culicidaelab.ru/health
 - **Issue Reporting**: https://github.com/iloncka-ds/culicidaelab-mobile/issues
 
 

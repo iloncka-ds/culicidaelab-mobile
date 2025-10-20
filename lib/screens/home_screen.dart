@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
   ///
   /// This URL points to the CulicidaeLab server's interactive map
   /// showing mosquito observation data and activity patterns.
-  final String _mosquitoActivityMapUrl = "https://culicidealab.ru/map";
+  final String _mosquitoActivityMapUrl = "https://culicidaelab.ru/map";
 
   @override
   void initState() {
@@ -201,30 +201,39 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _widgetOptions,
-      ),
+      body: IndexedStack(index: _selectedIndex, children: _widgetOptions),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: const Icon(Icons.home,  key: const Key('bottom_nav_home')),
+            icon: const Icon(Icons.home, key: const Key('bottom_nav_home')),
             label: localizations.homePageTitle,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.camera_alt,  key: const Key('bottom_nav_camera')),
+            icon: const Icon(
+              Icons.camera_alt,
+              key: const Key('bottom_nav_camera'),
+            ),
             label: localizations.classifyMosquitoButtonTitle,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icomoon.mosquitoB,  key: const Key('bottom_nav_mosquito')),
+            icon: const Icon(
+              Icomoon.mosquitoB,
+              key: const Key('bottom_nav_mosquito'),
+            ),
             label: localizations.mosquitoGalleryButtonTitle,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.local_hospital,  key: const Key('bottom_nav_hospital')),
+            icon: const Icon(
+              Icons.local_hospital,
+              key: const Key('bottom_nav_hospital'),
+            ),
             label: localizations.diseasesInfoButtonTitle,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.map_outlined,  key: const Key('bottom_nav_map')),
+            icon: const Icon(
+              Icons.map_outlined,
+              key: const Key('bottom_nav_map'),
+            ),
             label: localizations.homePageMosquitoActivityMapButtonTitle,
           ),
         ],
@@ -239,19 +248,19 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-/// Builds the welcome screen UI for the home tab.
-///
-/// Creates a scrollable list view with a gradient background containing:
-/// - App logo/title section with mosquito icon
-/// - Navigation buttons for each main feature
-/// - Disclaimer text and footer information
-/// - Interactive links for grant information
-///
-/// Parameters:
-/// - [localizations]: The current app localizations for text content
-///
-/// Returns:
-///   A [Container] widget with gradient background and scrollable content
+  /// Builds the welcome screen UI for the home tab.
+  ///
+  /// Creates a scrollable list view with a gradient background containing:
+  /// - App logo/title section with mosquito icon
+  /// - Navigation buttons for each main feature
+  /// - Disclaimer text and footer information
+  /// - Interactive links for grant information
+  ///
+  /// Parameters:
+  /// - [localizations]: The current app localizations for text content
+  ///
+  /// Returns:
+  ///   A [Container] widget with gradient background and scrollable content
   Widget _buildHomeScreen(AppLocalizations localizations) {
     return Container(
       decoration: BoxDecoration(
@@ -344,9 +353,7 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 32),
           Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 8.0,
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
@@ -360,9 +367,7 @@ class _HomePageState extends State<HomePage> {
                     text: localizations.appDisclaimerTitle,
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  TextSpan(
-                    text: ' ${localizations.appDisclaimerBody}',
-                  ),
+                  TextSpan(text: ' ${localizations.appDisclaimerBody}'),
                 ],
               ),
             ),
@@ -376,12 +381,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.grey,
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(
-              0,
-              8.0,
-              0,
-              16.0,
-            ),
+            padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 16.0),
             child: Linkify(
               onOpen: (link) async {
                 final uri = Uri.parse(link.url);
@@ -411,21 +411,21 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-/// Builds a styled navigation button for feature sections.
-///
-/// Creates a Material Design card with elevation and rounded corners
-/// containing an icon, title, subtitle, and arrow indicator. The button
-/// responds to tap gestures and provides visual feedback.
-///
-/// Parameters:
-/// - [icon]: The icon to display in the button
-/// - [title]: The main text title of the button
-/// - [subtitle]: The descriptive subtitle text
-/// - [color]: The theme color for the button styling
-/// - [onTap]: The callback function to execute when tapped
-///
-/// Returns:
-///   A [Material] widget with [InkWell] for tap detection and styling
+  /// Builds a styled navigation button for feature sections.
+  ///
+  /// Creates a Material Design card with elevation and rounded corners
+  /// containing an icon, title, subtitle, and arrow indicator. The button
+  /// responds to tap gestures and provides visual feedback.
+  ///
+  /// Parameters:
+  /// - [icon]: The icon to display in the button
+  /// - [title]: The main text title of the button
+  /// - [subtitle]: The descriptive subtitle text
+  /// - [color]: The theme color for the button styling
+  /// - [onTap]: The callback function to execute when tapped
+  ///
+  /// Returns:
+  ///   A [Material] widget with [InkWell] for tap detection and styling
   Widget _buildNavigationButton({
     required IconData icon,
     required String title,

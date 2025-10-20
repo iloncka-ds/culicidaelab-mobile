@@ -113,17 +113,17 @@ flowchart TD
 ```dart
 // Основные конечные точки API
 class CulicidaeLabAPI {
-  static const String baseUrl = "https://culicidealab.ru";
-  
+  static const String baseUrl = "https://culicidaelab.ru";
+
   // Интеграция сервиса предсказаний
   static const String predictionEndpoint = "/api/predict";
-  
-  // Интеграция сервиса наблюдений  
+
+  // Интеграция сервиса наблюдений
   static const String observationsEndpoint = "/api/observations";
-  
+
   // Интеграция картографического сервиса
   static const String mapEndpoint = "/map";
-  
+
   // Интеграция сервиса галереи
   static const String speciesGalleryEndpoint = "/api/species";
   static const String diseasesGalleryEndpoint = "/api/diseases";
@@ -140,7 +140,7 @@ sequenceDiagram
     participant LocalDB
     participant ServerAPI
     participant ResearchDB
-    
+
     User->>MobileApp: Захват изображения комара
     MobileApp->>MobileApp: Локальная ИИ классификация
     MobileApp->>ServerAPI: Запрос серверного предсказания
@@ -161,15 +161,15 @@ sequenceDiagram
 class HybridClassificationService {
   final ClassificationService _localService;
   final ClassificationRepository _repository;
-  
+
   Future<ClassificationResult> classifyImage(File imageFile) async {
     // Локальная классификация для немедленных результатов
     final localResult = await _localService.classifyImage(imageFile);
-    
+
     // Серверная классификация для повышенной точности
     try {
       final webResult = await _repository.getWebPrediction(imageFile);
-      
+
       // Объединение результатов для комплексного анализа
       return _combineResults(localResult, webResult);
     } catch (e) {
@@ -177,7 +177,7 @@ class HybridClassificationService {
       return localResult;
     }
   }
-  
+
   ClassificationResult _combineResults(
     ClassificationResult local,
     WebPredictionResult web
@@ -185,7 +185,7 @@ class HybridClassificationService {
     // Реализация объединяет локальные и серверные предсказания
     // Предоставляет сравнение достоверности и альтернативные предложения
     return ClassificationResult(
-      species: web.confidence > local.confidence ? 
+      species: web.confidence > local.confidence ?
                _getSpeciesFromWeb(web) : local.species,
       confidence: math.max(local.confidence, web.confidence),
       inferenceTime: local.inferenceTime,
@@ -201,7 +201,7 @@ class HybridClassificationService {
     );
   }
 }
-```## 
+```##
 Расширение мобильного приложения
 
 ### 1. Архитектура плагинов
@@ -214,7 +214,7 @@ abstract class CulicidaeLabPlugin {
   String get name;
   String get version;
   List<String> get supportedFeatures;
-  
+
   Future<void> initialize();
   Future<Map<String, dynamic>> processData(Map<String, dynamic> input);
   Future<void> cleanup();
@@ -224,27 +224,27 @@ abstract class CulicidaeLabPlugin {
 class EnvironmentalDataPlugin implements CulicidaeLabPlugin {
   @override
   String get name => 'Сборщик экологических данных';
-  
+
   @override
   String get version => '1.0.0';
-  
+
   @override
   List<String> get supportedFeatures => [
     'temperature_measurement',
-    'humidity_measurement', 
+    'humidity_measurement',
     'weather_integration'
   ];
-  
+
   @override
   Future<void> initialize() async {
     // Инициализация подключений к API погоды
     // Настройка интеграций датчиков
   }
-  
+
   @override
   Future<Map<String, dynamic>> processData(Map<String, dynamic> input) async {
     final location = input['location'] as Location;
-    
+
     return {
       'temperature': await _getTemperature(location),
       'humidity': await _getHumidity(location),
@@ -252,22 +252,22 @@ class EnvironmentalDataPlugin implements CulicidaeLabPlugin {
       'timestamp': DateTime.now().toIso8601String(),
     };
   }
-  
+
   Future<double> _getTemperature(Location location) async {
     // Реализация сбора данных о температуре
     return 25.0; // Пример значения
   }
-  
+
   Future<double> _getHumidity(Location location) async {
     // Реализация сбора данных о влажности
     return 65.0; // Пример значения
   }
-  
+
   Future<String> _getWeatherConditions(Location location) async {
     // Реализация определения погодных условий
     return 'partly_cloudy'; // Пример значения
   }
-  
+
   @override
   Future<void> cleanup() async {
     // Очистка ресурсов
@@ -285,7 +285,7 @@ abstract class ClassificationModel {
   String get modelId;
   String get modelVersion;
   List<String> get supportedSpecies;
-  
+
   Future<void> loadModel();
   Future<ClassificationResult> classify(File imageFile);
   Future<void> unloadModel();
@@ -294,13 +294,13 @@ abstract class ClassificationModel {
 // Пример: Пользовательская модель TensorFlow Lite
 class CustomTFLiteModel implements ClassificationModel {
   late Interpreter _interpreter;
-  
+
   @override
   String get modelId => 'custom_tflite_v1';
-  
+
   @override
   String get modelVersion => '1.0.0';
-  
+
   @override
   List<String> get supportedSpecies => [
     'Aedes aegypti',
@@ -308,45 +308,45 @@ class CustomTFLiteModel implements ClassificationModel {
     'Culex pipiens',
     // ... дополнительные виды
   ];
-  
+
   @override
   Future<void> loadModel() async {
     final modelFile = await _loadModelFile('assets/models/custom_model.tflite');
     _interpreter = Interpreter.fromFile(modelFile);
   }
-  
+
   @override
   Future<ClassificationResult> classify(File imageFile) async {
     // Предобработка изображения
     final input = await _preprocessImage(imageFile);
-    
+
     // Выполнение вывода
     final output = List.filled(supportedSpecies.length, 0.0);
     _interpreter.run(input, output);
-    
+
     // Постобработка результатов
     return _postprocessResults(output, imageFile);
   }
-  
+
   Future<List<List<List<List<double>>>>> _preprocessImage(File imageFile) async {
     // Реализация предобработки изображения
     // Изменение размера, нормализация, преобразование в формат тензора
     return []; // Заглушка
   }
-  
+
   ClassificationResult _postprocessResults(
-    List<double> output, 
+    List<double> output,
     File imageFile
   ) {
     // Поиск предсказания с наивысшей достоверностью
     final maxIndex = output.indexOf(output.reduce(math.max));
     final confidence = output[maxIndex];
     final speciesName = supportedSpecies[maxIndex];
-    
+
     // Создание объекта вида и связанных заболеваний
     final species = _createSpeciesFromName(speciesName);
     final diseases = _getRelatedDiseases(species);
-    
+
     return ClassificationResult(
       species: species,
       confidence: confidence,
@@ -355,7 +355,7 @@ class CustomTFLiteModel implements ClassificationModel {
       imageFile: imageFile,
     );
   }
-  
+
   @override
   Future<void> unloadModel() async {
     _interpreter.close();
@@ -373,7 +373,7 @@ abstract class DataExporter {
   String get formatName;
   String get fileExtension;
   List<String> get supportedDataTypes;
-  
+
   Future<String> exportObservations(List<Observation> observations);
   Future<String> exportClassificationResults(List<ClassificationResult> results);
   Future<String> exportSpeciesData(List<MosquitoSpecies> species);
@@ -383,10 +383,10 @@ abstract class DataExporter {
 class ResearchDataExporter implements DataExporter {
   @override
   String get formatName => 'Формат исследовательского анализа';
-  
+
   @override
   String get fileExtension => '.raf';
-  
+
   @override
   List<String> get supportedDataTypes => [
     'observations',
@@ -394,7 +394,7 @@ class ResearchDataExporter implements DataExporter {
     'species_data',
     'environmental_data'
   ];
-  
+
   @override
   Future<String> exportObservations(List<Observation> observations) async {
     final exportData = {
@@ -433,14 +433,14 @@ class ResearchDataExporter implements DataExporter {
         'spatial_clusters': _analyzeSpatialClusters(observations),
       },
     };
-    
+
     return jsonEncode(exportData);
   }
-  
+
   Map<String, dynamic> _generateQualitySummary(List<Observation> observations) {
     final highQuality = observations.where((obs) => obs.isHighQuality).length;
     final aiIdentified = observations.where((obs) => obs.isAiIdentified).length;
-    
+
     return {
       'high_quality_percentage': (highQuality / observations.length * 100).round(),
       'ai_identified_percentage': (aiIdentified / observations.length * 100).round(),
@@ -450,7 +450,7 @@ class ResearchDataExporter implements DataExporter {
           .fold(0, (a, b) => a + b) / observations.length,
     };
   }
-  
+
   String _getSeason(DateTime date) {
     final month = date.month;
     if (month >= 3 && month <= 5) return 'spring';
@@ -458,13 +458,13 @@ class ResearchDataExporter implements DataExporter {
     if (month >= 9 && month <= 11) return 'autumn';
     return 'winter';
   }
-  
+
   @override
   Future<String> exportClassificationResults(List<ClassificationResult> results) async {
     // Реализация экспорта результатов классификации
     return jsonEncode(results.map((r) => r.toJson()).toList());
   }
-  
+
   @override
   Future<String> exportSpeciesData(List<MosquitoSpecies> species) async {
     // Реализация экспорта данных о видах
@@ -512,30 +512,30 @@ class CitizenScienceWorkflow {
         },
       },
     );
-    
+
     // Отправка в исследовательскую базу данных
     await _submitToResearchDatabase(observation);
-    
+
     // Обновление статистики участника
     await _updateParticipantStats(participantId, observation);
-    
+
     // Отправка подтверждения участнику
     await _sendParticipantConfirmation(participantId, observation);
   }
-  
+
   static Future<void> _submitToResearchDatabase(Observation observation) async {
     // Реализация отправки в исследовательскую базу данных
     final repository = locator<ClassificationRepository>();
     await repository.submitObservation(finalPayload: observation.toJson());
   }
-  
+
   static Future<void> _updateParticipantStats(String participantId, Observation observation) async {
     // Обновление статистики вклада участника
     final stats = await _getParticipantStats(participantId);
     stats['total_observations'] = (stats['total_observations'] ?? 0) + 1;
     stats['species_identified'] = _updateSpeciesList(stats['species_identified'], observation.speciesScientificName);
     stats['last_contribution'] = observation.observedAt.toIso8601String();
-    
+
     await _saveParticipantStats(participantId, stats);
   }
 }
@@ -563,11 +563,11 @@ class FieldResearchWorkflow {
       observations: [],
       environmentalConditions: await _collectEnvironmentalData(studyArea),
     );
-    
+
     await _saveResearchSession(session);
     return session;
   }
-  
+
   static Future<void> addObservationToSession({
     required String sessionId,
     required ClassificationResult classificationResult,
@@ -576,7 +576,7 @@ class FieldResearchWorkflow {
     Map<String, dynamic>? additionalData,
   }) async {
     final session = await _getResearchSession(sessionId);
-    
+
     final observation = Observation(
       id: 'obs_${sessionId}_${session.observations.length + 1}',
       speciesScientificName: classificationResult.species.name,
@@ -601,17 +601,17 @@ class FieldResearchWorkflow {
         },
       },
     );
-    
+
     session.observations.add(observation);
     await _updateResearchSession(session);
-    
+
     // Синхронизация с исследовательской БД в реальном времени
     await _syncObservationToResearchDB(observation);
   }
-  
+
   static Future<ResearchReport> generateSessionReport(String sessionId) async {
     final session = await _getResearchSession(sessionId);
-    
+
     return ResearchReport(
       sessionId: sessionId,
       summary: _generateSessionSummary(session),
@@ -634,7 +634,7 @@ class ResearchSession {
   final List<Observation> observations;
   final Map<String, dynamic> environmentalConditions;
   DateTime? endTime;
-  
+
   ResearchSession({
     required this.id,
     required this.researcherId,
@@ -663,9 +663,9 @@ class PublicHealthIntegration {
     final significantObservations = observations.where((obs) =>
       _isEpidemiologicallySignificant(obs.speciesScientificName)
     ).toList();
-    
+
     if (significantObservations.isEmpty) return;
-    
+
     // Создание отчета надзора
     final report = SurveillanceReport(
       id: 'sr_${DateTime.now().millisecondsSinceEpoch}',
@@ -676,14 +676,14 @@ class PublicHealthIntegration {
       riskAssessment: await _assessVectorRisk(significantObservations),
       recommendations: await _generateHealthRecommendations(significantObservations),
     );
-    
+
     // Отправка в систему общественного здравоохранения
     await _submitToPublicHealthSystem(report);
-    
+
     // Генерация предупреждений при необходимости
     await _checkForHealthAlerts(report);
   }
-  
+
   static bool _isEpidemiologicallySignificant(String speciesName) {
     const significantSpecies = [
       'Aedes aegypti',
@@ -694,23 +694,23 @@ class PublicHealthIntegration {
     ];
     return significantSpecies.contains(speciesName);
   }
-  
+
   static Future<RiskAssessment> _assessVectorRisk(List<Observation> observations) async {
     // Реализация алгоритма оценки риска
     final speciesRisk = <String, double>{};
     final locationRisk = <Location, double>{};
-    
+
     for (final obs in observations) {
       // Вычисление риска по видам
-      speciesRisk[obs.speciesScientificName] = 
-          (speciesRisk[obs.speciesScientificName] ?? 0.0) + 
+      speciesRisk[obs.speciesScientificName] =
+          (speciesRisk[obs.speciesScientificName] ?? 0.0) +
           (obs.confidence ?? 0.5);
-      
+
       // Вычисление риска по местоположению
-      locationRisk[obs.location] = 
+      locationRisk[obs.location] =
           (locationRisk[obs.location] ?? 0.0) + 1.0;
     }
-    
+
     return RiskAssessment(
       overallRisk: _calculateOverallRisk(speciesRisk, locationRisk),
       speciesRisk: speciesRisk,
@@ -728,7 +728,7 @@ class SurveillanceReport {
   final List<Observation> observations;
   final RiskAssessment riskAssessment;
   final List<String> recommendations;
-  
+
   SurveillanceReport({
     required this.id,
     required this.healthDistrictId,
@@ -768,7 +768,7 @@ class GISIntegration {
         throw ArgumentError('Неподдерживаемый формат ГИС: $gisFormat');
     }
   }
-  
+
   static Future<void> _exportToGeoJSON(List<Observation> observations) async {
     final geoJson = {
       'type': 'FeatureCollection',
@@ -793,11 +793,11 @@ class GISIntegration {
         }
       }).toList()
     };
-    
+
     final file = File('observations_export.geojson');
     await file.writeAsString(jsonEncode(geoJson));
   }
-  
+
   static Future<List<Observation>> importFromGIS({
     required String filePath,
     required String gisFormat,
@@ -839,7 +839,7 @@ class DatabaseIntegration {
         throw ArgumentError('Неподдерживаемый тип базы данных: $databaseType');
     }
   }
-  
+
   static Future<void> _syncWithPostgreSQL(
     Map<String, String> config,
     List<Observation> observations
@@ -852,16 +852,16 @@ class DatabaseIntegration {
       username: config['username'],
       password: config['password'],
     );
-    
+
     await connection.open();
-    
+
     try {
       for (final obs in observations) {
         await connection.execute('''
-          INSERT INTO mosquito_observations 
-          (id, species_scientific_name, count, latitude, longitude, 
+          INSERT INTO mosquito_observations
+          (id, species_scientific_name, count, latitude, longitude,
            observed_at, confidence, data_source, notes, metadata)
-          VALUES (@id, @species, @count, @lat, @lng, @observed_at, 
+          VALUES (@id, @species, @count, @lat, @lng, @observed_at,
                   @confidence, @data_source, @notes, @metadata)
           ON CONFLICT (id) DO UPDATE SET
             confidence = EXCLUDED.confidence,
@@ -910,12 +910,12 @@ plugins/
 // В main.dart или менеджере плагинов
 class PluginManager {
   static final List<CulicidaeLabPlugin> _plugins = [];
-  
+
   static Future<void> registerPlugin(CulicidaeLabPlugin plugin) async {
     await plugin.initialize();
     _plugins.add(plugin);
   }
-  
+
   static Future<void> initializeAllPlugins() async {
     for (final plugin in _plugins) {
       try {
@@ -925,7 +925,7 @@ class PluginManager {
       }
     }
   }
-  
+
   static List<CulicidaeLabPlugin> getPluginsByFeature(String feature) {
     return _plugins.where((p) => p.supportedFeatures.contains(feature)).toList();
   }
@@ -944,7 +944,7 @@ class ExtendedAPIClient extends CulicidaeLabAPIClient {
     String method = 'POST',
   }) async {
     final url = Uri.parse('${CulicidaeLabAPI.baseUrl}$endpoint');
-    
+
     final response = await http.post(
       url,
       headers: {
@@ -953,14 +953,14 @@ class ExtendedAPIClient extends CulicidaeLabAPIClient {
       },
       body: jsonEncode(data),
     );
-    
+
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
       throw APIException('Ошибка API: ${response.statusCode}');
     }
   }
-  
+
   Future<String> _getAuthToken() async {
     // Реализация получения токена аутентификации
     return 'your_auth_token_here';
@@ -993,7 +993,7 @@ class IntegrationErrorHandler {
       rethrow;
     }
   }
-  
+
   static Future<void> _refreshAuthentication() async {
     // Реализация обновления аутентификации
   }
@@ -1005,7 +1005,7 @@ class IntegrationErrorHandler {
 class IntegrationCache {
   static final Map<String, CacheEntry> _cache = {};
   static const Duration defaultTTL = Duration(minutes: 15);
-  
+
   static Future<T> getCachedOrFetch<T>(
     String key,
     Future<T> Function() fetchFunction,
@@ -1013,17 +1013,17 @@ class IntegrationCache {
   ) async {
     final cacheEntry = _cache[key];
     final now = DateTime.now();
-    
-    if (cacheEntry != null && 
+
+    if (cacheEntry != null &&
         now.difference(cacheEntry.timestamp) < (ttl ?? defaultTTL)) {
       return cacheEntry.data as T;
     }
-    
+
     final data = await fetchFunction();
     _cache[key] = CacheEntry(data: data, timestamp: now);
     return data;
   }
-  
+
   static void clearCache() {
     _cache.clear();
   }
@@ -1032,7 +1032,7 @@ class IntegrationCache {
 class CacheEntry {
   final dynamic data;
   final DateTime timestamp;
-  
+
   CacheEntry({required this.data, required this.timestamp});
 }
 ```
@@ -1055,10 +1055,10 @@ class IntegrationAnalytics {
       'app_version': await _getAppVersion(),
       'properties': properties ?? {},
     };
-    
+
     await _sendAnalyticsEvent(event);
   }
-  
+
   static Future<void> trackIntegrationError({
     required String integrationType,
     required String errorType,
@@ -1073,7 +1073,7 @@ class IntegrationAnalytics {
       },
     );
   }
-  
+
   static Future<void> trackDataSync({
     required String syncType,
     required int recordCount,
@@ -1101,11 +1101,11 @@ class PerformanceMonitor {
     Future<T> Function() operation,
   ) async {
     final stopwatch = Stopwatch()..start();
-    
+
     try {
       final result = await operation();
       stopwatch.stop();
-      
+
       await IntegrationAnalytics.trackIntegrationEvent(
         eventName: 'integration_performance',
         integrationType: operationName,
@@ -1114,11 +1114,11 @@ class PerformanceMonitor {
           'success': true,
         },
       );
-      
+
       return result;
     } catch (e) {
       stopwatch.stop();
-      
+
       await IntegrationAnalytics.trackIntegrationEvent(
         eventName: 'integration_performance',
         integrationType: operationName,
@@ -1128,7 +1128,7 @@ class PerformanceMonitor {
           'error': e.toString(),
         },
       );
-      
+
       rethrow;
     }
   }

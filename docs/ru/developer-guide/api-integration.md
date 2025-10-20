@@ -12,7 +12,7 @@
 
 ```dart
 // Базовый URL сервера
-const String baseUrl = "https://culicidealab.ru";
+const String baseUrl = "https://culicidaelab.ru";
 
 // Конечные точки API
 const String predictionEndpoint = "/api/predict";
@@ -66,7 +66,7 @@ final headers = {
 #### Формат запроса
 
 ```http
-POST https://culicidealab.ru/api/predict
+POST https://culicidaelab.ru/api/predict
 Content-Type: multipart/form-data
 
 --boundary
@@ -81,7 +81,7 @@ Content-Type: image/jpeg
 
 ```dart
 Future<WebPredictionResult> getWebPrediction(File imageFile) async {
-  final url = Uri.parse("https://culicidealab.ru/api/predict");
+  final url = Uri.parse("https://culicidaelab.ru/api/predict");
   var request = http.MultipartRequest('POST', url);
 
   // Определить MIME тип из расширения файла
@@ -98,7 +98,7 @@ Future<WebPredictionResult> getWebPrediction(File imageFile) async {
     imageFile.path,
     contentType: MediaType.parse(mimeType),
   );
-  
+
   request.files.add(multipartFile);
 
   // Отправить запрос
@@ -182,7 +182,7 @@ class WebPredictionResult {
 #### Формат запроса
 
 ```http
-POST https://culicidealab.ru/api/observations
+POST https://culicidaelab.ru/api/observations
 Content-Type: application/json; charset=UTF-8
 
 {
@@ -211,7 +211,7 @@ Content-Type: application/json; charset=UTF-8
 Future<Observation> submitObservation({
   required Map<String, dynamic> finalPayload,
 }) async {
-  final url = Uri.parse("https://culicidealab.ru/api/observations");
+  final url = Uri.parse("https://culicidaelab.ru/api/observations");
 
   final response = await _httpClient.post(
     url,
@@ -305,7 +305,7 @@ Future<WebPredictionResult> getWebPrediction(File imageFile) async {
   try {
     // Реализация вызова API
     final response = await _httpClient.send(request);
-    
+
     if (response.statusCode == 200) {
       return WebPredictionResult.fromJson(json.decode(response.body));
     } else {
@@ -367,22 +367,22 @@ class NetworkException implements Exception {
 Future<File> optimizeImageForUpload(File originalImage) async {
   final bytes = await originalImage.readAsBytes();
   final image = img.decodeImage(bytes);
-  
+
   if (image == null) throw Exception('Неверный формат изображения');
-  
+
   // Изменить размер если слишком большое (макс 1024x1024)
   final resized = image.width > 1024 || image.height > 1024
       ? img.copyResize(image, width: 1024, height: 1024)
       : image;
-  
+
   // Сжать в JPEG с качеством 85%
   final compressed = img.encodeJpg(resized, quality: 85);
-  
+
   // Сохранить оптимизированное изображение
   final tempDir = await getTemporaryDirectory();
   final optimizedFile = File('${tempDir.path}/optimized_${DateTime.now().millisecondsSinceEpoch}.jpg');
   await optimizedFile.writeAsBytes(compressed);
-  
+
   return optimizedFile;
 }
 
@@ -416,15 +416,15 @@ final response = await client.send(request).timeout(
 bool isValidImageFile(File imageFile) {
   final extension = path.extension(imageFile.path).toLowerCase();
   final validExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
-  
+
   if (!validExtensions.contains(extension)) {
     return false;
   }
-  
+
   // Проверить размер файла (макс 10МБ)
   final fileSizeBytes = imageFile.lengthSync();
   const maxSizeBytes = 10 * 1024 * 1024; // 10МБ
-  
+
   return fileSizeBytes <= maxSizeBytes;
 }
 ```
@@ -444,8 +444,8 @@ bool isValidImageFile(File imageFile) {
 Будущие версии API будут поддерживаться через версионирование URL:
 
 ```dart
-const String apiV2BaseUrl = "https://culicidealab.ru/api/v2";
-const String apiV3BaseUrl = "https://culicidealab.ru/api/v3";
+const String apiV2BaseUrl = "https://culicidaelab.ru/api/v2";
+const String apiV3BaseUrl = "https://culicidaelab.ru/api/v3";
 ```
 
 ## Устранение неполадок
@@ -457,7 +457,7 @@ const String apiV3BaseUrl = "https://culicidealab.ru/api/v3";
 // Проверить сетевое подключение перед вызовами API
 Future<bool> hasNetworkConnection() async {
   try {
-    final result = await InternetAddress.lookup('culicidealab.ru');
+    final result = await InternetAddress.lookup('culicidaelab.ru');
     return result.isNotEmpty && result[0].rawAddress.isNotEmpty;
   } on SocketException catch (_) {
     return false;
@@ -475,8 +475,8 @@ Future<bool> hasNetworkConnection() async {
 
 ## Поддержка и ресурсы
 
-- **Документация API**: https://culicidealab.ru/docs/api
-- **Статус сервера**: https://culicidealab.ru/health
+- **Документация API**: https://culicidaelab.ru/docs/api
+- **Статус сервера**: https://culicidaelab.ru/health
 - **Сообщение о проблемах**: https://github.com/iloncka-ds/culicidaelab-mobile/issues
 
 Для дополнительной поддержки или вопросов об интеграции API, пожалуйста, свяжитесь с командой разработчиков или создайте задачу в репозитории проекта.

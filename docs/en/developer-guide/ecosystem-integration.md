@@ -113,17 +113,17 @@ The mobile app integrates with the CulicidaeLab server through RESTful APIs:
 ```dart
 // Core API endpoints
 class CulicidaeLabAPI {
-  static const String baseUrl = "https://culicidealab.ru";
-  
+  static const String baseUrl = "https://culicidaelab.ru";
+
   // Prediction service integration
   static const String predictionEndpoint = "/api/predict";
-  
-  // Observation service integration  
+
+  // Observation service integration
   static const String observationsEndpoint = "/api/observations";
-  
+
   // Map service integration
   static const String mapEndpoint = "/map";
-  
+
   // Gallery service integration
   static const String speciesGalleryEndpoint = "/api/species";
   static const String diseasesGalleryEndpoint = "/api/diseases";
@@ -140,7 +140,7 @@ sequenceDiagram
     participant LocalDB
     participant ServerAPI
     participant ResearchDB
-    
+
     User->>MobileApp: Capture mosquito image
     MobileApp->>MobileApp: Local AI classification
     MobileApp->>ServerAPI: Request server prediction
@@ -161,15 +161,15 @@ sequenceDiagram
 class HybridClassificationService {
   final ClassificationService _localService;
   final ClassificationRepository _repository;
-  
+
   Future<ClassificationResult> classifyImage(File imageFile) async {
     // Local classification for immediate results
     final localResult = await _localService.classifyImage(imageFile);
-    
+
     // Server classification for enhanced accuracy
     try {
       final webResult = await _repository.getWebPrediction(imageFile);
-      
+
       // Combine results for comprehensive analysis
       return _combineResults(localResult, webResult);
     } catch (e) {
@@ -177,7 +177,7 @@ class HybridClassificationService {
       return localResult;
     }
   }
-  
+
   ClassificationResult _combineResults(
     ClassificationResult local,
     WebPredictionResult web
@@ -185,7 +185,7 @@ class HybridClassificationService {
     // Implementation combines local and server predictions
     // Provides confidence comparison and alternative suggestions
     return ClassificationResult(
-      species: web.confidence > local.confidence ? 
+      species: web.confidence > local.confidence ?
                _getSpeciesFromWeb(web) : local.species,
       confidence: math.max(local.confidence, web.confidence),
       inferenceTime: local.inferenceTime,
@@ -215,7 +215,7 @@ abstract class CulicidaeLabPlugin {
   String get name;
   String get version;
   List<String> get supportedFeatures;
-  
+
   Future<void> initialize();
   Future<Map<String, dynamic>> processData(Map<String, dynamic> input);
   Future<void> cleanup();
@@ -225,27 +225,27 @@ abstract class CulicidaeLabPlugin {
 class EnvironmentalDataPlugin implements CulicidaeLabPlugin {
   @override
   String get name => 'Environmental Data Collector';
-  
+
   @override
   String get version => '1.0.0';
-  
+
   @override
   List<String> get supportedFeatures => [
     'temperature_measurement',
-    'humidity_measurement', 
+    'humidity_measurement',
     'weather_integration'
   ];
-  
+
   @override
   Future<void> initialize() async {
     // Initialize weather API connections
     // Set up sensor integrations
   }
-  
+
   @override
   Future<Map<String, dynamic>> processData(Map<String, dynamic> input) async {
     final location = input['location'] as Location;
-    
+
     return {
       'temperature': await _getTemperature(location),
       'humidity': await _getHumidity(location),
@@ -253,22 +253,22 @@ class EnvironmentalDataPlugin implements CulicidaeLabPlugin {
       'timestamp': DateTime.now().toIso8601String(),
     };
   }
-  
+
   Future<double> _getTemperature(Location location) async {
     // Implementation for temperature data collection
     return 25.0; // Example value
   }
-  
+
   Future<double> _getHumidity(Location location) async {
     // Implementation for humidity data collection
     return 65.0; // Example value
   }
-  
+
   Future<String> _getWeatherConditions(Location location) async {
     // Implementation for weather condition detection
     return 'partly_cloudy'; // Example value
   }
-  
+
   @override
   Future<void> cleanup() async {
     // Cleanup resources
@@ -286,7 +286,7 @@ abstract class ClassificationModel {
   String get modelId;
   String get modelVersion;
   List<String> get supportedSpecies;
-  
+
   Future<void> loadModel();
   Future<ClassificationResult> classify(File imageFile);
   Future<void> unloadModel();
@@ -295,13 +295,13 @@ abstract class ClassificationModel {
 // Example: Custom TensorFlow Lite model
 class CustomTFLiteModel implements ClassificationModel {
   late Interpreter _interpreter;
-  
+
   @override
   String get modelId => 'custom_tflite_v1';
-  
+
   @override
   String get modelVersion => '1.0.0';
-  
+
   @override
   List<String> get supportedSpecies => [
     'Aedes aegypti',
@@ -309,45 +309,45 @@ class CustomTFLiteModel implements ClassificationModel {
     'Culex pipiens',
     // ... additional species
   ];
-  
+
   @override
   Future<void> loadModel() async {
     final modelFile = await _loadModelFile('assets/models/custom_model.tflite');
     _interpreter = Interpreter.fromFile(modelFile);
   }
-  
+
   @override
   Future<ClassificationResult> classify(File imageFile) async {
     // Preprocess image
     final input = await _preprocessImage(imageFile);
-    
+
     // Run inference
     final output = List.filled(supportedSpecies.length, 0.0);
     _interpreter.run(input, output);
-    
+
     // Post-process results
     return _postprocessResults(output, imageFile);
   }
-  
+
   Future<List<List<List<List<double>>>>> _preprocessImage(File imageFile) async {
     // Image preprocessing implementation
     // Resize, normalize, convert to tensor format
     return []; // Placeholder
   }
-  
+
   ClassificationResult _postprocessResults(
-    List<double> output, 
+    List<double> output,
     File imageFile
   ) {
     // Find highest confidence prediction
     final maxIndex = output.indexOf(output.reduce(math.max));
     final confidence = output[maxIndex];
     final speciesName = supportedSpecies[maxIndex];
-    
+
     // Create species object and related diseases
     final species = _createSpeciesFromName(speciesName);
     final diseases = _getRelatedDiseases(species);
-    
+
     return ClassificationResult(
       species: species,
       confidence: confidence,
@@ -356,7 +356,7 @@ class CustomTFLiteModel implements ClassificationModel {
       imageFile: imageFile,
     );
   }
-  
+
   @override
   Future<void> unloadModel() async {
     _interpreter.close();
@@ -374,7 +374,7 @@ abstract class DataExporter {
   String get formatName;
   String get fileExtension;
   List<String> get supportedDataTypes;
-  
+
   Future<String> exportObservations(List<Observation> observations);
   Future<String> exportClassificationResults(List<ClassificationResult> results);
   Future<String> exportSpeciesData(List<MosquitoSpecies> species);
@@ -384,10 +384,10 @@ abstract class DataExporter {
 class ResearchDataExporter implements DataExporter {
   @override
   String get formatName => 'Research Analysis Format';
-  
+
   @override
   String get fileExtension => '.raf';
-  
+
   @override
   List<String> get supportedDataTypes => [
     'observations',
@@ -395,7 +395,7 @@ class ResearchDataExporter implements DataExporter {
     'species_data',
     'environmental_data'
   ];
-  
+
   @override
   Future<String> exportObservations(List<Observation> observations) async {
     final exportData = {
@@ -434,14 +434,14 @@ class ResearchDataExporter implements DataExporter {
         'spatial_clusters': _analyzeSpatialClusters(observations),
       },
     };
-    
+
     return jsonEncode(exportData);
   }
-  
+
   Map<String, dynamic> _generateQualitySummary(List<Observation> observations) {
     final highQuality = observations.where((obs) => obs.isHighQuality).length;
     final aiIdentified = observations.where((obs) => obs.isAiIdentified).length;
-    
+
     return {
       'high_quality_percentage': (highQuality / observations.length * 100).round(),
       'ai_identified_percentage': (aiIdentified / observations.length * 100).round(),
@@ -451,7 +451,7 @@ class ResearchDataExporter implements DataExporter {
           .fold(0, (a, b) => a + b) / observations.length,
     };
   }
-  
+
   String _getSeason(DateTime date) {
     final month = date.month;
     if (month >= 3 && month <= 5) return 'spring';
@@ -459,13 +459,13 @@ class ResearchDataExporter implements DataExporter {
     if (month >= 9 && month <= 11) return 'autumn';
     return 'winter';
   }
-  
+
   @override
   Future<String> exportClassificationResults(List<ClassificationResult> results) async {
     // Implementation for classification results export
     return jsonEncode(results.map((r) => r.toJson()).toList());
   }
-  
+
   @override
   Future<String> exportSpeciesData(List<MosquitoSpecies> species) async {
     // Implementation for species data export
@@ -513,30 +513,30 @@ class CitizenScienceWorkflow {
         },
       },
     );
-    
+
     // Submit to research database
     await _submitToResearchDatabase(observation);
-    
+
     // Update participant statistics
     await _updateParticipantStats(participantId, observation);
-    
+
     // Send confirmation to participant
     await _sendParticipantConfirmation(participantId, observation);
   }
-  
+
   static Future<void> _submitToResearchDatabase(Observation observation) async {
     // Implementation for research database submission
     final repository = locator<ClassificationRepository>();
     await repository.submitObservation(finalPayload: observation.toJson());
   }
-  
+
   static Future<void> _updateParticipantStats(String participantId, Observation observation) async {
     // Update participant contribution statistics
     final stats = await _getParticipantStats(participantId);
     stats['total_observations'] = (stats['total_observations'] ?? 0) + 1;
     stats['species_identified'] = _updateSpeciesList(stats['species_identified'], observation.speciesScientificName);
     stats['last_contribution'] = observation.observedAt.toIso8601String();
-    
+
     await _saveParticipantStats(participantId, stats);
   }
 }
@@ -564,11 +564,11 @@ class FieldResearchWorkflow {
       observations: [],
       environmentalConditions: await _collectEnvironmentalData(studyArea),
     );
-    
+
     await _saveResearchSession(session);
     return session;
   }
-  
+
   static Future<void> addObservationToSession({
     required String sessionId,
     required ClassificationResult classificationResult,
@@ -577,7 +577,7 @@ class FieldResearchWorkflow {
     Map<String, dynamic>? additionalData,
   }) async {
     final session = await _getResearchSession(sessionId);
-    
+
     final observation = Observation(
       id: 'obs_${sessionId}_${session.observations.length + 1}',
       speciesScientificName: classificationResult.species.name,
@@ -602,17 +602,17 @@ class FieldResearchWorkflow {
         },
       },
     );
-    
+
     session.observations.add(observation);
     await _updateResearchSession(session);
-    
+
     // Real-time sync to research database
     await _syncObservationToResearchDB(observation);
   }
-  
+
   static Future<ResearchReport> generateSessionReport(String sessionId) async {
     final session = await _getResearchSession(sessionId);
-    
+
     return ResearchReport(
       sessionId: sessionId,
       summary: _generateSessionSummary(session),
@@ -635,7 +635,7 @@ class ResearchSession {
   final List<Observation> observations;
   final Map<String, dynamic> environmentalConditions;
   DateTime? endTime;
-  
+
   ResearchSession({
     required this.id,
     required this.researcherId,
@@ -665,9 +665,9 @@ class PublicHealthIntegration {
     final significantObservations = observations.where((obs) =>
       _isEpidemiologicallySignificant(obs.speciesScientificName)
     ).toList();
-    
+
     if (significantObservations.isEmpty) return;
-    
+
     // Create surveillance report
     final report = SurveillanceReport(
       id: 'sr_${DateTime.now().millisecondsSinceEpoch}',
@@ -678,14 +678,14 @@ class PublicHealthIntegration {
       riskAssessment: await _assessVectorRisk(significantObservations),
       recommendations: await _generateHealthRecommendations(significantObservations),
     );
-    
+
     // Submit to public health system
     await _submitToPublicHealthSystem(report);
-    
+
     // Generate alerts if necessary
     await _checkForHealthAlerts(report);
   }
-  
+
   static bool _isEpidemiologicallySignificant(String speciesName) {
     const significantSpecies = [
       'Aedes aegypti',
@@ -696,23 +696,23 @@ class PublicHealthIntegration {
     ];
     return significantSpecies.contains(speciesName);
   }
-  
+
   static Future<RiskAssessment> _assessVectorRisk(List<Observation> observations) async {
     // Implement risk assessment algorithm
     final speciesRisk = <String, double>{};
     final locationRisk = <Location, double>{};
-    
+
     for (final obs in observations) {
       // Calculate species-specific risk
-      speciesRisk[obs.speciesScientificName] = 
-          (speciesRisk[obs.speciesScientificName] ?? 0.0) + 
+      speciesRisk[obs.speciesScientificName] =
+          (speciesRisk[obs.speciesScientificName] ?? 0.0) +
           (obs.confidence ?? 0.5);
-      
+
       // Calculate location-specific risk
-      locationRisk[obs.location] = 
+      locationRisk[obs.location] =
           (locationRisk[obs.location] ?? 0.0) + 1.0;
     }
-    
+
     return RiskAssessment(
       overallRisk: _calculateOverallRisk(speciesRisk, locationRisk),
       speciesRisk: speciesRisk,
@@ -730,7 +730,7 @@ class SurveillanceReport {
   final List<Observation> observations;
   final RiskAssessment riskAssessment;
   final List<String> recommendations;
-  
+
   SurveillanceReport({
     required this.id,
     required this.healthDistrictId,
@@ -770,7 +770,7 @@ class GISIntegration {
         throw ArgumentError('Unsupported GIS format: $gisFormat');
     }
   }
-  
+
   static Future<void> _exportToGeoJSON(List<Observation> observations) async {
     final geoJson = {
       'type': 'FeatureCollection',
@@ -795,11 +795,11 @@ class GISIntegration {
         }
       }).toList()
     };
-    
+
     final file = File('observations_export.geojson');
     await file.writeAsString(jsonEncode(geoJson));
   }
-  
+
   static Future<List<Observation>> importFromGIS({
     required String filePath,
     required String gisFormat,
@@ -841,7 +841,7 @@ class DatabaseIntegration {
         throw ArgumentError('Unsupported database type: $databaseType');
     }
   }
-  
+
   static Future<void> _syncWithPostgreSQL(
     Map<String, String> config,
     List<Observation> observations
@@ -854,16 +854,16 @@ class DatabaseIntegration {
       username: config['username'],
       password: config['password'],
     );
-    
+
     await connection.open();
-    
+
     try {
       for (final obs in observations) {
         await connection.execute('''
-          INSERT INTO mosquito_observations 
-          (id, species_scientific_name, count, latitude, longitude, 
+          INSERT INTO mosquito_observations
+          (id, species_scientific_name, count, latitude, longitude,
            observed_at, confidence, data_source, notes, metadata)
-          VALUES (@id, @species, @count, @lat, @lng, @observed_at, 
+          VALUES (@id, @species, @count, @lat, @lng, @observed_at,
                   @confidence, @data_source, @notes, @metadata)
           ON CONFLICT (id) DO UPDATE SET
             confidence = EXCLUDED.confidence,
@@ -912,12 +912,12 @@ plugins/
 // In main.dart or plugin manager
 class PluginManager {
   static final List<CulicidaeLabPlugin> _plugins = [];
-  
+
   static Future<void> registerPlugin(CulicidaeLabPlugin plugin) async {
     await plugin.initialize();
     _plugins.add(plugin);
   }
-  
+
   static Future<void> initializeAllPlugins() async {
     for (final plugin in _plugins) {
       try {
@@ -927,7 +927,7 @@ class PluginManager {
       }
     }
   }
-  
+
   static List<CulicidaeLabPlugin> getPluginsByFeature(String feature) {
     return _plugins.where((p) => p.supportedFeatures.contains(feature)).toList();
   }
@@ -946,7 +946,7 @@ class ExtendedAPIClient extends CulicidaeLabAPIClient {
     String method = 'POST',
   }) async {
     final url = Uri.parse('${CulicidaeLabAPI.baseUrl}$endpoint');
-    
+
     http.Response response;
     switch (method.toUpperCase()) {
       case 'GET':
@@ -969,7 +969,7 @@ class ExtendedAPIClient extends CulicidaeLabAPIClient {
       default:
         throw ArgumentError('Unsupported HTTP method: $method');
     }
-    
+
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return jsonDecode(response.body);
     } else {
@@ -993,7 +993,7 @@ class ExtendedObservation extends Observation {
   final SoilData? soilData;
   final VegetationData? vegetationData;
   final List<String>? associatedSpecies;
-  
+
   ExtendedObservation({
     required super.id,
     required super.speciesScientificName,
@@ -1013,7 +1013,7 @@ class ExtendedObservation extends Observation {
     this.vegetationData,
     this.associatedSpecies,
   });
-  
+
   @override
   Map<String, dynamic> toJson() {
     final json = super.toJson();
@@ -1025,10 +1025,10 @@ class ExtendedObservation extends Observation {
     });
     return json;
   }
-  
+
   factory ExtendedObservation.fromJson(Map<String, dynamic> json) {
     final baseObservation = Observation.fromJson(json);
-    
+
     return ExtendedObservation(
       id: baseObservation.id,
       speciesScientificName: baseObservation.speciesScientificName,
@@ -1043,17 +1043,17 @@ class ExtendedObservation extends Observation {
       modelId: baseObservation.modelId,
       confidence: baseObservation.confidence,
       metadata: baseObservation.metadata,
-      weatherData: json['weather_data'] != null 
-          ? WeatherData.fromJson(json['weather_data']) 
+      weatherData: json['weather_data'] != null
+          ? WeatherData.fromJson(json['weather_data'])
           : null,
-      soilData: json['soil_data'] != null 
-          ? SoilData.fromJson(json['soil_data']) 
+      soilData: json['soil_data'] != null
+          ? SoilData.fromJson(json['soil_data'])
           : null,
-      vegetationData: json['vegetation_data'] != null 
-          ? VegetationData.fromJson(json['vegetation_data']) 
+      vegetationData: json['vegetation_data'] != null
+          ? VegetationData.fromJson(json['vegetation_data'])
           : null,
-      associatedSpecies: json['associated_species'] != null 
-          ? List<String>.from(json['associated_species']) 
+      associatedSpecies: json['associated_species'] != null
+          ? List<String>.from(json['associated_species'])
           : null,
     );
   }
@@ -1066,7 +1066,7 @@ class WeatherData {
   final String conditions;
   final double windSpeed;
   final String windDirection;
-  
+
   WeatherData({
     required this.temperature,
     required this.humidity,
@@ -1075,7 +1075,7 @@ class WeatherData {
     required this.windSpeed,
     required this.windDirection,
   });
-  
+
   Map<String, dynamic> toJson() => {
     'temperature': temperature,
     'humidity': humidity,
@@ -1084,7 +1084,7 @@ class WeatherData {
     'wind_speed': windSpeed,
     'wind_direction': windDirection,
   };
-  
+
   factory WeatherData.fromJson(Map<String, dynamic> json) => WeatherData(
     temperature: (json['temperature'] as num).toDouble(),
     humidity: (json['humidity'] as num).toDouble(),
