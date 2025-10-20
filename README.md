@@ -287,6 +287,9 @@ To create an optimized production build of the application both options (dev-con
 - services – Business logic and platform services
 - view_models – View models for stateful widgets
 - widgets – Reusable UI components
+## Documentation
+
+Full documentation is availabel [here](https://iloncka-ds.github.io/culicidaelab-mobile/).
 
 ## Localization
 
